@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="../static/font/font-awesome.min.css">
 
     <!--  Bootstrap 3-->
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    {{/*<link rel="stylesheet" href="../static/css/bootstrap.min.css">*/}}
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- OWL Carousel -->
     <link rel="stylesheet" href="../static/css/owl.carousel.css">
@@ -24,20 +25,20 @@
     <link rel="stylesheet" href="../static/css/jquery.kenburnsy.css">
 
     <!-- Animate -->
-    <link rel="stylesheet" href="../static/css/animate.css">
+    {{/*<link rel="stylesheet" href="../static/css/animate.css">*/}}
 
     <!-- Web Icons Font -->
     <link rel="stylesheet" href="../static/css/pe-icon-7-stroke.css">
-    <link rel="stylesheet" href="../static/css/iconmoon.css">
+{{/*<link rel="stylesheet" href="../static/css/iconmoon.css">
     <link rel="stylesheet" href="../static/css/et-line.css">
-    <link rel="stylesheet" href="../static/css/ionicons.css">
+    <link rel="stylesheet" href="../static/css/ionicons.css">*/}}
 
     <!-- Magnific PopUp -->
-    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    {{/*<link rel="stylesheet" href="../static/css/magnific-popup.css">*/}}
 
     <!-- Tabs -->
-    <link rel="stylesheet" type="text/css" href="../static/css/tabs.css" />
-    <link rel="stylesheet" type="text/css" href="../static/css/tabstyles.css" />
+    {{/*<link rel="stylesheet" type="text/css" href="../static/css/tabs.css" />*/}}
+    {{/*<link rel="stylesheet" type="text/css" href="../static/css/tabstyles.css" />*/}}
 
     <!-- Loader Style -->
     <link rel="stylesheet" href="../static/css/loader-1.css">
@@ -50,7 +51,17 @@
     <link rel="icon" type="image/ico" href="../static/img/logo/logoPic.png">
 
     <!-- Modernizer & Respond js -->
-    <script src="../static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    {{/*<script src="../static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>*/}}
+
+    <style>
+        @font-face {
+            font-family: Panxiang;
+            src: url('../static/font/panxiang.ttf');
+        }
+        *{
+            font-family: Panxiang;
+        }
+    </style>
 </head>
 
 <body>
@@ -61,14 +72,15 @@
     <!--头部-->
     <div class="header">
         <div class="container">
-            <div class="logo">
+            <div class="logo" style="line-height: 100px">
                 <a href="/">
-                    <img src="../static/img/logo/logoTxt.png" alt="Logo">
+                    {{/*<img src="../static/img/logo/logoTxt.png" alt="Logo">*/}}
+                    <span style="font-family:Panxiang;font-size:45px;color:#333333">即刻简历</span>
                 </a>
             </div>
             
             <!-- Menu Hamburger (Default) -->
-            <button class="main-menu-indicator" style="display: none;" id="open-button">
+            <button class="main-menu-indicator" style="display: block;" id="open-button">
                 <span class="line"></span>
             </button>
             
@@ -76,38 +88,27 @@
                 <div class="menu-content">
                     <div class="navigation">
                         <span class="pe-7s-close close-menu" id="close-button"></span>
-                        <div class="search-wrap js-ui-search">
+                        {{/*<div class="search-wrap js-ui-search">
                             <input class="js-ui-text" type="text" placeholder="Search Here...">
                             <span class="eks js-ui-close"></span>
-                        </div>
+                        </div>*/}}
                     </div>
                     <nav class="menu">
                         <div class="menu-list">
                             <ul>
-                                <li class="menu-item-has-children"><a href="#">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">- Default</a></li>
-                                        <li><a href="index-architecture.html">- Architecture</a></li>
-                                        <li><a href="index-full-slider.html">- Slider Full Width</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">About</a></li>
-                                <li class="menu-item-has-children"><a href="#">Portfolio</a>
+                                <li><a href="javascript:redirect('');">主页</a></li>
+                                <li><a href="javascript:redirect('about');">关于我们</a></li>
+                                <li><a href="javascript:redirect('service');">所有服务</a></li>
+                                <li><a href="javascript:redirect('contact');">联系我们</a></li>
+                                <li><a href="/login">注册/登录</a></li>
+                            {{/*<li class="menu-item-has-children"><a href="#">Portfolio</a>
                                     <ul class="sub-menu">
                                         <li><a href="portfolio-2column.html">-Portfolio 2 Column</a></li>
                                         <li><a href="portfolio-3column.html">-Portfolio 3 Column</a></li>
                                         <li><a href="portfolio-masonry.html">-Portfolio Masonry</a></li>
                                         <li><a href="portfolio-dribbble.html">-Portfolio Dribbble</a></li>
                                     </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog Default</a></li>
-                                        <li><a href="blog-timeline.html">Blog Timeline</a></li>
-                                        <li><a href="single-blog.html">Blog Single</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                </li>*/}}
                             </ul>
                         </div>
                     </nav>
@@ -125,8 +126,8 @@
 
                         <div class="menu-information">
                             <ul>
-                                <li><span>T:</span> 000 000 000</li>
-                                <li><span>E:</span> info@mail.com</li>
+                                <li><span>T:</span> 13922305912</li>
+                                <li><span>E:</span> imsprojo2fan@gmail.com</li>
                             </ul>
                         </div>
                     </div>
@@ -140,34 +141,41 @@
     <div class="container" style="width: 100%;padding: 0px">
         <div class="slider-wrapper margin-top" >
             <div class="slider-description">
-                <div class="slider-description-inner">
-                    <h1>&nbsp;</h1>
-                </div>
-                <div class="cd-intro" style="color: #fff">
-                    <div class="cd-headline clip">
-                        <span class="cd-words-wrapper">
-                            <b class="is-visible">时间从来不回答,什么从来不喧哗</b>
-                            <b>当初你乘光而来,为何今逆光离去</b>
-                            <b>时常梳理下自己，你将还会是太阳</b>
-                        </span>
+                <div class="slider-description-inner" style="text-align: center">
+                    <div style="color: #ffffff;padding: 35px 0px;">
+                        <div class="slogan" >执笔之间,难掩才华</div>
+                        <div class="cd-intro" >
+                            <div class="cd-headline clip">
+                                <span  class="cd-words-wrapper">
+                                    <b style="font-family: Panxiang;" class="is-visible">时间从来不回答,什么从来不喧哗</b>
+                                    <b style="font-family: Panxiang;" >当初你乘光而来,为何今逆光离去</b>
+                                    <b style="font-family: Panxiang;" >时常梳理下自己,你将还会是太阳</b>
+                                    <b style="font-family: Panxiang;" >给满分的我,看到了你的努力</b>
+                                    <b style="font-family: Panxiang;" >每个劫数,时间会善后</b>
+                                </span>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+
             </div>
             <div id="slider-ef" class="slider-images-wrapper">
-                <img class="img-responsive" src="../static/img/slider/slide01_.jpg" alt="">
-                <img class="img-responsive" src="../static/img/slider/slide02_.jpg" alt="">
-                <img class="img-responsive" src="../static/img/slider/slide03_.jpg" alt="">
-                <img class="img-responsive" src="../static/img/slider/slide04_.jpg" alt="">
-                <img class="img-responsive" src="../static/img/slider/slide05_.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide01.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide02.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide03.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide04.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide05.jpg" alt="">
             </div>
         </div>
     </div>
-    <div class="container" style="margin-top: -45px">
+    <!--关于我们-->
+    <div id="about" class="container" style="margin-top: -75px">
         <div class="history-wrapper">
             <div class="col-md-6 wow fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.5s">
                 <div class="row">
                     <article>
-                        <h1>HISTORY OF AGENCY</h1>
+                        <h1>关于我们</h1>
                         <hr>
                         <h4>WHO LOVES OR PURSUES OR DESIRES TO OBTAIN PAIN OF ITSELF, BUT BECAUSE OCCASIONALLY CIRCUMSTANCES OCCUR AND PAIN CAN PROCURE HIM SOME GREAT PLEASURE</h4>
                         <p>
@@ -178,9 +186,9 @@
             <div class="col-md-5 col-md-offset-1 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                 <div class="row">
                     <div id="history-images" class="owl-carousel">
-                        <div><img class="img-responsive center-block" src="../static/img/about_img.jpg" alt="About"></div>
-                        <div><img class="img-responsive center-block" src="../static/img/about_img2.jpg" alt="About"></div>
-                        <div><img class="img-responsive center-block" src="../static/img/about_img3.jpg" alt="About"></div>
+                        <div><img class="img-responsive center-block" src="../static/img/about/about01_.jpg" alt="About"></div>
+                        <div><img class="img-responsive center-block" src="../static/img/about/about02_.jpg" alt="About"></div>
+                        <div><img class="img-responsive center-block" src="../static/img/about/about03_.jpg" alt="About"></div>
                     </div>
                 </div>
             </div>
@@ -188,7 +196,7 @@
     </div>
     <div class="container margin-top">
         <div class="main-title">
-            <h1>WHY CHOOSE US?</h1>
+            <h1>为何选择我们?</h1>
             <hr>
             <h6>Except to obtain some advantage from it</h6>
         </div>
@@ -221,9 +229,10 @@
             </div>
         </div>
     </div>
-    <div class="container margin-top">
+    <!--所有服务-->
+    <div id="service" class="container margin-top">
         <div class="main-title">
-            <h1>OUR WORK</h1>
+            <h1>我们能做什么?</h1>
             <hr>
             <h6>Laborious to obtain some advantage from it</h6>
         </div>
@@ -423,24 +432,31 @@
             </div>
         </div>
     </div>
-    <div class="container margin-top">
+    <!--联系我们-->
+    <div id="contact" class="container margin-top">
         <div class="newsletter">
+            <div class="main-title">
+                <h1>联系我们</h1>
+                <hr>
+                <h6>Laborious to obtain some advantage from it</h6>
+            </div>
             <div class="col-md-6">
                 <div class="row">
                     <div class="newsletter-left">
-                        <div class="newsletter-left-inner">
-                            <h1>STAY INFORMED <br> WITH OUR <b>NEWSLETTER</b></h1>
+                        <div class="newsletter-left-inner" style="text-align: center">
+                            <h3  style="color: #ffffff">更多定制设计<br></h3>
+                            <h1  style="color: #ffffff"><b>请与我们联系</b></h1>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="row">
-                    <div class="newsletter-right" style="background: url(../static/img/newsletter-bg.jpg)">
+                    <div class="newsletter-right" >
                         <div class="newsletter-right-inner">
                             <form>
-                                <input type="text" name="newsletter" placeholder="ENTER YOUR EMAIL">
-                                <input type="submit" value="SUBSCRIBE">
+                                <input type="text" name="newsletter" placeholder="邮箱">
+                                <input style="font-family: Panxiang;" type="submit" value="提交">
                             </form>
                         </div>
                     </div>
@@ -448,6 +464,7 @@
             </div>
         </div>
     </div>
+    <!--页脚-->
     <div class="footer margin-top myPadding">
         <div class="container">
             <div class="row">
@@ -463,7 +480,7 @@
                     <div class="col-md-2 col-md-push-8 col-sm-4 col-xs-12 myClass">
                         <div class="footer-inner">
                             <div class="footer-content">
-                               <h4 style="color: #ffffff">联系方式</h4>
+                               <h4 style="color: #ffffff;font-weight: normal">联系方式</h4>
                                 <p style="color: #ffffff">
                                     imsprojo2fan@gmail.com <br>
                                 </p>
@@ -483,7 +500,7 @@
                                     <li><a href="#"><i class="iconmoon-linkedin2"></i></a></li>
                                 </ul>*/}}
                                 <a href="/">
-                                    <img src="../static/img/logo/logoPic.png">
+                                    <img class="img-opacity" src="../static/img/logo/logoPic.png">
                                 </a>
                                 <span style="color: #ffffff" class="copyright-mark">&copy; 2018 <a href="http://www.zooori.cn" target="_blank">ZooORI.才华有限公司</a><br>All Rights Reserved.</span>
                             </div>
@@ -492,12 +509,14 @@
             </div>
         </div>
     </div>
+    <!--返回顶部-->
     <a href="javascript:void(0)" class="scroll-top" id="scroll-top"><i class="icon-angle-up"></i></a>
 
     {{/*<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>*/}}
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script data-pace-options='{ "ajax": false }' src="../static/js/vendor/pace.min.js"></script>
-    <script src="../static/js/vendor/bootstrap.min.js"></script>
+    {{/*<script src="../static/js/vendor/bootstrap.min.js"></script>*/}}
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../static/js/vendor/classie.js"></script>
     <script src="../static/js/vendor/isotope.pkgd.min.js"></script>
     <script src="../static/js/vendor/jquery.velocity.min.js"></script>
@@ -511,5 +530,17 @@
     <script src="../static/js/vendor/wow.min.js"></script>
     <script src="../static/js/main.js"></script>
     <script src="../static/js/ajax.js"></script>
+    <script>
+        function redirect(str) {
+            $('#close-button').click();
+            var target = document.getElementById(str);
+            if (!target) return;
+            var targetOffset = $(target).offset().top - 115;
+            $('html,body').animate({
+                        scrollTop: targetOffset
+                    },
+                    300);
+        }
+    </script>
 </body>
 </html>

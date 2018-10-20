@@ -99,20 +99,20 @@ function getDribbbleThumbs() {
 $.fn.scrollToTop = function() {
     jQuery(this).hide().removeAttr('href');
     if (jQuery(window).scrollTop() != '0') {
-        jQuery(this).fadeIn('slow')
+        jQuery(this).fadeIn(500)
     }
     var scrollDiv = jQuery(this);
     jQuery(window).scroll(function() {
         if (jQuery(window).scrollTop() == '0') {
-            jQuery(scrollDiv).fadeOut('slow')
+            jQuery(scrollDiv).fadeOut(500)
         } else {
-            jQuery(scrollDiv).fadeIn('slow')
+            jQuery(scrollDiv).fadeIn(500)
         }
     });
     jQuery(this).on('click', function() {
         jQuery('html, body').animate({
             scrollTop: 0
-        }, 'slow')
+        }, 800)
     })
 };
 
@@ -154,7 +154,7 @@ function historySlider() {
             singleItem: true,
             pagination: false,
             autoPlay: 2000,
-            slideSpeed: 300
+            slideSpeed: 1000
         });
     }
 };

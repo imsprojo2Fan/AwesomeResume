@@ -85,11 +85,15 @@
 	}
 
 	.slider-description{
-		top: 65%;
+		top: 10%;
 	}
 	.slider-description-inner h1 span {
 	    padding: 10px;
 	    line-height: 32px;
+	}
+
+	.slogan{
+		font-size: 28px;
 	}
 
 
@@ -119,8 +123,8 @@
 
 	.cd-headline {
 		font-size: 18px;
-		margin-top: 40px;
-		color: #000;
+		margin-top: 0px;
+		color: #ffffff;
 		font-weight: 100;
 		letter-spacing: 3pt;
 	}
@@ -252,7 +256,7 @@
 	}
 
 	.margin-top {
-	    margin-top: 50px;
+	    margin-top: 100px;
 	}
 
 	.img{

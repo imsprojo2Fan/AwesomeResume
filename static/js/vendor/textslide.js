@@ -14,7 +14,8 @@ jQuery(document).ready(function($){
 		typeAnimationDelay = selectionDuration + 800,
 		//clip effect 
 		revealDuration = 600,
-		revealAnimationDelay = 1500;
+		//设置滚动文字延迟
+		revealAnimationDelay = 3500;
 	
 	initHeadline();
 	
@@ -109,7 +110,7 @@ jQuery(document).ready(function($){
 			$word.addClass('is-visible').removeClass('is-hidden');
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){ 
+			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
 				setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
 			});
 		}
