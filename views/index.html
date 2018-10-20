@@ -11,7 +11,6 @@
     <!-- Google Web Font -->
     {{/*<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lekton:400,700,400italic' rel='stylesheet' type='text/css'>*/}}
-
     <link rel="stylesheet" href="../static/font/font-awesome.min.css">
 
     <!--  Bootstrap 3-->
@@ -59,7 +58,7 @@
 
     <!-- Preloader -->
     <div class="cover"></div>
-
+    <!--头部-->
     <div class="header">
         <div class="container">
             <div class="logo">
@@ -69,7 +68,7 @@
             </div>
             
             <!-- Menu Hamburger (Default) -->
-            <button class="main-menu-indicator" id="open-button">
+            <button class="main-menu-indicator" style="display: none;" id="open-button">
                 <span class="line"></span>
             </button>
             
@@ -137,31 +136,33 @@
 
         </div>
     </div>
-
-    <div class="container">
-        <div class="slider-wrapper">
+    <!--轮播-->
+    <div class="container" style="width: 100%;padding: 0px">
+        <div class="slider-wrapper margin-top" >
             <div class="slider-description">
                 <div class="slider-description-inner">
-                    <h1>Pure<span>Elegance</span></h1>
+                    <h1>&nbsp;</h1>
                 </div>
-                <div class="cd-intro">
+                <div class="cd-intro" style="color: #fff">
                     <div class="cd-headline clip">
                         <span class="cd-words-wrapper">
-                            <b class="is-visible">AWESOME THEME</b>
-                            <b>MODERN COMBINATION</b>
-                            <b>CREATIVE SOLUTIONS</b>
+                            <b class="is-visible">时间从来不回答,什么从来不喧哗</b>
+                            <b>当初你乘光而来,为何今逆光离去</b>
+                            <b>时常梳理下自己，你将还会是太阳</b>
                         </span>
                     </div>
                 </div>
             </div>
             <div id="slider-ef" class="slider-images-wrapper">
-                <img class="img-responsive" src="../static/img/slider/image_1.jpg" alt="">
-                <img class="img-responsive" src="../static/img/slider/image_2.jpg" alt="">
-                <img class="img-responsive" src="../static/img/slider/image_3.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide01_.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide02_.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide03_.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide04_.jpg" alt="">
+                <img class="img-responsive" src="../static/img/slider/slide05_.jpg" alt="">
             </div>
         </div>
     </div>
-    <div class="container margin-top">
+    <div class="container" style="margin-top: -45px">
         <div class="history-wrapper">
             <div class="col-md-6 wow fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.5s">
                 <div class="row">
@@ -447,19 +448,19 @@
             </div>
         </div>
     </div>
-    <div class="footer margin-top">
+    <div class="footer margin-top myPadding">
         <div class="container">
             <div class="row">
-                    <div class="col-md-2 col-sm-4 col-xs-12">
+                    <div class="col-md-2 col-sm-4 col-xs-12 myClass">
                         <div class="footer-inner">
                             <div class="footer-content">
                                 <h4 style="color: #ffffff"><a href="#">即刻简历</a></h4>
-                                    <p style="color: #ffffff">笔墨之间,难显才华</p>
+                                    <p style="color: #ffffff">执笔之间,难掩才华</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-2 col-md-push-8 col-sm-4 col-xs-12">
+                    <div class="col-md-2 col-md-push-8 col-sm-4 col-xs-12 myClass">
                         <div class="footer-inner">
                             <div class="footer-content">
                                <h4 style="color: #ffffff">联系方式</h4>
@@ -470,7 +471,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-md-4 col-sm-4 col-xs-12 myClass">
                         <div class="footer-inner">
                             <div class="footer-content" style="text-align: center">
                                 {{/*<ul class="social-media">
@@ -481,7 +482,9 @@
                                     <li><a href="#"><i class="iconmoon-pinterest"></i></a></li>
                                     <li><a href="#"><i class="iconmoon-linkedin2"></i></a></li>
                                 </ul>*/}}
-                                <img src="../static/img/logo/logoPic.png">
+                                <a href="/">
+                                    <img src="../static/img/logo/logoPic.png">
+                                </a>
                                 <span style="color: #ffffff" class="copyright-mark">&copy; 2018 <a href="http://www.zooori.cn" target="_blank">ZooORI.才华有限公司</a><br>All Rights Reserved.</span>
                             </div>
                         </div>

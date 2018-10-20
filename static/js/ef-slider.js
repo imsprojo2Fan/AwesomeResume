@@ -56,8 +56,8 @@ $(document).ready(function() {
         window.clearTimeout(autoSlideTimeout);
         $(".slider-pagi__elem").removeClass("active");
         $(".slider-pagi__elem-" + curSlide).addClass("active");
-        $slider.css("transform", "translate3d(" + -curSlide * 100 + "%,0,0)");
-        $slideBGs.css("transform", "translate3d(" + curSlide * 50 + "%,0,0)");
+        //$slider.css("transform", "translate3d(" + -curSlide * 100 + "%,0,0)");
+        //$slideBGs.css("transform", "translate3d(" + curSlide * 50 + "%,0,0)");
         diff = 0;
         autoSlide();
     }

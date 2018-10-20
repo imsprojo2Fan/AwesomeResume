@@ -85,7 +85,7 @@
 	}
 
 	.slider-description{
-		top: 25%;
+		top: 65%;
 	}
 	.slider-description-inner h1 span {
 	    padding: 10px;
@@ -112,6 +112,28 @@
 		transition: transform 0.4s;
 		transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 	}
+
+	.history-wrapper article {
+		margin-top: 130px;
+	}
+
+	.cd-headline {
+		font-size: 18px;
+		margin-top: 40px;
+		color: #000;
+		font-weight: 100;
+		letter-spacing: 3pt;
+	}
+
+    .myClass{
+        height: 95px;
+    }
+    .myPadding{
+        padding-bottom: 125px;
+    }
+    h4{
+        padding-bottom: 0px;
+    }
 
 
 	.is-open{
@@ -226,7 +248,7 @@
 	}
 
 	.kenburnsy {
-    	height: 300px !important;
+    	height: 175px !important;
 	}
 
 	.margin-top {
