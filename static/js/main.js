@@ -99,14 +99,18 @@ function getDribbbleThumbs() {
 $.fn.scrollToTop = function() {
     jQuery(this).hide().removeAttr('href');
     if (jQuery(window).scrollTop() != '0') {
-        jQuery(this).fadeIn(500)
+        jQuery(this).fadeIn(500);
+        $('#wechat').fadeIn(500);
     }
     var scrollDiv = jQuery(this);
     jQuery(window).scroll(function() {
         if (jQuery(window).scrollTop() == '0') {
-            jQuery(scrollDiv).fadeOut(500)
+            jQuery(scrollDiv).fadeOut(500);
+            $('#wechat').fadeOut(500);
+            $('#wechat-alert').fadeOut(500);
         } else {
-            jQuery(scrollDiv).fadeIn(500)
+            jQuery(scrollDiv).fadeIn(500);
+            $('#wechat').fadeIn(500);
         }
     });
     jQuery(this).on('click', function() {

@@ -11,7 +11,8 @@
     <!-- Google Web Font -->
     {{/*<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lekton:400,700,400italic' rel='stylesheet' type='text/css'>*/}}
-    <link rel="stylesheet" href="../static/font/font-awesome.min.css">
+    {{/*<link rel="stylesheet" href="../static/font/font-awesome.min.css">*/}}
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <!--  Bootstrap 3-->
     {{/*<link rel="stylesheet" href="../static/css/bootstrap.min.css">*/}}
@@ -61,12 +62,29 @@
                     url('../static/font/Panxiang.eot?#font-spider') format('embedded-opentype'),
                     url('../static/font/Panxiang.woff2') format('woff2'),
                     url('../static/font/Panxiang.woff') format('woff'),
+                    url('../static/font/Panxiang.ttf') format('truetype'),
                     url('../static/font/Panxiang.svg') format('svg');
             font-weight: normal;
             font-style: normal;
         }
-        *{
+        /**{
+            font-family: 微软雅黑;
+        }*/
+
+        .myLoogo{
             font-family: Panxiang;
+            font-size: 28px;
+            color: #ffffff;
+            padding: 4px 13px;
+            border-radius: 5px;
+            text-align: center;
+            /*background: #133458;*/
+            display: inline-block;
+            box-shadow: 30px -30px 100px #fff;
+            background: -webkit-linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1)); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1)); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1)); /* Firefox 3.6 - 15 */
+            background: linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1)); /* 标准的语法 */
         }
     </style>
 </head>
@@ -146,19 +164,19 @@
     </div>
     <!--轮播-->
     <div class="container" style="width: 100%;padding: 0px">
-        <div class="slider-wrapper margin-top" >
+        <div class="slider-wrapper" style="margin-top: 100px;" >
             <div class="slider-description">
                 <div class="slider-description-inner" style="text-align: center">
-                    <div style="color: #ffffff;padding: 35px 0px;">
-                        <div class="slogan" >执笔之间,难掩才华</div>
+                    <div style="color: #ffffff;padding: 2% 0px;">
+                        <div class="slogan" style="font-family: 微软雅黑" >执笔之间,难掩才华</div>
                         <div class="cd-intro" >
                             <div class="cd-headline clip">
                                 <span  class="cd-words-wrapper">
-                                    <b style="font-family: Panxiang;" class="is-visible">时间从来不回答,什么从来不喧哗</b>
+                                    <b style="font-family: Panxiang;" class="is-visible">时间从来不回答,生命从来不喧哗</b>
                                     <b style="font-family: Panxiang;" >当初你乘光而来,为何今逆光离去</b>
                                     <b style="font-family: Panxiang;" >时常梳理下自己,你将还会是太阳</b>
                                     <b style="font-family: Panxiang;" >给满分的我,看到了你的努力</b>
-                                    <b style="font-family: Panxiang;" >每个劫数,时间会善后</b>
+                                    <b style="font-family: Panxiang;" >如果难过,就抬头望望天空</b>
                                 </span>
                             </div>
                         </div>
@@ -184,9 +202,9 @@
                     <article>
                         <h1>关于我们</h1>
                         <hr>
-                        <h4>WHO LOVES OR PURSUES OR DESIRES TO OBTAIN PAIN OF ITSELF, BUT BECAUSE OCCASIONALLY CIRCUMSTANCES OCCUR AND PAIN CAN PROCURE HIM SOME GREAT PLEASURE</h4>
+                        <h4 style="font-family: '微软雅黑'">'即刻简历'旨在网络便捷时代提供更多个性化、更能表达自我才能的无纸化简历制作。简历作为众多求职者职业生涯中不可或缺的一部分,求职过程中除却求职者本身的能力之外,一份有创意及个性的简历亦能展现求职者对这份工作的用心和重视程度,在'即刻'所有简历均为免费制作,当然您也可以选择更加展现自我的个性化定制制作,执笔之间,难掩才华。</h4>
                         <p>
-                        <br/>Porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi modi tempora incidunt ut labore.</p>
+                        <br/>The Instant Resume is designed to provide more personalized and more self-fulfilling paperless resumes in the era of network convenience.As a part of the job search career, the resume is an indispensable part of the job search process. In addition to the job seeker's own ability, a creative and personalized resume can also show the job seeker's intention and attention to the job.All of our resumes are free to make, of course, you can also choose to show your own personalized custom production, between the writing, it is difficult to hide talent.</p>
                     </article>
                 </div>
             </div>
@@ -201,6 +219,7 @@
             </div>
         </div>
     </div>
+    <!--选择我们-->
     <div class="container margin-top">
         <div class="main-title">
             <h1>为何选择我们?</h1>
@@ -211,27 +230,25 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="services-icon">
-                        <span class="icon-tools"></span>
-                        <hr>
+                        <i class="fa fa-desktop fa-2x" aria-hidden="true"></i>
                     </div>
-                    <h4>BRANDING</h4>
-                    <p>Expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because procure him.</p>
+                    <h4>专业设计</h4>
+                    <p>所有样式均经过不断推新的过程,且着重颜色、排版的设计,自适应手机等移动端</p>
                 </div>
                 <div class="col-md-4">
                     <div class="services-icon">
-                        <span class="icon-globe"></span>
-                        <hr>
+                        <i class="fa fa-clock-o fa-2x" aria-hidden="true"></i>
+                        {{/*<hr>*/}}
                     </div>
-                    <h4>PLAN OF WORK</h4>
-                    <p>Expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because procure him.</p>
+                    <h4>即刻便利</h4>
+                    <p>操作简单便利,您只需选中自己中意风格并填入相关信息即可在线预览,无需下载保存,可任意时间在线查看</p>
                 </div>
                 <div class="col-md-4">
                     <div class="services-icon">
-                        <span class="icon-paintbrush"></span>
-                        <hr>
+                        <i class="fa fa-indent fa-2x" aria-hidden="true"></i>
                     </div>
-                    <h4>ILUSTRATION</h4>
-                    <p>Expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because procure him.</p>
+                    <h4>更多选择</h4>
+                    <p>为您提供更多个性化的模板选择,并且不断更新不同风格的模板</p>
                 </div>
             </div>
         </div>
@@ -445,14 +462,14 @@
             <div class="main-title">
                 <h1>联系我们</h1>
                 <hr>
-                <h6>Laborious to obtain some advantage from it</h6>
+                <h6>Get in touch with us and its interesting</h6>
             </div>
             <div class="col-md-6">
                 <div class="row">
                     <div class="newsletter-left">
                         <div class="newsletter-left-inner" style="text-align: center">
-                            <h3  style="color: #ffffff">更多定制设计<br></h3>
-                            <h1  style="color: #ffffff"><b>请与我们联系</b></h1>
+                            <h3  style="color: #ffffff;font-family: Panxiang">更多定制设计<br></h3>
+                            <h1  style="color: #ffffff;font-family: 微软雅黑"><b>请与我们联系</b></h1>
                         </div>
                     </div>
                 </div>
@@ -462,7 +479,7 @@
                     <div class="newsletter-right" >
                         <div class="newsletter-right-inner">
                             <form>
-                                <input type="text" name="newsletter" placeholder="邮箱">
+                                <input type="text" name="newsletter" placeholder="手机">
                                 <input style="font-family: Panxiang;" type="submit" value="提交">
                             </form>
                         </div>
@@ -475,16 +492,16 @@
     <div class="footer margin-top myPadding">
         <div class="container">
             <div class="row">
-                    <div class="col-md-2 col-sm-4 col-xs-12 myClass">
+                    <div class="col-md-2 col-sm-4 col-xs-12 myFooter01">
                         <div class="footer-inner">
                             <div class="footer-content">
-                                <h4 style="color: #ffffff"><a href="#">即刻简历</a></h4>
+                                <h4 style="color: #ffffff;font-family: Panxiang"><a href="#">即刻简历</a></h4>
                                     <p style="color: #ffffff">执笔之间,难掩才华</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-2 col-md-push-8 col-sm-4 col-xs-12 myClass">
+                    <div class="col-md-2 col-md-push-8 col-sm-4 col-xs-12 myFooter02">
                         <div class="footer-inner">
                             <div class="footer-content">
                                <h4 style="color: #ffffff;font-weight: normal">联系方式</h4>
@@ -495,7 +512,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-4 col-xs-12 myClass">
+                    <div class="col-md-4 col-sm-4 col-xs-12 myFooter03">
                         <div class="footer-inner">
                             <div class="footer-content" style="text-align: center">
                                 {{/*<ul class="social-media">
@@ -507,7 +524,8 @@
                                     <li><a href="#"><i class="iconmoon-linkedin2"></i></a></li>
                                 </ul>*/}}
                                 <a href="/">
-                                    <img class="img-opacity" src="../static/img/logo/logoPic.png">
+                                    {{/*<img class="img-opacity" src="../static/img/logo/logoPic.png">*/}}
+                                        <div class="img-opacity myLoogo">即刻</div>
                                 </a>
                                 <span style="color: #ffffff" class="copyright-mark">&copy; 2018 <a href="http://www.zooori.cn" target="_blank">ZooORI.才华有限公司</a><br>All Rights Reserved.</span>
                             </div>
@@ -516,8 +534,16 @@
             </div>
         </div>
     </div>
+
+    <!--微信联系-->
+    <a href="javascript:void(0)" class="wechat" id="wechat"><i class="fa fa-weixin" aria-hidden="true"></i></a>
+
+    <div class="wechat-alert" id="wechat-alert">
+        <img src="../static/img/weImg_.jpg" width="108" height="108">
+    </div>
+
     <!--返回顶部-->
-    <a href="javascript:void(0)" class="scroll-top" id="scroll-top"><i class="icon-angle-up"></i></a>
+    <a href="javascript:void(0)" class="scroll-top" id="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 
     {{/*<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>*/}}
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
@@ -538,10 +564,44 @@
     <script src="../static/js/main.js"></script>
     <script src="../static/js/ajax.js"></script>
     <script>
+
+        $(function () {
+           var flag = isMobile.any();
+           if(flag){
+               $('#wechat').on("click",function () {
+                   var isHiden = $('#wechat-alert').is(":hidden");
+                  if(isHiden){
+                      $('#wechat-alert').fadeIn(500);
+                  }else{
+                      $('#wechat-alert').fadeOut(500);
+                  }
+               });
+
+               $('.img-opacity').css("opacity",1);
+           }else{
+               $("#wechat").hover(
+                       function(){
+                           var $div = $(this);
+                           t = setInterval(function(){
+                               $('#wechat-alert').fadeIn(500);
+                           },100);
+                       },function(){
+                           clearInterval(t);
+                           $('#wechat-alert').fadeOut(500);
+                       })
+           }
+        });
+
         function redirect(str) {
             $('#close-button').click();
             var target = document.getElementById(str);
-            if (!target) return;
+            if (!target) {
+                $('html,body').animate({
+                            scrollTop: 0
+                        },
+                        300);
+                return;
+            }
             var targetOffset = $(target).offset().top - 115;
             $('html,body').animate({
                         scrollTop: targetOffset
