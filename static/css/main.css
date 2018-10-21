@@ -327,7 +327,7 @@ ul.sublist {
     display: none;
     position: fixed;
     bottom: 75px;
-    right: 15px;
+    right: 14px;
     cursor: pointer;
     width: 50px;
     height: 50px;
@@ -352,7 +352,7 @@ ul.sublist {
     display: none;
     position: fixed;
     bottom: 13px;
-    right: 75px;
+    right: 74px;
     cursor: pointer;
     width: 110px;
     height: 110px;
@@ -364,7 +364,7 @@ ul.sublist {
 .scroll-top {
     position: fixed;
     bottom: 15px;
-    right: 15px;
+    right: 14px;
     cursor: pointer;
     width: 50px;
     height: 50px;
