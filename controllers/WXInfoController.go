@@ -7,15 +7,15 @@ import (
 	"net/http"
 )
 
-type UserController struct {
+type WXInfoController struct {
 	beego.Controller
 }
 
-func (this *UserController)Insert()  {
+func (this *WXInfoController)Insert()  {
 	rJson := new(utils.ResultJson)
 	name:= this.GetString("name","")
-	user := new(models.User)
-	user.Name = name
+	user := new(models.WXInfo)
+	user.NickName = name
 	if user.Insert(user){
 		rJson.Status = http.StatusOK
 		rJson.Code = 1
