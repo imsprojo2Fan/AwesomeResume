@@ -6,7 +6,7 @@ import (
 	"testing"
 	"runtime"
 	"path/filepath"
-	_ "awesomeProject/quickstart/routers"
+
 
 	"github.com/astaxie/beego"
 	. "github.com/smartystreets/goconvey/convey"
@@ -36,4 +36,5 @@ func TestBeego(t *testing.T) {
 	        })
 	})
 }
+
 

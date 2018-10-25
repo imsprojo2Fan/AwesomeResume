@@ -344,14 +344,10 @@ ul.sublist {
     font-size: 28px;
 }
 
-.wechat-hover{
-
-}
-
 .wechat-alert{
     display: none;
     position: fixed;
-    bottom: 13px;
+    bottom: 14px;
     right: 74px;
     cursor: pointer;
     width: 110px;
@@ -2461,7 +2457,7 @@ ul.social-buttons li {
     margin-bottom: 50px;
 }
 
-/* Buttons home, back, next */
+/* Buttons home, main, next */
 .btn-project a:hover i {
     opacity: 0;
     transform: translate(100%, 0);

@@ -7,6 +7,7 @@ import "time"
 import "strconv"
 import "strings"
 
+
 //将字符串加密成 md5
 func String2md5(str string) string {
 	data := []byte(str)
@@ -34,4 +35,17 @@ func RandomString(length int) string {
 		}
 	}
 	return strings.Join(result, "")
+}
+
+func RandomNumber() int32 {
+	rnd := rand.New(rand.NewSource(time.Now().UnixNano()))
+	return  rnd.Int31n(1000000)
+}
+
+func Int2String(arg int) string {
+	return strconv.Itoa(arg)
+}
+
+func Int32toString(arg int32) string {
+	return strconv.FormatInt(int64(arg), 10)
 }

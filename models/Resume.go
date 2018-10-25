@@ -9,10 +9,10 @@ import (
 // Model Struct
 type Resume struct {
 	Id  int
-	Eid int
+	Eid string
 	Name string `orm:"size(32)"`
 	Type string `orm:"size(32)"`
-	Sid string `orm:"size(32)"`
+	Url string `orm:"size(32)"`
 	Likes int `orm:"size(8)"`
 	Views int `orm:"size(8)"`
 	Mades int `orm:"size(8)"`
@@ -70,4 +70,10 @@ func(this *Resume) Read(Resume *Resume) bool {
 	} else {
 		return true
 	}
+}
+
+func(this *Resume) SelectByEid(resume *Resume) {
+
+	o := orm.NewOrm()
+	o.Read(resume,"eid")
 }

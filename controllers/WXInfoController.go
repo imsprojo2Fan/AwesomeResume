@@ -16,7 +16,7 @@ func (this *WXInfoController)Insert()  {
 	name:= this.GetString("name","")
 	user := new(models.WXInfo)
 	user.NickName = name
-	if user.Insert(user){
+	if user.Insert(user)>0{
 		rJson.Status = http.StatusOK
 		rJson.Code = 1
 		rJson.Message = "Add Success"
