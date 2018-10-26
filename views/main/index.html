@@ -35,7 +35,11 @@
 		.brand a:hover{
 			color: #6195FF;
 		}
-        .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active {
+
+        .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active{
+            border-left-color: #6195FF;
+		}
+        .sidebar .nav > li > a:focus, .sidebar .nav > li >a:active,.sidebar .nav > li >a:visited {
             /*background-color: #555555;*/
             border-left-color: #6195FF;
         }
@@ -117,25 +121,25 @@
 		<div id="sidebar-nav" class="sidebar">
 			<div class="sidebar-scroll">
 				<nav>
-					<ul class="nav">
-						<li><a id="home" href="javascript:redirect('home')" class="active"><i class="lnr lnr-home"></i> <span>首页</span></a></li>
-						<li><a href="javascript:redirect('views')" class=""><i class="lnr lnr-code"></i> <span>我的查看</span></a></li>
-						<li><a href="javascript:redirect('likes')" class=""><i class="lnr lnr-chart-bars"></i> <span>我的喜欢</span></a></li>
-						<li><a href="javascript:redirect('news')" class=""><i class="lnr lnr-cog"></i> <span>消息提醒</span></a></li>
-						<li><a href="javascript:redirect('profile')" class=""><i class="lnr lnr-alarm"></i> <span>账号安全</span></a></li>
+					<ul id="navUl" class="nav">
+						<li><a id="home" href="javascript:redirect('home',this)" class="active navItem"><i class="lnr lnr-home"></i> <span>首页</span></a></li>
+						<li><a href="javascript:redirect('views',this)" class="navItem"><i class="lnr lnr-code"></i> <span>我的查看</span></a></li>
+						<li><a href="javascript:redirect('likes',this)" class="navItem"><i class="lnr lnr-chart-bars"></i> <span>我的喜欢</span></a></li>
+						<li><a href="javascript:redirect('news',this)" class="navItem"><i class="lnr lnr-cog"></i> <span>消息提醒</span></a></li>
+						<li><a href="javascript:redirect('profile',this)" class="navItem"><i class="lnr lnr-alarm"></i> <span>账号安全</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="">Profile</a></li>
-									<li><a href="page-login.html" class="">Login</a></li>
-									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+									<li><a href="page-profile.html" class="navItem">Profile</a></li>
+									<li><a href="page-login.html" class="navItem">Login</a></li>
+									<li><a href="page-lockscreen.html" class="navItem">Lockscreen</a></li>
 								</ul>
 							</div>
 						</li>
-						<li><a href="javascript:redirect('home')" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
-						<li><a href="javascript:redirect('home')" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-						<li><a href="javascript:redirect('home')" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
+						<li><a href="javascript:redirect('home',this)" class="navItem"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a href="javascript:redirect('home',this)" class="navItem"><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
+						<li><a href="javascript:redirect('home',this)" class="navItem"><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -170,8 +174,11 @@
 	<script src="../../static/back/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="../../static/back/assets/scripts/klorofil-common.js"></script>
 	<script>
-        function redirect(htmlName){
-            $('#home').removeClass("active");
+        function redirect(htmlName,obj){
+            $('.navItem').each(function () {
+				$(this).removeClass("active");
+            });
+            $(obj).addClass("active");
             var url = "/main/redirect?htmlName="+htmlName;
             $('#mainframe').attr("src",url);
         }
