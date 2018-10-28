@@ -24,6 +24,10 @@ func(this *LoginController) LoginIndex()  {
 }
 
 func(this *LoginController) Timeout()  {
+	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
+	session.Set("id",nil)
+	id, _ := session.Get("id").(int)
+	fmt.Println("-------id:",id)
 	if !this.IsAjax(){
 		this.Data["_xsrf"] = this.XSRFToken()
 		this.Data["timeout"]= time.Now()
@@ -65,6 +69,7 @@ func(this *LoginController) Validate()  {
 		}
 
 		session.Set("user",user)
+		session.Set("account",user.Account)
 		session.Set("id",user.Id)
 		//this.Redirect("/user",http.StatusFound)
 		fmt.Println("Account:",user.Account)

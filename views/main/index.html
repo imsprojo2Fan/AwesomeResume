@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Home</title>
+	<title>即刻简历</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -46,6 +46,21 @@
         a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
             color: #6195FF;
         }
+
+        @media screen and (max-width: 767px){
+            .navbar-nav > li {
+                display: flex;
+                width: 1%;
+                position: inherit;
+                text-align: center;
+            }
+			.avatar{
+				margin-top: 10px;
+			}
+		}
+        .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+			height: 80px;
+		}
 	</style>
 
 
@@ -65,18 +80,18 @@
 					{{/*<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>*/}}
 						<button type="button" class="btn-toggle-fullwidth"><img id="menu" width="30" src="../../static/img/close.png"></button>
 				</div>
-				<form class="navbar-form navbar-left">
+				{{/*<form class="navbar-form navbar-left">
 					<div class="input-group">
 						<input type="text" value="" class="form-control" placeholder="Search dashboard...">
 						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 					</div>
-				</form>
-				<div class="navbar-btn navbar-btn-right">
+				</form>*/}}
+				{{/*<div class="navbar-btn navbar-btn-right">
 					<a class="btn btn-success update-pro" href="#downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-				</div>
+				</div>*/}}
 				<div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
+					<ul class="nav navbar-nav navbar-right" style="height: 80px;">
+						{{/*<li class="dropdown">
 							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
 								<i class="lnr lnr-alarm"></i>
 								<span class="badge bg-danger">5</span>
@@ -89,8 +104,8 @@
 								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
 								<li><a href="#" class="more">See all notifications</a></li>
 							</ul>
-						</li>
-						<li class="dropdown">
+						</li>*/}}
+						{{/*<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Basic Use</a></li>
@@ -98,14 +113,14 @@
 								<li><a href="#">Security</a></li>
 								<li><a href="#">Troubleshooting</a></li>
 							</ul>
-						</li>
+						</li>*/}}
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../static/back/assets/img/user.png" class="img-circle" alt="Avatar"> <span>Samuel</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../../static/img/avatar.png" style="width: 35px;" class="avatar" alt="Avatar"> <span id="account">{{.account}}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-								<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-								<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-								<li><a href="#"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+								<li><a href="javascript:redirect('profile',this)"><i class="lnr lnr-user"></i> <span>个人设置</span></a></li>
+								<li><a href="javascript:redirect('news',this)"><i class="lnr lnr-envelope"></i> <span>消息提醒</span></a></li>
+								<li><a href="javascript:void(0);"><i class="lnr lnr-cog"></i> <span>系统设置</span></a></li>
+								<li><a href="/timeout"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
 							</ul>
 						</li>
 						<!-- <li>
@@ -123,23 +138,19 @@
 				<nav>
 					<ul id="navUl" class="nav">
 						<li><a id="home" href="javascript:redirect('home',this)" class="active navItem"><i class="lnr lnr-home"></i> <span>首页</span></a></li>
-						<li><a href="javascript:redirect('views',this)" class="navItem"><i class="lnr lnr-code"></i> <span>我的查看</span></a></li>
-						<li><a href="javascript:redirect('likes',this)" class="navItem"><i class="lnr lnr-chart-bars"></i> <span>我的喜欢</span></a></li>
-						<li><a href="javascript:redirect('news',this)" class="navItem"><i class="lnr lnr-cog"></i> <span>消息提醒</span></a></li>
-						<li><a href="javascript:redirect('profile',this)" class="navItem"><i class="lnr lnr-alarm"></i> <span>账号安全</span></a></li>
+                        <li><a href="javascript:redirect('mades',this)" class="navItem"><i class="lnr lnr-hand"></i> <span>我的制作</span></a></li>
+						<li><a href="javascript:redirect('views',this)" class="navItem"><i class="lnr lnr-eye"></i> <span>我的查看</span></a></li>
+						<li><a href="javascript:redirect('likes',this)" class="navItem"><i class="lnr lnr-heart"></i> <span>我的喜欢</span></a></li>
+						<li><a href="javascript:redirect('news',this)" class="navItem"><i class="lnr lnr-envelope"></i> <span>消息提醒</span></a></li>
+						<li><a href="javascript:redirect('profile',this)" class="navItem"><i class="lnr lnr-user"></i> <span>个人设置</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-inbox"></i> <span>基础信息</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="page-profile.html" class="navItem">Profile</a></li>
-									<li><a href="page-login.html" class="navItem">Login</a></li>
-									<li><a href="page-lockscreen.html" class="navItem">Lockscreen</a></li>
+									<li><a href="javascript:redirect('models',this)" class="navItem">模板管理</a></li>
 								</ul>
 							</div>
 						</li>
-						<li><a href="javascript:redirect('home',this)" class="navItem"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
-						<li><a href="javascript:redirect('home',this)" class="navItem"><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-						<li><a href="javascript:redirect('home',this)" class="navItem"><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -174,6 +185,12 @@
 	<script src="../../static/back/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="../../static/back/assets/scripts/klorofil-common.js"></script>
 	<script>
+		var userInfo;
+		$(function () {
+			userInfo = {{.userInfo}};
+			console.log(userInfo);
+			//$('#account').html(userInfo.Account);
+        })
         function redirect(htmlName,obj){
             $('.navItem').each(function () {
 				$(this).removeClass("active");

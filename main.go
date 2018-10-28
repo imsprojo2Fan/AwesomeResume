@@ -6,6 +6,7 @@ import (
 	_"AwesomeResume/sysinit"
 	"github.com/astaxie/beego/context"
 	"AwesomeResume/utils"
+	"fmt"
 )
 
 func init()  {
@@ -20,8 +21,8 @@ func init()  {
 	//判断用户是否登录
 	var FilterUser = func(ctx *context.Context) {
 		session,_ := utils.GlobalSessions.SessionStart(ctx.ResponseWriter, ctx.Request)
-		_, ok := session.Get("id").(int)
-		//fmt.Println("-------id:",id)
+		id, ok := session.Get("id").(int)
+		fmt.Println("-------id:",id)
 		if !ok {
 			ctx.Redirect(302, "/timeout")
 		}
