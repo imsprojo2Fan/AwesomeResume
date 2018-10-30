@@ -2,6 +2,38 @@
 /********************
  * GENERAL STYLES
  ********************/
+
+<!--设置滚动条及选中文字样式-->
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+  background-color: #eee;
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar:hover {
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  background: #aeaeae;
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: #bbb;
+  cursor: pointer;
+}
+::-moz-selection {
+  background: #060606;
+  color: #fff;
+}
+::selection {
+  background: #060606;
+  color: #fff;
+}
+::-moz-selection {
+  background: #060606;
+  color: #fff;
+}
 html {
   position: relative;
   min-height: 100%; }

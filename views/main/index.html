@@ -8,13 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="../../static/img/logo/logoPic.png">
-	<!-- VENDOR CSS -->
-    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../../static/back/assets/vendor/linearicons/style.css">
-
-	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="../../static/back/assets/css/main.css">
+    <link rel="stylesheet" href="../../static/css/root.css">
 
 	<style>
         @font-face {
@@ -29,23 +23,74 @@
             font-weight: normal;
             font-style: normal;
         }
+
+		html{
+			overflow-y: hidden;
+		}
+
+        @media screen and (max-width: 767px){
+            #wrapper #sidebar-nav, #wrapper .main {
+                padding-top: 80px;
+            }
+        }
+
         .brand a{
             color: #333333;
         }
 		.brand a:hover{
 			color: #6195FF;
 		}
-
-        .sidebar .nav > li > a:focus, .sidebar .nav > li > a.active{
-            border-left-color: #6195FF;
+		.navItemActive{
+			color:#6195FF;
 		}
-        .sidebar .nav > li > a:focus, .sidebar .nav > li >a:active,.sidebar .nav > li >a:visited {
-            /*background-color: #555555;*/
-            border-left-color: #6195FF;
+		#navUl li{
+            padding: 18px 30px;
+            color: #AEB7C2;
+            border-left: 5px solid transparent;
+			cursor: pointer;
+		}
+
+		#navUl li:hover{
+			border-left-color:#6195FF;
+			background: #1f1f1f;
+			color:#6195FF;
+		}
+
+        #navUl li > div> ul > li{
+            padding: 10px 30px;
         }
-        a:hover i, .sidebar .nav > li > a:focus i, .sidebar .nav > li > a.active i {
-            color: #6195FF;
+
+        #navUl li:hover div> ul > li{
+            border-left-color:#6195FF;
+            background: #1f1f1f;
         }
+
+        #navUl li:hover span{
+            border-left-color:#6195FF;
+            color:#ffffff;
+        }
+
+		.navItemActive{
+            border-right:5px solid #6195FF;
+            color:#6195FF;
+		}
+
+		.navItemActive4span{
+            color:#ffffff;
+		}
+
+		#navUl a,a:focus, .sidebar #navUl > li > a.active{
+			border: none;
+			background: none;
+			color: #AEB7C2;
+			padding: 0px;
+		}
+
+		#navUl li > div> ul > li{
+            border: none;
+            background:#2b333e;
+		}
+
 
         @media screen and (max-width: 767px){
             .navbar-nav > li {
@@ -67,20 +112,21 @@
 </head>
 
 <body>
+	<input type="hidden" id="token">
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top" style="height: 80px;">
 			<div class="brand" style="padding: 0px 50px;line-height: 80px;background: none">
 				{{/*<a href="index.html"><img src="../../static/back/assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>*/}}
-                <a href="/main"><p style="font-family: Panxiang;font-size: 26px">即刻简历</p></a>
+                <a href="/main"><p style="font-family: Panxiang;font-size: 26px">即刻简历</a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn" style="line-height: 80px;padding: 0px 0px;margin-top: 0px">
 					{{/*<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>*/}}
 						<button type="button" class="btn-toggle-fullwidth"><img id="menu" width="30" src="../../static/img/close.png"></button>
 				</div>
-				{{/*<form class="navbar-form navbar-left">
+				{{/*===<form class="navbar-form navbar-left">
 					<div class="input-group">
 						<input type="text" value="" class="form-control" placeholder="Search dashboard...">
 						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
@@ -137,17 +183,18 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul id="navUl" class="nav">
-						<li><a id="home" href="javascript:redirect('home',this)" class="active navItem"><i class="lnr lnr-home"></i> <span>首页</span></a></li>
-                        <li><a href="javascript:redirect('mades',this)" class="navItem"><i class="lnr lnr-hand"></i> <span>我的制作</span></a></li>
-						<li><a href="javascript:redirect('views',this)" class="navItem"><i class="lnr lnr-eye"></i> <span>我的查看</span></a></li>
-						<li><a href="javascript:redirect('likes',this)" class="navItem"><i class="lnr lnr-heart"></i> <span>我的喜欢</span></a></li>
-						<li><a href="javascript:redirect('news',this)" class="navItem"><i class="lnr lnr-envelope"></i> <span>消息提醒</span></a></li>
-						<li><a href="javascript:redirect('profile',this)" class="navItem"><i class="lnr lnr-user"></i> <span>个人设置</span></a></li>
-						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-inbox"></i> <span>基础信息</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="javascript:redirect('models',this)" class="navItem">模板管理</a></li>
+						<li onclick="redirect('home',this)"><i class="lnr lnr-home"></i> <span>首页</span></li>
+                        <li onclick="redirect('mades',this)"><i class="lnr lnr-hand"></i> <span>我的制作</span></li>
+						<li onclick="redirect('views',this)"><i class="lnr lnr-eye"></i> <span>我的查看</span></li>
+						<li onclick="redirect('likes',this)"><i class="lnr lnr-heart"></i> <span>我的喜欢</span></li>
+						<li onclick="redirect('news',this)"><i class="lnr lnr-envelope"></i> <span>消息提醒</span></li>
+						<li onclick="redirect('profile',this)"><i class="lnr lnr-user"></i> <span>个人设置</span></li>
+						<li id="last" onclick="redirect('',this)">
+							<a href="#subPages"  data-toggle="collapse" class="collapsed"><i class="lnr lnr-inbox"></i> <span>基础信息</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse " style="margin-top: 8px;">
+								<ul class="nav" >
+									<li onclick="redirect('models',this)">模板管理</li>
+                                    <li onclick="redirect('models',this)">模板管理2</li>
 								</ul>
 							</div>
 						</li>
@@ -159,13 +206,8 @@
 
 		<!-- MAIN -->
 		<div class="main">
-			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<div class="container-fluid">
-                    <iframe id="mainframe" name="myFrame" width="100%" height="100%" src="/main/redirect?htmlName=home" frameborder="0" data-id="" seamless></iframe>
-				</div>
-			</div>
-			<!-- END MAIN CONTENT -->
+            {{/*seamless*/}}
+            <iframe id="mainframe" name="myFrame" width="100%" height="100%" src="/main/redirect?htmlName=home" frameborder="0" data-id="" ></iframe>
 		</div>
 		<!-- END MAIN -->
 
@@ -184,21 +226,57 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="../../static/back/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="../../static/back/assets/scripts/klorofil-common.js"></script>
+    <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
 	<script>
 		var userInfo;
+		var token;
+
+        //动态更改iframe高度
+        $(window.parent.document).find("#mainframe").load(function(){
+            var main = $(window.parent.document).find("#mainframe");
+            var thisHeight = window.innerHeight+100;
+            //var width = window.innerWidth;
+            main.height(thisHeight);
+        });
+
 		$(function () {
 			userInfo = {{.userInfo}};
 			console.log(userInfo);
 			//$('#account').html(userInfo.Account);
         })
         function redirect(htmlName,obj){
-            $('.navItem').each(function () {
-				$(this).removeClass("active");
+            $('#navUl li').each(function (index) {//全置默认
+				$(this).removeClass("navItemActive");
+                $(this).find("i").removeClass("navItemActive4span");
+                $(this).find("span").removeClass("navItemActive4span");
+
             });
-            $(obj).addClass("active");
+            //设置选中
+            $(obj).addClass("navItemActive");
+            $(obj).find("i").addClass("navItemActive4span");
+            $(obj).find("span").addClass("navItemActive4span");
+            if(!htmlName){
+                return;
+			}
+            if(htmlName==="models"){
+				$('#subPages').addClass("active");
+            }
             var url = "/main/redirect?htmlName="+htmlName;
             $('#mainframe').attr("src",url);
         }
+
+        function swalInfo(title,msg,type){
+            swal(title,msg,type);
+        }
+
+        function loading(flag) {
+            if(flag){
+                $('#loading').show();
+            }else{
+                $('#loading').hide();
+            }
+        }
+
 	</script>
 </body>
 

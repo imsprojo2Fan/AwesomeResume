@@ -10,16 +10,10 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
     <!-- Favicon -->
     <link rel="icon" type="image/ico" href="../static/img/logo/logoPic.png">
-    <!-- Google Web Font -->
-    {{/*<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lekton:400,700,400italic' rel='stylesheet' type='text/css'>*/}}
-    {{/*<link rel="stylesheet" href="../static/font/font-awesome.min.css">*/}}
-    {{/*<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">*/}}
+    <!-- Web Font -->
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--  Bootstrap 3-->
-    {{/*<link rel="stylesheet" href="../static/css/bootstrap.min.css">*/}}
-    {{/*<link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">*/}}
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- OWL Carousel -->
@@ -29,21 +23,8 @@
     <!--  Slider -->
     <link rel="stylesheet" href="../static/css/jquery.kenburnsy.css">
 
-    <!-- Animate -->
-    {{/*<link rel="stylesheet" href="../static/css/animate.css">*/}}
-
     <!-- Web Icons Font -->
     <link rel="stylesheet" href="../static/css/pe-icon-7-stroke.css">
-{{/*<link rel="stylesheet" href="../static/css/iconmoon.css">
-    <link rel="stylesheet" href="../static/css/et-line.css">
-    <link rel="stylesheet" href="../static/css/ionicons.css">*/}}
-
-    <!-- Magnific PopUp -->
-    {{/*<link rel="stylesheet" href="../static/css/magnific-popup.css">*/}}
-
-    <!-- Tabs -->
-    {{/*<link rel="stylesheet" type="text/css" href="../static/css/tabs.css" />*/}}
-    {{/*<link rel="stylesheet" type="text/css" href="../static/css/tabstyles.css" />*/}}
 
     <!-- Loader Style -->
     <link rel="stylesheet" href="../static/css/loader-1.css">
@@ -51,9 +32,6 @@
     <!-- Costum Styles -->
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/responsive.css">
-
-    <!-- Modernizer & Respond js -->
-    {{/*<script src="../static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>*/}}
 
     <style>
         @font-face {
@@ -91,8 +69,8 @@
 </head>
 
 <body>
+    <input type="hidden" id="token" value="{{._xsrf}}">
 <!--主题色值:深蓝#133458;浅蓝#6195FF;腾祥沁圆简-->
-
     <!-- Preloader -->
     <div class="cover"></div>
     <!--头部-->
@@ -271,22 +249,35 @@
                 </span>
             </button>
             <div class="works-filter">
-                <a href="javascript:void(0)" class="filter active" data-filter="mix">All</a>
-                <a href="javascript:void(0)" class="filter" data-filter="branding">Branding</a>
-                <a href="javascript:void(0)" class="filter" data-filter="web">Web Design</a>
-                <a href="javascript:void(0)" class="filter" data-filter="graphic">Graphic Design</a>
+                <a href="javascript:void(0)" class="filter active" data-filter="全部">全部</a>
+                <a href="javascript:void(0)" class="filter" data-filter="时尚创意">时尚创意</a>
+                <a href="javascript:void(0)" class="filter" data-filter="现代商务">现代商务</a>
+                <a href="javascript:void(0)" class="filter" data-filter="文艺清新">文艺清新</a>
+                <a href="javascript:void(0)" class="filter" data-filter="经典大气">经典大气</a>
+                <a href="javascript:void(0)" class="filter" data-filter="其他风格">其他风格</a>
             </div>
             <div class="js-masonry">
                 <div class="row" id="work-grid">
                     <!-- Begin of Thumbs Portfolio -->
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix branding">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 文艺清新">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_1.jpg" alt="Portfolio Item">
+                            {{/*<iframe id="mainframe" name="myFrame" width="400" height="400" src="/index/redirect?v=test001" frameborder="0" data-id="" ></iframe>*/}}
                             <div class="overlay-thumb">
                                 <a href="javascript:void(0)" class="like-product">
-                                    <i class="ion-ios-heart-outline"></i>
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
                                     <span class="like-product">Liked</span>
                                     <span class="output">250</span>
+                                </a>
+                                <a href="javascript:void(0)" class="like-product" style="left: 50px;">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                    <span class="like-product">View</span>
+                                    <span class="output">270</span>
+                                </a>
+                                <a href="javascript:void(0)" class="like-product" style="left: 100px;">
+                                    <i class="fa fa-scissors" aria-hidden="true"></i>
+                                    <span class="like-product">View</span>
+                                    <span class="output">270</span>
                                 </a>
                                 <div class="details">
                                     <span class="title">STYLE FASHION</span>
@@ -298,7 +289,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix web">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 现代商务">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_2.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -317,7 +308,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix graphic">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 现代商务">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_3.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -336,7 +327,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix branding">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 时尚创意">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_4.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -355,7 +346,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix branding">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 时尚创意">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_5.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -374,7 +365,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix branding">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 现代商务">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_6.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -393,7 +384,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix branding">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 文艺清新">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_7.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -412,7 +403,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix branding">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 经典大气">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_8.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -431,7 +422,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12 mix branding">
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 其他风格">
                         <div class="img home-portfolio-image">
                             <img src="../static/img/home-portfolio/img_9.jpg" alt="Portfolio Item">
                             <div class="overlay-thumb">
@@ -450,6 +441,26 @@
                             </div>
                         </div>
                     </div>
+                    <!--
+                    <div class="col-md-4 col-sm-4 col-xs-12 mix 全部 其他风格">
+                        <div class="img home-portfolio-image">
+                            <img src="../static/img/home-portfolio/img_9.jpg" alt="Portfolio Item">
+                            <div class="overlay-thumb">
+                                <a href="javascript:void(0)" class="like-product">
+                                    <i class="ion-ios-heart-outline"></i>
+                                    <span class="like-product">Liked</span>
+                                    <span class="output">256</span>
+                                </a>
+                                <div class="details">
+                                    <span class="title">STYLE FASHION</span>
+                                    <span class="info">NEW BAG & STYLE FASHION</span>
+                                </div>
+                                <span class="btnBefore"></span>
+                                <span class="btnAfter"></span>
+                                <a class="main-portfolio-link" href="single-project.html"></a>
+                            </div>
+                        </div>
+                    </div>-->
                 </div>
             </div>
             <div class="load-more">
@@ -567,32 +578,77 @@
     <script>
 
         $(function () {
-           var flag = isMobile.any();
-           if(flag){
-               $('#wechat').on("click",function () {
-                   var isHiden = $('#wechat-alert').is(":hidden");
-                  if(isHiden){
-                      $('#wechat-alert').fadeIn(500);
-                  }else{
-                      $('#wechat-alert').fadeOut(500);
-                  }
-               });
+            var flag = isMobile.any();
+            if (flag) {
+                $('#wechat').on("click", function () {
+                    var isHiden = $('#wechat-alert').is(":hidden");
+                    if (isHiden) {
+                        $('#wechat-alert').fadeIn(500);
+                    } else {
+                        $('#wechat-alert').fadeOut(500);
+                    }
+                });
 
-               $('.img-opacity').css("opacity",1);
-           }else{
-               $("#wechat").hover(
-                       function(){
-                           var $div = $(this);
-                           t = setInterval(function(){
-                               $('#wechat-alert').fadeIn(500);
-                           },100);
-                       },function(){
-                           clearInterval(t);
-                           $('#wechat-alert').fadeOut(500);
-                       })
-           }
+                $('.img-opacity').css("opacity", 1);
+            } else {
+                $("#wechat").hover(
+                        function () {
+                            var $div = $(this);
+                            t = setInterval(function () {
+                                $('#wechat-alert').fadeIn(500);
+                            }, 100);
+                        }, function () {
+                            clearInterval(t);
+                            $('#wechat-alert').fadeOut(500);
+                        })
+            }
+
+            //获取模板列表
+            $.post("/index/resume/list", {_xsrf: $("#token").val()}, function (r) {
+                console.log(r.data);
+                var arr = r.data;
+                $('#work-grid').html("");
+                for(var i=0;i<arr.length;i++){
+                    var eid = arr[i].Eid;
+                    var title = arr[i].Name;
+                    var theme = arr[i].Theme;
+                    var view = arr[i].Views;
+                    var like = arr[i].Likes;
+                    var made = arr[i].Mades;
+                    var imgUrl = "/static/file/"+arr[i].Img;
+                    $('#work-grid').append('<div class="col-md-4 col-sm-4 col-xs-12 mix 全部 '+theme+'">\n' +
+                            '                        <div class="img home-portfolio-image">\n' +
+                            '                            <img src="'+imgUrl+'" alt="Portfolio Item">\n' +
+                            '                            <div class="overlay-thumb">\n' +
+                            '                                <a href="javascript:void(0)" class="like-product">\n' +
+                            '                                    <i class="fa fa-eye" aria-hidden="true"></i>\n' +
+                            '                                    <span class="like-product">View</span>\n' +
+                            '                                    <span class="output">'+view+'</span>\n' +
+                            '                                </a>\n' +
+                            '                                <a href="javascript:void(0)" class="like-product" style="left: 50px;">\n' +
+                            '                                    <i class="fa fa-heart" aria-hidden="true"></i>\n' +
+                            '                                    <span class="like-product">Liked</span>\n' +
+                            '                                    <span class="output">'+like+'</span>\n' +
+                            '                                </a>\n' +
+                            '                                <a href="javascript:void(0)" class="like-product" style="left: 100px;">\n' +
+                            '                                    <i class="fa fa-scissors" aria-hidden="true"></i>\n' +
+                            '                                    <span class="like-product">Made</span>\n' +
+                            '                                    <span class="output">'+made+'</span>\n' +
+                            '                                </a>\n' +
+                            '                                <div class="details">\n' +
+                            '                                    <span class="title">'+title+'</span>\n' +
+                            '                                    <span class="info">'+theme+'</span>\n' +
+                            '                                </div>\n' +
+                            '                                <span class="btnBefore"></span>\n' +
+                            '                                <span class="btnAfter"></span>\n' +
+                            '                                <a class="main-portfolio-link" target="_blank" href="/index/resume?v='+eid+'"></a>\n' +
+                            '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                    </div>')
+                }
+            });
+
         });
-
         function redirect(str) {
             $('#close-button').click();
             var target = document.getElementById(str);

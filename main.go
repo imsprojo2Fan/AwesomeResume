@@ -7,6 +7,8 @@ import (
 	"github.com/astaxie/beego/context"
 	"AwesomeResume/utils"
 	"fmt"
+	"strings"
+	"net/http"
 )
 
 func init()  {
@@ -18,7 +20,10 @@ func init()  {
 	//是否开启热升级，默认是 false，关闭热升级。
 	beego.BConfig.Listen.Graceful=false
 
-	//判断用户是否登录
+	//透明static
+	beego.InsertFilter("/static", beego.BeforeRouter, TransparentStatic)
+
+	//判断用户是否登录/登录超时
 	var FilterUser = func(ctx *context.Context) {
 		session,_ := utils.GlobalSessions.SessionStart(ctx.ResponseWriter, ctx.Request)
 		id, ok := session.Get("id").(int)
@@ -28,6 +33,13 @@ func init()  {
 		}
 	}
 	beego.InsertFilter("/main/*",beego.BeforeRouter,FilterUser,false)
+}
+
+func TransparentStatic(ctx *context.Context) {
+	if strings.Index(ctx.Request.URL.Path, "v1/") >= 0 {
+		return
+	}
+	http.ServeFile(ctx.ResponseWriter, ctx.Request, "static/"+ctx.Request.URL.Path)
 }
 
 func main() {

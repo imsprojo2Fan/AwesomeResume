@@ -21,7 +21,7 @@ func (c *IndexController) Index() {
 
 	//设置token
 	token := c.XSRFToken()
-	c.Data["_xrf"] = token
+	c.Data["_xsrf"] = token
 	fmt.Println(token)
 
 	c.TplName = "index.html"
