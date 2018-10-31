@@ -2035,7 +2035,9 @@ ul.client-thumb-2 li a img:hover{
     z-index: 4;
 }
 .img .overlay-thumb:hover {
-    background-color: rgba(97, 149, 255, 0.76);
+    /*background-color: rgba(97, 149, 255, 0.76);*/
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
 }
 
 .img .overlay-thumb.bg-white:hover{
@@ -2056,13 +2058,15 @@ ul.client-thumb-2 li a img:hover{
     color: #111111;
 }
 .details span.title {
-    font-size: 18px;
+    font-size: 23px;
     letter-spacing: 1.2pt;
     line-height: 24px;
+    color: #ffffff;
     text-transform: uppercase;
 }
 .details span.info {
     font-size: 14px;
+    color: #ffffff;
     text-transform: uppercase;
 
 }
@@ -2127,6 +2131,7 @@ ul.client-thumb-2 li a img:hover{
     position: absolute;
     bottom: 0;
     left: 0;
+    color: #ffffff;
     z-index: 3;
 }
 .details span {
@@ -2157,6 +2162,7 @@ ul.client-thumb-2 li a img:hover{
     cursor: pointer;
     opacity: 0;
     text-align: center;
+    color: #ffffff;
 }
 .img:hover .like-product {
     opacity: 1;
@@ -2168,11 +2174,11 @@ ul.client-thumb-2 li a img:hover{
     margin-left: 18px;
     border-radius: 50%;
     display: inline-block;
-    color: #111111;
+    color: #ffffff;
     transition: .4s;
 }
 .output {
-    color: #111111;
+    color: #ffffff;
     clear: both;
     display: block;
     padding-left: 18px;

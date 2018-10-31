@@ -34,7 +34,7 @@ func(this *MainController) Redirect()  {
 func(this *MainController) Upload4Pic()  {
 
 	f, _, _ := this.GetFile("file")                  //获取上传的文件
-	_dir := "./static/file"
+	_dir := "../file4resume"
 	exist, err := utils.PathExists(_dir)
 	if err != nil {
 		fmt.Printf("get dir error![%v]\n", err)

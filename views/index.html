@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="../static/css/pe-icon-7-stroke.css">
 
     <!-- Loader Style -->
-    <link rel="stylesheet" href="../static/css/loader-1.css">
+    <link rel="stylesheet" href="../static/css/loader-2.css">
 
     <!-- Costum Styles -->
     <link rel="stylesheet" href="../static/css/main.css">
@@ -564,7 +564,8 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../static/js/vendor/classie.js"></script>
     <script src="../static/js/vendor/isotope.pkgd.min.js"></script>
-    <script src="../static/js/vendor/jquery.velocity.min.js"></script>
+    {{/*<script src="../static/js/vendor/jquery.velocity.min.js"></script>*/}}
+    <script src="https://cdn.bootcss.com/velocity/2.0.5/velocity.min.js"></script>
     <script src="../static/js/vendor/jquery.kenburnsy.min.js"></script>
     <script src="../static/js/vendor/textslide.js"></script>
     <script src="../static/js/vendor/imagesloaded.pkgd.min.js"></script>
@@ -615,7 +616,7 @@
                     var view = arr[i].Views;
                     var like = arr[i].Likes;
                     var made = arr[i].Mades;
-                    var imgUrl = "/static/file/"+arr[i].Img;
+                    var imgUrl = "/file/"+arr[i].Img;
                     $('#work-grid').append('<div class="col-md-4 col-sm-4 col-xs-12 mix 全部 '+theme+'">\n' +
                             '                        <div class="img home-portfolio-image">\n' +
                             '                            <img src="'+imgUrl+'" alt="Portfolio Item">\n' +
@@ -637,7 +638,7 @@
                             '                                </a>\n' +
                             '                                <div class="details">\n' +
                             '                                    <span class="title">'+title+'</span>\n' +
-                            '                                    <span class="info">'+theme+'</span>\n' +
+                            '                                    <span class="info">分类:'+theme+'</span>\n' +
                             '                                </div>\n' +
                             '                                <span class="btnBefore"></span>\n' +
                             '                                <span class="btnAfter"></span>\n' +

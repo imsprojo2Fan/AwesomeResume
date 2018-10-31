@@ -20,6 +20,8 @@ func init()  {
 	//是否开启热升级，默认是 false，关闭热升级。
 	beego.BConfig.Listen.Graceful=false
 
+	beego.SetStaticPath("/file", "../file4resume")
+
 	//透明static
 	beego.InsertFilter("/static", beego.BeforeRouter, TransparentStatic)
 

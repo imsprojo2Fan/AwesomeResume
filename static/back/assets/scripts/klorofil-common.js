@@ -7,14 +7,14 @@ $(document).ready(function() {
 	$('.btn-toggle-fullwidth').on('click', function() {
 		if(!$('body').hasClass('layout-fullwidth')) {
 			$('body').addClass('layout-fullwidth');
-            $('#menu').attr("src","../../static/img/open.png");
+            //$('#menu').attr("src","../../static/img/open.png");
 		} else {
 			$('body').removeClass('layout-fullwidth');
 			$('body').removeClass('layout-default'); // also remove default behaviour if set
-            $('#menu').attr("src","../../static/img/close.png");
+            //$('#menu').attr("src","../../static/img/close.png");
 		}
 
-		//$(this).find('.lnr').toggleClass('lnr-arrow-left-circle lnr-arrow-right-circle');
+		$(this).find('.lnr').toggleClass('lnr-arrow-left-circle lnr-arrow-right-circle');
 
 		if($(window).innerWidth() < 1025) {
 			if(!$('body').hasClass('offcanvas-active')) {
