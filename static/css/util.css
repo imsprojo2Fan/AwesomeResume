@@ -1,4 +1,73 @@
 
+/*媒体查询响应式开始---------*/
+/* 2. Small devices (tablets, 767px and Down) */
+@media (max-width: 767px){
+    .logoWrap a{
+        opacity: 1;
+    }
+}
+/* 2. Medium devices (desktops, 991px and Down) */
+@media (max-width: 991px){
+
+}
+/* 2. Medium devices (desktops, 991px and Up) */
+@media (min-width: 991px){
+    .logoWrap a{
+        opacity: 0.75;
+    }
+    .logoWrap a:hover{
+        opacity: 1;
+    }
+}
+/*媒体查询响应式结束---------*/
+
+
+/*页脚样式开始-------------*/
+.footer {
+    width: 100%;
+    text-align: center;
+    background: #333;
+    min-height: 200px;
+}
+
+.myLoogo{
+    font-family: Panxiang;
+    font-size: 28px;
+    color: #ffffff;
+    padding: 4px 13px;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 30px -30px 100px #fff;
+    background: -webkit-linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1));
+    background: -o-linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1));
+    background: -moz-linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1));
+    background: linear-gradient(45deg, rgb(11, 11, 11), rgba(19, 52, 88, 1));
+}
+
+.copyright-mark a{
+    color: #ffffff;
+}
+
+.copyright-mark a:hover{
+    color: #6195FF;
+}
+
+/*页脚样式结束-------------*/
+
+@font-face {
+    font-family: Panxiang;
+    src: url('../../static/font/Panxiang.eot');
+    src:
+            url('../../static/font/Panxiang.eot?#font-spider') format('embedded-opentype'),
+            url('../../static/font/Panxiang.woff2') format('woff2'),
+            url('../../static/font/Panxiang.woff') format('woff'),
+            url('../../static/font/Panxiang.ttf') format('truetype'),
+            url('../../static/font/Panxiang.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 <!--设置滚动条及选中文字样式-->
 ::-webkit-scrollbar {
     width: 10px;
@@ -79,7 +148,7 @@
     text-align: center;
     color: #fff;
     border: 1px solid #fff;
-    border-radius: 3px;
+    border-radius: 0px;
     z-index: 9;
 }
 .scroll-top i {

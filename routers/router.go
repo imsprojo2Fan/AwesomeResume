@@ -8,7 +8,7 @@ import (
 func init() {
 	//网站首页相关
 	beego.Router("/", &controllers.IndexController{},"*:Index")
-	beego.Router("/template", &controllers.IndexController{},"*:Index")
+	beego.Router("/resume", &controllers.IndexController{},"*:Redirect")
 	//登录相关
 	beego.Router("/login", &controllers.LoginController{},"*:LoginIndex")
 	beego.Router("/validate", &controllers.LoginController{},"*:Validate")

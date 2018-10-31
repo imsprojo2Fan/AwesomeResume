@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
     <meta name="description" content="">
     <meta name="keywords" content="" />
     <link rel="shortcut  icon" type="image/x-icon" href="../../static/img/logo/logoPic.png" media="screen"  />
@@ -17,6 +17,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <style type="text/css">
         body{background: #F5F5F5;}
+        html{
+            overflow-x: hidden;
+        }
+        img{max-width:90% !important; height:auto !important;}
     </style>
     <script>
         $(function () {
@@ -39,8 +43,7 @@
 <body>
 
 <div class="error-pages">
-
-    <img id="img" src="../../static/img/404.png" alt="404" class="icon" width="400" height="260">
+    <img id="img" src="../../static/img/404.png" alt="404" class="img" >
     <h1>Sorry but we couldn’t find this page</h1>
     <h4>It seems that this page doesn’t exist or has been removed</h4>
     {{/*<form>

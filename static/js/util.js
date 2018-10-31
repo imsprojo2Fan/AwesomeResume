@@ -79,7 +79,8 @@ $.fn.scrollToTop = function() {
 };
 
 function redirect(str) {
-    $('#close-button').click();
+    debugger
+    //$('#close-button').click();
     var target = document.getElementById(str);
     if (!target) {
         $('html,body').animate({

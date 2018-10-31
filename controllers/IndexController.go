@@ -28,17 +28,20 @@ func (c *IndexController) Index() {
 
 }
 
-func (this *IndexController) Template() {
+func (this *IndexController) Redirect() {
 
-	eid := this.GetString("e")
+	eid := this.GetString("v")
 	//查询resume表获取模板url
 	resume:= new(models.Resume)
 	resume.Eid = eid
 	resume.SelectByEid(resume)
-	if resume==nil{
+	if resume.Url==""{
 		this.TplName = "tip/404.html"
+		return
 	}
-	htmlName:= resume.Url+".html"
+	//设置token
+	this.Data["_xsrf"] = this.XSRFToken()
+	htmlName:= "resume/"+resume.Url+".html"
 	this.TplName = htmlName
 
 }
