@@ -66,6 +66,36 @@
 		width: 50%;
 	}
 
+	.form-group{
+		margin-bottom: 0px;
+	}
+
+	#alertPickDate>label{
+		width: 100%;
+		border: 0px solid red;
+	}
+
+	#alertPickDate>div{
+		display: inline-block;
+	}
+
+	#alertPickDate>div>input{
+		width: 135px;
+		margin-bottom: 10px;
+	}
+
+	#job4operator>label{
+		display: none;
+		margin-top: 15px;
+	}
+
+	#job4operator>div{
+		border: 0px solid red;
+		text-align: center;
+		margin-top: 20px;
+		width: 100%;
+	}
+
 
   /*---- blog -----*/
 	.grid-item {width: 50%;}

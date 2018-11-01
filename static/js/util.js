@@ -59,6 +59,7 @@ $.fn.scrollToTop = function() {
     if (jQuery(window).scrollTop() != '0') {
         jQuery(this).fadeIn(500);
         $('#wechat').fadeIn(500);
+        $('#design').fadeIn(500);
     }
     var scrollDiv = jQuery(this);
     jQuery(window).scroll(function() {
@@ -66,9 +67,11 @@ $.fn.scrollToTop = function() {
             jQuery(scrollDiv).fadeOut(500);
             $('#wechat').fadeOut(500);
             $('#wechat-alert').fadeOut(500);
+            $('#design').fadeOut(500);
         } else {
             jQuery(scrollDiv).fadeIn(500);
             $('#wechat').fadeIn(500);
+            $('#design').fadeIn(500);
         }
     });
     jQuery(this).on('click', function() {

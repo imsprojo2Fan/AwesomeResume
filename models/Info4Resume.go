@@ -22,12 +22,15 @@ type Info4Resume struct {
 	Email string
 	Home string
 	Address string
+	Hobby string
 	Educations string
 	Works string
 	Projects string
 	Skills string
 	Honors string
 	Introduce string
+	Rumors string
+	BgImg string
 	Theme string
 	Updated time.Time `orm:"auto_now_add;type(datetime)"`
 	Created time.Time `orm:"auto_now_add;type(datetime)"`
