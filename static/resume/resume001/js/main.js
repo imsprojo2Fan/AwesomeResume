@@ -132,11 +132,9 @@
               addCookie("alertInfo","alertInfo",7,"/");
               swal("即刻提示","点击右下角设计按钮即可制作及预览简历","info");
           }
-      },100);
+      },500);
 
-      $('#design').on("click",function () {
-          $('#myModal').modal("show");
-      });
+
   });
   
     

@@ -70,30 +70,18 @@
 		margin-bottom: 0px;
 	}
 
-	#alertPickDate>label{
+	.alertPickDate>label{
 		width: 100%;
 		border: 0px solid red;
 	}
 
-	#alertPickDate>div{
+	.alertPickDate>div{
 		display: inline-block;
 	}
 
-	#alertPickDate>div>input{
+	.alertPickDate>div>input{
 		width: 135px;
 		margin-bottom: 10px;
-	}
-
-	#job4operator>label{
-		display: none;
-		margin-top: 15px;
-	}
-
-	#job4operator>div{
-		border: 0px solid red;
-		text-align: center;
-		margin-top: 20px;
-		width: 100%;
 	}
 
 
