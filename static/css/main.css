@@ -1934,7 +1934,7 @@ ul.client-thumb-2 li a img:hover{
 .works-filter {
     float: left;
     line-height: 46px;
-    margin-bottom: 42px;
+    margin-bottom: 25px;
 }
 .works-filter a {
     display: inline-block;
@@ -2020,7 +2020,7 @@ ul.client-thumb-2 li a img:hover{
     height: 100%;
     padding: 45px;
     z-index: 4;
-    cursor: url(../img/cursor.png), auto;
+    cursor: url(../img/cursor_.png), auto;
 }
 .img .overlay-thumb {
     position: absolute;
