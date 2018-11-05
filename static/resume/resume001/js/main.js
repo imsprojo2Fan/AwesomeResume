@@ -52,13 +52,12 @@
       inits();
 
       //typed js
-      /*$(".typed").typed({
+      $(".typed").typed({
           strings: ["我的名字是M.Reza", "我是一名Web Designer", "🙂"],
           typeSpeed: 100,
           backDelay: 900,
-          // loop
           loop: true
-      });*/
+      });
 
       //owl carousel
       $('.owl-carousel').owlCarousel({

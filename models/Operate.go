@@ -9,8 +9,8 @@ import (
 // Model Struct
 type Operate struct {
 	Id  int
-	Uid int
-	Rid int
+	Uid int64
+	Rid string
 	Type int
 	Updated time.Time `orm:"auto_now_add;type(datetime)"`
 	Created time.Time `orm:"auto_now_add;type(datetime)"`

@@ -185,3 +185,16 @@ function isPhone() {
         return false;
     }
 }
+
+function toggleBody(isPin){
+
+    if(isPin){
+        document.body.style.height = '100vh'
+        document.body.style['overflow-y'] = 'hidden'
+    }
+
+    else{
+        document.body.style.height = 'unset'
+        document.body.style['overflow-y'] = 'auto'
+    }
+}

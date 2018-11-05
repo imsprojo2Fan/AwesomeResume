@@ -9,18 +9,20 @@ import (
 // Model Struct
 type Info4Resume struct {
 	Id  int
-	Uid int
-	Rid int
-	Sid int
+	Uid int64
+	Rid string
+	Sid string
 	Name string `orm:"size(16)"`
-	Gender int
+	Objective string
+	Gender string
 	Birthday string
 	Age int
 	Avatar string
 	Signature string
 	Phone string
 	Email string
-	Home string
+	Province string
+	City string
 	Address string
 	Hobby string
 	Educations string
@@ -50,6 +52,7 @@ func(this *Info4Resume) Insert(Info4Resume *Info4Resume) bool {
 		return true
 	}
 }
+
 
 func(this *Info4Resume) Update(Info4Resume *Info4Resume) bool {
 

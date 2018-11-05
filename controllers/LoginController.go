@@ -47,25 +47,33 @@ func(this *LoginController) Validate()  {
 		this.jsonResult(http.StatusOK,-1, "type can`t be null", nil)
 	}
 	if oType=="login"{
-		account := this.GetString("account")
-		password := this.GetString("password")
-		if account==""||password==""{
-			this.jsonResult(http.StatusOK,-1, "账号或密码不能为空!", nil)
-		}
 		user := new(models.WXInfo)
-		user.Account = account
-		if !user.Login(user){
-			this.jsonResult(http.StatusOK,-1, "账号不存在!", nil)
-		}
-		key := "0123456789abcdef"
-		salt := "AwesomeResume_"
-		result, err := utils.AesEncrypt([]byte(password+salt), []byte(key))
-		if err != nil {
-			panic(err)
-		}
-		resultStr := base64.StdEncoding.EncodeToString(result)
-		if user.Password != resultStr{
-			this.jsonResult(http.StatusOK,-1, "账号或密码不正确!", nil)
+		passKey := this.GetString("passKey")
+		if passKey!=""{
+			user.Account = passKey
+			if !user.Login(user){
+				this.jsonResult(http.StatusOK,-1, "登录密钥不正确!", nil)
+			}
+		}else{
+			account := this.GetString("account")
+			password := this.GetString("password")
+			if account==""||password==""{
+				this.jsonResult(http.StatusOK,-1, "账号或密码不能为空!", nil)
+			}
+			user.Account = account
+			if !user.Login(user){
+				this.jsonResult(http.StatusOK,-1, "账号不存在!", nil)
+			}
+			key := "0123456789abcdef"
+			salt := "AwesomeResume_"
+			result, err := utils.AesEncrypt([]byte(password+salt), []byte(key))
+			if err != nil {
+				panic(err)
+			}
+			resultStr := base64.StdEncoding.EncodeToString(result)
+			if user.Password != resultStr{
+				this.jsonResult(http.StatusOK,-1, "账号或密码不正确!", nil)
+			}
 		}
 
 		session.Set("user",user)
@@ -74,7 +82,7 @@ func(this *LoginController) Validate()  {
 		//this.Redirect("/user",http.StatusFound)
 		fmt.Println("Account:",user.Account)
 		fmt.Println("Name:",user.NickName)
-		this.jsonResult(http.StatusOK,1, "账号验证登录成功!", nil)
+		this.jsonResult(http.StatusOK,1, "账号验证登录成功!", user.Id)
 
 	}else if oType=="resetMail"{//发送重置密码邮件
 		mail := this.GetString("email")

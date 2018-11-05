@@ -41,6 +41,17 @@
     </style>
 </head>
 <body>
+<input type="hidden" id="token" value="{{._xsrf}}">
+<div id="loading" class="loading-wrap" style="display: none">
+    <div class="loader" >
+        <div class="la-fire la-3x">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="loaderTxt">数据交互中...</div>
+    </div>
+</div>
 <!--PRELOADER-->
 <div id="preloader">
     <div id="status">
@@ -111,6 +122,7 @@
                             <h1>你好</h1>
                             <br>
                             <span class="typed"></span>
+                            <span class="typed_"></span>
                         </div>
                     </div>
                     <div class="mouse-icon margin-20">
@@ -532,6 +544,11 @@
     <!--/.CONTENT-WRAP END-->
 </div>
 
+<div id="submitTip" style="width: 100%;height: 200px;text-align: center;position: fixed;bottom: 0px;background:#333333;z-index: 9999;display: none;">
+    <div id="footerTip" style="color: #ffffff;font-size: 23px;margin-top: 70px;">提交已填写信息即可在线查看简历</div>
+    <button id="submit" class="btn btn-primary" onclick="submit()" style="margin-top: 6px;background: #6397ff">上传信息</button>
+</div>
+
 <!-- 模态框（Modal） -->
 <div class="modal fade" id="myModal" tabindex="-1"  data-backdrop="static" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
@@ -780,7 +797,7 @@
                     下一页
                 </button>
                 <button type="button" id="preview" class="btn btn-success" style="display: none">
-                    保存预览
+                    本地预览
                 </button>
             </div>
         </div><!-- /.modal-content -->
@@ -815,6 +832,8 @@
     var resume = {};
     $(function () {
 
+        //隐藏输入框
+        $('fieldset').hide();
         console.info(JSON.parse(localStorage.getItem("resume")));
         localData = localStorage.getItem("resume");
         if(localData){
@@ -979,7 +998,7 @@
     });
 
     function tipTip(str) {
-        $('#tip').html("<p>错误提示：<span class='red'>"+str+"</span></p>");
+        $('#tip').html("<p>即刻提示:<span class='red'>"+str+"</span></p>");
         setTimeout(function () {
             $('#tip').html("");
         },3000);
@@ -1024,11 +1043,11 @@
             edus.push(eduItem);
         });
         if(!name){
-            tipTip("姓名是认识一个人的第一步!");
+            tipTip("姓名是认识一个人的第一步.");
             return;
         }
         if(!objective){
-            tipTip("您貌似忘记填写求职意向了!");
+            tipTip("您貌似忘记填写求职意向了.");
             return;
         }
         if(!phone){
@@ -1036,7 +1055,7 @@
             return;
         }
         if(!email){
-            tipTip("邮箱地址有时其实也挺需要的!");
+            tipTip("邮箱地址有时其实也挺需要的.");
             return;
         }
         if(!introduce){
@@ -1075,7 +1094,9 @@
 
     }
     function renderHtml() {
-        $(".typed").typed({//渲染打印效果
+        $("#submitTip").show();
+        $(".typed").hide();
+        $(".typed_").typed({//渲染打印效果
             strings: ["我的名字是"+resume.name, "我是一名"+resume.objective,"来自"+resume.home, "🙂"],
             typeSpeed: 100,
             backDelay: 900,
@@ -1085,6 +1106,9 @@
         $('#showName').html(resume.name);
         $("#showObjective").html(resume.objective);
         $("#showGender").html(resume.gender);
+        if(resume.gender=="女"){
+            $('.bg-about').css("background-img","../images/about/about01_.jpg")
+        }
         $("#showBirthday").html(resume.birthday);
         $("#showPhone").html(resume.phone);
         $('#showEmail').html(resume.email);
@@ -1364,6 +1388,149 @@
                 });
             }
         });
+
+    }
+    function submit() {
+
+        if($('#submit').html()==="前往登录"){
+            window.open("/login","_blank");
+            return;
+        }
+
+        swal({
+                    title: "<h3>是否已有账号?</h3>",
+                    text: "如果无账号将由系统生成临时账号,请尽快更改!",
+                    type: "warning",
+                    html:true,
+                    showCancelButton: true,
+                    confirmButtonColor: "#6397ff",
+                    confirmButtonText: "是",
+                    cancelButtonText: "否",
+                    closeOnConfirm: false
+                },
+                function(isConfirm){
+                    if(isConfirm){
+                        swal({
+                            title: "<h3>请输入登录信息</h3>",
+                            text: "账号/邮箱/手机号<input type='text' id='account'>"+"登录密码",
+                            html:true,
+                            showCancelButton: true,
+                            closeOnConfirm: true,
+                            confirmButtonColor: "#6397ff",
+                            confirmButtonText: "提交",
+                            cancelButtonText: "取消",
+                            animation: "slide-from-top",
+                            type: "prompt"
+                        }, function(){
+                            var account = $('#account').val().trim();
+                            var password = $('.sweet-alert').find("fieldset").find("input").val().trim();
+                            console.info("account:"+account+"-password:"+password);
+                            $.post("/validate",{type:"login",_xsrf:$('#token').val(),account:account,password:password},function (r) {
+                                if(r.code==1){
+                                    $.ajax({
+                                        url : "/resume/submit",
+                                        type : "POST",
+                                        data : {
+                                            rid:GetQueryString("v"),
+                                            uid:r.data,
+                                            name:resume.name,
+                                            objective:resume.objective,
+                                            gender:resume.gender,
+                                            birthday:resume.birthday,
+                                            phone:resume.phone,
+                                            email:resume.email,
+                                            province:resume.province,
+                                            city:resume.city,
+                                            address:resume.address,
+                                            hobby:resume.hobby,
+                                            honor:resume.honor,
+                                            introduce:resume.introduce,
+                                            works:JSON.stringify(resume.works),
+                                            skills:JSON.stringify(resume.skills),
+                                            edus:JSON.stringify(resume.edus),
+                                            _xsrf:$('#token').val()
+                                        },
+                                        dataType : "json",
+                                        cache : false,
+                                        beforeSend:function(){
+                                            $('#loading').fadeIn(200);
+                                            $('#scroll-top').click();
+                                            toggleBody(0);
+                                        },
+                                        success : function(r) {
+                                            if (r.code == 1) {
+                                                swal({
+                                                    title:"提交成功!",
+                                                    text:'您的简历分享链接为:</br>'+"http://resume.zooori.cn/resume/share?v="+r.data,
+                                                    html:true,
+                                                    type:"success"
+                                                });
+                                            } else {
+                                                swal(r.msg,' ',"error");
+                                            }
+                                        },
+                                        complete:function () {
+                                            $('#loading').fadeOut(200);
+                                            toggleBody(1);
+                                        }
+                                    });
+                                }
+                            })
+
+                        });
+                    }else{
+                        $.ajax({
+                            url : "/resume/submit",
+                            type : "POST",
+                            data : {
+                                rid:GetQueryString("v"),
+                                name:resume.name,
+                                objective:resume.objective,
+                                gender:resume.gender,
+                                birthday:resume.birthday,
+                                phone:resume.phone,
+                                email:resume.email,
+                                province:resume.province,
+                                city:resume.city,
+                                address:resume.address,
+                                hobby:resume.hobby,
+                                honor:resume.honor,
+                                introduce:resume.introduce,
+                                works:JSON.stringify(resume.works),
+                                skills:JSON.stringify(resume.skills),
+                                edus:JSON.stringify(resume.edus),
+                                _xsrf:$('#token').val()
+                            },
+                            dataType : "json",
+                            cache : false,
+                            beforeSend:function(){
+                                $('#loading').fadeIn(200);
+                                $('#scroll-top').click();
+                                toggleBody(0);
+                            },
+                            success : function(r) {
+                                if (r.code == 1) {
+                                    swal({
+                                        title:"提交成功!",
+                                        text:'以下为临时登录密钥,请尽快登录系统更改！</br><h3>'+r.data+"</h3>",
+                                        html:true,
+                                        type:"success"
+                                    });
+                                    $('#footerTip').html("登录系统您可能需要拷贝临时密钥:</br>"+r.data);
+                                    $('#submit').removeClass("btn-primary");
+                                    $('#submit').addClass("btn-success");
+                                    $('#submit').html("前往登录");
+                                } else {
+                                    swal(r.msg,' ',"error");
+                                }
+                            },
+                            complete:function () {
+                                $('#loading').fadeOut(200);
+                                toggleBody(1);
+                            }
+                        });
+                    }
+                });
 
     }
 

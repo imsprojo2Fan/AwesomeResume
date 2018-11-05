@@ -101,10 +101,25 @@ func(this *WXInfo) Read(WXInfo *WXInfo) bool {
 	}
 }
 
+func(this *WXInfo) ReadOrCreate(user WXInfo) int64  {
+	o := orm.NewOrm()
+	// 三个返回参数依次为：是否新创建的，对象 Id 值，错误
+	var ID int64
+	if created, id, err := o.ReadOrCreate(&user, "uid"); err == nil {
+		ID = id
+		if created {
+			fmt.Println("New Insert an object. Id:", id)
+		} else {
+			fmt.Println("Get an object. Id:", id)
+		}
+	}
+	return ID
+}
+
 func(this *WXInfo) Login(user *WXInfo) bool{
 
 	o := orm.NewOrm()
-	err := o.Raw("SELECT * FROM wxinfo WHERE account = ? OR phone = ? OR email = ?", user.Account,user.Account,user.Account).QueryRow(&user)
+	err := o.Raw("SELECT * FROM wxinfo WHERE account = ? OR phone = ? OR email = ? OR uid=?", user.Account,user.Account,user.Account,user.Account).QueryRow(&user)
 
 	if err!=nil{
 		return false
