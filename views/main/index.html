@@ -184,9 +184,9 @@
 				<nav>
 					<ul id="navUl" class="nav">
 						<li onclick="redirect('home',this)"><i class="lnr lnr-home"></i> <span>首页</span></li>
-                        <li onclick="redirect('mades',this)"><i class="lnr lnr-hand"></i> <span>我的制作</span></li>
-						<li onclick="redirect('views',this)"><i class="lnr lnr-eye"></i> <span>我的查看</span></li>
-						<li onclick="redirect('likes',this)"><i class="lnr lnr-heart"></i> <span>我的喜欢</span></li>
+                        <li id="made" onclick="redirect('mades',this)"><i class="lnr lnr-hand"></i> <span>我的制作</span></li>
+						{{/*<li onclick="redirect('views',this)"><i class="lnr lnr-eye"></i> <span>我的查看</span></li>
+						<li onclick="redirect('likes',this)"><i class="lnr lnr-heart"></i> <span>我的喜欢</span></li>*/}}
 						<li onclick="redirect('news',this)"><i class="lnr lnr-envelope"></i> <span>消息提醒</span></li>
 						<li onclick="redirect('profile',this)"><i class="lnr lnr-user"></i> <span>个人设置</span></li>
 						<li style="display: none" id="last" onclick="redirect('',this)">
@@ -242,16 +242,21 @@
 
 		$(function () {
 			userInfo = {{.userInfo}};
-			console.log(userInfo);
-			if(userInfo.Type>2){
+
+            console.log(userInfo);
+            if(userInfo.Type>2){
                 $('#last').show();
-			}
-			//$('#account').html(userInfo.Account);
-			if(isPhone()){
-			    $('.btn-toggle-fullwidth').find("i").removeClass("lnr-arrow-left-circle");
+            }
+            //$('#account').html(userInfo.Account);
+            if(isPhone()){
+                $('.btn-toggle-fullwidth').find("i").removeClass("lnr-arrow-left-circle");
                 $('.btn-toggle-fullwidth').find("i").addClass("lnr-arrow-right-circle");
+            }
+			var is2made = {{.is2made}};
+			if(is2made){
+			    $('#made').click();
 			}
-        })
+        });
         function redirect(htmlName,obj){
             $('#navUl li').each(function (index) {//全置默认
 				$(this).removeClass("navItemActive");

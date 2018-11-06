@@ -10,21 +10,23 @@ import (
 	_ "github.com/astaxie/beego/cache/redis"
 )
 
-var cc cache.Cache
+var GlobalRedis cache.Cache
+var ExpireTime int64
 
 func InitCache() {
 	host := beego.AppConfig.String("cache::redis_host")
-	//passWord := beego.AppConfig.String("cache::redis_password")
+	//passWord := beego.AppConfig.String("cache::GlobalRedis_password")
+	ExpireTime,_ = beego.AppConfig.Int64("cache::cache_expire")
 	var err error
 	defer func() {
 		if r := recover(); r != nil {
-			cc = nil
+			GlobalRedis = nil
 		}
 	}()
-	//cc, err = cache.NewCache("redis", `{"conn":"`+host+`","password":"`+passWord+`"}`)
-	cc, err = cache.NewCache("redis", `{"conn":"`+host+`"}`)
+	//GlobalRedis, err = cache.NewCache("GlobalRedis", `{"conn":"`+host+`","password":"`+passWord+`"}`)
+	GlobalRedis, err = cache.NewCache("redis", `{"conn":"`+host+`"}`)
 	if err != nil {
-		LogError("Connect to the redis host " + host + " failed")
+		LogError("Connect to the GlobalRedis host " + host + " failed")
 		LogError(err)
 	}
 }
@@ -35,18 +37,18 @@ func SetCache(key string, value interface{}, timeout int) error {
 	if err != nil {
 		return err
 	}
-	if cc == nil {
-		return errors.New("cc is nil")
+	if GlobalRedis == nil {
+		return errors.New("GlobalRedis is nil")
 	}
 
 	defer func() {
 		if r := recover(); r != nil {
 			LogError(r)
-			cc = nil
+			GlobalRedis = nil
 		}
 	}()
 	timeouts := time.Duration(timeout) * time.Second
-	err = cc.Put(key, data, timeouts)
+	err = GlobalRedis.Put(key, data, timeouts)
 	if err != nil {
 		LogError(err)
 		LogError("SetCache失败，key:" + key)
@@ -57,18 +59,18 @@ func SetCache(key string, value interface{}, timeout int) error {
 }
 
 func GetCache(key string, to interface{}) error {
-	if cc == nil {
-		return errors.New("cc is nil")
+	if GlobalRedis == nil {
+		return errors.New("GlobalRedis is nil")
 	}
 
 	defer func() {
 		if r := recover(); r != nil {
 			LogError(r)
-			cc = nil
+			GlobalRedis = nil
 		}
 	}()
 
-	data := cc.Get(key)
+	data := GlobalRedis.Get(key)
 	if data == nil {
 		return errors.New("Cache不存在")
 	}
@@ -84,16 +86,16 @@ func GetCache(key string, to interface{}) error {
 
 // DelCache
 func DelCache(key string) error {
-	if cc == nil {
-		return errors.New("cc is nil")
+	if GlobalRedis == nil {
+		return errors.New("GlobalRedis is nil")
 	}
 	defer func() {
 		if r := recover(); r != nil {
 			//fmt.Println("get cache error caught: %v\n", r)
-			cc = nil
+			GlobalRedis = nil
 		}
 	}()
-	err := cc.Delete(key)
+	err := GlobalRedis.Delete(key)
 	if err != nil {
 		return errors.New("Cache删除失败")
 	} else {

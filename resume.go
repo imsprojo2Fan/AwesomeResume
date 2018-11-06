@@ -5,10 +5,11 @@ import (
 	"github.com/astaxie/beego"
 	_"AwesomeResume/sysinit"
 	"github.com/astaxie/beego/context"
-	"AwesomeResume/utils"
+	//"AwesomeResume/utils"
 	"fmt"
 	"strings"
 	"net/http"
+	"AwesomeResume/utils"
 )
 
 func init()  {
@@ -28,9 +29,9 @@ func init()  {
 	//判断用户是否登录/登录超时
 	var FilterUser = func(ctx *context.Context) {
 		session,_ := utils.GlobalSessions.SessionStart(ctx.ResponseWriter, ctx.Request)
-		id, ok := session.Get("id").(int)
-		fmt.Println("-------id:",id)
-		if !ok {
+		id:= session.Get("id")
+		fmt.Println("SessioId:",id)
+		if id==nil {
 			ctx.Redirect(302, "/timeout")
 		}
 	}

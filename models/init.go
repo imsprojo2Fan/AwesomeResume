@@ -7,6 +7,7 @@ import (
 
 //初始化
 func init() {
+	orm.RegisterModel(new(User))
 	orm.RegisterModel(new(WXInfo))
 	orm.RegisterModel(new(Resume))
 	orm.RegisterModel(new(Info4Resume))
@@ -18,6 +19,11 @@ func init() {
 func TableName(name string) string {
 	prefix := beego.AppConfig.String("db_dt_prefix")
 	return prefix + name
+}
+
+//获取 BackendUser 对应的表名称
+func UserTBName() string {
+	return TableName("user")
 }
 
 //获取 BackendUser 对应的表名称

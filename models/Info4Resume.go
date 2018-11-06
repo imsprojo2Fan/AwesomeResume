@@ -90,3 +90,25 @@ func(this *Info4Resume) Read(Info4Resume *Info4Resume) bool {
 		return true
 	}
 }
+
+func(this *Info4Resume) ReadByUid(Info4Resume *Info4Resume) bool {
+
+	o := orm.NewOrm()
+	err := o.Read(Info4Resume,"uid")
+	if err == orm.ErrNoRows {
+		fmt.Println("查询不到")
+		return false
+	} else if err == orm.ErrMissPK {
+		fmt.Println("找不到主键")
+		return false
+	} else {
+		return true
+	}
+}
+
+func(this *Info4Resume) ListMade(qMap map[string]interface{},dataList *[]Info4Resume) {
+	o := orm.NewOrm()
+	uid := qMap["uid"].(string)
+	sql := "select * from info4resume where 1=1 and uid="+uid
+	o.Raw(sql).QueryRows(dataList)
+}

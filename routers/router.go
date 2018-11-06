@@ -25,6 +25,8 @@ func init() {
 	beego.Router("/main/resume/delete",&controllers.ResumeController{},"POST:Delete")
 	beego.Router("/main/resume/list",&controllers.ResumeController{},"POST:ListByPage")
 	beego.Router("/index/resume/list",&controllers.ResumeController{},"POST:ListByPage4Index")
+	//简历信息管理
+	beego.Router("/main/resume/made",&controllers.Info4ResumeController{},"POST:ListByUid")
 
 	//定制错误页
 	beego.ErrorController(&controllers.ErrorController{})

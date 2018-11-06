@@ -67,3 +67,18 @@ func(this *Operate) Read(Operate *Operate) bool {
 		return true
 	}
 }
+
+func(this *Operate) ReadOrCreate(operate *Operate) int64  {
+	o := orm.NewOrm()
+	// 三个返回参数依次为：是否新创建的，对象 Id 值，错误
+	var ID int64
+	if created, id, err := o.ReadOrCreate(&operate, "rid","uid"); err == nil {
+		ID = id
+		if created {
+			fmt.Println("New Insert an object. Id:", id)
+		} else {
+			fmt.Println("Get an object. Id:", id)
+		}
+	}
+	return ID
+}

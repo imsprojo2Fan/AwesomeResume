@@ -413,7 +413,7 @@ p {
 }
 
 .company {
-  font-size: 22px;
+  font-size: 20px;
   color: #333;
   display: inline-block;
   padding-bottom: 15px;
@@ -426,7 +426,6 @@ p {
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.4px;
-  text-transform: uppercase;
 }
 
 .year {
@@ -629,7 +628,6 @@ ul.portfolio-image li .desc{
 .head-sm {
   font-size: 13px;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
   margin-top: 10px;
   margin-bottom: 20px;
   font-family: 'Roboto', sans-serif;
@@ -681,6 +679,7 @@ ul.portfolio-image li .desc{
   background: #ffffff;
   padding: 30px 35px 45px 35px;
   margin-bottom: 30px;
+  min-height: 450px;
   border: 1px solid rgba(129, 129, 129, 0.1);
 }
 .card:before,

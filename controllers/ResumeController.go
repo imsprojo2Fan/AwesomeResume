@@ -153,10 +153,10 @@ func(this *ResumeController) ListByPage4Index()  {
 	resume.ListByPage4Index(qMap,&dataList)
 	backMap["data"] = dataList
 
-	this.Data["json"] = backMap
+	/*this.Data["json"] = backMap
 	this.ServeJSON()
-	this.StopRun()
-	//this.jsonResult(http.StatusOK,1,"查询成功",backMap)
+	this.StopRun()*/
+	this.jsonResult(http.StatusOK,1,"查询成功",dataList)
 }
 
 func (c *ResumeController) jsonResult(status enums.JsonResultCode,code int, msg string, data interface{}) {

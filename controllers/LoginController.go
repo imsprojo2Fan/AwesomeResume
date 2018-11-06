@@ -26,8 +26,8 @@ func(this *LoginController) LoginIndex()  {
 func(this *LoginController) Timeout()  {
 	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
 	session.Set("id",nil)
-	id, _ := session.Get("id").(int)
-	fmt.Println("-------id:",id)
+	id:= session.Get("id")
+	fmt.Println("TimeOutId:",id)
 	if !this.IsAjax(){
 		this.Data["_xsrf"] = this.XSRFToken()
 		this.Data["timeout"]= time.Now()
@@ -42,19 +42,22 @@ func(this *LoginController) Timeout()  {
 func(this *LoginController) Validate()  {
 
 	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
+
 	oType := this.GetString("type")
 	if oType== ""{
 		this.jsonResult(http.StatusOK,-1, "type can`t be null", nil)
 	}
+	user := new(models.User)
+	key := beego.AppConfig.String("password::key")
+	salt := beego.AppConfig.String("password::salt")
 	if oType=="login"{
-		user := new(models.WXInfo)
 		passKey := this.GetString("passKey")
-		if passKey!=""{
+		if passKey!=""{//密钥登录
 			user.Account = passKey
 			if !user.Login(user){
 				this.jsonResult(http.StatusOK,-1, "登录密钥不正确!", nil)
 			}
-		}else{
+		}else{//普通登录
 			account := this.GetString("account")
 			password := this.GetString("password")
 			if account==""||password==""{
@@ -64,8 +67,6 @@ func(this *LoginController) Validate()  {
 			if !user.Login(user){
 				this.jsonResult(http.StatusOK,-1, "账号不存在!", nil)
 			}
-			key := "0123456789abcdef"
-			salt := "AwesomeResume_"
 			result, err := utils.AesEncrypt([]byte(password+salt), []byte(key))
 			if err != nil {
 				panic(err)
@@ -75,14 +76,58 @@ func(this *LoginController) Validate()  {
 				this.jsonResult(http.StatusOK,-1, "账号或密码不正确!", nil)
 			}
 		}
-
 		session.Set("user",user)
 		session.Set("account",user.Account)
 		session.Set("id",user.Id)
-		//this.Redirect("/user",http.StatusFound)
 		fmt.Println("Account:",user.Account)
-		fmt.Println("Name:",user.NickName)
+		fmt.Println("id:",session.Get("id"))
 		this.jsonResult(http.StatusOK,1, "账号验证登录成功!", user.Id)
+
+	}else if oType=="validate4made"{//已有账号使用简历模板
+		account := this.GetString("account")
+		password := this.GetString("password")
+		if account==""||password==""{
+			this.jsonResult(http.StatusOK,-1, "账号或密码不能为空!", nil)
+		}
+		user.Account = account
+		if !user.Login(user){
+			this.jsonResult(http.StatusOK,-1, "账号不存在!", nil)
+		}
+		result, err := utils.AesEncrypt([]byte(password+salt), []byte(key))
+		if err != nil {
+			panic(err)
+		}
+		resultStr := base64.StdEncoding.EncodeToString(result)
+		if user.Password != resultStr{
+			this.jsonResult(http.StatusOK,-1, "账号或密码不正确!", nil)
+		}
+		session.Set("user",user)
+		session.Set("account",user.Account)
+		session.Set("id",user.Id)
+		session.Set("is2made",true)//设置登录成功即跳转到我的制作页面
+		fmt.Println("Account:",user.Account)
+		//查询用户是否已填写过简历信息
+		info4resume := new(models.Info4Resume)
+		info4resume.Uid = user.Id
+		info4resume.ReadByUid(info4resume)
+		if info4resume.Id>0&&info4resume.Rid!=this.GetString("rid"){
+			//添加使用当前模板
+			info4resume.Id = info4resume.Id+1
+			info4resume.Rid = this.GetString("rid")
+			info4resume.Sid = utils.RandStringBytesMaskImprSrc(20)
+			info4resume.Insert(info4resume)
+			//添加当前用户操作记录
+			operate := new(models.Operate)
+			operate.Uid = user.Id
+			operate.Rid = this.GetString("rid")
+			operate.Type = 2
+			operate.Insert(operate)
+			this.jsonResult(http.StatusOK,1, "新建模板成功!", nil)
+		}else if info4resume.Rid==this.GetString("rid"){//已使用过当前模板则不再新增记录
+			this.jsonResult(http.StatusOK,2, "您已使用过当前模板!", nil)
+		}else{
+			this.jsonResult(http.StatusOK,3, "账号验证成功!", user.Id)
+		}
 
 	}else if oType=="resetMail"{//发送重置密码邮件
 		mail := this.GetString("email")
@@ -112,7 +157,7 @@ func(this *LoginController) Validate()  {
 		}else{
 			this.jsonResult(http.StatusOK,1, "重置密码成功!", "3秒后跳转登录页")
 		}
-	}else if oType=="logout"{
+	}else if oType=="logout"{//退出登录
 		session.Set("id",nil)
 		//this.Redirect("/login",302)
 		this.jsonResult(http.StatusOK,1, "退出成功!", nil)

@@ -7,6 +7,7 @@ import (
 	"AwesomeResume/models"
 	"AwesomeResume/utils"
 	"net/http"
+	"strconv"
 )
 
 type Info4ResumeController struct {
@@ -15,7 +16,7 @@ type Info4ResumeController struct {
 
 func(this *Info4ResumeController) Insert()  {
 
-	user := new(models.WXInfo)
+	user := new(models.User)
 	var UID string
 	ShareID := utils.RandStringBytesMaskImprSrc(20)
 
@@ -23,9 +24,8 @@ func(this *Info4ResumeController) Insert()  {
 	if uid==0{
 		UID = utils.RandStringBytesMaskImprSrc(16)
 		user.Uid = UID
-		uid =user.ReadOrCreate(*user)//插入用户表记录
+		uid = user.ReadOrCreate(*user)//插入用户表记录
 	}
-
 	info4resume := new(models.Info4Resume)
 	info4resume.Uid = uid
 	info4resume.Rid = this.GetString("rid")
@@ -63,6 +63,22 @@ func(this *Info4ResumeController) Insert()  {
 
 	}
 
+
+}
+
+func (this *Info4ResumeController)ListByUid() {
+
+	qMap := make(map[string]interface{})
+	var dataList []models.Info4Resume
+	//backMap := make(map[string]interface{})
+
+	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
+	uid_ := session.Get("id").(int64)
+	qMap["uid"] = strconv.FormatInt(uid_,10)
+	info4resume := new(models.Info4Resume)
+	info4resume.ListMade(qMap,&dataList)
+
+	this.jsonResult(http.StatusOK,1,"数据查询成功",dataList)
 
 }
 
