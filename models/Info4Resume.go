@@ -91,6 +91,7 @@ func(this *Info4Resume) Read(Info4Resume *Info4Resume) bool {
 	}
 }
 
+
 func(this *Info4Resume) ReadByUid(Info4Resume *Info4Resume) bool {
 
 	o := orm.NewOrm()
@@ -107,6 +108,13 @@ func(this *Info4Resume) ReadByUid(Info4Resume *Info4Resume) bool {
 }
 
 func(this *Info4Resume) ListMade(qMap map[string]interface{},dataList *[]Info4Resume) {
+	o := orm.NewOrm()
+	uid := qMap["uid"].(string)
+	sql := "select * from info4resume where 1=1 and uid="+uid
+	o.Raw(sql).QueryRows(dataList)
+}
+
+func(this *Info4Resume) ListOne(qMap map[string]interface{},dataList *[]Info4Resume) {
 	o := orm.NewOrm()
 	uid := qMap["uid"].(string)
 	sql := "select * from info4resume where 1=1 and uid="+uid

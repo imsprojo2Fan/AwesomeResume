@@ -629,11 +629,10 @@
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label form-label">籍贯信息<span class="red"></span></label>
-                            <div class="col-sm-8" data-toggle="distpicker">
-                                {{/*<input type="text" class="form-control" maxlength="40"  id="homeAddress"  placeholder="籍贯信息">*/}}
-                                    <select class="form-control" style="width: 45%;display: inline-block;" id="province" data-province="--- 选择省 ---"></select>
-                                    <select class="form-control" style="width: 50%;display: inline-block;" id="city" data-city="--- 选择市 ---"></select>
-                                    <select class="form-control " style="width: 33%;display: none;"  id="district" data-district="--- 选择区 ---"></select>
+                            <div class="col-sm-8" id="distpicker" >
+                                    <select class="form-control" style="width: 48%;display: inline-block;" id="province" ></select>
+                                    <select class="form-control" style="width: 50%;display: inline-block;" id="city" ></select>
+                                    <select class="form-control " style="width: 33%;display: none;"  id="district" ></select>
                                     <span class="help-block"></span>
                             </div>
                         </div>

@@ -27,6 +27,7 @@ func init() {
 	beego.Router("/index/resume/list",&controllers.ResumeController{},"POST:ListByPage4Index")
 	//简历信息管理
 	beego.Router("/main/resume/made",&controllers.Info4ResumeController{},"POST:ListByUid")
+	beego.Router("/main/resume/use",&controllers.Info4ResumeController{},"POST:Insert4Use")
 
 	//定制错误页
 	beego.ErrorController(&controllers.ErrorController{})

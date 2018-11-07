@@ -8,6 +8,7 @@ import (
 	"AwesomeResume/utils"
 	"net/http"
 	"strconv"
+	"time"
 )
 
 type Info4ResumeController struct {
@@ -64,6 +65,43 @@ func(this *Info4ResumeController) Insert()  {
 	}
 
 
+}
+
+func(this *Info4ResumeController) Insert4Use()  {
+	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
+	qMap := make(map[string]interface{})
+	var dataList []models.Info4Resume
+
+	ShareID := utils.RandStringBytesMaskImprSrc(20)
+	uid_ := session.Get("id").(int64)
+	qMap["uid"] = strconv.FormatInt(uid_,10)
+	rid := this.GetString("rid")
+	qMap["rid"] = rid
+
+	info4resume := new(models.Info4Resume)
+	info4resume.ListMade(qMap,&dataList)
+	if len(dataList)>0{
+		*info4resume = dataList[0]
+		info4resume.Id = 0
+		info4resume.Uid = uid_
+		info4resume.Sid = ShareID
+		info4resume.Rid = rid
+		info4resume.Updated = time.Now()
+		info4resume.Created = time.Now()
+		if !info4resume.Insert(info4resume){
+			this.jsonResult(http.StatusOK,-1, "添加数据失败!请稍候再试", nil)
+		}else{
+			//添加当前用户操作记录
+			operate := new(models.Operate)
+			operate.Uid = uid_
+			operate.Rid = this.GetString("rid")
+			operate.Type = 2
+			operate.Insert(operate)
+			this.jsonResult(http.StatusOK,1, "数据插入成功!", ShareID)
+		}
+	}else{
+		this.jsonResult(http.StatusOK,-1, "您还未填写过简历信息", nil)
+	}
 }
 
 func (this *Info4ResumeController)ListByUid() {

@@ -92,17 +92,28 @@ $(function () {
 
     //新增工作经历
     $('#save4work').on("click",function (){
+        //验证是否有未填项
+        var isBreak = false;
+        $('.workItem').each(function () {
+            var obj = $(this).find(".companyName");
+            var obj2 = $(this).find(".position");
+            var val = $(obj).val().trim();
+            var val2 = $(obj2).val().trim();
+            if(!val||!val2){
+                tipTip("您需先填完一些必要信息才能新增当前项");
+                isBreak = true;
+            }
+        });
+
+        if(isBreak){
+            return;
+        }
+
         var workArr = $('.workItem');
         workItem = $(workArr[0]).clone();
         $(workItem).find("input").val("");//清空已填内容
         $(workItem).find("input[type='month']").val("2018-01");
         $(workItem).find("textarea").val("");//清空已填内容
-        if(!isPhone()){
-            $(workItem).css("border","0.5px solid #eee");
-        }else{
-            $(workItem).css("border-top","0.5px solid #eee");
-        }
-
         $('#workWrap').append(workItem);
         $('.del4work').each(function (index) {//显示删除按钮
             if(index!=0){
@@ -115,14 +126,21 @@ $(function () {
     });
     //新增技能
     $('#save4skill').on("click",function () {
+        var isBreak = false;
+        //验证是否有未填项
+        $('.skillItem').each(function () {
+            var obj = $(this).find(".skillName");
+            if(!$(obj).val().trim()){
+                tipTip("您需先填完一些必要信息才能新增当前项");
+                isBreak = true;
+            }
+        });
+        if(isBreak){
+            return;
+        }
         var item = $('.skillItem')[0];
         skillItem = $(item).clone();
         $(skillItem).find("input").val("");//清空已填内容
-        if(!isPhone()){
-            $(skillItem).css("border","0.5px solid #eee");
-        }else{
-            $(skillItem).css("border-top","0.5px solid #eee");
-        }
         $('#skillWrap').append(skillItem);
         $(skillItem).find('.slide').slider({//渲染slider
             formatter: function (value) {
@@ -143,16 +161,23 @@ $(function () {
     });
     //新增教育经历
     $('#save4edu').on("click",function () {
+        var isBreak = false;
+        //验证是否有未填项
+        $('.eduItem').each(function () {
+            var obj = $(this).find(".school");
+            if(!$(obj).val().trim()){
+                tipTip("您需先填完一些必要信息才能新增当前项");
+                isBreak = true;
+            }
+        });
+        if(isBreak){
+            return;
+        }
         var item = $('.eduItem')[0];
         eduItem = $(item).clone();
         $(eduItem).find("input").val("");//清空已填内容
         $(eduItem).find("input[type='month']").val("2018-01");
         $(eduItem).find("textarea").val("");//清空已填内容
-        if(!isPhone()){
-            $(eduItem).css("border","0.5px solid #eee");
-        }else{
-            $(eduItem).css("border-top","0.5px solid #eee");
-        }
 
         $('#eduWrap').append(eduItem);
         $('.del4edu').each(function (index) {//显示删除按钮
@@ -167,7 +192,6 @@ $(function () {
     //完成预览
     $('#preview').on('click',function () {
         dataCollect();
-        $('#submitTip').show(200);
     });
 
 });
@@ -175,7 +199,7 @@ function tipTip(str) {
     $('#tip').html("<p>即刻提示:<span class='red'>"+str+"</span></p>");
     setTimeout(function () {
         $('#tip').html("");
-    },3000);
+    },5000);
 }
 function dataCollect() {
     $('#tip').html("");
@@ -416,8 +440,12 @@ function renderForm() {
     $('#birthday').val(resume.birthday);
     $('#phone').val(resume.phone);
     $('#email').val(resume.email);
-    $('#province').val(resume.province);
-    $('#city').val(resume.city);
+    //渲染省市区
+    $("#distpicker").distpicker({
+        province:resume.Province ,
+        city: resume.City,
+        district: ""
+    });
     $('#address').val(resume.address);
     $('#hobby').val(resume.hobby);
     $('#honor').val(resume.honor);
@@ -432,8 +460,8 @@ function renderForm() {
         var position = obj.position;
         var id = i+"work";
         var description = obj.description;
-        $('#workWrap').append('<div class="workItem" style="margin-top: 3px;padding-top: 5px;border:0.5px solid #eee;">\n' +
-            '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -10px;display:none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
+        $('#workWrap').append('<div class="workItem" style="margin-top: 5px;padding: 5px;border:0.5px solid #eee;">\n' +
+            '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
             '                                    <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>\n' +
             '                                    <div class="col-sm-4" style="border: 0px solid red;">\n' +
@@ -483,8 +511,8 @@ function renderForm() {
         var obj = skills[i];
         var skillName = obj.name;
         var num = obj.num;
-        $('#skillWrap').append('<div class="skillItem" style="margin-top: 3px;padding-top: 5px;">\n' +
-            '                                <div class="del4skill" style="width: 100%;text-align: right;margin-top: -10px;display:none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
+        $('#skillWrap').append('<div class="skillItem" style="margin-top: 5px;padding-top: 5px;border: 0.5px solid #eee">\n' +
+            '                                <div class="del4skill" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group">\n' +
             '                                    <label class="col-sm-3 control-label form-label">技能名称</label>\n' +
             '                                    <div class="col-sm-8">\n' +
@@ -526,8 +554,8 @@ function renderForm() {
         var school = obj.school;
         var id = i+"edu";
         var description = obj.description;
-        $('#eduWrap').append('<div class="eduItem" style="margin-top: 3px;padding-top: 5px;border: 0.5px solid #eee;">\n' +
-            '                                <div class="del4edu" style="width: 100%;text-align: right;margin-top: -10px;display:none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
+        $('#eduWrap').append('<div class="eduItem" style="margin-top: 5px;padding-top: 5px;border: 0.5px solid #eee;">\n' +
+            '                                <div class="del4edu" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
             '                                    <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>\n' +
             '                                    <div class="col-sm-4" style="border: 0px solid red;">\n' +
