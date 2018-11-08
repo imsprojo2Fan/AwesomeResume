@@ -1,6 +1,33 @@
 var workItem,skillItem,eduItem;
-var resume = {};
+var GlobalResume = {};
+var GlobalDataArr = [];
 $(function () {
+    $('#resetBtn').on('click',function () {
+        swal({
+                title: "<h3>是否确定重置?</h3>",
+                text: "重置将导致您之前分享的简历链接及二维码不可访问",
+                type: "warning",
+                html:true,
+                showCancelButton: true,
+                confirmButtonColor: "#6397ff",
+                confirmButtonText: "是",
+                cancelButtonText: "否",
+                closeOnConfirm: false
+            },
+            function(isConfirm){
+                if(isConfirm){
+                    $.post("/main/info4resume/reset4share",{_xsrf:$("#token").val(),id:$('#editId').val()},function (r) {
+                        if(r.code==1){
+                            var index = $('#editIndex').val();
+                            GlobalDataArr[index].Sid = r.data;
+                            swal("即刻提示",r.msg,"success");
+                        }else{
+                            swal("即刻提示",r.msg,"error");
+                        }
+                    });
+                }
+        });
+    });
     $('#prev').on("click",function () {
         var curPage = $('#curPage').html();
         $('#prev').show();//显示上一页按钮
@@ -158,19 +185,33 @@ function tipTip(str) {
         $('#tip').html("");
     },5000);
 }
-function renderForm(resume) {
+function renderForm(index) {
+    //重置弹框显示页从1开始
+    $('.page').each(function () {
+        $(this).css("display","none");
+    });
+    $('#page1').show();
+    $("#prev").hide();
+    $('#next').show();
+    $('#preview').hide();
+    $('#curPage').html(1);
+    $('#pageTitle').html("基础信息");
+    var resume = GlobalDataArr[index];
+    GlobalResume = resume;
     $('#editId').val(resume.Id);
     $('#editUid').val(resume.Uid);
     $('#editRid').val(resume.Rid);
+    $('#editSid').val(resume.Sid);
+    $('#editIndex').val(resume.Index);
     $('#name').val(resume.Name);
     $('#objective').val(resume.Objective);
     var gender = resume.Gender;
     if(gender==="男"){
-        $('#radio1').attr("checked","checked");
-        $('#radio2').attr("checked",false);
+        $('#radio1').prop('checked',true);;
+        $('#radio2').prop("checked",false);
     }else{
-        $('#radio2').attr("checked","checked");
-        $('#radio1').attr("checked",false);
+        $('#radio2').prop("checked","true");
+        $('#radio1').prop("checked",false);
     }
     $('#birthday').val(resume.Birthday);
     $('#phone').val(resume.Phone);
@@ -185,7 +226,11 @@ function renderForm(resume) {
     $('#hobby').val(resume.Hobby);
     $('#honor').val(resume.Honor);
     $('#introduce').val(resume.Introduce);
-    var works = JSON.parse(resume.Works);
+    //var works = JSON.parse(resume.Works);
+    var works = resume.Works;
+    if(typeof works==="string"){
+        works = JSON.parse(resume.Works);
+    }
     $('#workWrap').html("");
     for(var i=0;i<works.length;i++){
         var obj = works[i];
@@ -194,7 +239,7 @@ function renderForm(resume) {
         var company = obj.company;
         var position = obj.position;
         var id = i+"work";
-        var description = obj.description;
+        var description = obj.description.replace(/<br\/>/g, "\n");
         $('#workWrap').append('<div class="workItem" style="margin-top: 5px;padding: 5px;border:1px solid #eee;">\n' +
             '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
@@ -240,7 +285,11 @@ function renderForm(resume) {
         }
     });
 
-    var skills = JSON.parse(resume.Skills);
+    //var skills = JSON.parse(resume.Skills);
+    var skills = resume.Skills;
+    if(typeof skills==="string"){
+        skills = JSON.parse(resume.Skills);
+    }
     $('#skillWrap').html("");
     for(var i=0;i<skills.length;i++){
         var obj = skills[i];
@@ -280,7 +329,11 @@ function renderForm(resume) {
         }
     });
 
-    var edus = JSON.parse(resume.Educations);
+    //var edus = JSON.parse(resume.Educations);
+    var edus = resume.Educations;
+    if(typeof edus==="string"){
+        edus = JSON.parse(resume.Educations);
+    }
     $('#eduWrap').html("");
     for(var i=0;i<edus.length;i++){
         var obj = edus[i];
@@ -397,62 +450,64 @@ function dataCollect() {
         tipTip("您似乎忘了填写教育经历.");
         return;
     }
-    resume.name = name;
-    resume.objective = objective;
-    resume.gender = gender;
-    resume.birthday = birthday;
-    resume.phone = phone;
-    resume.email = email;
-    resume.home = home;
-    resume.province = $('#province').val();
-    resume.city = $('#city').val();
-    resume.address = address;
-    resume.hobby = hobby;
-    resume.honor = honor;
-    resume.introduce = introduce;
-    resume.works = works;
-    resume.skills = skills;
-    resume.edus = edus;
-    console.log(resume);
-    localStorage.setItem("resume4made",JSON.stringify(resume));
-    $('#modalClose').click();
+    GlobalResume.Name = name;
+    GlobalResume.Objective = objective;
+    GlobalResume.Gender = gender;
+    GlobalResume.Birthday = birthday;
+    GlobalResume.Phone = phone;
+    GlobalResume.Email = email;
+    GlobalResume.Home = home;
+    GlobalResume.Province = $('#province').val();
+    GlobalResume.City = $('#city').val();
+    GlobalResume.Address = address;
+    GlobalResume.Hobby = hobby;
+    GlobalResume.Honor = honor;
+    GlobalResume.Introduce = introduce;
+    GlobalResume.Works = works;
+    GlobalResume.Skills = skills;
+    GlobalResume.Edus = edus;
+    localStorage.setItem("resume4made",JSON.stringify(GlobalResume));
     submit();
 
 }
 function submit() {
-    if(!resume){
+    if(!GlobalResume){
         return
     }
+    var unixTimestamp = new Date(GlobalResume.Created) ;
+    var tm = new Date(unixTimestamp).getTime();
+
     $.ajax({
-        url : "/main/resume/update",
+        url : "/main/info4resume/update",
         type : "POST",
         data : {
             id:$('#editId').val(),
             uid:$('#editUid').val(),
             rid:$('#editRid').val(),
-            name:resume.name,
-            objective:resume.objective,
-            gender:resume.gender,
-            birthday:resume.birthday,
-            phone:resume.phone,
-            email:resume.email,
-            province:resume.province,
-            city:resume.city,
-            address:resume.address,
-            hobby:resume.hobby,
-            honor:resume.honor,
-            introduce:resume.introduce,
-            works:JSON.stringify(resume.works),
-            skills:JSON.stringify(resume.skills),
-            edus:JSON.stringify(resume.edus),
-            _xsrf:$("#token", parent.document).val()
+            sid:$('#editSid').val(),
+            name:GlobalResume.Name,
+            objective:GlobalResume.Objective,
+            gender:GlobalResume.Gender,
+            birthday:GlobalResume.Birthday,
+            phone:GlobalResume.Phone,
+            email:GlobalResume.Email,
+            province:GlobalResume.Province,
+            city:GlobalResume.City,
+            address:GlobalResume.Address,
+            hobby:GlobalResume.Hobby,
+            honor:GlobalResume.Honor,
+            introduce:GlobalResume.Introduce,
+            works:JSON.stringify(GlobalResume.Works),
+            skills:JSON.stringify(GlobalResume.Skills),
+            edus:JSON.stringify(GlobalResume.Edus),
+            created:tm,
+            _xsrf:$("#token").val()
         },
         dataType : "json",
         cache : false,
         beforeSend:function(){
             $('#loading').fadeIn(200);
             $('#scroll-top').click();
-            toggleBody(0);
         },
         success : function(r) {
             if (r.code == 1) {
@@ -462,16 +517,17 @@ function submit() {
                     html:true,
                     type:"success"
                 });
-                $('#madeModal').modal("hide");
-                $('#wrapper').show(200);
+                //更新本地数据
+                var index = $('#editIndex').val();
+                GlobalDataArr[index] = GlobalResume;
+                $('#modalClose').click();
                 clearLocalData();
             } else {
-                swal(r.msg,' ',"error");
+                swal("即刻提示",r.msg,"error");
             }
         },
         complete:function () {
             $('#loading').fadeOut(200);
-            toggleBody(1);
         }
     });
 }

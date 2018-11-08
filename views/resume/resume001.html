@@ -41,6 +41,7 @@
     </style>
 </head>
 <body>
+<div style="display: none;width: 128px" id='qrcode'></div>
 <input type="hidden" id="token" value="{{._xsrf}}">
 <div id="loading" class="loading-wrap" style="display: none">
     <div class="loader" >
@@ -502,17 +503,17 @@
 
                     </div>
                     <div class="col-md-9 content-right">
-                        <form>
+                        <form onsubmit="return checkLength()">
                             <div class="group">
-                                <input required="" type="text"><span class="highlight"></span><span class="bar"></span><label>公司名/您的称谓</label>
+                                <input id="contact-company"  type="text"><span class="highlight"></span><span class="bar"></span><label>公司名/您的称谓</label>
                             </div>
                             <div class="group">
-                                <input required="" type="email"><span class="highlight"></span><span class="bar"></span><label>邮箱地址</label>
+                                <input id="contact-email"  type="text"><span class="highlight"></span><span class="bar"></span><label>邮箱地址</label>
                             </div>
                             <div class="group">
-                                <textarea style="min-height: 120px;resize:vertical;border-left: 1px solid #eee;border-top: 1px solid #eee;border-right: 1px solid #eee;" required=""></textarea><span class="highlight"></span><span class="bar"></span><label>留言信息</label>
+                                <textarea id="contact-message" style="min-height: 120px;resize:vertical;border-left: 1px solid #eee;border-top: 1px solid #eee;border-right: 1px solid #eee;" ></textarea><span class="highlight"></span><span class="bar"></span><label>留言信息</label>
                             </div>
-                            <input id="sendMessage" name="sendMessage" type="submit" value="提交">
+                            <input id="sendMessage" name="sendMessage" type="button" value="提交">
                         </form>
                     </div>
                 </div>
@@ -806,6 +807,9 @@
 <!--设计按钮-->
 <a href="javascript:void(0)" class="scroll-top" style="bottom: 80px;" id="design"><img style="width: 24px;margin-top: -10px;" src="../../static/img/design.png"></a>
 
+<!--二维码-->
+<a href="javascript:void(0)" class="scroll-top" style="bottom: 80px;display: none" id="qrcodeBtn"><i class="fa fa-qrcode" aria-hidden="true"></i></a>
+
 <!--返回顶部-->
 <a href="javascript:void(0)" class="scroll-top" id="scroll-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 
@@ -825,9 +829,33 @@
 <script src="https://cdn.bootcss.com/bootstrap-slider/10.2.1/bootstrap-slider.min.js"></script>
 <script src="../../static/plugins/citySelect/distpicker.data.js"></script>
 <script src="../../static/plugins/citySelect/distpicker.js"></script>
+<script src="../../static/plugins/qrcode/qrcode.min.js"></script>
 <script src="../../static/js/resume.js"></script>
 <script>
-
+    dbData = {{.dbData}};
+    $('#sendMessage').on('click',function () {
+        var url = window.location.href;
+        if(url.indexOf("share")==0){
+            swal("即刻提示","模板状态[与我联系]功能不可用!","error");
+            return
+        }else{
+            var company = $('#contact-company').val().trim();
+            var email = $('#contact-email').val().trim();
+            var message = $('#contact-message').val().trim();
+            if(!company||!email||!message){
+                swal("即刻提示","您似乎忘了填一些必要信息!","error");
+                return
+            }
+            var sid = GetQueryString("v");
+            $.post("/resume/send2mail",{_xsrf:$('#token').val(),sid:sid,company:company,email:email,message:message},function (r) {
+                if(r.code==1){
+                    swal("即刻提示",r.msg,"success");
+                }else{
+                    swal("即刻提示",r.msg,"error");
+                }
+            });
+        }
+    });
 </script>
 
 </body>

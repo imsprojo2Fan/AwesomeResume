@@ -9,6 +9,9 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+	"strings"
+	"net/smtp"
+	"fmt"
 )
 
 type Info4ResumeController struct {
@@ -118,6 +121,140 @@ func (this *Info4ResumeController)ListByUid() {
 
 	this.jsonResult(http.StatusOK,1,"数据查询成功",dataList)
 
+}
+
+func (this *Info4ResumeController)Update()  {
+	info4resume := new(models.Info4Resume)
+	id_ := this.GetString("id")
+	uid_ := this.GetString("uid")
+	info4resume.Id,_ = strconv.Atoi(id_)
+	info4resume.Uid,_ = strconv.ParseInt(uid_, 10, 64)
+	info4resume.Rid = this.GetString("rid")
+	info4resume.Sid = this.GetString("sid")
+	info4resume.Name = this.GetString("name")
+	info4resume.Objective = this.GetString("objective")
+	info4resume.Gender = this.GetString("gender")
+	info4resume.Birthday = this.GetString("birthday")
+	info4resume.Phone = this.GetString("phone")
+	info4resume.Email = this.GetString("email")
+	info4resume.Province = this.GetString("province")
+	info4resume.City = this.GetString("city")
+	info4resume.Address = this.GetString("address")
+	info4resume.Hobby = this.GetString("hobby")
+	info4resume.Honors = this.GetString("honor")
+	info4resume.Introduce = this.GetString("introduce")
+	info4resume.Works = this.GetString("works")
+	info4resume.Skills = this.GetString("skills")
+	info4resume.Educations = this.GetString("edus")
+	info4resume.Updated = time.Now()
+	cteate_,_ := this.GetInt64("created")
+	tm2 := time.Unix(cteate_/1000,0).Format("2006-01-02 15:04:05")
+	t,_ := time.Parse("2006-01-02 15:04:05",tm2)
+	info4resume.Created = t
+	if !info4resume.Update(info4resume,""){
+		this.jsonResult(http.StatusOK,-1, "更新数据失败!请稍候再试", nil)
+	}else{
+		this.jsonResult(http.StatusOK,1, "更新成功!", nil)
+	}
+}
+
+func (this *Info4ResumeController)Reset4share()  {
+	id := this.GetString("id")
+
+	if id==""{
+		this.jsonResult(http.StatusOK,-1,"参数错误!",nil)
+	}
+
+	sid := utils.RandStringBytesMaskImprSrc(20)
+	info4resume := new(models.Info4Resume)
+	info4resume.Id,_ = strconv.Atoi(id)
+	info4resume.Sid = sid
+	if !info4resume.Update(info4resume,"sid"){
+		this.jsonResult(http.StatusOK,-1,"数据库操作失败!请稍后再试",nil)
+	}
+	this.jsonResult(http.StatusOK,1,"重置成功!",sid)
+}
+
+func (this *Info4ResumeController)Share()  {
+	sid := this.GetString("v")
+	if sid==""{
+		this.TplName = "tip/404.html"
+		return
+	}
+	//按sid查询rid
+	info4resume := new(models.Info4Resume)
+	info4resume.Sid = sid
+	info4resume.SelectBySid(info4resume)
+
+	if info4resume.Rid==""{
+		this.TplName = "tip/404.html"
+		return
+	}
+	//查询模板url
+	resume := new(models.Resume)
+	resume.Eid = info4resume.Rid
+	resume.SelectByEid(resume)
+	if resume.Url==""{
+		this.TplName = "tip/404.html"
+		return
+	}
+	//设置token
+	this.Data["_xsrf"] = this.XSRFToken()
+	this.Data["dbData"] = info4resume
+	htmlName:= "resume/"+resume.Url+".html"
+	this.TplName = htmlName
+}
+
+func (this *Info4ResumeController)Send2Mail()  {
+	sid := this.GetString("sid")
+	if sid==""{
+		this.jsonResult(200,-1,"参数错误!",nil)
+	}
+	messageObj := new(models.Message)
+	messageObj.Company = this.GetString("company")
+	messageObj.Email = this.GetString("email")
+	messageObj.Message = this.GetString("message")
+
+
+	//按sid查询rid
+	info4resume := new(models.Info4Resume)
+	info4resume.Sid = sid
+	info4resume.SelectBySid(info4resume)
+
+	if info4resume.Email==""{
+		this.jsonResult(200,-1,"ta似乎忘了填写邮箱地址!",nil)
+	}
+	//发送邮件
+	go SendMail4Resume(info4resume.Email,messageObj)
+	//添加消息记录
+	messageObj.Insert(messageObj)
+	this.jsonResult(200,1,"您的留言信息我们已送达:)",nil)
+}
+
+func SendMail4Resume(mail string,messageObj *models.Message)  {
+	auth := smtp.PlainAuth("", "zooori@foxmail.com", "fznqfopwakggibej", "smtp.qq.com")
+	to := []string{"imsprojo2fan@foxmail.com"}
+
+	nickname := "即刻简历"
+	user := "zooori@foxmail.com"
+	subject := "简历分享页留言信息"
+	content_type := "Content-Type: text/plain; charset=UTF-8"
+
+	body := "【用户邮箱】："+mail
+	msg := []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
+		"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
+	err := smtp.SendMail("smtp.qq.com:25", auth, user, to, msg)
+	if err != nil {
+		fmt.Printf("send mail error: %v", err)
+	}
+
+	if mail!=""{
+		to[0] = mail
+		body = "您有新留言信息\r\n对方信息:"+messageObj.Company+"\r\n邮箱地址:"+messageObj.Email+"\r\n留言信息:"+messageObj.Message
+		msg = []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
+			"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
+		smtp.SendMail("smtp.qq.com:25", auth, user, to, msg)
+	}
 }
 
 func (c *Info4ResumeController) jsonResult(status enums.JsonResultCode,code int, msg string, data interface{}) {

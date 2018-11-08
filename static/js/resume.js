@@ -1,18 +1,10 @@
 var workItem,skillItem,eduItem;
-var localData;
+var localData,dbData;
 var resume = {};
 $(function () {
     //隐藏验证登录输入框
     $('fieldset').hide();
-    localData = localStorage.getItem("resume");
-    if(localData){
-        //console.info(JSON.parse(localStorage.getItem("resume")));
-        resume = JSON.parse(localData);
-        renderHtml();
-    }
-
     $("#distpicker").distpicker();
-
     $('.slide').slider({
         formatter: function (value) {
             return '当前值:' + value;
@@ -27,6 +19,40 @@ $(function () {
         //console.info(e);
         //获取旧值和新值
         //console.info(e.value.oldValue + '--' + e.value.newValue);
+    });
+
+    if (typeof(Storage) !== "undefined") {
+        // 针对 localStorage/sessionStorage 的代码
+        console.log("本地存储");
+    } else {
+        // 抱歉！不支持 Web Storage ..
+    }
+    localData = localStorage.getItem("resume");
+    if(localData){//渲染本地存储数据
+        //console.info(JSON.parse(localStorage.getItem("resume")));
+        resume = JSON.parse(localData);
+        $("#submitTip").show();
+        renderHtml();
+    }
+
+    setTimeout(function () {
+        var alertInfo = getCookieValue("alertInfo");
+        if(!alertInfo&&dbData){
+            addCookie("alertInfo","alertInfo",7,"/");
+            swal("即刻提示","点击右下角设计按钮即可制作及预览简历","info");
+        }
+    },500);
+    if(dbData){
+        $('#qrcodeBtn').show();
+        $('#design').remove();
+        //生成二维码
+        makeCode();
+        resume = dbData;
+        renderHtml();
+    }
+
+    $('#qrcodeBtn').on('click',function () {
+        share();
     });
 
     $('#design').on("click",function () {//右下角设计按钮
@@ -269,22 +295,22 @@ function dataCollect() {
         return;
     }
 
-    resume.name = name;
-    resume.objective = objective;
-    resume.gender = gender;
-    resume.birthday = birthday;
-    resume.phone = phone;
-    resume.email = email;
-    resume.home = home;
-    resume.province = $('#province').val();
-    resume.city = $('#city').val();
-    resume.address = address;
-    resume.hobby = hobby;
-    resume.honor = honor;
-    resume.introduce = introduce;
-    resume.works = works;
-    resume.skills = skills;
-    resume.edus = edus;
+    resume.Name = name;
+    resume.Objective = objective;
+    resume.Gender = gender;
+    resume.Birthday = birthday;
+    resume.Phone = phone;
+    resume.Email = email;
+    resume.Home = home;
+    resume.Province = $('#province').val();
+    resume.City = $('#city').val();
+    resume.Address = address;
+    resume.Hobby = hobby;
+    resume.Honor = honor;
+    resume.Introduce = introduce;
+    resume.Works = works.reverse();
+    resume.Skills = skills;
+    resume.Educations = edus.reverse();
     console.log(resume);
     localStorage.setItem("resume",JSON.stringify(resume));
     renderHtml();
@@ -294,49 +320,51 @@ function dataCollect() {
 function renderHtml() {
     //隐藏关闭按钮
     $('#modalClose').hide();
-    $("#submitTip").show();
     $(".typed").hide();
     $(".typed_").typed({//渲染打印效果
-        strings: ["我的名字是"+resume.name, "我是一名"+resume.objective,"来自"+resume.home, "🙂"],
+        strings: ["我的名字是"+resume.Name, "我是一名"+resume.Objective,"来自"+resume.Province+'-'+resume.City, "🙂"],
         typeSpeed: 100,
         backDelay: 900,
         loop: true
     });
     var str = "暂未填写";
-    $('#showName').html(resume.name);
-    $("#showObjective").html(resume.objective);
-    $("#showGender").html(resume.gender);
-    if(resume.gender==="女"){
+    $('#showName').html(resume.Name);
+    $("#showObjective").html(resume.Objective);
+    $("#showGender").html(resume.Gender);
+    if(resume.Gender==="女"){
         $('.bg-about').css("background","url(../../static/resume/resume001/images/about/about01_.jpg)");
         $('.bg-about').css("background-size","cover");
         $('.bg-about').css("background-repeat","no-repeat");
     }
-    $("#showBirthday").html(resume.birthday);
-    $("#showPhone").html(resume.phone);
-    $('#showEmail').html(resume.email);
-    if(!resume.home){
+    $("#showBirthday").html(resume.Birthday);
+    $("#showPhone").html(resume.Phone);
+    $('#showEmail').html(resume.Email);
+    if(!resume.Home){
         $('#showHome').html(str);
     }else{
-        $('#showHome').html(resume.home);
+        $('#showHome').html(resume.Home);
     }
-    if(!resume.address){
+    if(!resume.Address){
         $('#showAddress').html(str);
     }else{
-        $('#showAddress').html(resume.address);
+        $('#showAddress').html(resume.Address);
     }
-    if(!resume.hobby){
+    if(!resume.Hobby){
         $('#showHobby').html(str);
     }else{
-        $('#showHobby').html(resume.hobby);
+        $('#showHobby').html(resume.Hobby);
     }
-    if(!resume.honor){
+    if(!resume.Honor){
         $('#showHonor').html("-");
     }else{
-        $('#showHonor').html(resume.honor);
+        $('#showHonor').html(resume.Honor);
     }
-    $('#showIntroduce').html(resume.introduce);
-
-    var works = resume.works.reverse();
+    $('#showIntroduce').html(resume.Introduce);
+    var works = resume.Works;
+    if(typeof works==="string"){
+        works = JSON.parse(works);
+    }
+    //works = works.reverse();
     $('.showWorkWrap').html("");
     for(var i=0;i<works.length;i++){
         var obj = works[i];
@@ -370,7 +398,10 @@ function renderHtml() {
             '                                </li>');
     }
 
-    var skills = resume.skills;
+    var skills = resume.Skills;
+    if(typeof skills==="string"){
+        skills = JSON.parse(skills);
+    }
     $('.showSkillWrap').html("");
     for(var i=0;i<skills.length;i++){
         var obj = skills[i];
@@ -395,7 +426,11 @@ function renderHtml() {
         });
     });
 
-    var edus = resume.edus.reverse();
+    var edus = resume.Educations;
+    if(typeof edus==="string"){
+        edus = JSON.parse(edus);
+    }
+    //edus = edus.reverse();
     $('.showEduWrap').html("");
     for(var i=0;i<edus.length;i++){
         var obj = edus[i];
@@ -427,30 +462,30 @@ function renderHtml() {
     }
 }
 function renderForm() {
-    $('#name').val(resume.name);
-    $('#objective').val(resume.objective);
-    var gender = resume.gender;
+    $('#name').val(resume.Name);
+    $('#objective').val(resume.Objective);
+    var gender = resume.Gender;
     if(gender==="男"){
-        $('#radio1').attr("checked","checked");
-        $('#radio2').attr("checked",false);
+        $('#radio1').prop("checked",true);
+        $('#radio2').prop("checked",false);
     }else{
-        $('#radio2').attr("checked","checked");
-        $('#radio1').attr("checked",false);
+        $('#radio2').prop("checked",true);
+        $('#radio1').prop("checked",false);
     }
-    $('#birthday').val(resume.birthday);
-    $('#phone').val(resume.phone);
-    $('#email').val(resume.email);
+    $('#birthday').val(resume.Birthday);
+    $('#phone').val(resume.Phone);
+    $('#email').val(resume.Email);
     //渲染省市区
     $("#distpicker").distpicker({
         province:resume.Province ,
         city: resume.City,
         district: ""
     });
-    $('#address').val(resume.address);
-    $('#hobby').val(resume.hobby);
-    $('#honor').val(resume.honor);
-    $('#introduce').val(resume.introduce);
-    var works = resume.works;
+    $('#address').val(resume.Address);
+    $('#hobby').val(resume.Hobby);
+    $('#honor').val(resume.Honor);
+    $('#introduce').val(resume.Introduce);
+    var works = resume.Works;
     $('#workWrap').html("");
     for(var i=0;i<works.length;i++){
         var obj = works[i];
@@ -459,7 +494,7 @@ function renderForm() {
         var company = obj.company;
         var position = obj.position;
         var id = i+"work";
-        var description = obj.description;
+        var description = obj.description.replace(/<br\/>/g, "\n");
         $('#workWrap').append('<div class="workItem" style="margin-top: 5px;padding: 5px;border:0.5px solid #eee;">\n' +
             '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
@@ -505,7 +540,7 @@ function renderForm() {
         }
     });
 
-    var skills = resume.skills;
+    var skills = resume.Skills;
     $('#skillWrap').html("");
     for(var i=0;i<skills.length;i++){
         var obj = skills[i];
@@ -545,7 +580,7 @@ function renderForm() {
         }
     });
 
-    var edus = resume.edus;
+    var edus = resume.Educations;
     $('#eduWrap').html("");
     for(var i=0;i<edus.length;i++){
         var obj = edus[i];
@@ -553,7 +588,7 @@ function renderForm() {
         var end = obj.end;
         var school = obj.school;
         var id = i+"edu";
-        var description = obj.description;
+        var description = obj.description.replace(/<br\/>/g, "\n");
         $('#eduWrap').append('<div class="eduItem" style="margin-top: 5px;padding-top: 5px;border: 0.5px solid #eee;">\n' +
             '                                <div class="del4edu" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
@@ -649,21 +684,21 @@ function submit() {
                                 data : {
                                     uid:r.data,
                                     rid:GetQueryString("v"),
-                                    name:resume.name,
-                                    objective:resume.objective,
-                                    gender:resume.gender,
-                                    birthday:resume.birthday,
-                                    phone:resume.phone,
-                                    email:resume.email,
-                                    province:resume.province,
-                                    city:resume.city,
-                                    address:resume.address,
-                                    hobby:resume.hobby,
-                                    honor:resume.honor,
-                                    introduce:resume.introduce,
-                                    works:JSON.stringify(resume.works),
-                                    skills:JSON.stringify(resume.skills),
-                                    edus:JSON.stringify(resume.edus),
+                                    name:resume.Name,
+                                    objective:resume.Objective,
+                                    gender:resume.Gender,
+                                    birthday:resume.Birthday,
+                                    phone:resume.Phone,
+                                    email:resume.Email,
+                                    province:resume.Province,
+                                    city:resume.City,
+                                    address:resume.Address,
+                                    hobby:resume.Hobby,
+                                    honor:resume.Honor,
+                                    introduce:resume.Introduce,
+                                    works:JSON.stringify(resume.Works),
+                                    skills:JSON.stringify(resume.Skills),
+                                    edus:JSON.stringify(resume.Educations),
                                     _xsrf:$('#token').val()
                                 },
                                 dataType : "json",
@@ -706,21 +741,21 @@ function submit() {
                     type : "POST",
                     data : {
                         rid:GetQueryString("v"),
-                        name:resume.name,
-                        objective:resume.objective,
-                        gender:resume.gender,
-                        birthday:resume.birthday,
-                        phone:resume.phone,
-                        email:resume.email,
-                        province:resume.province,
-                        city:resume.city,
-                        address:resume.address,
-                        hobby:resume.hobby,
-                        honor:resume.honor,
-                        introduce:resume.introduce,
-                        works:JSON.stringify(resume.works),
-                        skills:JSON.stringify(resume.skills),
-                        edus:JSON.stringify(resume.edus),
+                        name:resume.Name,
+                        objective:resume.Objective,
+                        gender:resume.Gender,
+                        birthday:resume.Birthday,
+                        phone:resume.Phone,
+                        email:resume.Email,
+                        province:resume.Province,
+                        city:resume.City,
+                        address:resume.Address,
+                        hobby:resume.Hobby,
+                        honor:resume.Honor,
+                        introduce:resume.Introduce,
+                        works:JSON.stringify(resume.Works),
+                        skills:JSON.stringify(resume.Skills),
+                        edus:JSON.stringify(resume.Edus),
                         _xsrf:$('#token').val()
                     },
                     dataType : "json",

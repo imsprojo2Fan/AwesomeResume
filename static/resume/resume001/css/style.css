@@ -995,7 +995,7 @@ ul.portfolio-image li .desc{
   -moz-animation: inputHighlighter 0.3s ease;
   animation: inputHighlighter 0.3s ease;
 }
-#contact input[type=submit] {
+#contact input[type=button] {
   border: 1px solid #2b2b2b !important;
   color: #2b2b2b;
   padding: 10px;
@@ -1006,7 +1006,7 @@ ul.portfolio-image li .desc{
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-#contact input[type=submit]:hover {
+#contact input[type=button]:hover {
   background: #2b2b2b;
   color: #ffffff;
 }

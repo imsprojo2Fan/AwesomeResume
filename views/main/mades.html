@@ -83,7 +83,7 @@
     <div class="panel-heading">
         <h3 class="panel-title">我的制作</h3>
         <hr>
-        <p>温馨提示:如果您不想别人随意的查看您的简历,通过'编辑简历'更新简历分享链接即可.</p>
+        <p>温馨提示:如果您不想别人随意的查看您的简历,通过'编辑简历'重置简历分享链接即可.</p>
     </div>
     <div class="panel-body">
         <div class="row" id="resumeWrap">
@@ -402,6 +402,7 @@
     var dataAll = [];
     var dataMade = [];
     var dataUse = [];
+    var parentWin = window.parent;
     $.post("/index/resume/list", {_xsrf:{{._xsrf}}},function (r1) {
         if(r1.code==1){
             dataAll = r1.data;
@@ -427,6 +428,7 @@
                     $('#loading').fadeOut(200);
                     //渲染ui
                     $('#resumeWrap').html("");
+                    parentWin.GlobalDataArr = dataUse;
                     for(var k=0;k<dataUse.length;k++){
                         var obj = dataUse[k];
                         var title = obj.modelName;
@@ -443,7 +445,7 @@
                                 '                    <img src="'+imgUrl+'">\n' +
                                 '                    <div class="bottom">\n' +
                                 '                        <button onclick="edit('+k+')" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;编辑简历</button>&nbsp;&nbsp;&nbsp;\n' +
-                                '                        <button onclick="preview(\''+rid+'\',\''+uid+'\')" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;预览简历</button>\n' +
+                                '                        <button onclick="preview('+k+')" class="btn btn-success"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;预览简历</button>\n' +
                                 '                    </div>\n' +
                                 '                </div>\n' +
                                 '            </div>')
@@ -458,13 +460,17 @@
     function edit(index) {
         console.log(dataUse[index]);
         var resume = dataUse[index];
-        var parentWin = window.parent;
-        parentWin.renderForm(resume);  //method为父页面的方法
+        var unixTimestamp = new Date(resume.Created) ;
+        var result = new Date(unixTimestamp).getTime();
+        console.log(result);
+        resume.Index = index;
+        parentWin.renderForm(index);  //method为父页面的方法
         $('#wrapper',parent.document).hide(200);
         $('#madeModal',parent.document).modal("show");
     }
-    function preview(rid) {
-        var url = "/share?v="+rid;
+    function preview(index) {
+        var sid = parentWin.GlobalDataArr[index].Sid;
+        var url = "/share?v="+sid;
         window.open(url,"_blank");
     }
 

@@ -112,7 +112,13 @@ input:focus{
     .alertPickDate>div>input {
         width: 135px;
         margin-bottom: 10px;
-        border: 0px solid red;
+        border: 1px solid black;
+    }
+    #reset{
+        display: inline-block;
+    }
+    .navbar-nav .open .dropdown-menu{
+        margin-top: -1px;
     }
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{

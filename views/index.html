@@ -490,8 +490,8 @@
                 <div class="row">
                     <div class="newsletter-right" >
                         <div class="newsletter-right-inner">
-                            <form>
-                                <input type="text" name="newsletter" placeholder="手机">
+                            <form onsubmit="return checkLength()">
+                                <input type="text" name="newsletter" placeholder="手机号/邮箱">
                                 <input style="font-family: Panxiang;" type="submit" value="提交">
                             </form>
                         </div>

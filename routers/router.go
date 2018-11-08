@@ -28,6 +28,10 @@ func init() {
 	//简历信息管理
 	beego.Router("/main/resume/made",&controllers.Info4ResumeController{},"POST:ListByUid")
 	beego.Router("/main/resume/use",&controllers.Info4ResumeController{},"POST:Insert4Use")
+	beego.Router("/main/info4resume/reset4share",&controllers.Info4ResumeController{},"POST:Reset4share")
+	beego.Router("/main/info4resume/update",&controllers.Info4ResumeController{},"POST:Update")
+	beego.Router("/share",&controllers.Info4ResumeController{},"*:Share")
+	beego.Router("/resume/send2mail",&controllers.Info4ResumeController{},"POST:Send2Mail")
 
 	//定制错误页
 	beego.ErrorController(&controllers.ErrorController{})

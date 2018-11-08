@@ -68,10 +68,12 @@ $.fn.scrollToTop = function() {
             $('#wechat').fadeOut(500);
             $('#wechat-alert').fadeOut(500);
             $('#design').fadeOut(500);
+            $('#qrcodeBtn').fadeOut(500);
         } else {
             jQuery(scrollDiv).fadeIn(500);
             $('#wechat').fadeIn(500);
             $('#design').fadeIn(500);
+            $('#qrcodeBtn').fadeIn(500);
         }
     });
     jQuery(this).on('click', function() {
@@ -197,4 +199,30 @@ function toggleBody(isPin){
         document.body.style.height = 'unset'
         document.body.style['overflow-y'] = 'auto'
     }
+}
+
+function makeCode() {
+    var url = window.location.href;
+    var qrcode = new QRCode("qrcode", {
+        text: url,
+        width: 128,
+        height: 128,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+}
+
+function share() {
+    //debugger
+    var url = window.location.href;
+    var dom = $('#qrcode').clone();
+    $(dom).css("display","block");
+    $(dom).css("margin","0 auto");
+    console.log($(dom).prop("outerHTML"));
+    swal({
+        title: "<h3>长按二维码 扫码/保存</h3>",
+        text:$(dom).prop("outerHTML")+'<br><p>分享链接:<br>'+url+'</p>',
+        html: true
+    });
 }

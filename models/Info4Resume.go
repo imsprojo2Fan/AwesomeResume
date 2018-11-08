@@ -54,16 +54,23 @@ func(this *Info4Resume) Insert(Info4Resume *Info4Resume) bool {
 }
 
 
-func(this *Info4Resume) Update(Info4Resume *Info4Resume) bool {
+func(this *Info4Resume) Update(Info4Resume *Info4Resume,col string) bool {
 
 	o := orm.NewOrm()
-	_,err := o.Update(Info4Resume)
+	var err error
+	if col!=""{
+		_,err = o.Update(Info4Resume,col)
+	}else{
+		_,err = o.Update(Info4Resume)
+	}
+
 	if err!=nil{
 		return false
 	}else{
 		return true
 	}
 }
+
 
 func(this *Info4Resume) Delete(Info4Resume *Info4Resume) bool {
 
@@ -119,4 +126,9 @@ func(this *Info4Resume) ListOne(qMap map[string]interface{},dataList *[]Info4Res
 	uid := qMap["uid"].(string)
 	sql := "select * from info4resume where 1=1 and uid="+uid
 	o.Raw(sql).QueryRows(dataList)
+}
+
+func(this *Info4Resume) SelectBySid(info4resume *Info4Resume) {
+	o := orm.NewOrm()
+	o.Read(info4resume,"sid")
 }

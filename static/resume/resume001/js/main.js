@@ -118,22 +118,6 @@
           });
       });
 
-      if (typeof(Storage) !== "undefined") {
-          // 针对 localStorage/sessionStorage 的代码
-          console.log("本地存储");
-      } else {
-          // 抱歉！不支持 Web Storage ..
-      }
-
-      setTimeout(function () {
-          var alertInfo = getCookieValue("alertInfo");
-          if(!alertInfo){
-              addCookie("alertInfo","alertInfo",7,"/");
-              swal("即刻提示","点击右下角设计按钮即可制作及预览简历","info");
-          }
-      },500);
-
-
   });
   
     
