@@ -1571,7 +1571,7 @@ ul.sub-menu li a {
 .newsletter-right-inner input:focus {
     border: 1px solid #6195FF;
 }
-.newsletter-right-inner input[type=submit] {
+.newsletter-right-inner input[type=button] {
     margin-top: 15px;
     max-width: 175px;
     margin: auto;
@@ -1967,6 +1967,11 @@ ul.client-thumb-2 li a img:hover{
 .works-filter.open a:nth-child(4) {
     transition-duration: 200ms
 }
+
+.works-filter a:hover {
+    border-bottom:1px solid #6195FF;
+}
+
 .works-filter a.active {
     color: #6195FF;
 }

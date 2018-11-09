@@ -11,11 +11,13 @@ type User struct {
 	Uid      string
 	Type     int
 	Account  string
+	Name string
 	Email    string
 	Password string
 	Phone    string
 	Avatar   string `orm:"size(128)"`
 	Gender   string `orm:"size(4)"`
+	Birthday string
 	Actived int
 	Updated time.Time `orm:"auto_now_add;type(datetime)"`
 	Created time.Time `orm:"auto_now_add;type(datetime)"`
@@ -160,5 +162,25 @@ func(this *User) UpdatePassword(user *User) bool {
 		return true
 	}
 	return false
+}
+
+func(this *User) UpdateActived(user *User) bool {
+
+	o := orm.NewOrm()
+	_, err := o.Update(user,"email","actived")
+	if err == nil {
+		return true
+	}
+	return false
+}
+
+func(this *User) SelectByCol(user *User,col string) {
+	o := orm.NewOrm()
+	o.Read(user,col)
+}
+
+func(this *User) SelectByEmail(email string,dataList *[]User) {
+	o := orm.NewOrm()
+	o.Raw("select * from user where email=?",email).QueryRows(dataList)
 }
 

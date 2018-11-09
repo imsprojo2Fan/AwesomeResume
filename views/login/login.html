@@ -192,7 +192,7 @@
                     passKey = $('#passKey').val().trim();
                     if(!passKey){
                         sweetAlert(
-                                '错误提示',
+                                '即刻提示',
                                 '登录密钥不能为空！',
                                 'warning'
                         )
@@ -204,7 +204,7 @@
                     password = $('#password').val().trim();
                     if(!account){
                         sweetAlert(
-                                '错误提示',
+                                '即刻提示',
                                 '账号不能为空！',
                                 'warning'
                         )
@@ -213,7 +213,7 @@
                     }
                     if(!password){
                         sweetAlert(
-                                '错误提示',
+                                '即刻提示',
                                 '请填写密码！',
                                 'warning'
                         )
@@ -256,7 +256,7 @@
                             window.location.href = "/main";
                             //swal("登录成功!",' ',"success");
                         } else {
-                            sweetAlert(r.msg,' ',"error");
+                            sweetAlert("即刻提示",r.msg,"error");
                             $(".swal2-confirm").trigger("blur");
                         }
                     },

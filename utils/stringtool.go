@@ -89,6 +89,11 @@ func MD5(text string) string{
 	return hex.EncodeToString(ctx.Sum(nil))
 }
 
+func RandomCode() string {
+	rnd := rand.New(rand.NewSource(time.Now().UnixNano()))
+	return strconv.FormatInt(int64(rnd.Int31n(1000000)), 10)
+}
+
 
 var src = rand.NewSource(time.Now().UnixNano())
 

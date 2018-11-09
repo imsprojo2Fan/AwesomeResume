@@ -112,7 +112,7 @@ input:focus{
     .alertPickDate>div>input {
         width: 135px;
         margin-bottom: 10px;
-        border: 1px solid black;
+        border: 1px solid rgba(0, 0, 0, 0);
     }
     #reset{
         display: inline-block;

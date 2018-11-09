@@ -23,7 +23,6 @@ $(function () {
 
     if (typeof(Storage) !== "undefined") {
         // 针对 localStorage/sessionStorage 的代码
-        console.log("本地存储");
     } else {
         // 抱歉！不支持 Web Storage ..
     }
@@ -32,12 +31,14 @@ $(function () {
         //console.info(JSON.parse(localStorage.getItem("resume")));
         resume = JSON.parse(localData);
         $("#submitTip").show();
+        $('#scroll-top').remove();
+        $('#design').css("bottom","15px");
         renderHtml();
     }
 
     setTimeout(function () {
         var alertInfo = getCookieValue("alertInfo");
-        if(!alertInfo&&dbData){
+        if(!alertInfo&&!dbData){
             addCookie("alertInfo","alertInfo",7,"/");
             swal("即刻提示","点击右下角设计按钮即可制作及预览简历","info");
         }
@@ -49,6 +50,8 @@ $(function () {
         makeCode();
         resume = dbData;
         renderHtml();
+    }else{
+        $('#qrcodeBtn').remove();
     }
 
     $('#qrcodeBtn').on('click',function () {
@@ -68,6 +71,8 @@ $(function () {
         $('.content-wrap').show(200);
         if(localStorage.getItem("resume")){
             $("#submitTip").show();
+            $('#scroll-top').remove();
+            $('#design').css("bottom","15px");
         }
     });
     $('#prev').on("click",function () {
@@ -278,8 +283,16 @@ function dataCollect() {
         tipTip("留下手机号能让HR更容易找到你喔!");
         return;
     }
+    if(!checkPhone(phone)){
+        tipTip("手机号格式不正确!");
+        return
+    }
     if(!email){
         tipTip("邮箱地址有时其实也挺需要的.");
+        return;
+    }
+    if(!checkEmail(email)){
+        tipTip("邮箱地址格式有误!");
         return;
     }
     if(!introduce){
@@ -294,7 +307,6 @@ function dataCollect() {
         tipTip("您似乎忘了填写教育经历.");
         return;
     }
-
     resume.Name = name;
     resume.Objective = objective;
     resume.Gender = gender;
@@ -311,7 +323,7 @@ function dataCollect() {
     resume.Works = works.reverse();
     resume.Skills = skills;
     resume.Educations = edus.reverse();
-    console.log(resume);
+
     localStorage.setItem("resume",JSON.stringify(resume));
     renderHtml();
     $('#modalClose').click();
@@ -361,7 +373,7 @@ function renderHtml() {
     }
     $('#showIntroduce').html(resume.Introduce);
     var works = resume.Works;
-    if(typeof works==="string"){
+    if(typeof works==="string"&&works){
         works = JSON.parse(works);
     }
     //works = works.reverse();
@@ -399,7 +411,7 @@ function renderHtml() {
     }
 
     var skills = resume.Skills;
-    if(typeof skills==="string"){
+    if(typeof skills==="string"&&skills){
         skills = JSON.parse(skills);
     }
     $('.showSkillWrap').html("");
@@ -427,7 +439,7 @@ function renderHtml() {
     });
 
     var edus = resume.Educations;
-    if(typeof edus==="string"){
+    if(typeof edus==="string"&&edus){
         edus = JSON.parse(edus);
     }
     //edus = edus.reverse();
@@ -639,7 +651,7 @@ function submit() {
 
     swal({
             title: "<h3>是否已有账号?</h3>",
-            text: "如果无账号将由系统生成临时账号,请尽快更改!",
+            text: "如果无账号将由系统生成临时账号,请尽快更改账号信息!",
             type: "warning",
             html:true,
             showCancelButton: true,
@@ -665,7 +677,6 @@ function submit() {
                 }, function(){
                     var account = $('#account').val().trim();
                     var password = $('#password').val().trim();
-                    console.info("account:"+account+"-password:"+password);
                     $.post("/validate",{type:"validate4made",_xsrf:$('#token').val(),account:account,password:password,rid:GetQueryString("v")},function (r) {
                         if(r.code==1){
                             window.location.href = "/main";
@@ -769,7 +780,7 @@ function submit() {
                         if (r.code == 1) {
                             swal({
                                 title:"提交成功!",
-                                text:'以下为临时登录密钥,请尽快登录系统更改！</br><h3>'+r.data+"</h3>",
+                                text:'为了您的隐私安全,请尽快登录系统更改账号信息！</br>以下为临时登录密钥</br><h3>'+r.data+"</h3>",
                                 html:true,
                                 type:"success"
                             });
@@ -777,6 +788,7 @@ function submit() {
                             $('#submit').removeClass("btn-primary");
                             $('#submit').addClass("btn-success");
                             $('#submit').html("前往登录");
+                            $('#footerTip').css("padding-bottom","15px");
                             clearLocalData();
                         } else {
                             swal(r.msg,' ',"error");

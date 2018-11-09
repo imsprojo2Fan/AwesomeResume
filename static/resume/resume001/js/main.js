@@ -154,32 +154,43 @@
       }
     });
   }*/
-    homeTop = $("#home").offset().top-85;
-    aboutTop = $("#about").offset().top-85;
-    employmentTop = $("#employment").offset().top-85;
-    skillTop = $("#skill").offset().top-85;
-    educationTop = $("#education").offset().top-85;
-    testimonialTop = $("#testimonial").offset().top-85;
-    contactTop = $("#contact").offset().top-85;
+    homeTop = $("#home").offset().top;
+    aboutTop = $("#about").offset().top;
+    employmentTop = $("#employment").offset().top;
+    skillTop = $("#skill").offset().top;
+    educationTop = $("#education").offset().top;
+    testimonialTop = $("#testimonial").offset().top;
+    contactTop = $("#contact").offset().top;
 })(jQuery);
 var homeTop,aboutTop,employmentTop,skillTop,educationTop,testimonialTop,contactTop;
 window.addEventListener('scroll',winScroll);
 function winScroll(e){
+
+    return
+
     // 拿到e之后进行你需要的处理
     //滚动条位置
     //var gTop = document.body.scrollTop + document.documentElement.scrollTop;
-    var gTop = $(document).scrollTop();
+    var gTop = $(document).scrollTop()+90;
+
     if(gTop<aboutTop){
+        console.log(gTop+"---"+aboutTop);
+        console.log("gTop:"+gTop+"---aboutTop:"+aboutTop);
         resetActive("home");
     }else if(gTop>=homeTop&&gTop<employmentTop){
+        console.log("homeTop:"+homeTop+"---gTop:"+gTop+"---employmentTop:"+employmentTop);
         resetActive("about");
     }else if(gTop>=aboutTop&&gTop<skillTop){
+        console.log("aboutTop:"+aboutTop+"---gTop:"+gTop+"---skillTop:"+skillTop);
         resetActive("employment");
     }else if(gTop>=employmentTop&&gTop<educationTop){
+        console.log("employmentTop:"+employmentTop+"---gTop:"+gTop+"---educationTop:"+educationTop);
         resetActive("skill");
     }else if(gTop>=skillTop&&gTop<testimonialTop){
+        console.log("skillTop:"+skillTop+"---gTop:"+gTop+"---testimonialTop:"+testimonialTop);
         resetActive("education");
     }else if(gTop>=educationTop&&gTop<contactTop){
+        console.log("educationTop:"+educationTop+"---gTop:"+gTop+"---contactTop:"+contactTop);
         resetActive("testimonial");
     }else{
         resetActive("contact");
@@ -191,20 +202,20 @@ function resetActive(str) {
         $(this).removeClass("active");
         var id = $(this).attr("data");
         if(id===str){
-            $(this).attr("class","active");
+            $(this).prop("class","active");
         }
     });
 }
 
-function adimate(str) {
+function animate(str) {
 
-    /*$('.menu-list a').each(function () {
+    $('.menu-list a').each(function () {
         $(this).removeClass("active");
         var id = $(this).attr("data");
         if(id===str){
             $(this).attr("class","active");
         }
-    });*/
+    });
 
     var target = document.getElementById(str);
     if (!target) {

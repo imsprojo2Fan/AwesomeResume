@@ -228,10 +228,12 @@ function renderForm(index) {
     $('#introduce').val(resume.Introduce);
     //var works = JSON.parse(resume.Works);
     var works = resume.Works;
-    if(typeof works==="string"){
+    if(typeof works==="string"&&works){
         works = JSON.parse(resume.Works);
     }
-    $('#workWrap').html("");
+    if(works.length>0){
+        $('#workWrap').html("");
+    }
     for(var i=0;i<works.length;i++){
         var obj = works[i];
         var start = obj.start;
@@ -287,10 +289,13 @@ function renderForm(index) {
 
     //var skills = JSON.parse(resume.Skills);
     var skills = resume.Skills;
-    if(typeof skills==="string"){
+    if(typeof skills==="string"&&skills){
         skills = JSON.parse(resume.Skills);
     }
-    $('#skillWrap').html("");
+    if(skills.length>0){
+        $('#skillWrap').html("");
+    }
+
     for(var i=0;i<skills.length;i++){
         var obj = skills[i];
         var skillName = obj.name;
@@ -331,10 +336,13 @@ function renderForm(index) {
 
     //var edus = JSON.parse(resume.Educations);
     var edus = resume.Educations;
-    if(typeof edus==="string"){
+    if(typeof edus==="string"&&edus){
         edus = JSON.parse(resume.Educations);
     }
-    $('#eduWrap').html("");
+    if(edus.length>0){
+        $('#eduWrap').html("");
+    }
+
     for(var i=0;i<edus.length;i++){
         var obj = edus[i];
         var start = obj.start;

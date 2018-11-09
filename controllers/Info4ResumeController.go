@@ -28,6 +28,11 @@ func(this *Info4ResumeController) Insert()  {
 	if uid==0{
 		UID = utils.RandStringBytesMaskImprSrc(16)
 		user.Uid = UID
+		user.Name = this.GetString("name")
+		user.Gender = this.GetString("gender")
+		user.Phone = this.GetString("phone")
+		user.Email = this.GetString("email")
+		user.Birthday = this.GetString("birthday")
 		uid = user.ReadOrCreate(*user)//插入用户表记录
 	}
 	info4resume := new(models.Info4Resume)
@@ -64,10 +69,7 @@ func(this *Info4ResumeController) Insert()  {
 		}else{
 			this.jsonResult(http.StatusOK,1, "数据插入成功!", ShareID)
 		}
-
 	}
-
-
 }
 
 func(this *Info4ResumeController) Insert4Use()  {
@@ -212,9 +214,9 @@ func (this *Info4ResumeController)Send2Mail()  {
 	}
 	messageObj := new(models.Message)
 	messageObj.Company = this.GetString("company")
+	messageObj.Name = this.GetString("name")
 	messageObj.Email = this.GetString("email")
 	messageObj.Message = this.GetString("message")
-
 
 	//按sid查询rid
 	info4resume := new(models.Info4Resume)
@@ -228,7 +230,7 @@ func (this *Info4ResumeController)Send2Mail()  {
 	go SendMail4Resume(info4resume.Email,messageObj)
 	//添加消息记录
 	messageObj.Insert(messageObj)
-	this.jsonResult(200,1,"您的留言信息我们已送达:)",nil)
+	this.jsonResult(200,1,"您的留言信息我们已成功送达:)",nil)
 }
 
 func SendMail4Resume(mail string,messageObj *models.Message)  {
@@ -237,7 +239,7 @@ func SendMail4Resume(mail string,messageObj *models.Message)  {
 
 	nickname := "即刻简历"
 	user := "zooori@foxmail.com"
-	subject := "简历分享页留言信息"
+	subject := "即刻简历-留言信息"
 	content_type := "Content-Type: text/plain; charset=UTF-8"
 
 	body := "【用户邮箱】："+mail
@@ -250,7 +252,7 @@ func SendMail4Resume(mail string,messageObj *models.Message)  {
 
 	if mail!=""{
 		to[0] = mail
-		body = "您有新留言信息\r\n对方信息:"+messageObj.Company+"\r\n邮箱地址:"+messageObj.Email+"\r\n留言信息:"+messageObj.Message
+		body = "【您有新留言信息】\r\n公司名称:"+messageObj.Company+"\r\n对方称谓:"+messageObj.Name+"\r\n邮箱地址:"+messageObj.Email+"\r\n留言信息:"+messageObj.Message
 		msg = []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
 			"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
 		smtp.SendMail("smtp.qq.com:25", auth, user, to, msg)

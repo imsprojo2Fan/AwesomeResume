@@ -7,6 +7,8 @@ import (
 	"AwesomeResume/enums"
 
 	"AwesomeResume/models/other"
+	"net/smtp"
+	"strings"
 )
 
 type IndexController struct {
@@ -44,6 +46,31 @@ func (this *IndexController) Redirect() {
 	htmlName:= "resume/"+resume.Url+".html"
 	this.TplName = htmlName
 
+}
+
+func (this *IndexController) Mail4Index()  {
+	contact := this.GetString("contact")
+	message := this.GetString("message")
+	go SendMail(contact,message)
+	this.jsonResult(200,1,"提交成功",nil)
+}
+
+func SendMail(parameter1,parameter2 string)  {
+	auth := smtp.PlainAuth("", "zooori@foxmail.com", "fznqfopwakggibej", "smtp.qq.com")
+	to := []string{"imsprojo2fan@foxmail.com"}
+
+	nickname := "即刻简历"
+	user := "zooori@foxmail.com"
+	subject := "即刻简历-首页留言"
+	content_type := "Content-Type: text/plain; charset=UTF-8"
+
+	body := "联系方式:"+parameter1+"\r\n留言信息:"+parameter2
+	msg := []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
+		"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
+	err := smtp.SendMail("smtp.qq.com:25", auth, user, to, msg)
+	if err != nil {
+		fmt.Printf("send mail error: %v", err)
+	}
 }
 
 func (c *IndexController) jsonResult(status enums.JsonResultCode,code int, msg string, data interface{}) {

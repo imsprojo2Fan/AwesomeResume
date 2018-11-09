@@ -10,6 +10,7 @@ func init() {
 	beego.Router("/", &controllers.IndexController{},"*:Index")
 	beego.Router("/resume", &controllers.IndexController{},"*:Redirect")
 	beego.Router("/resume/submit", &controllers.Info4ResumeController{},"*:Insert")
+	beego.Router("/index/mail4index", &controllers.IndexController{},"*:Mail4Index")
 	//登录相关
 	beego.Router("/login", &controllers.LoginController{},"*:LoginIndex")
 	beego.Router("/validate", &controllers.LoginController{},"*:Validate")
@@ -32,6 +33,11 @@ func init() {
 	beego.Router("/main/info4resume/update",&controllers.Info4ResumeController{},"POST:Update")
 	beego.Router("/share",&controllers.Info4ResumeController{},"*:Share")
 	beego.Router("/resume/send2mail",&controllers.Info4ResumeController{},"POST:Send2Mail")
+	//用户信息管理
+	beego.Router("/main/user/listOne",&controllers.UserController{},"POST:ListOne")
+	beego.Router("/main/user/update",&controllers.UserController{},"POST:Update")
+	beego.Router("/main/user/validate4mail",&controllers.UserController{},"POST:Validate4mail")
+	beego.Router("/main/user/mail4confirm",&controllers.UserController{},"POST:Mail4confirm")
 
 	//定制错误页
 	beego.ErrorController(&controllers.ErrorController{})

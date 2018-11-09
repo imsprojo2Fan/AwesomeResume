@@ -298,7 +298,7 @@ img { max-width: 100%; }
 /* Menu */
 .menu-wrap {
   position: fixed;
-  z-index: 999;
+  z-index: 1049;
   width: 300px;
   height: 100%;
   right: 0;

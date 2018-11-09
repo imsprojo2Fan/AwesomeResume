@@ -221,8 +221,23 @@ function share() {
     $(dom).css("margin","0 auto");
     console.log($(dom).prop("outerHTML"));
     swal({
-        title: "<h3>长按二维码 扫码/保存</h3>",
+        title: "<h4>长按二维码 扫码/保存</h4>",
         text:$(dom).prop("outerHTML")+'<br><p>分享链接:<br>'+url+'</p>',
         html: true
     });
+}
+
+function checkPhone(phone){
+    if(!(/^1[34578]\d{9}$/.test(phone))){
+        return false;
+    }
+}
+
+function checkEmail(email) {
+    var filter = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+    if (filter.test(email)) {
+        return true;
+    } else {
+        return false;
+    }
 }

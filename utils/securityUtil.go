@@ -19,7 +19,7 @@ func PKCS7UnPadding(origData []byte) []byte {
 	unpadding := int(origData[length-1])
 	return origData[:(length - unpadding)]
 }
-
+/*加密*/
 func AesEncrypt(origData, key []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
@@ -32,7 +32,9 @@ func AesEncrypt(origData, key []byte) ([]byte, error) {
 	blockMode.CryptBlocks(crypted, origData)
 	return crypted, nil
 }
-
+/*
+	解密
+*/
 func AesDecrypt(crypted, key []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
