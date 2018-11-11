@@ -88,7 +88,7 @@ func MD5(text string) string{
 	ctx.Write([]byte(text))
 	return hex.EncodeToString(ctx.Sum(nil))
 }
-
+//6位随机验证码
 func RandomCode() string {
 	rnd := rand.New(rand.NewSource(time.Now().UnixNano()))
 	return strconv.FormatInt(int64(rnd.Int31n(1000000)), 10)

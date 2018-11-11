@@ -126,7 +126,7 @@ func(this *User) Login(user *User) bool{
 func(this *User) ReadByMail(user *User) int {
 
 	o := orm.NewOrm()
-	o.Read(user,"email")
+	o.Read(user,"email","actived")
 	//o.Raw("SELECT id,is_activate  FROM user WHERE email = ? AND is_activate=1", user.Mail).QueryRow(&user)
 	if user.Email==""{
 		return -1
@@ -172,6 +172,16 @@ func(this *User) UpdateActived(user *User) bool {
 		return true
 	}
 	return false
+}
+
+func(this *User) UpdatePasswordByEmail(user *User) bool {
+
+	o := orm.NewOrm()
+	_,err := o.Raw("update user set password=? where email=?",user.Password,user.Email).Exec()
+	if err!=nil{
+		return false
+	}
+	return true
 }
 
 func(this *User) SelectByCol(user *User,col string) {

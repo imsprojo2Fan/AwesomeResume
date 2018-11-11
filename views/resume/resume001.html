@@ -22,7 +22,7 @@
     <!--require start-->
     <link rel="stylesheet" href="../../static/css/util.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.css">
-    <script src="../../static/plugins/sewwtalert/sweetalert.min.js"></script>
+    <script src="../../static/plugins/sweetalert/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://cdn.staticfile.org/awesome-bootstrap-checkbox/v0.2.3/awesome-bootstrap-checkbox.min.css">
     <link href="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap-slider/10.2.1/css/bootstrap-slider.min.css" rel="stylesheet">
@@ -45,6 +45,7 @@
 <body>
 <div style="display: none;width: 128px" id='qrcode'></div>
 <input type="hidden" id="token" value="{{._xsrf}}">
+<input type="hidden" id="dbData" value="{{.dbData}}">
 <div id="loading" class="loading-wrap" style="display: none">
     <div class="loader" >
         <div class="la-fire la-3x">
@@ -839,31 +840,46 @@
 <script src="../../static/js/resume.js"></script>
 <!--require end-->
 <script>
-    dbData = {{.dbData}};
-    $('#sendMessage').on('click',function () {
-        var url = window.location.href;
-        if(url.indexOf("share")<1){
-            swal("即刻提示","模板状态[与我联系]功能不可用喔","error");
-            return
-        }else{
-            var company = $('#contact-company').val().trim();
-            var name = $('#contact-name').val().trim();
-            var email = $('#contact-email').val().trim();
-            var message = $('#contact-message').val().trim();
-            if(!company||!email||!message){
-                swal("即刻提示","您似乎忘了填一些必要信息!","error");
-                return
-            }
-            var sid = GetQueryString("v");
-            $.post("/resume/send2mail",{_xsrf:$('#token').val(),sid:sid,company:company,name:name,email:email,message:message},function (r) {
-                if(r.code==1){
-                    swal("即刻提示",r.msg,"success");
-                }else{
-                    swal("即刻提示",r.msg,"error");
-                }
-            });
+    var localData,dbData;
+    $(function () {
+        //渲染数据----------------------------------------------开始
+        if (typeof(Storage) !== "undefined") {
+            // 针对 localStorage/sessionStorage 的代码
+        } else {
+            // 抱歉！不支持 Web Storage ..
         }
+        localData = localStorage.getItem("resume");
+        if(localData){//渲染本地存储数据
+            //console.info(JSON.parse(localStorage.getItem("resume")));
+            resume = JSON.parse(localData);
+            $("#submitTip").show();
+            $('#scroll-top').remove();
+            $('#design').css("bottom","15px");
+            renderHtml();
+        }
+        dbData = {{.dbData}};
+        if(dbData){
+            $('#qrcodeBtn').show();
+            $('#design').remove();
+            //生成二维码
+            makeCode();
+            resume = dbData;
+            renderHtml();
+        }else{
+            $('#qrcodeBtn').remove();
+        }
+
+        //渲染数据----------------------------------------------结束
+        setTimeout(function () {
+            var alertInfo = getCookieValue("alertInfo");
+            if(!alertInfo&&!dbData){
+                addCookie("alertInfo","alertInfo",7,"/");
+                swal("即刻提示","点击右下角设计按钮即可制作及预览简历","info");
+            }
+        },500);
+
     });
+
 </script>
 
 </body>

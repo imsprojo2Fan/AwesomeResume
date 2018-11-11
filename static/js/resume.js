@@ -1,5 +1,4 @@
 var workItem,skillItem,eduItem;
-var localData,dbData;
 var resume = {};
 $(function () {
     //隐藏验证登录输入框
@@ -20,39 +19,6 @@ $(function () {
         //获取旧值和新值
         //console.info(e.value.oldValue + '--' + e.value.newValue);
     });
-
-    if (typeof(Storage) !== "undefined") {
-        // 针对 localStorage/sessionStorage 的代码
-    } else {
-        // 抱歉！不支持 Web Storage ..
-    }
-    localData = localStorage.getItem("resume");
-    if(localData){//渲染本地存储数据
-        //console.info(JSON.parse(localStorage.getItem("resume")));
-        resume = JSON.parse(localData);
-        $("#submitTip").show();
-        $('#scroll-top').remove();
-        $('#design').css("bottom","15px");
-        renderHtml();
-    }
-
-    setTimeout(function () {
-        var alertInfo = getCookieValue("alertInfo");
-        if(!alertInfo&&!dbData){
-            addCookie("alertInfo","alertInfo",7,"/");
-            swal("即刻提示","点击右下角设计按钮即可制作及预览简历","info");
-        }
-    },500);
-    if(dbData){
-        $('#qrcodeBtn').show();
-        $('#design').remove();
-        //生成二维码
-        makeCode();
-        resume = dbData;
-        renderHtml();
-    }else{
-        $('#qrcodeBtn').remove();
-    }
 
     $('#qrcodeBtn').on('click',function () {
         share();
@@ -223,6 +189,31 @@ $(function () {
     //完成预览
     $('#preview').on('click',function () {
         dataCollect();
+    });
+    //提交数据
+    $('#sendMessage').on('click',function () {
+        var url = window.location.href;
+        if(url.indexOf("share")<1){
+            swal("即刻提示","模板状态[与我联系]功能不可用喔","error");
+            return
+        }else{
+            var company = $('#contact-company').val().trim();
+            var name = $('#contact-name').val().trim();
+            var email = $('#contact-email').val().trim();
+            var message = $('#contact-message').val().trim();
+            if(!company||!email||!message){
+                swal("即刻提示","您似乎忘了填一些必要信息!","error");
+                return
+            }
+            var sid = GetQueryString("v");
+            $.post("/resume/send2mail",{_xsrf:$('#token').val(),sid:sid,company:company,name:name,email:email,message:message},function (r) {
+                if(r.code==1){
+                    swal("即刻提示",r.msg,"success");
+                }else{
+                    swal("即刻提示",r.msg,"error");
+                }
+            });
+        }
     });
 
 });

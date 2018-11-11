@@ -129,34 +129,6 @@ func(this *LoginController) Validate()  {
 			this.jsonResult(http.StatusOK,3, "账号验证成功!", user.Id)
 		}
 
-	}else if oType=="resetMail"{//发送重置密码邮件
-		mail := this.GetString("email")
-		if mail==""{
-			this.jsonResult(http.StatusOK,-1, "邮箱地址不能为空!", nil)
-		}
-
-		user := new(models.WXInfo)
-		user.Email = mail
-		if user.ReadByMail(user)==1{
-			this.jsonResult(http.StatusOK,-1, "未找到该邮箱地址!", nil)
-		}
-		go SendMail4Reset(mail)//发送邮件
-		session.Set(utils.String2md5(mail)+"reset",utils.String2md5(mail))
-		this.jsonResult(http.StatusOK,1, "邮件已发送!", nil)
-	}else if oType=="resetOperate"{
-		md_mail := this.GetString("md")
-		password := this.GetString("password")
-		if password==""||md_mail==""{
-			this.jsonResult(http.StatusOK,-1, "参数错误!", "重置密码失败")
-		}
-		user := new(models.WXInfo)
-		user.Uid = md_mail
-		user.Password = utils.String2md5(password)
-		if !user.UpdatePassword(user){
-			this.jsonResult(http.StatusOK,-1, "重置密码失败!", "请联系管理员")
-		}else{
-			this.jsonResult(http.StatusOK,1, "重置密码成功!", "3秒后跳转登录页")
-		}
 	}else if oType=="logout"{//退出登录
 		session.Set("id",nil)
 		//this.Redirect("/login",302)
@@ -218,6 +190,84 @@ func(this *LoginController) Operate() {
 		this.TplName = "login/alert4reset.html"
 	}
 
+}
+
+func(this *LoginController) Forget()  {
+	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
+	email := this.GetString("email")
+	if email==""{
+		this.jsonResult(200,-1,"参数错误!",nil)
+	}
+	//查询邮箱地址是否存在
+	user := new(models.User)
+	user.Email = email
+	user.Actived = 1
+	user.ReadByMail(user)
+	if user.Id==0{
+		this.jsonResult(200,-1,"邮箱不存在!",nil)
+	}
+	code := utils.RandomCode()
+	session.Set(email,code)
+	go SendMail4Forget(email,code)
+	this.jsonResult(200,1,"验证码已发送",nil)
+}
+
+func(this *LoginController) Reset()  {
+	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
+	email := this.GetString("email")
+	if email==""{
+		this.jsonResult(200,-1,"参数错误!",nil)
+	}
+	localCode := session.Get(email).(string)
+	if localCode==""{
+		this.jsonResult(200,-1,"验证码已失效!请重试",nil)
+	}
+
+	code := this.GetString("code")
+	if code!=localCode{
+		this.jsonResult(200,-1,"验证码错误!",nil)
+	}
+	key := beego.AppConfig.String("password::key")
+	salt := beego.AppConfig.String("password::salt")
+	//查询邮箱地址是否存在
+	password := this.GetString("password")
+	user := new(models.User)
+	result, err := utils.AesEncrypt([]byte(password+salt), []byte(key))
+	if err != nil {
+		panic(err)
+	}
+	user.Password = base64.StdEncoding.EncodeToString(result)
+	user.Email = email
+	if !user.UpdatePasswordByEmail(user){
+		this.jsonResult(200,-1,"更新失败,请稍后再试",nil)
+	}
+	this.jsonResult(200,1,"更新成功",nil)
+}
+
+func SendMail4Forget(mail,code string)  {
+	auth := smtp.PlainAuth("", "zooori@foxmail.com", "fznqfopwakggibej", "smtp.qq.com")
+	to := []string{"imsprojo2fan@foxmail.com"}
+
+	nickname := "即刻简历"
+	user := "zooori@foxmail.com"
+	subject := "用户操作-重置密码"
+	content_type := "Content-Type: text/plain; charset=UTF-8"
+
+	body := "【账号邮箱】："+mail
+	msg := []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
+		"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
+	err := smtp.SendMail("smtp.qq.com:25", auth, user, to, msg)
+	if err != nil {
+		fmt.Printf("send mail error: %v", err)
+	}
+
+	if mail!=""{
+		to[0] = mail
+		body = "邮箱重置密码操作-验证码:【"+code+"】\r\n验证码十分钟内有效\r\n如果非本人操作请忽略本条消息"
+		msg = []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
+			"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)
+		smtp.SendMail("smtp.qq.com:25", auth, user, to, msg)
+	}
 }
 
 func SendMail4Reset(mail string)  {

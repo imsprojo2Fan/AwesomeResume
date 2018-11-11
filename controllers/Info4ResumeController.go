@@ -229,6 +229,7 @@ func (this *Info4ResumeController)Send2Mail()  {
 	//发送邮件
 	go SendMail4Resume(info4resume.Email,messageObj)
 	//添加消息记录
+	messageObj.Uid = info4resume.Uid
 	messageObj.Insert(messageObj)
 	this.jsonResult(200,1,"您的留言信息我们已成功送达:)",nil)
 }

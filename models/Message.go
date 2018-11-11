@@ -9,7 +9,7 @@ import (
 // Model Struct
 type Message struct {
 	Id  int
-	Sid int
+	Uid int64
 	Company string
 	Name string
 	Phone string
@@ -69,4 +69,10 @@ func(this *Message) Read(Message *Message) bool {
 	} else {
 		return true
 	}
+}
+
+func(this *Message) ListAll(uid interface{},dataList *[]Message){
+
+	o := orm.NewOrm()
+	o.Raw("select * from message where uid=?",uid).QueryRows(dataList)
 }
