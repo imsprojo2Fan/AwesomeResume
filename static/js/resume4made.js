@@ -43,9 +43,9 @@ $(function () {
         }else if(curPage==3){
             $('#pageTitle').html("工作/实习经历");
         }else if(curPage==4){
-            $('#pageTitle').html("所有技能");
+            $('#pageTitle').html("专业技能");
         }else{
-            $('#pageTitle').html("教育经历");
+            $('#pageTitle').html("教育背景");
         }
         $('#page'+curPage).show(200);//显示上一页
         $('#curPage').html(curPage);//设置当前页
@@ -65,9 +65,9 @@ $(function () {
         }else if(curPage==3){
             $('#pageTitle').html("工作/实习经历");
         }else if(curPage==4){
-            $('#pageTitle').html("所有技能");
+            $('#pageTitle').html("专业技能");
         }else{
-            $('#pageTitle').html("教育经历");
+            $('#pageTitle').html("教育背景");
         }
         $('#page'+curPage).show(200);//显示下一页
         $('#curPage').html(curPage);//设置当前页
@@ -143,7 +143,7 @@ $(function () {
             }
         });
     });
-    //新增教育经历
+    //新增教育背景
     $('#save4edu').on("click",function () {
         var isBreak = false;
         //验证是否有未填项
@@ -455,7 +455,7 @@ function dataCollect() {
         return;
     }
     if(works.length==0){
-        tipTip("您似乎忘了填写教育经历.");
+        tipTip("您似乎忘了填写教育背景.");
         return;
     }
     GlobalResume.Name = name;

@@ -56,9 +56,9 @@ $(function () {
         }else if(curPage==3){
             $('#pageTitle').html("工作/实习经历");
         }else if(curPage==4){
-            $('#pageTitle').html("所有技能");
+            $('#pageTitle').html("专业技能");
         }else{
-            $('#pageTitle').html("教育经历");
+            $('#pageTitle').html("教育背景");
         }
         $('#page'+curPage).show(200);//显示上一页
         $('#curPage').html(curPage);//设置当前页
@@ -78,9 +78,9 @@ $(function () {
         }else if(curPage==3){
             $('#pageTitle').html("工作/实习经历");
         }else if(curPage==4){
-            $('#pageTitle').html("所有技能");
+            $('#pageTitle').html("专业技能");
         }else{
-            $('#pageTitle').html("教育经历");
+            $('#pageTitle').html("教育背景");
         }
         $('#page'+curPage).show(200);//显示下一页
         $('#curPage').html(curPage);//设置当前页
@@ -156,7 +156,7 @@ $(function () {
             }
         });
     });
-    //新增教育经历
+    //新增教育背景
     $('#save4edu').on("click",function () {
         var isBreak = false;
         //验证是否有未填项
@@ -295,7 +295,7 @@ function dataCollect() {
         return;
     }
     if(works.length==0){
-        tipTip("您似乎忘了填写教育经历.");
+        tipTip("您似乎忘了填写教育背景.");
         return;
     }
     resume.Name = name;
@@ -319,150 +319,6 @@ function dataCollect() {
     renderHtml();
     $('#modalClose').click();
 
-}
-function renderHtml() {
-    //隐藏关闭按钮
-    $('#modalClose').hide();
-    $(".typed").hide();
-    $(".typed_").typed({//渲染打印效果
-        strings: ["我的名字是"+resume.Name, "我是一名"+resume.Objective,"来自"+resume.Province+'-'+resume.City, "🙂"],
-        typeSpeed: 100,
-        backDelay: 900,
-        loop: true
-    });
-    var str = "暂未填写";
-    $('#showName').html(resume.Name);
-    $("#showObjective").html(resume.Objective);
-    $("#showGender").html(resume.Gender);
-    if(resume.Gender==="女"){
-        $('.bg-about').css("background","url(../../static/resume/resume001/images/about/about01_.jpg)");
-        $('.bg-about').css("background-size","cover");
-        $('.bg-about').css("background-repeat","no-repeat");
-    }
-    $("#showBirthday").html(resume.Birthday);
-    $("#showPhone").html(resume.Phone);
-    $('#showEmail').html(resume.Email);
-    if(!resume.Home){
-        $('#showHome').html(str);
-    }else{
-        $('#showHome').html(resume.Home);
-    }
-    if(!resume.Address){
-        $('#showAddress').html(str);
-    }else{
-        $('#showAddress').html(resume.Address);
-    }
-    if(!resume.Hobby){
-        $('#showHobby').html(str);
-    }else{
-        $('#showHobby').html(resume.Hobby);
-    }
-    if(!resume.Honor){
-        $('#showHonor').html("-");
-    }else{
-        $('#showHonor').html(resume.Honor);
-    }
-    $('#showIntroduce').html(resume.Introduce);
-    var works = resume.Works;
-    if(typeof works==="string"&&works){
-        works = JSON.parse(works);
-    }
-    //works = works.reverse();
-    $('.showWorkWrap').html("");
-    for(var i=0;i<works.length;i++){
-        var obj = works[i];
-        var start = obj.start;
-        var end = obj.end;
-        var date = start+" 至 "+end;
-        var company = obj.company;
-        var position = obj.position;
-        var description = obj.description.replace(/\n/g,'<br/>');
-        if(!description){
-            description = "暂未填写";
-        }
-        $(".showWorkWrap").append('<li>\n' +
-            '                                    <div class="col-md-6 col-sm-6">\n' +
-            '                                        <div class="wrap-card">\n' +
-            '                                            <div class="card">\n' +
-            '                                                <h2 class="company">'+company+
-            '                                                </h2>\n' +
-            '                                                <p class="job">\n' +position+
-            '                                                </p>\n' +
-            '                                                <p class="year">\n' +date+
-            '                                                </p>\n' +
-            '                                                <hr>\n' +
-            '                                                <div class="text-detail">\n' +
-            '                                                    <p>\n' +description+
-            '                                                    </p>\n' +
-            '                                                </div>\n' +
-            '                                            </div>\n' +
-            '                                        </div>\n' +
-            '                                    </div>\n' +
-            '                                </li>');
-    }
-
-    var skills = resume.Skills;
-    if(typeof skills==="string"&&skills){
-        skills = JSON.parse(skills);
-    }
-    $('.showSkillWrap').html("");
-    for(var i=0;i<skills.length;i++){
-        var obj = skills[i];
-        var skillName = obj.name;
-        var num = obj.num;
-        $('.showSkillWrap').append('<div class="skillbar" data-percent="'+num+'%">\n' +
-            '                                <div class="title head-sm">\n' +skillName+
-            '                                </div>\n' +
-            '                                <div class="count-bar">\n' +
-            '                                    <div class="count"></div>\n' +
-            '                                </div>\n' +
-            '                            </div>');
-    }
-    //Skill
-    jQuery('.skillbar').each(function() {
-        jQuery(this).appear(function() {
-            jQuery(this).find('.count-bar').animate({
-                width:jQuery(this).attr('data-percent')
-            },3000);
-            var percent = jQuery(this).attr('data-percent');
-            jQuery(this).find('.count').html('<span>' + percent + '</span>');
-        });
-    });
-
-    var edus = resume.Educations;
-    if(typeof edus==="string"&&edus){
-        edus = JSON.parse(edus);
-    }
-    //edus = edus.reverse();
-    $('.showEduWrap').html("");
-    for(var i=0;i<edus.length;i++){
-        var obj = edus[i];
-        var start = obj.start;
-        var end = obj.end;
-        var date = start+" 至 "+end;
-        var school = obj.school;
-        var description = obj.description.replace(/\n/g,'<br/>');
-        if(!description){
-            description = "暂未填写";
-        }
-        $(".showEduWrap").append('<li>\n' +
-            '                                    <div class="col-md-6 col-sm-6">\n' +
-            '                                        <div class="wrap-card">\n' +
-            '                                            <div class="card">\n' +
-            '                                                <h2 class="company">'+school+
-            '                                                </h2>\n'+
-            '                                                <p class="year">\n' +date+
-            '                                                </p>\n' +
-            '                                                <hr>\n' +
-            '                                                <div class="text-detail">\n' +
-            '                                                    <p>\n' +description+
-            '                                                    </p>\n' +
-            '                                                </div>\n' +
-            '                                            </div>\n' +
-            '                                        </div>\n' +
-            '                                    </div>\n' +
-            '                                </li>');
-    }
 }
 function renderForm() {
     $('#name').val(resume.Name);

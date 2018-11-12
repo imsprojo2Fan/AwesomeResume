@@ -1,8 +1,19 @@
 
+var isShowQRCode = false;//是否显示二维码
+
+document.onreadystatechange = function () {
+    if(document.readyState === "complete"){ //当页面加载状态为完全结束时进入
+        $('#pageLoading').hide(200);
+    }
+}
 
 $(function () {
     //Scroll Top
-    jQuery('#scroll-top').scrollToTop();
+    jQuery('#scroll-top').scrollToTop();//绑定返回顶部事件
+
+    if(window.location.href.indexOf("share")>0){
+        isShowQRCode = true;
+    }
 
     var flag = isMobile.any();
     if(flag){
@@ -27,7 +38,6 @@ $(function () {
                 $('#wechat-alert').fadeOut(500);
             })
     }
-
 
 });
 
@@ -57,23 +67,25 @@ var isMobile = {
 $.fn.scrollToTop = function() {
     jQuery(this).hide().removeAttr('href');
     if (jQuery(window).scrollTop() != '0') {
-        jQuery(this).fadeIn(500);
-        $('#wechat').fadeIn(500);
-        $('#design').fadeIn(500);
+        jQuery(this).fadeIn(200);
+        $('#wechat').fadeIn(200);
+        $('#design').fadeIn(200);
     }
     var scrollDiv = jQuery(this);
     jQuery(window).scroll(function() {
         if (jQuery(window).scrollTop() == '0') {
-            jQuery(scrollDiv).fadeOut(500);
-            $('#wechat').fadeOut(500);
-            $('#wechat-alert').fadeOut(500);
-            $('#design').fadeOut(500);
-            $('#qrcodeBtn').fadeOut(500);
+            jQuery(scrollDiv).fadeOut(200);
+            $('#wechat').fadeOut(200);
+            $('#wechat-alert').fadeOut(200);
+            $('#design').fadeOut(200);
+            $('#qrcodeBtn').fadeOut(200);
         } else {
-            jQuery(scrollDiv).fadeIn(500);
-            $('#wechat').fadeIn(500);
-            $('#design').fadeIn(500);
-            $('#qrcodeBtn').fadeIn(500);
+            jQuery(scrollDiv).fadeIn(200);
+            $('#wechat').fadeIn(200);
+            $('#design').fadeIn(200);
+            if(isShowQRCode){
+                $('#qrcodeBtn').fadeIn(200);
+            }
         }
     });
     jQuery(this).on('click', function() {
@@ -83,8 +95,7 @@ $.fn.scrollToTop = function() {
     })
 };
 
-function redirect(str) {
-    debugger
+function redirect(str) {//锚点跳转
     //$('#close-button').click();
     var target = document.getElementById(str);
     if (!target) {
@@ -94,7 +105,7 @@ function redirect(str) {
             300);
         return;
     }
-    var targetOffset = $(target).offset().top - 115;
+    var targetOffset = $(target).offset().top - 100;
     $('html,body').animate({
             scrollTop: targetOffset
         },
@@ -128,7 +139,7 @@ function redirect(str) {
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">*/
 
-function GetQueryString(name) {
+function GetQueryString(name) {//获取url参数
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
     var context = "";

@@ -1,0 +1,66 @@
+@media screen and (min-width: 768px){
+    #navbar-collapse-1 div{
+        display: none;
+    }
+    .about-right{
+        border: 0px solid #eeeeee;
+        min-height: 650px;
+        padding: 6px;
+    }
+    .services{
+        padding: 6rem 0px;
+    }
+}
+@media screen and (max-width: 767px){
+    #navbar-collapse-1{
+        padding: 0px;
+    }
+    #navbar-collapse-1 div{
+        height: 55px;
+        line-height: 55px;
+        width: 100%;
+        font-size: 18px;
+    }
+    #navbar-collapse-1 div:hover{
+        background: #5cb85c;
+    }
+    #navbar-collapse-2 ul{
+        display: none;
+    }
+    ul.nav.navbar-nav.navbar-right.margin-top {
+        margin: 0px;
+        width: 100%;
+    }
+    .navbar-nav > li {
+        /* display: table-cell; */
+        width: inherit;
+        position: inherit;
+        height: 45px;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    /*我的简介*/
+    .bg-about{
+        min-height: 350px;
+    }
+    .about-right{
+        border: 1px solid #eeeeee;
+        margin-top: 375px;
+        min-height: 350px;
+        padding: 6px;
+    }
+    .text-w3l h3{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .w3agile-servs-img{
+        height: 160px;
+        line-height: 160px;
+    }
+    .services{
+        padding: 2rem 0px;
+    }
+
+}
