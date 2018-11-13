@@ -94,54 +94,6 @@ function getDribbbleThumbs() {
 };
 
 
-
-//Scroll Top 
-$.fn.scrollToTop = function() {
-    jQuery(this).hide().removeAttr('href');
-    if (jQuery(window).scrollTop() != '0') {
-        jQuery(this).fadeIn(500);
-        $('#wechat').fadeIn(500);
-    }
-    var scrollDiv = jQuery(this);
-    jQuery(window).scroll(function() {
-        if (jQuery(window).scrollTop() == '0') {
-            jQuery(scrollDiv).fadeOut(500);
-            $('#wechat').fadeOut(500);
-            $('#wechat-alert').fadeOut(500);
-        } else {
-            jQuery(scrollDiv).fadeIn(500);
-            $('#wechat').fadeIn(500);
-        }
-    });
-    jQuery(this).on('click', function() {
-        jQuery('html, body').animate({
-            scrollTop: 0
-        }, 800)
-    })
-};
-
-//Detect Mobile
-var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-};
-
 //Parallax Scroll
 function parallaxScroll() {
     var scrolledY = jQuery(window).scrollTop();
@@ -316,10 +268,6 @@ jQuery(document).ready(function($) {
         }
     });
 
-    //Finished loader
-    Pace.on("done", function() {
-        jQuery(".cover").addClass('animated fadeOutRight').fadeOut(100);
-    });
 
     //Magnific Popup  
     jQuery('.popup-video').magnificPopup({

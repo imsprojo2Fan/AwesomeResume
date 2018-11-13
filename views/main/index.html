@@ -463,8 +463,9 @@
 
         });
         function redirect(htmlName,obj){
-
-            $('#loading').show(200);
+            if(htmlName){
+                $('#loading').show(200);
+            }
             $('#navUl li').each(function (index) {//全置默认
 				$(this).removeClass("navItemActive");
                 $(this).find("i").removeClass("navItemActive4span");

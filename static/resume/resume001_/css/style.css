@@ -52,7 +52,7 @@ a:focus, a:hover {
     text-align: center;
     height: 100px;
 	line-height: 100px;
-    background: rgba(51, 51, 51, 1);
+    background: rgba(33, 33, 33, 0.95);
 }
 .logo-w3layouts h1 a {
     color: #fff;
@@ -77,7 +77,7 @@ a:focus, a:hover {
 	margin-top: 100px;
 }
 .banner-info-w3l  {
-	padding:13em 0 0;
+	padding:15em 0 0;
 }
 .scroll, .scroll2 {
 	margin: 0em 0 0;
@@ -110,9 +110,9 @@ a:focus, a:hover {
     text-transform: uppercase;
     letter-spacing: 2px;
     border: 1px solid #fff;
-    width: 15%;
-    padding: 0.7em;
-	background: #000;
+    width: 20%;
+    padding: 1em;
+	background: rgba(0, 0, 0, 0.76);
     margin: 2em auto;
 	font-family: 'Nunito', sans-serif;
 	transition: 0.5s all;
@@ -139,7 +139,7 @@ a:focus, a:hover {
 	margin: 0;
 	border-radius: 0;
 	text-align: center !important;
-    width: 95%;
+    width: 98%;
 	height: 100px;
 	line-height: 100px;
 }
@@ -182,9 +182,9 @@ span.caret:hover {
 	display: inline-block;
 	padding: 0;
 	color: #ffffff;
-	font-size: 20px;
+	font-size: 22px;
 	font-family: 'Nunito', sans-serif;
-	font-weight: 300;
+	font-weight: 700;
 	background: none !important;
 	-webkit-transition: -webkit-transform 0.3s;
 	-ms-transition: -webkit-transform 0.3s;
@@ -204,8 +204,8 @@ span.caret:hover {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	font-size: 20px;
-	font-weight: 300;
+	font-size: 22px;
+	font-weight: 700;
 	color: #7B68EE !important;
 	padding: 0;
 	z-index:999;
@@ -525,7 +525,7 @@ h3.w3l_head, h3.agileits-title, h3.agile-title, h3.agile-contact, div#wthreeskil
 		-webkit-border-radius: 2px;
 		border-radius: 2px;
 		-moz-border-radius: 2px;
-		background: #777;
+		background: rgba(77, 77, 77, 0.75);
 		margin-bottom: 10px;
 		-webkit-transition: width 1s;
 		transition: width 1s;
@@ -894,7 +894,6 @@ ul.simplefilter {
 .contact-left-agile {
     float: left;
     width: 50%;
-	padding-left: 14em;
 }
 .contact-right-w3l {
     float: right;
@@ -905,18 +904,16 @@ ul.simplefilter {
 }
 .contact input[type="text"], input[type="email"], .contact-right-w3l textarea{
     width: 80%;
-    padding: 10px;
+    padding: 10px 15px;
     outline: none;
     font-size: 14px;
-    color: #000;
     margin: 12px 0px;
 	font-family: 'Nunito', sans-serif;
-    border: none;
-    border-bottom: 1px solid #000;
+    border: 1px solid #eee;
 	background: transparent;
 }
 input[type="button"] {
-    padding: 12px 0px;
+    padding: 10px 20px;
     font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -926,7 +923,7 @@ input[type="button"] {
     outline: none;
     cursor: pointer;
     margin: 1em auto;
-    width: 26%;
+    width: 80%;
     transition: 0.5s all;
     -webkit-transition: 0.5s all;
     -o-transition: 0.5s all;
@@ -934,7 +931,7 @@ input[type="button"] {
     -ms-transition: 0.5s all;
 }
 input[type="button"]:hover {
-	background:#000;
+	background:#333333;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-o-transition:0.5s all;
@@ -981,9 +978,8 @@ input[type="button"]:hover {
     float: left;
 }
 .add-w3ls2 {
-    float: right;
-    width: 85%;
-	margin: 9px 0px;
+    float: left;
+	margin-left: 20px;
 }
 .add-w3ls-main span {
     color: #fff;
@@ -1001,7 +997,7 @@ input[type="button"]:hover {
 }
 .add-w3ls2 p {
     font-size: 1em;
-    color: #ababab;
+    color: #ffffff;
 	margin:0;
 	line-height: 1em;
 }
@@ -1172,7 +1168,7 @@ textarea {
 		font-size: 30px;
 	}
 	.contact-left-agile {
-		padding-left: 3em;
+		padding-left: 0em;
 	}
 }
 @media(max-width: 1050px){
@@ -1213,7 +1209,6 @@ textarea {
 		height: 270px;
 	}
 	.add-w3ls2 {
-		margin: 2px 0px;
 	}
 	.add-w3ls-main span {
 		margin: 10px 0px;
@@ -1354,7 +1349,7 @@ textarea {
 		padding: 3em 0;
 	}
 	.w3l-grids-about, .services-w3ls-row, .gallery_gds, .contact-agile, .wthreeskills-grids, .bar_group.group_ident-1, .tabs, .load_more.load_more {
-		margin-top: 2em;
+		margin-top: 0.5em;
 	}
 	.contact-left-agile {
 		float: left;
@@ -1365,10 +1360,9 @@ textarea {
 		width: 100%;
 	}
 	.contact-left-agile {
-		padding-left: 6em;
+		padding-left: 0em;
 	}
 	.add-w3ls2 {
-		width: 87%;
 	}
 	.contact-left-agile {
 		min-height: 426px;
@@ -1554,7 +1548,7 @@ textarea {
 		margin-top: 1.2em;
 	}
 	.contact-left-agile {
-		padding-left: 5em;
+		padding-left: 0em;
 	}
 	.contact-left-agile {
 		min-height: 382px;
@@ -1625,7 +1619,7 @@ textarea {
 		min-height: 293px;
 	}
 	.banner-info-w3l {
-		padding: 3em 0 0;
+		padding: 5em 0 0;
 	}
 	.banner-info-w3l h4 a {
 		width: 21%;
@@ -1646,8 +1640,6 @@ textarea {
 		margin-bottom: 1em;
 	}
 	.add-w3ls2 {
-		width: 85%;
-		margin: 3px 0px;
 	}
 	.resp-tab-content p {
 		font-size: 0.9em;
@@ -1779,7 +1771,7 @@ textarea {
 	}
 	.work-info .work-left2 h5 {
 		top: -51px;
-		right: 49%;
+		right: 190px;
 	}
 	.work-left2 {
 		height: 126px;
@@ -1812,7 +1804,7 @@ textarea {
 		margin-bottom: 1em;
 	}
 	.contact-left-agile {
-		padding-left: 4em;
+		padding-left: 0em;
 	}
 	.add-w3ls-main span {
 		margin: 5px 0px;
@@ -1825,7 +1817,6 @@ textarea {
 		margin: 8px 0px;
 	}
 	.add-w3ls2 {
-		width: 83%;
 	}
 	textarea {
 		min-height: 110px;
@@ -1895,7 +1886,7 @@ textarea {
 		right: 26.5%;
 	}
 	.contact-left-agile {
-		padding-left: 3em;
+		padding-left: 0em;
 	}
 	.contact-left-agile h4 {
 		font-size: 1.35em;
@@ -1972,7 +1963,7 @@ textarea {
 		margin-left: 42px;
 	}
 	.work-info h4 {
-		margin-left: 31px;
+		margin-left: 40px;
 	}
 	h5.sch {
 		right: 25.5%;
@@ -1981,7 +1972,6 @@ textarea {
 		min-height: 102px;
 	}
 	.add-w3ls2 {
-		width: 81%;
 	}
 	.contact-left-agile {
 		min-height: 350px;
@@ -2016,10 +2006,10 @@ textarea {
 		line-height: 24px;
 	}
 	.work-info .work-right2 h4 {
-		margin-left: 181px;
+		margin-left: 178px;
 	}
 	h5.univ {
-		right: 8.6% !important;
+		right: 30px !important;
 	}
 	h5.sch {
 		right: 24%;
@@ -2180,10 +2170,9 @@ textarea {
 		font-size: 1.15em;
 	}
 	.contact-left-agile {
-		padding-left: 2.5em;
+		padding-left: 0em;
 	}
 	.add-w3ls2 {
-		width: 79%;
 	}
 	.navbar-toggle {
 		padding: 7px 7px;
@@ -2226,12 +2215,13 @@ textarea {
 	word-wrap:break-word;/*强制换行*/
 }
 .wrap-about .w-content td.title{
-	padding-right: 10px;
+	padding-right: 5px;
 	font-weight: 500;
+    text-align: right;
 	white-space:nowrap;/*强制不换行*/
 }
 .wrap-about .w-content td.break{
-	padding-right: 15px;
+	padding-right: 5px;
 }
 .wrap-about .w-content tr{
 	vertical-align: top;

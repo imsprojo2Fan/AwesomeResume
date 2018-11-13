@@ -10,10 +10,25 @@
     .services{
         padding: 6rem 0px;
     }
+    .pcWrap4edu,.pcWrap4work{
+        display: block;
+    }
+    .phoneWrap4edu,.phoneWrap4work{
+        display: none;
+    }
+    .contact-left-agile{
+        display: block;
+    }
+
+    .contact-left-agile2{
+        display: none;
+    }
+
 }
 @media screen and (max-width: 767px){
     #navbar-collapse-1{
         padding: 0px;
+        margin-top: 25px;
     }
     #navbar-collapse-1 div{
         height: 55px;
@@ -22,7 +37,7 @@
         font-size: 18px;
     }
     #navbar-collapse-1 div:hover{
-        background: #5cb85c;
+        background: rgba(123, 104, 238, 0.86);
     }
     #navbar-collapse-2 ul{
         display: none;
@@ -40,15 +55,34 @@
         text-align: center;
     }
 
+    .isHide{
+        display: none;
+    }
+
     /*我的简介*/
     .bg-about{
-        min-height: 350px;
+        min-height: 450px;
     }
     .about-right{
-        border: 1px solid #eeeeee;
-        margin-top: 375px;
+        border: 0px solid #eeeeee;
+        margin-top: 470px;
         min-height: 350px;
-        padding: 6px;
+    }
+    .wrap-about {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        display: block;
+        padding: 0px;
+    }
+    .wrap-about .w-content td{
+        font-size: 17px;
+        font-weight: 300;
+        word-wrap:break-word;/*强制换行*/
+    }
+    .wrap-about .w-content tr{
+        vertical-align: top;
+        height: 40px;
     }
     .text-w3l h3{
         font-size: 20px;
@@ -62,5 +96,130 @@
     .services{
         padding: 2rem 0px;
     }
+
+    .pcWrap4edu,.pcWrap4work{
+        display: none;
+    }
+    .phoneWrap4edu,.phoneWrap4work{
+        display: block;
+    }
+    .itemRight h4,.itemLeft2 h4{
+        font-size: 15px;
+        font-weight: 700;
+    }
+    .itemLeft{
+        width: 50%;
+        float: left;
+        text-align: right;
+        margin-top: 35px;
+    }
+    .itemRight{
+        width: 50%;
+        float: left;
+        padding-left: 15px;
+        margin-top: 35px;
+        padding-top: 35px;
+        border-left:1px solid #999999;
+    }
+
+    .itemLeft2{
+        width: 50%;
+        float: left;
+        margin-top: 35px;
+        padding-right: 15px;
+        text-align: right;
+        padding-top: 35px;
+        border-right:1px solid #999999;
+    }
+
+    .itemRight2{
+        width: 50%;
+        float: right;
+        text-align: left;
+        margin-top: 14px;
+    }
+
+    .itemBottom p{
+        float: left;
+        margin-top: 25px;
+    }
+
+
+    .itemDate{
+        background: #7B68EE;
+        color:#fff;
+        font-size: 14px;
+        display: inline-block;
+        padding: 8px 18px;
+        white-space: nowrap;
+        margin-right: -5px;
+    }
+
+    .itemDate2{
+        background: #7B68EE;
+        color:#fff;
+        font-size: 14px;
+        display: inline-block;
+        padding: 8px 18px;
+        white-space: nowrap;
+        margin-left: -5px;
+        margin-top: 20px;
+    }
+
+
+
+    .itemLeft .cusp01 {
+        position: relative;
+        display: inline-block;
+        right:0px;
+        top:0px;
+        border-top:5px solid #fff;
+        border-bottom:5px solid #fff;
+        border-right:0px;
+        border-left:9px solid #7B68EE;
+    }
+    .itemLeft .cusp02 {
+        left:6px;
+        top:-6px;
+        border-top:3px solid #fff;
+        border-bottom:3px solid #fff;
+        border-right:0px;
+        border-left:5px solid #7B68EE;
+    }
+
+    .itemRight2 .cusp01 {
+        position: relative;
+        display: inline-block;
+        left:0px;
+        top:0px;
+        border-top:5px solid #fff;
+        border-bottom:5px solid #fff;
+        border-left:0px;
+        border-right:9px solid #7B68EE;
+    }
+    .itemRight2 .cusp02 {
+        left:6px;
+        top:-6px;
+        border-top:3px solid #fff;
+        border-bottom:3px solid #fff;
+        border-left:0px;
+        border-right:6px solid #7B68EE;
+    }
+
+    .contact-left-agile{
+        display: none;
+    }
+
+    .contact-left-agile2{
+        display: block;
+        height: 250px;
+        background: url(../images/contact2.jpg) no-repeat 0px 0px;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+    }
+
 
 }

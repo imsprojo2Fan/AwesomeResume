@@ -32,6 +32,7 @@
     <!-- Costum Styles -->
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/responsive.css">
+    <link rel="stylesheet" href="../static/css/util.css">
 
     <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
@@ -72,10 +73,28 @@
 </head>
 
 <body>
-    <input type="hidden" id="token" value="{{._xsrf}}">
+
     <!--主题色值:深蓝#133458;浅蓝#6195FF;腾祥沁圆简-->
-    <!-- Preloader -->
-    <div class="cover"></div>
+    <div id="loading" class="loading-wrap" style="display: none;height:100%;position:fixed;">
+        <div class="loader" >
+            <div class="la-ball-clip-rotate-multiple la-3x">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="loaderTxt">数据交互中...</div>
+        </div>
+    </div>
+    <div id="pageLoading" class="loading-wrap" style="display: block;height:100%;position:fixed;">
+        <div class="loader" >
+            <div class="la-fire la-3x">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="loaderTxt">页面渲染中...</div>
+        </div>
+    </div>
+    <input type="hidden" id="token" value="{{._xsrf}}">
     <!--头部-->
     <div class="header">
         <div class="container">
@@ -184,9 +203,11 @@
                     <article>
                         <h1>关于我们</h1>
                         <hr>
-                        <h4 style="font-family: '微软雅黑'">'即刻简历'旨在网络便捷时代提供更多个性化、更能表达自我才能的无纸化简历制作。简历作为众多求职者职业生涯中不可或缺的一部分,求职过程中除却求职者本身的能力之外,一份有创意及个性的简历亦能展现求职者对这份工作的用心和重视程度,在'即刻'所有简历均为免费制作,当然您也可以选择更加展现自我的个性化定制服务.</h4>
+                        <h4 style="font-family: '微软雅黑'">'即刻简历'旨在为当今时间碎片化的时代提供更多个性化、更能表达自我才能的无纸化简历制作。简历作为众多求职者职业生涯中不可或缺的一部分,求职过程中除却面试者本身的能力之外,一份有创意及个性的简历亦能展现求职者对这份工作的用心和重视程度,在'即刻'所有简历均为免费制作,当然您也可以选择更加展现自我的个性化定制服务.</h4>
                         <p>
-                        <br/>The Instant Resume is designed to provide more personalized and more self-fulfilling paperless resumes in the era of network convenience.As a part of the job search career, the resume is an indispensable part of the job search process. In addition to the job seeker's own ability, a creative and personalized resume can also show the job seeker's intention and attention to the job.All of our resumes are free to make, of course, you can also choose to show your own personalized custom production, between the writing, it is difficult to hide talent.</p>
+                        <br/>The Instant Resume  aims to provide more personalized, more expressive self-documentless resumes for today's fragmented era.
+                            As a part of the career of many job seekers, resumes, in addition to the interviewer's own ability in the job search process, a creative and personalized resume can also show the job seekers' attention and attention to the job.
+                            'Immediately' all resumes are free to produce, of course, you can also choose to show your own personalized customization services.</p>
                     </article>
                 </div>
             </div>
@@ -563,7 +584,6 @@
 
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script data-pace-options='{ "ajax": false }' src="../static/js/vendor/pace.min.js"></script>
     <script src="../static/js/vendor/classie.js"></script>
     <script src="../static/js/vendor/isotope.pkgd.min.js"></script>
     {{/*<script src="../static/js/vendor/jquery.velocity.min.js"></script>*/}}
@@ -577,7 +597,7 @@
     <script src="../static/js/vendor/jquery.magnific-popup.min.js"></script>
     <script src="../static/js/vendor/wow.min.js"></script>
     <script src="../static/js/main.js"></script>
-    <script src="../static/js/ajax.js"></script>
+
     <script src="../static/js/util.js"></script>
     <script>
 

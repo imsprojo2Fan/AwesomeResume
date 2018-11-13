@@ -59,7 +59,6 @@ html{
 
 .navItemActive{
     border-right:5px solid #6195FF;
-    background: rgba(97, 149, 255, 0.61);
     color:#6195FF;
 }
 

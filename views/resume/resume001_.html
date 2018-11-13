@@ -32,8 +32,8 @@
             overflow-y: auto;
         }
         hr{
-            height: 3px;
-            background: #07cb79;
+            height: 5px;
+            background: #7B68EE;
             border: none;
             width: 55px;
             margin: 25px auto;
@@ -78,14 +78,14 @@
         <h4>主题颜色选择</h4>
     </div>
 
-    <div id="drawColor" style="width: 100%;margin: 0 auto;width: 200px;height: 100px;border: 1px solid #EEE;margin-top: 15px;">
+    <div id="drawColor" style="width: 100%;margin: 0 auto;width: 200px;height: 100px;background:#7B68EE;border: 1px solid #EEE;margin-top: 15px;">
     </div>
     <div style="text-align: center;margin-top: 15px">
         <button id="colorPicker" class="btn btn-default">选择颜色</button>
     </div>
     <div style="text-align: center;margin-top: 15px">
         <p>自定义颜色</p><br>
-        <input onchange="update(this.jscolor)" class="form-control jscolor {closable:true,closeText:'关闭',styleElement:'drawColor',value:'ff3300',padding:20, borderWidth:1}" value="ff3300">
+        <input id="colorInput" onchange="update(this.jscolor)" class="form-control jscolor {closable:true,closeText:'关闭',styleElement:'drawColor',value:'#7B68EE',padding:20, borderWidth:1}" value="7B68EE">
     </div>
 </div>
 <!-- /.End Of Color Picker -->
@@ -95,7 +95,7 @@
     <nav class="navbar navbar-default">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" style="background: #000;margin-top: 30px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <button type="button" style="background: #333333;margin-top: 30px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -103,7 +103,7 @@
             </button>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse-1" style="background: rgba(0,0,0,0.9);color: #fff">
+        <div class="collapse navbar-collapse" id="navbar-collapse-1" style="background: rgba(33,33,33,0.95);color: #fff;">
             <div onclick="redirect('home')">主页</div>
             <div onclick="redirect('about')">我的简介</div>
             <div onclick="redirect('skills')">专业技能</div>
@@ -130,7 +130,7 @@
 <div class="banner-agile">
     <div class="container">
         <div class="banner-info-w3l">
-            <h3>摄影师</h3>
+            <h3>[ 摄影师 ]</h3>
             <h2>Hi,我的名字是烟熏的花</h2>
             <h4><a class="scroll" href="javascript:redirect('about')">关于我</a></h4>
         </div>
@@ -229,7 +229,7 @@
 <div class="services">
     <div class="container">
         <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
-            <p>We end their lives，is to get rid of someone else's expectations，and find the real oneself.</p>
+            <p class="isHide">We end their lives，is to get rid of someone else's expectations，and find the real oneself.</p>
             <p>我们终其一生，就是要摆脱别人的期盼，找到真正的自己。</p>
         </div>
     </div>
@@ -242,7 +242,7 @@
         <hr>
         <div class="wthreeskills-grids" >
             <div class="col-sm-8 col-md-offset-2" style="border: 0px solid red;">
-                <div class="bar_group">
+                <div class="bar_group showSkillWrap">
                     <div class='bar_group__bar thin' label='PHP DESIGN' show_values='true' tooltip='true' value='75'></div>
                     <div class='bar_group__bar thin' label='CSS3' show_values='true' tooltip='true' value='82'></div>
                     <div class='bar_group__bar thin' label='HTML' show_values='true' tooltip='true' value='95'></div>
@@ -262,7 +262,7 @@
 <div class="services">
     <div class="container">
         <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
-            <p>One of the greatest bravery in life is the ability to maintain trust and love after experiencing deception and injury.</p>
+            <p class="isHide">One of the greatest bravery in life is the ability to maintain trust and love after experiencing deception and injury.</p>
             <p>人生最大的勇敢之一，就是经历欺骗和伤害之后，还能保持信任和爱的能力。</p>
         </div>
     </div>
@@ -272,55 +272,68 @@
 <div class="aitsresumewthree" id="educations">
     <div class="container">
         <div class="aitsresumewthree-tag">
-            <h3 class="title">教育经历</h3>
+            <h3 class="title">教育背景</h3>
         </div>
         <hr>
-        <div>
-            <ul id="myList">
-                <li>
-                    <div class="l_g">
-                        <div class="l_g_r g_r">
-                            <div class="work">
-                                <div class="work-info">
-                                    <div class="col-md-6 work-grid work-left">
-                                        <h4>2007-2009</h4>
-                                    </div>
-                                    <div class="col-md-6 work-grid work-right">
-                                        <h5 class="univ">Post Graduate</h5>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="work-info">
-                                    <div class="col-md-6 work-grid work-right work-right2">
-                                        <h4>2003-2007</h4>
-                                    </div>
-                                    <div class="col-md-6 work-grid work-left work-left2">
-                                        <h5>Graduate</h5>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="work-info">
-                                    <div class="col-md-6 work-grid work-left">
-                                        <h4>1994-2003</h4>
-                                    </div>
-                                    <div class="col-md-6 work-grid work-right">
-                                        <h5 class="sch">School</h5>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="pcWrap4edu" style="border: 0px solid red;">
+            <div class="work-info">
+                <div class="col-md-6 work-grid work-left">
+                    <h4>2007-2009</h4>
+                </div>
+                <div class="col-md-6 work-grid work-right">
+                    <h5 class="univ">Post Graduate</h5>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="work-info">
+                <div class="col-md-6 work-grid work-right work-right2">
+                    <h4>2003-2007</h4>
+                </div>
+                <div class="col-md-6 work-grid work-left work-left2">
+                    <h5>Graduate</h5>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="phoneWrap4edu" style="border: 0px solid red;">
+            <div class="item">
+                <div class="itemLeft" style="">
+                    <div class="itemDate">
+                        2007.08-2009.12
                     </div>
-                </li>
-            </ul>
+                    <div class="cusp01"><div class="cusp02"></div></div>
+                </div>
+                <div class="itemRight" >
+                    <div>
+                        <h4>广州番禺</h4>
+                    </div>
+                </div>
+                <div class="itemBottom">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="itemLeft2">
+                    <h4>广州番禺职业技术学院</h4>
+                </div>
+                <div class="itemRight2" >
+                    <div class="cusp01"><div class="cusp02"></div></div>
+                    <div class="itemDate2">
+                        2007.11-2009.06
+                    </div>
+                </div>
+                <div class="itemBottom">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <!-- //Educations-ends-here -->
-<hr style="margin: 0px auto;background: none;border-top: 1px solid #999999;width: 95%">
+<div style="margin: 0px auto;background: none;border-top: 1px solid #999999;width: 95%"></div>
+
 <!-- Works-starts-here -->
 <div class="aitsresumewthree" id="works">
     <div class="container">
@@ -328,47 +341,65 @@
             <h3 class="title">工作经历</h3>
         </div>
         <hr>
-        <div >
-            <ul id="myList2">
-                <li>
-                    <div class="l_g">
-                        <div class="l_g_r g_r">
-                            <div class="work">
-                                <div class="work-info">
-                                    <div class="col-md-6 work-grid work-left">
-                                        <h4>2007-2009</h4>
-                                    </div>
-                                    <div class="col-md-6 work-grid work-right">
-                                        <h5 class="univ">Post Graduate</h5>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="work-info">
-                                    <div class="col-md-6 work-grid work-right work-right2">
-                                        <h4>2003-2007</h4>
-                                    </div>
-                                    <div class="col-md-6 work-grid work-left work-left2">
-                                        <h5>Graduate</h5>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="work-info">
-                                    <div class="col-md-6 work-grid work-left">
-                                        <h4>1994-2003</h4>
-                                    </div>
-                                    <div class="col-md-6 work-grid work-right">
-                                        <h5 class="sch">School</h5>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="pcWrap4work" style="border: 0px solid red;">
+            <div class="work-info">
+                <div class="col-md-6 work-grid work-left">
+                    <h4>2007-2009</h4>
+                </div>
+                <div class="col-md-6 work-grid work-right">
+                    <h5 class="univ">Post Graduate</h5>
+                    <br>
+                    <p style="font-size: 18px;font-weight: 500;" class="univ">Post Graduate</p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="work-info">
+                <div class="col-md-6 work-grid work-right work-right2">
+                    <h4>2003-2007</h4>
+                </div>
+                <div class="col-md-6 work-grid work-left work-left2">
+                    <h5>Graduate</h5>
+                    <br>
+                    <p style="font-size: 18px;font-weight: 500;" class="univ">Post Graduate</p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="phoneWrap4work" style="border: 0px solid red;">
+            <div class="item">
+                <div class="itemLeft" style="">
+                    <div class="itemDate">
+                        2007.08-2009.12
                     </div>
-                </li>
-            </ul>
+                    <div class="cusp01"><div class="cusp02"></div></div>
+                </div>
+                <div class="itemRight" >
+                    <div>
+                        <h4>广州番禺</h4>
+                        <h5 style="margin-top: 6px">JavaWeb 开发工程师</h5>
+                    </div>
+                </div>
+                <div class="itemBottom">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="itemLeft2">
+                    <h4>广州番禺职业技术学院</h4>
+                    <h5 style="margin-top: 6px">JavaWeb 开发工程师</h5>
+                </div>
+                <div class="itemRight2" >
+                    <div class="cusp01"><div class="cusp02"></div></div>
+                    <div class="itemDate2">
+                        2007.11-2009.06
+                    </div>
+                </div>
+                <div class="itemBottom">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -378,7 +409,7 @@
 <div class="services">
     <div class="container">
         <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
-            <p>In the early twenties, doing something that will still smile when you think of it in your 80s.</p>
+            <p class="isHide">In the early twenties, doing something that will still smile when you think of it in your 80s.</p>
             <p>在二十出头的生命里，做一件到八十岁想起来都还会微笑的事。</p>
         </div>
     </div>
@@ -389,35 +420,60 @@
     <h3 class="agile-contact">与我联系</h3>
     <hr>
     <div class="contact-agile">
-        <div class="map">
-            <!---<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387142.84008838347!2d-74.25818880297903!3d40.705831640339994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1465278069158"> </iframe>--->
-        </div>
         <div class="contact-left-agile">
-            <h4>About Me</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div class="add-w3ls-main">
-                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                <div class="add-w3ls2">
-                    <h5>Location</h5>
-                    <p>738 Diamond Road, New York City</p>
+            <div style="border: 0px solid red;padding-left:33%;padding-top:12%;background: rgba(0,0,0,0.75);width: 100%;">
+                <div class="add-w3ls-main">
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                    <div class="add-w3ls2">
+                        <h5>居住地址</h5>
+                        <p>厦门市思明区718文化创意园</p>
+                    </div>
+                    <div class="clearfix"> </div>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="add-w3ls-main">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    <div class="add-w3ls2">
+                        <h5>邮箱地址</h5>
+                        <p>bdgpixel@gmail.com</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="add-w3ls-main">
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                    <div class="add-w3ls2">
+                        <h5>手机号码</h5>
+                        <p>13623656368</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
             </div>
-            <div class="add-w3ls-main">
-                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                <div class="add-w3ls2">
-                    <h5>Email</h5>
-                    <p><a href="mailto:info@example.com">mail@example.com</a></p>
+        </div>
+        <div class="contact-left-agile2" >
+            <div style="border: 0px solid red;padding-left:14%;background: rgba(0,0,0,0.75);width: 100%;padding-top: 10%">
+                <div class="add-w3ls-main">
+                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                    <div class="add-w3ls2">
+                        <h5>居住地址</h5>
+                        <p>厦门市思明区718文化创意园</p>
+                    </div>
+                    <div class="clearfix"> </div>
                 </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="add-w3ls-main">
-                <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-                <div class="add-w3ls2">
-                    <h5>Call Me</h5>
-                    <p>+12 5842 544 976</p>
+                <div class="add-w3ls-main">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                    <div class="add-w3ls2">
+                        <h5>邮箱地址</h5>
+                        <p>bdgpixel@gmail.com</p>
+                    </div>
+                    <div class="clearfix"> </div>
                 </div>
-                <div class="clearfix"> </div>
+                <div class="add-w3ls-main">
+                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                    <div class="add-w3ls2">
+                        <h5>手机号码</h5>
+                        <p>13623656368</p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
             </div>
         </div>
         <div class="contact-right-w3l">
@@ -426,7 +482,7 @@
                     <input placeholder="企业/公司名称" id="company" type="text" required="" />
                     <input placeholder="您的称谓" id="name" type="text" required="" />
                     <input placeholder="联系方式" id="contact" type="email" required="" />
-                    <textarea placeholder="留言信息" id="message" style="min-height: 120px;resize:vertical;border-top: 1px solid #000;border-left: 1px solid #000;border-right: 1px solid #000;" required=""></textarea>
+                    <textarea placeholder="留言信息" id="message" style="min-height: 120px;resize:vertical;" required=""></textarea>
                     <input type="button" value="提交" >
                 </form>
             </div>
@@ -739,30 +795,20 @@
 <script src="../../static/plugins/colorPicker/jscolor.js"></script>
 <!--require end-->
 
-
 <!-- Progressive-Bars-JavaScript -->
 <script src="../../static/resume/resume001_/js/bars.js"></script>
 <!-- //Progressive-Bars-JavaScript -->
-
-<!-- Show-More-JavaScript -->
-<script>
-    $(document).ready(function () {
-        size_li = $("#myList li").size();
-        x=1;
-        $('#myList li:lt('+x+')').show();
-    });
-</script>
 
 <script>
     $('#colorPicker').ylColor({
         onSelect: function(oCol,elem){
             var color = $(oCol).attr('data-color');
             $('#drawColor').css({'background-color':color});
+            renderColor();
         }
     });
     function update(jscolor) {
-        // 'jscolor' instance can be used as a string
-        //alert(jscolor);
+        renderColor(jscolor);
     }
 </script>
 
@@ -806,6 +852,279 @@
         },500);
 
     });
+    function renderColor(val) {
+        if(!val){
+            val = $('#drawColor').css("background-color");
+        }
+        $('#navbar-collapse-1 div').hover(function () {
+            $(this).css("background",val);
+        },function () {
+            $(this).css("background","#333");
+        });
+        $('head').append('<style>.cl-effect-2 a span::before{color: '+val+' !important;}</style>')
+        $('.banner-info-w3l h4 a').hover(function () {
+            $(this).css("background",val);
+        },function () {
+            $(this).css("background","#333");
+        });
+        $('hr').css("background",val);
+        $('.b_tooltip').css("background-color",val);
+        $('.b_tooltip--tri').css("border-color",val+" transparent transparent transparent");
+        var val2 = val.substring(0,val.length-1)+",0.75)";
+        $('.bar_group__bar.thin').css("background",val2);
+        $('.work-info h4').css("background",val);
+        $("head").append("<style>.work-info h4:before{border-color:transparent transparent transparent "+val+"}</style>");
+        $('input[type="button"]').hover(function () {
+            $(this).css("background",val);
+        },function () {
+            $(this).css("background","#333");
+        });
+        $('.scroll-top').hover(function () {
+            $(this).css("background",val2);
+        },function () {
+            $(this).css("background","rgba(0, 0, 0, 0.75)");
+        });
+        //$('.logo-w3layouts').css("background",val.substring(0,val.length-1)+",0.85)");
+        $('.itemDate').css("background",val);
+        $('.itemDate2').css("background",val);
+        $('.itemLeft .cusp01').css("border-left-color",val);
+        $('.itemLeft .cusp02').css("border-left-color",val);
+        $('.itemRight2 .cusp01').css("border-right-color",val);
+        $('.itemRight2 .cusp02').css("border-right-color",val);
+    }
+    function renderHtml() {
+        var color = resume.Theme;
+        if(!color){
+            color = "#7B68EE";
+        }
+        renderColor(color);
+
+        //隐藏关闭按钮
+        $('#modalClose').hide();
+        var str = "暂未填写";
+        $('#showName').html(resume.Name);
+        $("#showObjective").html(resume.Objective);
+        $("#showGender").html(resume.Gender);
+        if(resume.Gender==="女"){
+            $('.bg-about').css("background","url(../../static/resume/resume001_/images/about/about01_.jpg)");
+            $('.bg-about').css("background-size","cover");
+            $('.bg-about').css("background-repeat","no-repeat");
+        }else{
+            $('.bg-about').css("background","url(../../static/resume/resume001_/images/about/about02_.jpg)");
+            $('.bg-about').css("background-size","cover");
+            $('.bg-about').css("background-repeat","no-repeat");
+        }
+        $("#showBirthday").html(resume.Birthday);
+        $("#showPhone").html(resume.Phone);
+        $('#showEmail').html(resume.Email);
+        if(!resume.Home){
+            $('#showHome').html(str);
+        }else{
+            $('#showHome').html(resume.Home);
+        }
+        if(!resume.Address){
+            $('#showAddress').html(str);
+        }else{
+            $('#showAddress').html(resume.Address);
+        }
+        if(!resume.Hobby){
+            $('#showHobby').html(str);
+        }else{
+            $('#showHobby').html(resume.Hobby);
+        }
+        if(!resume.Honor){
+            $('#showHonor').html("-");
+        }else{
+            $('#showHonor').html(resume.Honor);
+        }
+        $('#showIntroduce').html(resume.Introduce);
+        var works = resume.Works;
+        if(typeof works==="string"&&works){
+            works = JSON.parse(works);
+        }
+        //works = works.reverse();
+        $('.pcWrap4work').html("");
+        $('.phoneWrap4work').html("");
+        var domTXT;
+        for(var i=0;i<works.length;i++){
+            var obj = works[i];
+            var start = obj.start;
+            var end = obj.end;
+            var date = start+" 至 "+end;
+            var company = obj.company;
+            var position = obj.position;
+            var description = obj.description.replace(/\n/g,'<br/>');
+            if(!description){
+                description = "暂未填写";
+            }
+
+            if(i%2==0){
+                domTXT = '<div class="work-info">\n' +
+                        '                <div class="col-md-6 work-grid work-right work-right2">\n' +
+                        '                    <h4>'+date+'</h4>\n' +
+                        '                </div>\n' +
+                        '                <div class="col-md-6 work-grid work-left work-left2">\n' +
+                        '                    <h5>'+company+'</h5>\n' +
+                        '                    <br>\n' +
+                        '                    <p style="font-size: 18px;font-weight: 500;" class="univ">'+position+'</p>\n' +
+                        '                    <p>'+description+'</p>\n' +
+                        '                </div>\n' +
+                        '                <div class="clearfix"> </div>\n' +
+                        '            </div>';
+            }else{
+                domTXT = '<div class="work-info">\n' +
+                        '                <div class="col-md-6 work-grid work-left">\n' +
+                        '                    <h4>'+date+'</h4>\n' +
+                        '                </div>\n' +
+                        '                <div class="col-md-6 work-grid work-right">\n' +
+                        '                    <h5 class="univ">'+company+'</h5>\n' +
+                        '                    <br>\n' +
+                        '                    <p style="font-size: 18px;font-weight: 500;" class="univ">'+position+'</p>\n' +
+                        '                    <p>'+description+'</p>\n' +
+                        '                </div>\n' +
+                        '                <div class="clearfix"> </div>\n' +
+                        '            </div>';
+            }
+            $('.pcWrap4work').append(domTXT);
+
+            if(i%2==0){
+                domTXT = '<div class="item">\n' +
+                        '                <div class="itemLeft" style="">\n' +
+                        '                    <div class="itemDate">\n' +
+                        '                        '+date+'\n' +
+                        '                    </div>\n' +
+                        '                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
+                        '                </div>\n' +
+                        '                <div class="itemRight" >\n' +
+                        '                    <div>\n' +
+                        '                        <h4>'+company+'</h4>\n' +
+                        '                        <h5 style="margin-top: 6px">'+position+'</h5>\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '                <div class="itemBottom">\n' +
+                        '                    <p>'+description+'</p>\n' +
+                        '                </div>\n' +
+                        '            </div>'
+            }else{
+                domTXT = '<div class="item">\n' +
+                        '                <div class="itemLeft2">\n' +
+                        '                    <h4>'+company+'</h4>\n' +
+                        '                    <h5 style="margin-top: 6px">'+position+'</h5>\n' +
+                        '                </div>\n' +
+                        '                <div class="itemRight2" >\n' +
+                        '                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
+                        '                    <div class="itemDate2">\n' +
+                        '                        '+date+'\n' +
+                        '                    </div>\n' +
+                        '                </div>\n' +
+                        '                <div class="itemBottom">\n' +
+                        '                    <p>'+description+'</p>\n' +
+                        '                </div>\n' +
+                        '            </div>'
+            }
+            $('.phoneWrap4work').append(domTXT);
+        }
+
+        var skills = resume.Skills;
+        if(typeof skills==="string"&&skills){
+            skills = JSON.parse(skills);
+        }
+        $('.showSkillWrap').html("");
+        for(var i=0;i<skills.length;i++){
+            var obj = skills[i];
+            var skillName = obj.name;
+            var num = obj.num;
+            $('.showSkillWrap').append('<div class="bar_group__bar thin" label="'+skillName+'" show_values="true" tooltip="true" value='+num+'></div>');
+        }
+        //Skill
+        jQuery('.skillbar').each(function() {
+            jQuery(this).appear(function() {
+                jQuery(this).find('.count-bar').animate({
+                    width:jQuery(this).attr('data-percent')
+                },3000);
+                var percent = jQuery(this).attr('data-percent');
+                jQuery(this).find('.count').html('<span>' + percent + '</span>');
+            });
+        });
+
+        var edus = resume.Educations;
+        if(typeof edus==="string"&&edus){
+            edus = JSON.parse(edus);
+        }
+        //edus = edus.reverse();
+        $('.pcWrap4edu').html("");
+        $('.phoneWrap4edu').html("");
+        for(var i=0;i<edus.length;i++){
+            var obj = edus[i];
+            var start = obj.start;
+            var end = obj.end;
+            var date = start+" 至 "+end;
+            var school = obj.school;
+            var description = obj.description.replace(/\n/g,'<br/>');
+            if(!description){
+                description = "暂未填写";
+            }
+            if(i%2==0){
+                domTXT = '<div class="work-info">\n' +
+                        '                            <div class="col-md-6 work-grid work-left">\n' +
+                        '                                <h4>'+date+'</h4>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="col-md-6 work-grid work-right">\n' +
+                        '                                <h5 class="univ">'+school+'</h5>\n' +
+                        '                                <p>'+description+' </p>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="clearfix"> </div>\n' +
+                        '                        </div>'
+            }else{
+                domTXT = '<div class="work-info">\n' +
+                        '                            <div class="col-md-6 work-grid work-right work-right2">\n' +
+                        '                                <h4>'+date+'</h4>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="col-md-6 work-grid work-left work-left2">\n' +
+                        '                                <h5>'+school+'</h5>\n' +
+                        '                                <p>'+description+' </p>\n' +
+                        '                            </div>\n' +
+                        '                            <div class="clearfix"> </div>\n' +
+                        '                        </div>'
+            }
+            $('#pcWrap4edu').append(domTXT);
+
+            if(i%2==0){
+                domTXT = '<div class="item">\n' +
+                        '\t\t\t                <div class="itemLeft" style="">\n' +
+                        '\t\t\t                    <div class="itemDate">\n' +
+                        '\t\t\t                        '+date+'\n' +
+                        '\t\t\t                    </div>\n' +
+                        '\t\t\t                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
+                        '\t\t\t                </div>\n' +
+                        '\t\t\t                <div class="itemRight" >\n' +
+                        '\t\t\t                    <div>\n' +
+                        '\t\t\t                        <h4>'+school+'</h4>\n' +
+                        '\t\t\t                    </div>\n' +
+                        '\t\t\t                </div>\n' +
+                        '\t\t\t                <div class="itemBottom">\n' +
+                        '\t\t\t                    <p>'+description+'</p>\n' +
+                        '\t\t\t                </div>\n' +
+                        '\t\t\t            </div>'
+            }else{
+                domTXT = '<div class="item">\n' +
+                        '\t\t\t                <div class="itemLeft2">\n' +
+                        '\t\t\t                    <h4>'+school+'</h4>\n' +
+                        '\t\t\t                </div>\n' +
+                        '\t\t\t                <div class="itemRight2" >\n' +
+                        '\t\t\t                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
+                        '\t\t\t                    <div class="itemDate2">\n' +
+                        '\t\t\t                        '+date+'\n' +
+                        '\t\t\t                    </div>\n' +
+                        '\t\t\t                </div>\n' +
+                        '\t\t\t                <div class="itemBottom">\n' +
+                        '\t\t\t                    <p>'+description+'</p>\n' +
+                        '\t\t\t                </div>\n' +
+                        '\t\t\t            </div>'
+            }
+            $('.phoneWrap4edu').append(domTXT);
+        }
+    }
 
 </script>
 

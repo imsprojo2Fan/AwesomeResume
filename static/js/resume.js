@@ -225,6 +225,7 @@ function tipTip(str) {
 }
 function dataCollect() {
     $('#tip').html("");
+    var theme = $('#drawColor').css("background");
     var name = $('#name').val().trim();
     var objective = $('#objective').val().trim();
     var gender = $('input:radio:checked').val();
@@ -298,6 +299,7 @@ function dataCollect() {
         tipTip("您似乎忘了填写教育背景.");
         return;
     }
+    resume.Theme = theme;
     resume.Name = name;
     resume.Objective = objective;
     resume.Gender = gender;
