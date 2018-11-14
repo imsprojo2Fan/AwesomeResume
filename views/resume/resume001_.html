@@ -49,6 +49,9 @@
 
 </head>
 <body>
+<div style="display: none;width: 128px" id='qrcode'></div>
+<input type="hidden" id="token" value="{{._xsrf}}">
+<input type="hidden" id="theme4pick" >
 <div id="loading" class="loading-wrap" style="display: none;height:100%;position:fixed;">
     <div class="loader" >
         <div class="la-ball-clip-rotate-multiple la-3x">
@@ -68,451 +71,457 @@
         <div class="loaderTxt">页面渲染中...</div>
     </div>
 </div>
-<input type="hidden" id="token" value="{{._xsrf}}">
 
-<!-- Color Picker -->
-<!--展开 visible-color-wrap-->
-<div class="color-picker-wrap ">
-    <span class="col-trigger"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
-    <div style="width: 100%;text-align: center">
-        <h4>主题颜色选择</h4>
-    </div>
+<div id="mainWrap">
 
-    <div id="drawColor" style="width: 100%;margin: 0 auto;width: 200px;height: 100px;background:#7B68EE;border: 1px solid #EEE;margin-top: 15px;">
-    </div>
-    <div style="text-align: center;margin-top: 15px">
-        <button id="colorPicker" class="btn btn-default">选择颜色</button>
-    </div>
-    <div style="text-align: center;margin-top: 15px">
-        <p>自定义颜色</p><br>
-        <input id="colorInput" onchange="update(this.jscolor)" class="form-control jscolor {closable:true,closeText:'关闭',styleElement:'drawColor',value:'#7B68EE',padding:20, borderWidth:1}" value="7B68EE">
-    </div>
-</div>
-<!-- /.End Of Color Picker -->
-
-<!-- Header -->
-<div class="logo-w3layouts" style="position: fixed;top:0px;width: 100%;z-index: 999">
-    <nav class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" style="background: #333333;margin-top: 30px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+    <!-- Color Picker -->
+    <!--展开 visible-color-wrap-->
+    <div class="color-picker-wrap">
+        <span class="col-trigger"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+        <div style="width: 100%;text-align: center">
+            <h4>主题颜色选择</h4>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse-1" style="background: rgba(33,33,33,0.95);color: #fff;">
-            <div onclick="redirect('home')">主页</div>
-            <div onclick="redirect('about')">我的简介</div>
-            <div onclick="redirect('skills')">专业技能</div>
-            <div onclick="redirect('educations')">教育背景</div>
-            <div onclick="redirect('works')">工作经历</div>
-            <div onclick="redirect('contact')">与我联系</div>
-        </div><!-- /.navbar-collapse -->
 
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse-2">
-            <ul class="nav navbar-nav navbar-right margin-top cl-effect-2" style="border: 0px solid red">
-                <li><a class="scroll2" href="javascript:redirect('home')"><span data-hover="主页">主页</span></a></li>
-                <li><a class="scroll" href="javascript:redirect('about')"><span data-hover="我的简介">我的简介</span></a></li>
-                <li><a class="scroll" href="javascript:redirect('skills')"><span data-hover="专业技能">专业技能</span></a></li>
-                <li><a class="scroll" href="javascript:redirect('educations')"><span data-hover="教育背景">教育背景</span></a></li>
-                <li><a class="scroll" href="javascript:redirect('works')"><span data-hover="工作经历">工作经历</span></a></li>
-                <li><a class="scroll" href="javascript:redirect('contact')"><span data-hover="与我联系">与我联系</span></a></li>
-            </ul>
-            <div class="clearfix"></div>
-        </div><!-- /.navbar-collapse -->
-    </nav>
-</div>
-<div class="banner-agile">
-    <div class="container">
-        <div class="banner-info-w3l">
-            <h3>[ 摄影师 ]</h3>
-            <h2>Hi,我的名字是烟熏的花</h2>
-            <h4><a class="scroll" href="javascript:redirect('about')">关于我</a></h4>
+        <div id="drawColor" style="margin: 0 auto;width: 200px;height: 100px;border: 1px solid #EEE;margin-top: 15px;">
+        </div>
+        <div style="text-align: center;margin-top: 15px">
+            <button id="colorPicker" class="btn btn-default">选择颜色</button>
+        </div>
+        <div style="text-align: center;margin-top: 15px">
+            <p>自定义颜色</p><br>
+            <input id="colorInput" onchange="update(this.jscolor)" class="form-control jscolor {closable:true,closeText:'关闭',styleElement:'drawColor',value:'',padding:20, borderWidth:1}" value="">
         </div>
     </div>
-</div>
-<!-- //Header -->
+    <!-- /.End Of Color Picker -->
 
-<!-- main-section-starts-here -->
-<!-- About-starts-here -->
-<div class="about" id="about">
-    <div class="container" style="border: 0px solid red;width: 95%;margin:0px auto;">
-        <div class="row">
-            <h3 class="w3l_head">我的简介</h3>
-            <hr>
-            <div style="margin-top: 55px;">
-                <div class="col-sm-6">
-                    <div class="bg-about" style="text-align: center;border: 0px solid red;">
+    <!-- Header -->
+    <div class="logo-w3layouts" style="position: fixed;top:0px;width: 100%;z-index: 999">
+        <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" style="background: #333333;margin-top: 30px;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1" style="background: rgba(33,33,33,0.95);color: #fff;">
+                <div onclick="redirect('home')">主页</div>
+                <div onclick="redirect('about')">我的简介</div>
+                <div onclick="redirect('skills')">专业技能</div>
+                <div onclick="redirect('educations')">教育背景</div>
+                <div onclick="redirect('works')">工作经历</div>
+                <div onclick="redirect('contact')">与我联系</div>
+            </div><!-- /.navbar-collapse -->
+
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-2">
+                <ul class="nav navbar-nav navbar-right margin-top cl-effect-2" style="border: 0px solid red">
+                    <li><a class="scroll2" href="javascript:redirect('home')"><span data-hover="主页">主页</span></a></li>
+                    <li><a class="scroll" href="javascript:redirect('about')"><span data-hover="我的简介">我的简介</span></a></li>
+                    <li><a class="scroll" href="javascript:redirect('skills')"><span data-hover="专业技能">专业技能</span></a></li>
+                    <li><a class="scroll" href="javascript:redirect('educations')"><span data-hover="教育背景">教育背景</span></a></li>
+                    <li><a class="scroll" href="javascript:redirect('works')"><span data-hover="工作经历">工作经历</span></a></li>
+                    <li><a class="scroll" href="javascript:redirect('contact')"><span data-hover="与我联系">与我联系</span></a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </div>
+    <div class="banner-agile">
+        <div class="container">
+            <div class="banner-info-w3l">
+                <h3>[ <span id="showObjective2">摄影师</span> ]</h3>
+                <h2>Hi,我的名字是<span id="showName2">烟熏的花</span></h2>
+                <h4><a class="scroll" href="javascript:redirect('about')">关于我</a></h4>
+            </div>
+        </div>
+    </div>
+    <!-- //Header -->
+
+    <!-- main-section-starts-here -->
+    <!-- About-starts-here -->
+    <div class="about" id="about">
+        <div class="container" style="border: 0px solid red;width: 95%;margin:0px auto;">
+            <div class="row">
+                <h3 class="w3l_head">我的简介</h3>
+                <hr>
+                <div style="margin-top: 55px;">
+                    <div class="col-sm-6">
+                        <div class="bg-about" style="text-align: center;border: 0px solid red;">
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6 about-right">
-                    <div >
-                        <div class="wrap-about">
-                            <table class="w-content">
-                                <tr>
-                                    <td class="title">姓名</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showName">烟熏的花</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">求职意向</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showObjective">摄影师</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">性别</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showGender">女</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">出生日期</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showBirthday">1995.10.24</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">手机</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showPhone">13623656368</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">邮箱</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showEmail">bdgpixel@gmail.com</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">籍贯信息</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showHome">福建-厦门</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">居住地址</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showAddress">厦门市思明区718文化创意园</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">兴趣爱好</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">奖项荣誉</td>
-                                    <td class="break">:</td>
-                                    <td><span id="showHonor">校级优秀学生干部、三好学生标兵、国家励志奖学金、校级一等奖学金、国家励志奖学金、校级二等奖学金、校级优秀学生干部</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="title">自我评价</td>
-                                    <td class="break">:</td>
-                                    <td>
-                                        <span id="showIntroduce">
-                                            本人性格热情开朗，待人友好，为人诚实谦虚。工作勤奋，认真负责，能吃苦耐劳，尽职尽责。具有亲和力、平易近人，善于与人沟通。
-        学习刻苦认真，成绩优秀，名列前茅。品学兼优连续三年获得学校奖学金。曾担任学生会外联部干部、系团组织部部长、班级生活委员等。
-                                        </span>
-                                    </td>
-                                </tr>
+                    <div class="col-sm-6 about-right">
+                        <div >
+                            <div class="wrap-about">
+                                <table class="w-content">
+                                    <tr>
+                                        <td class="title">姓名</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showName">烟熏的花</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">求职意向</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showObjective">摄影师</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">性别</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showGender">女</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">出生日期</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showBirthday">1995.10.24</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">手机</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showPhone">13623656368</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">邮箱</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showEmail">bdgpixel@gmail.com</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">籍贯信息</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showHome">福建-厦门</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">居住地址</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showAddress">厦门市思明区718文化创意园</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">兴趣爱好</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">奖项荣誉</td>
+                                        <td class="break">:</td>
+                                        <td><span id="showHonor">校级优秀学生干部、三好学生标兵、国家励志奖学金、校级一等奖学金、国家励志奖学金、校级二等奖学金、校级优秀学生干部</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">自我评价</td>
+                                        <td class="break">:</td>
+                                        <td>
+                                            <span id="showIntroduce">
+                                                本人性格热情开朗，待人友好，为人诚实谦虚。工作勤奋，认真负责，能吃苦耐劳，尽职尽责。具有亲和力、平易近人，善于与人沟通。
+            学习刻苦认真，成绩优秀，名列前茅。品学兼优连续三年获得学校奖学金。曾担任学生会外联部干部、系团组织部部长、班级生活委员等。
+                                            </span>
+                                        </td>
+                                    </tr>
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- //About-ends-here -->
+    <!-- //About-ends-here -->
 
-<!-- blank -->
-<div class="services">
-    <div class="container">
-        <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
-            <p class="isHide">We end their lives，is to get rid of someone else's expectations，and find the real oneself.</p>
-            <p>我们终其一生，就是要摆脱别人的期盼，找到真正的自己。</p>
-        </div>
-    </div>
-</div>
-
-<!--Skills-starts-here -->
-<div class="wthreeskills" id="skills">
-    <div class="container-fluid">
-        <h3>专业技能</h3>
-        <hr>
-        <div class="wthreeskills-grids" >
-            <div class="col-sm-8 col-md-offset-2" style="border: 0px solid red;">
-                <div class="bar_group showSkillWrap">
-                    <div class='bar_group__bar thin' label='PHP DESIGN' show_values='true' tooltip='true' value='75'></div>
-                    <div class='bar_group__bar thin' label='CSS3' show_values='true' tooltip='true' value='82'></div>
-                    <div class='bar_group__bar thin' label='HTML' show_values='true' tooltip='true' value='95'></div>
-                    <div class='bar_group__bar thin' label='JAVA SCRIPT' show_values='true' tooltip='true' value='86'></div>
-                    <div class='bar_group__bar thin' label='PHOTOSHOP' show_values='true' tooltip='true' value='76'></div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<!-- //Skills-ends-here -->
-
-<!-- blank -->
-<div class="services">
-    <div class="container">
-        <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
-            <p class="isHide">One of the greatest bravery in life is the ability to maintain trust and love after experiencing deception and injury.</p>
-            <p>人生最大的勇敢之一，就是经历欺骗和伤害之后，还能保持信任和爱的能力。</p>
-        </div>
-    </div>
-</div>
-
-<!-- Educations-starts-here -->
-<div class="aitsresumewthree" id="educations">
-    <div class="container">
-        <div class="aitsresumewthree-tag">
-            <h3 class="title">教育背景</h3>
-        </div>
-        <hr>
-        <div class="pcWrap4edu" style="border: 0px solid red;">
-            <div class="work-info">
-                <div class="col-md-6 work-grid work-left">
-                    <h4>2007-2009</h4>
-                </div>
-                <div class="col-md-6 work-grid work-right">
-                    <h5 class="univ">Post Graduate</h5>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="work-info">
-                <div class="col-md-6 work-grid work-right work-right2">
-                    <h4>2003-2007</h4>
-                </div>
-                <div class="col-md-6 work-grid work-left work-left2">
-                    <h5>Graduate</h5>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-        <div class="phoneWrap4edu" style="border: 0px solid red;">
-            <div class="item">
-                <div class="itemLeft" style="">
-                    <div class="itemDate">
-                        2007.08-2009.12
-                    </div>
-                    <div class="cusp01"><div class="cusp02"></div></div>
-                </div>
-                <div class="itemRight" >
-                    <div>
-                        <h4>广州番禺</h4>
-                    </div>
-                </div>
-                <div class="itemBottom">
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="itemLeft2">
-                    <h4>广州番禺职业技术学院</h4>
-                </div>
-                <div class="itemRight2" >
-                    <div class="cusp01"><div class="cusp02"></div></div>
-                    <div class="itemDate2">
-                        2007.11-2009.06
-                    </div>
-                </div>
-                <div class="itemBottom">
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-                </div>
+    <!-- blank -->
+    <div class="services">
+        <div class="container">
+            <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
+                <p class="isHide">We end their lives，is to get rid of someone else's expectations，and find the real oneself.</p>
+                <p>我们终其一生，就是要摆脱别人的期盼，找到真正的自己。</p>
             </div>
         </div>
     </div>
-</div>
-<!-- //Educations-ends-here -->
-<div style="margin: 0px auto;background: none;border-top: 1px solid #999999;width: 95%"></div>
 
-<!-- Works-starts-here -->
-<div class="aitsresumewthree" id="works">
-    <div class="container">
-        <div class="aitsresumewthree-tag">
-            <h3 class="title">工作经历</h3>
-        </div>
-        <hr>
-        <div class="pcWrap4work" style="border: 0px solid red;">
-            <div class="work-info">
-                <div class="col-md-6 work-grid work-left">
-                    <h4>2007-2009</h4>
-                </div>
-                <div class="col-md-6 work-grid work-right">
-                    <h5 class="univ">Post Graduate</h5>
-                    <br>
-                    <p style="font-size: 18px;font-weight: 500;" class="univ">Post Graduate</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-            <div class="work-info">
-                <div class="col-md-6 work-grid work-right work-right2">
-                    <h4>2003-2007</h4>
-                </div>
-                <div class="col-md-6 work-grid work-left work-left2">
-                    <h5>Graduate</h5>
-                    <br>
-                    <p style="font-size: 18px;font-weight: 500;" class="univ">Post Graduate</p>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-        <div class="phoneWrap4work" style="border: 0px solid red;">
-            <div class="item">
-                <div class="itemLeft" style="">
-                    <div class="itemDate">
-                        2007.08-2009.12
+    <!--Skills-starts-here -->
+    <div class="wthreeskills" id="skills">
+        <div class="container-fluid">
+            <h3>专业技能</h3>
+            <hr>
+            <div class="wthreeskills-grids" >
+                <div class="col-sm-8 col-md-offset-2" style="border: 0px solid red;">
+                    <div class="skillst showSkillWrap">
+                        <div class="skillbar" data-percent="78%">
+                            <div class="title head-sm">
+                                HTML 5
+                            </div>
+                            <div class="count-bar">
+                                <div class="count"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cusp01"><div class="cusp02"></div></div>
+
                 </div>
-                <div class="itemRight" >
-                    <div>
-                        <h4>广州番禺</h4>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- //Skills-ends-here -->
+
+    <!-- blank -->
+    <div class="services">
+        <div class="container">
+            <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
+                <p class="isHide">One of the greatest bravery in life is the ability to maintain trust and love after experiencing deception and injury.</p>
+                <p>人生最大的勇敢之一，就是经历欺骗和伤害之后，还能保持信任和爱的能力。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Educations-starts-here -->
+    <div class="aitsresumewthree" id="educations">
+        <div class="container">
+            <div class="aitsresumewthree-tag">
+                <h3 class="title">教育背景</h3>
+            </div>
+            <hr>
+            <div class="pcWrap4edu" style="border: 0px solid red;">
+                <div class="work-info">
+                    <div class="col-md-6 work-grid work-left">
+                        <h4>2007-2009</h4>
+                    </div>
+                    <div class="col-md-6 work-grid work-right">
+                        <h5 class="univ">Post Graduate</h5>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="work-info">
+                    <div class="col-md-6 work-grid work-right work-right2">
+                        <h4>2003-2007</h4>
+                    </div>
+                    <div class="col-md-6 work-grid work-left work-left2">
+                        <h5>Graduate</h5>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="phoneWrap4edu" style="border: 0px solid red;">
+                <div class="item">
+                    <div class="itemLeft" style="">
+                        <div class="itemDate">
+                            2007.08-2009.12
+                        </div>
+                        <div class="cusp01"><div class="cusp02"></div></div>
+                    </div>
+                    <div class="itemRight" >
+                        <div>
+                            <h4>广州番禺</h4>
+                        </div>
+                    </div>
+                    <div class="itemBottom">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLeft2">
+                        <h4>广州番禺职业技术学院</h4>
+                    </div>
+                    <div class="itemRight2" >
+                        <div class="cusp01"><div class="cusp02"></div></div>
+                        <div class="itemDate2">
+                            2007.11-2009.06
+                        </div>
+                    </div>
+                    <div class="itemBottom">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //Educations-ends-here -->
+    <div style="margin: 0px auto;background: none;border-top: 1px solid #999999;width: 95%"></div>
+
+    <!-- Works-starts-here -->
+    <div class="aitsresumewthree" id="works">
+        <div class="container">
+            <div class="aitsresumewthree-tag">
+                <h3 class="title">工作经历</h3>
+            </div>
+            <hr>
+            <div class="pcWrap4work" style="border: 0px solid red;">
+                <div class="work-info">
+                    <div class="col-md-6 work-grid work-left">
+                        <h4>2007-2009</h4>
+                    </div>
+                    <div class="col-md-6 work-grid work-right">
+                        <h5 class="univ">Post Graduate</h5>
+                        <br>
+                        <p style="font-size: 18px;font-weight: 500;" class="univ">Post Graduate</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="work-info">
+                    <div class="col-md-6 work-grid work-right work-right2">
+                        <h4>2003-2007</h4>
+                    </div>
+                    <div class="col-md-6 work-grid work-left work-left2">
+                        <h5>Graduate</h5>
+                        <br>
+                        <p style="font-size: 18px;font-weight: 500;" class="univ">Post Graduate</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo </p>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="phoneWrap4work" style="border: 0px solid red;">
+                <div class="item">
+                    <div class="itemLeft" style="">
+                        <div class="itemDate">
+                            2007.08-2009.12
+                        </div>
+                        <div class="cusp01"><div class="cusp02"></div></div>
+                    </div>
+                    <div class="itemRight" >
+                        <div>
+                            <h4>广州番禺</h4>
+                            <h5 style="margin-top: 6px">JavaWeb 开发工程师</h5>
+                        </div>
+                    </div>
+                    <div class="itemBottom">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="itemLeft2">
+                        <h4>广州番禺职业技术学院</h4>
                         <h5 style="margin-top: 6px">JavaWeb 开发工程师</h5>
                     </div>
-                </div>
-                <div class="itemBottom">
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="itemLeft2">
-                    <h4>广州番禺职业技术学院</h4>
-                    <h5 style="margin-top: 6px">JavaWeb 开发工程师</h5>
-                </div>
-                <div class="itemRight2" >
-                    <div class="cusp01"><div class="cusp02"></div></div>
-                    <div class="itemDate2">
-                        2007.11-2009.06
+                    <div class="itemRight2" >
+                        <div class="cusp01"><div class="cusp02"></div></div>
+                        <div class="itemDate2">
+                            2007.11-2009.06
+                        </div>
                     </div>
-                </div>
-                <div class="itemBottom">
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                    <div class="itemBottom">
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- //Works-ends-here -->
+    <!-- //Works-ends-here -->
 
-<!-- blank -->
-<div class="services">
-    <div class="container">
-        <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
-            <p class="isHide">In the early twenties, doing something that will still smile when you think of it in your 80s.</p>
-            <p>在二十出头的生命里，做一件到八十岁想起来都还会微笑的事。</p>
-        </div>
-    </div>
-</div>
-
-<!-- contact-starts-here -->
-<div class="contact aitsresumewthree" id="contact">
-    <h3 class="agile-contact">与我联系</h3>
-    <hr>
-    <div class="contact-agile">
-        <div class="contact-left-agile">
-            <div style="border: 0px solid red;padding-left:33%;padding-top:12%;background: rgba(0,0,0,0.75);width: 100%;">
-                <div class="add-w3ls-main">
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                    <div class="add-w3ls2">
-                        <h5>居住地址</h5>
-                        <p>厦门市思明区718文化创意园</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="add-w3ls-main">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    <div class="add-w3ls2">
-                        <h5>邮箱地址</h5>
-                        <p>bdgpixel@gmail.com</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="add-w3ls-main">
-                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-                    <div class="add-w3ls2">
-                        <h5>手机号码</h5>
-                        <p>13623656368</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-        <div class="contact-left-agile2" >
-            <div style="border: 0px solid red;padding-left:14%;background: rgba(0,0,0,0.75);width: 100%;padding-top: 10%">
-                <div class="add-w3ls-main">
-                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                    <div class="add-w3ls2">
-                        <h5>居住地址</h5>
-                        <p>厦门市思明区718文化创意园</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="add-w3ls-main">
-                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    <div class="add-w3ls2">
-                        <h5>邮箱地址</h5>
-                        <p>bdgpixel@gmail.com</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="add-w3ls-main">
-                    <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-                    <div class="add-w3ls2">
-                        <h5>手机号码</h5>
-                        <p>13623656368</p>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-        <div class="contact-right-w3l">
-            <div class="contact-form">
-                <form autocomplete="off">
-                    <input placeholder="企业/公司名称" id="company" type="text" required="" />
-                    <input placeholder="您的称谓" id="name" type="text" required="" />
-                    <input placeholder="联系方式" id="contact" type="email" required="" />
-                    <textarea placeholder="留言信息" id="message" style="min-height: 120px;resize:vertical;" required=""></textarea>
-                    <input type="button" value="提交" >
-                </form>
-            </div>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-</div>
-<!-- //contact-ends-here -->
-
-<!--页脚-->
-<div class="footer margin-top myPadding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12 ">
-                <div style="margin-top: 50px;">
-                    <div class="logoWrap">
-                        <a href="/">
-                            <div class="img-opacity myLoogo">即刻</div>
-                        </a>
-                    </div>
-                    <div style="color: #ffffff;margin-top: 10px;" class="copyright-mark"> <a href="https://www.zooori.cn" target="_blank">ZooORI.才华有限公司</a><br>&copy; 2018 All Rights Reserved.</div>
-                </div>
+    <!-- blank -->
+    <div class="services">
+        <div class="container">
+            <div class="services-w3ls-row" style="text-align: center;color: #ffffff;">
+                <p class="isHide">In the early twenties, doing something that will still smile when you think of it in your 80s.</p>
+                <p>在二十出头的生命里，做一件到八十岁想起来都还会微笑的事。</p>
             </div>
         </div>
     </div>
-</div>
 
-<div id="submitTip" style="width: 100%;height: 200px;text-align: center;position: fixed;bottom: 0px;background:#333333;z-index: 1047;display: none;">
-    <div id="footerTip" style="color: #ffffff;font-size: 23px;margin-top: 70px;">提交已填写信息即可在线查看简历</div>
-    <button id="submit" class="btn btn-primary" onclick="submit()" style="margin-top: 6px;background: #6397ff">上传信息</button>
+    <!-- contact-starts-here -->
+    <div class="contact aitsresumewthree" id="contact">
+        <h3 class="agile-contact">与我联系</h3>
+        <hr>
+        <div class="contact-agile">
+            <div class="contact-left-agile">
+                <div style="border: 0px solid red;padding-left:33%;padding-top:12%;background: rgba(0,0,0,0.75);width: 100%;">
+                    <div class="add-w3ls-main">
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        <div class="add-w3ls2">
+                            <h5>居住地址</h5>
+                            <p class="showAddress2">厦门市思明区718文化创意园</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="add-w3ls-main">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        <div class="add-w3ls2">
+                            <h5>邮箱地址</h5>
+                            <p class="showEmail2">bdgpixel@gmail.com</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="add-w3ls-main">
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                        <div class="add-w3ls2">
+                            <h5>手机号码</h5>
+                            <p class="showPhone2">13623656368</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-left-agile2" >
+                <div style="border: 0px solid red;padding-left:14%;background: rgba(0,0,0,0.75);width: 100%;padding-top: 10%">
+                    <div class="add-w3ls-main">
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        <div class="add-w3ls2">
+                            <h5>居住地址</h5>
+                            <p class="showAddress2">厦门市思明区718文化创意园</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="add-w3ls-main">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        <div class="add-w3ls2">
+                            <h5>邮箱地址</h5>
+                            <p class="showEmail2">bdgpixel@gmail.com</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="add-w3ls-main">
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                        <div class="add-w3ls2">
+                            <h5>手机号码</h5>
+                            <p class="showPhone2">13623656368</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-right-w3l">
+                <div class="contact-form">
+                    <form autocomplete="off">
+                        <input placeholder="企业/公司名称" id="contactCompany" type="text" required="" />
+                        <input placeholder="您的称谓" id="contactName" type="text" required="" />
+                        <input placeholder="联系方式" id="contactContact" type="email" required="" />
+                        <textarea placeholder="留言信息" id="contactMessage" style="min-height: 120px;resize:vertical;" required=""></textarea>
+                        <input type="button" value="提交" >
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <!-- //contact-ends-here -->
+
+    <!--页脚-->
+    <div class="footer margin-top myPadding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 ">
+                    <div class="myMargin">
+                        <div class="logoWrap">
+                            <a href="/">
+                                <div class="img-opacity myLoogo">即刻</div>
+                            </a>
+                        </div>
+                        <div style="color: #ffffff;margin-top: 10px;" class="copyright-mark"> <a href="https://www.zooori.cn" target="_blank">ZooORI.才华有限公司</a><br>&copy; 2018 All Rights Reserved.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="submitTip" style="width: 100%;height: 135px;text-align: center;position: fixed;bottom: 0px;background:#333333;z-index: 1047;display: none;">
+        <div id="footerTip" style="color: #ffffff;font-size: 20px;margin-top: 35px;">提交已填写信息即可在线查看简历</div>
+        <button id="submit" class="btn btn-primary" onclick="submit()" style="margin-top: 6px;background: #6397ff">上传信息</button>
+    </div>
+
 </div>
 
 <!-- 模态框（Modal） -->
@@ -641,11 +650,9 @@
                                 <div class="del4work" style="width: 100%;text-align: right;margin-top: -10px;display: none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
                                 <div class="form-group alertPickDate">
                                     <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>
-                                    <div class="col-sm-4" style="border: 0px solid red;">
-                                        <input type="month" value="2018-01" class="form-control start">
-                                    </div>
-                                    <div class="col-sm-4" style="border: 0px solid red;">
-                                        <input type="month" value="2018-01" class="form-control end">
+                                    <div class="col-sm-8" style="border: 0px solid red;">
+                                        <input type="month" style="width: 48%;display: inline-block;" value="2018-01" class="form-control start">
+                                        <input type="month" style="width: 50%;display: inline-block;" value="2018-01" class="form-control end">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -716,11 +723,9 @@
                                 <div class="del4edu" style="width: 100%;text-align: right;margin-top: -10px;display: none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
                                 <div class="form-group alertPickDate">
                                     <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>
-                                    <div class="col-sm-4" style="border: 0px solid red;">
-                                        <input type="month" value="2018-01" class="form-control start">
-                                    </div>
-                                    <div class="col-sm-4" style="border: 0px solid red;">
-                                        <input type="month" value="2018-01" class="form-control end">
+                                    <div class="col-sm-8" style="border: 0px solid red;">
+                                        <input type="month" style="width: 48%;display: inline-block;" value="2018-01" class="form-control start">
+                                        <input type="month" style="width: 50%;display: inline-block;" value="2018-01" class="form-control end">
                                     </div>
                                 </div>
 
@@ -796,7 +801,7 @@
 <!--require end-->
 
 <!-- Progressive-Bars-JavaScript -->
-<script src="../../static/resume/resume001_/js/bars.js"></script>
+<script src="../../static/resume/resume001/js/jquery.appear.js" type="text/javascript"></script>
 <!-- //Progressive-Bars-JavaScript -->
 
 <script>
@@ -804,11 +809,14 @@
         onSelect: function(oCol,elem){
             var color = $(oCol).attr('data-color');
             $('#drawColor').css({'background-color':color});
+            $('#theme4pick').val(color);
             renderColor();
         }
     });
     function update(jscolor) {
-        renderColor(jscolor);
+        console.log(jscolor.value);
+        $('#theme4pick').val("#"+$('#colorInput').val());
+        renderColor();
     }
 </script>
 
@@ -824,7 +832,12 @@
         localData = localStorage.getItem("resume");
         if(localData){//渲染本地存储数据
             //console.info(JSON.parse(localStorage.getItem("resume")));
-            resume = JSON.parse(localData);
+            console.log(typeof localData);
+            if(typeof localData==="string"){
+                resume = JSON.parse(localData);
+            }else{
+                resume = localData;
+            }
             $("#submitTip").show();
             $('#scroll-top').remove();
             $('#design').css("bottom","15px");
@@ -834,9 +847,12 @@
         if(dbData){
             $('#qrcodeBtn').show();
             $('#design').remove();
+            $('.color-picker-wrap').remove();
+            resume = dbData;
             //生成二维码
             makeCode();
-            resume = dbData;
+            //设置主题颜色
+            localStorage.setItem("theme",resume.Theme);
             renderHtml();
         }else{
             $('#qrcodeBtn').remove();
@@ -850,12 +866,22 @@
                 swal("即刻提示","点击右下角设计按钮即可制作及预览简历","info");
             }
         },500);
+        //渲染进度条
+        jQuery('.skillbar').each(function() {
+            jQuery(this).appear(function() {
+                jQuery(this).find('.count-bar').animate({
+                    width:jQuery(this).attr('data-percent')
+                },3000);
+                var percent = jQuery(this).attr('data-percent');
+                jQuery(this).find('.count').html('<span>' + percent + '</span>');
+            });
+        });
 
     });
-    function renderColor(val) {
-        if(!val){
-            val = $('#drawColor').css("background-color");
-        }
+    function renderColor() {
+        var val = $('#theme4pick').val();
+        $('#colorInput').val(val);
+        localStorage.setItem("theme",val);
         $('#navbar-collapse-1 div').hover(function () {
             $(this).css("background",val);
         },function () {
@@ -868,10 +894,11 @@
             $(this).css("background","#333");
         });
         $('hr').css("background",val);
-        $('.b_tooltip').css("background-color",val);
-        $('.b_tooltip--tri').css("border-color",val+" transparent transparent transparent");
-        var val2 = val.substring(0,val.length-1)+",0.75)";
-        $('.bar_group__bar.thin').css("background",val2);
+
+        $('.skillst .count-bar').css("background-color",val);
+        //$('.skillst .count-bar span').css("background",val);
+        $('head').append('<style>.skillst .count-bar span{font-size: 13px;padding: 0px;background: '+val+';}</style>');
+        $("head").append("<style>.skillst .count-bar .count span:after{border-top:4px solid "+val+"}</style>");
         $('.work-info h4').css("background",val);
         $("head").append("<style>.work-info h4:before{border-color:transparent transparent transparent "+val+"}</style>");
         $('input[type="button"]').hover(function () {
@@ -880,7 +907,7 @@
             $(this).css("background","#333");
         });
         $('.scroll-top').hover(function () {
-            $(this).css("background",val2);
+            $(this).css("background",val);
         },function () {
             $(this).css("background","rgba(0, 0, 0, 0.75)");
         });
@@ -893,17 +920,14 @@
         $('.itemRight2 .cusp02').css("border-right-color",val);
     }
     function renderHtml() {
-        var color = resume.Theme;
-        if(!color){
-            color = "#7B68EE";
-        }
-        renderColor(color);
 
         //隐藏关闭按钮
         $('#modalClose').hide();
         var str = "暂未填写";
         $('#showName').html(resume.Name);
+        $('#showName2').html(resume.Name);
         $("#showObjective").html(resume.Objective);
+        $("#showObjective2").html(resume.Objective);
         $("#showGender").html(resume.Gender);
         if(resume.Gender==="女"){
             $('.bg-about').css("background","url(../../static/resume/resume001_/images/about/about01_.jpg)");
@@ -916,16 +940,20 @@
         }
         $("#showBirthday").html(resume.Birthday);
         $("#showPhone").html(resume.Phone);
+        $(".showPhone2").html(resume.Phone);
         $('#showEmail').html(resume.Email);
-        if(!resume.Home){
+        $('.showEmail2').html(resume.Email);
+        if(!resume.Province){
             $('#showHome').html(str);
         }else{
-            $('#showHome').html(resume.Home);
+            $('#showHome').html(resume.Province+"-"+resume.City);
         }
         if(!resume.Address){
             $('#showAddress').html(str);
+            $('.showAddress2').html(str);
         }else{
             $('#showAddress').html(resume.Address);
+            $('.showAddress2').html(resume.Address);
         }
         if(!resume.Hobby){
             $('#showHobby').html(str);
@@ -950,7 +978,7 @@
             var obj = works[i];
             var start = obj.start;
             var end = obj.end;
-            var date = start+" 至 "+end;
+            var date = start+"至"+end;
             var company = obj.company;
             var position = obj.position;
             var description = obj.description.replace(/\n/g,'<br/>');
@@ -1034,7 +1062,14 @@
             var obj = skills[i];
             var skillName = obj.name;
             var num = obj.num;
-            $('.showSkillWrap').append('<div class="bar_group__bar thin" label="'+skillName+'" show_values="true" tooltip="true" value='+num+'></div>');
+            $('.showSkillWrap').append('<div class="skillbar" data-percent="'+num+'%">\n' +
+                    '                            <div class="title head-sm">\n' +
+                    '                                '+skillName+'\n' +
+                    '                            </div>\n' +
+                    '                            <div class="count-bar">\n' +
+                    '                                <div class="count"></div>\n' +
+                    '                            </div>\n' +
+                    '                        </div>');
         }
         //Skill
         jQuery('.skillbar').each(function() {
@@ -1058,7 +1093,7 @@
             var obj = edus[i];
             var start = obj.start;
             var end = obj.end;
-            var date = start+" 至 "+end;
+            var date = start+"至"+end;
             var school = obj.school;
             var description = obj.description.replace(/\n/g,'<br/>');
             if(!description){
@@ -1087,7 +1122,7 @@
                         '                            <div class="clearfix"> </div>\n' +
                         '                        </div>'
             }
-            $('#pcWrap4edu').append(domTXT);
+            $('.pcWrap4edu').append(domTXT);
 
             if(i%2==0){
                 domTXT = '<div class="item">\n' +
@@ -1124,6 +1159,14 @@
             }
             $('.phoneWrap4edu').append(domTXT);
         }
+
+        var color = localStorage.getItem("theme");
+        if(!color){
+            //默认颜色
+            color = "#7B68EE";
+        }
+        $('#theme4pick').val(color);
+        renderColor();
     }
 
 </script>

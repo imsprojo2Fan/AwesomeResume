@@ -86,7 +86,7 @@ a:focus, a:hover {
 }
 .banner-info-w3l h2 {
     color: #fff;
-    font-size: 2.5em;
+    font-size: 3.5em;
     text-align: center;
     margin: 0;
     font-weight: 700;
@@ -917,7 +917,7 @@ input[type="button"] {
     font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: #7B68EE;
+    background: #333333;
     color: white;
     border: none;
     outline: none;
@@ -1339,7 +1339,7 @@ textarea {
 		width: 96%;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.9em;
+		font-size: 2em;
 	}
 	h3.w3l_head, h3.agileits-title, h3.agile-title, h3.agile-contact, div#wthreeskills h3, .aitsresumewthree-tag h3, .wthreeskills h3 {
 		font-size: 2.5em;
@@ -1390,7 +1390,7 @@ textarea {
 		font-size: 1.05em;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.7em;
+		font-size: 2em;
 	}
 	.banner-info-w3l h3 {
 		margin: 1.3em 0;
@@ -1417,7 +1417,7 @@ textarea {
 		font-size: 1em;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.6em;
+		font-size: 2em;
 	}
 	.banner-info-w3l h4 a {
 		font-size: 0.7em;
@@ -1477,7 +1477,7 @@ textarea {
 		min-height: 349px;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.5em;
+		font-size: 2em;
 	}
 	.banner-info-w3l h4 a {
 		margin: 1.1em auto;
@@ -1526,7 +1526,7 @@ textarea {
 		padding: 4.5em 0 0;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.4em;
+		font-size: 2em;
 	}
 	h3.w3l_head, h3.agileits-title, h3.agile-title, h3.agile-contact, div#wthreeskills h3, .aitsresumewthree-tag h3, .wthreeskills h3 {
 		font-size: 2.1em;
@@ -1582,7 +1582,7 @@ textarea {
 		padding: 0.5em 0;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.35em;
+		font-size: 2em;
 	}
 	.banner-info-w3l h4 a {
 		width: 19%;
@@ -1645,7 +1645,7 @@ textarea {
 		font-size: 0.9em;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.3em;
+		font-size: 2em;
 	}
 }
 @media(max-width: 480px){
@@ -1667,7 +1667,7 @@ textarea {
 		width: 60%;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1.2em;
+		font-size: 2em;
 		letter-spacing: 2px;
 	}
 	.filtr-item {
@@ -1927,7 +1927,7 @@ textarea {
 		height: 48px;
 	}
 	.banner-info-w3l h2 {
-		font-size: 1em;
+		font-size: 2em;
 	}
 	.wthreeskills-grid-2 h4, .wthreeskills-grid-1 h4 {
 		font-size: 1.3em;
@@ -2236,4 +2236,62 @@ textarea {
 	margin: 40px 0 20px 0;
 	font-size: 14px;
 }
+
+/*---------------- a. Skills ----------------*/
+.skillst {margin-top: 30px;}
+.skillst .skillbar {
+	width: 100%;
+	height: 10px;
+	background-color: #f6f6f6;
+	position: relative;
+	margin-bottom: 60px;
+	padding: 2px;
+	box-sizing: border-box;
+}
+.skillst .count-bar {
+	width: 100%;
+	height: 12px;
+	width: 0px;
+	position: relative;
+}
+.skillst .count-bar {background-color: #7B68EE;}
+.skillst .count-bar span{
+	font-size: 13px;
+	padding: 0px;
+	background: #7B68EE;
+}
+.skillst .title {
+	position: absolute;
+	line-height: 25px;
+	top: -35px;
+	left: 0;
+	padding-left: 10px;
+	font-size: 17px !important;
+}
+.skillst .count-bar .count {
+	position: absolute;
+	line-height: 18px;
+	top: -28px;
+	right: -20px;
+	width: 40px;
+	height: 18px;
+	color: #fff;
+	text-align: center;
+	background-color: #2f2f2f;
+}
+.skillst .count-bar .count span {
+	position: relative;
+	display: block;
+}
+.skillst .count-bar .count span:after {
+	position: absolute;
+	left: 50%;
+	margin-left: -4px;
+	top: 18px;
+	content: "";
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+}
+.skillst .count-bar .count { background-color: #818181;}
+.skillst .count-bar .count span:after { border-top: 4px solid #7B68EE;}
 

@@ -28,13 +28,13 @@ $(function () {
         if(localData){
             renderForm();
         }
-        $('.content-wrap').hide(200);
+        $('#mainWrap').hide(200);
         $('#submitTip').hide(200);
         $('#myModal').modal("show");
     });
     $('#modalClose').on("click",function () {//模态框关闭按钮
         $('#myModal').modal("hide");
-        $('.content-wrap').show(200);
+        $('#mainWrap').show(200);
         if(localStorage.getItem("resume")){
             $("#submitTip").show();
             $('#scroll-top').remove();
@@ -225,7 +225,7 @@ function tipTip(str) {
 }
 function dataCollect() {
     $('#tip').html("");
-    var theme = $('#drawColor').css("background");
+    var theme = $('#theme4pick').val();
     var name = $('#name').val().trim();
     var objective = $('#objective').val().trim();
     var gender = $('input:radio:checked').val();
@@ -299,7 +299,6 @@ function dataCollect() {
         tipTip("您似乎忘了填写教育背景.");
         return;
     }
-    resume.Theme = theme;
     resume.Name = name;
     resume.Objective = objective;
     resume.Gender = gender;
@@ -318,6 +317,7 @@ function dataCollect() {
     resume.Educations = edus.reverse();
 
     localStorage.setItem("resume",JSON.stringify(resume));
+    localStorage.setItem("theme",$('#theme4pick').val());
     renderHtml();
     $('#modalClose').click();
 
@@ -360,11 +360,9 @@ function renderForm() {
             '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
             '                                    <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>\n' +
-            '                                    <div class="col-sm-4" style="border: 0px solid red;">\n' +
-            '                                        <input type="month" value="'+start+'" class="form-control start">\n' +
-            '                                    </div>\n' +
-            '                                    <div class="col-sm-4" style="border: 0px solid red;">\n' +
-            '                                        <input type="month" value="'+end+'" class="form-control end">\n' +
+            '                                    <div class="col-sm-8" style="border: 0px solid red;">\n' +
+            '                                        <input type="month" style="display: inline-block;width: 48%;" value="'+start+'" class="form-control start">\n' +
+            '                                        <input type="month" style="display: inline-block;width: 50%;" value="'+end+'" class="form-control end">\n' +
             '                                    </div>\n' +
             '                                </div>\n' +
             '                                <div class="form-group">\n' +
@@ -454,11 +452,9 @@ function renderForm() {
             '                                <div class="del4edu" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
             '                                    <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>\n' +
-            '                                    <div class="col-sm-4" style="border: 0px solid red;">\n' +
-            '                                        <input type="month" value="'+start+'" class="form-control start">\n' +
-            '                                    </div>\n' +
-            '                                    <div class="col-sm-4" style="border: 0px solid red;">\n' +
-            '                                        <input type="month" value="'+end+'" class="form-control end">\n' +
+            '                                    <div class="col-sm-8" style="border: 0px solid red;">\n' +
+            '                                        <input type="month" style="display: inline-block;width: 48%;" value="'+start+'" class="form-control start">\n' +
+            '                                        <input type="month" style="display: inline-block;width: 50%;" value="'+end+'" class="form-control end">\n' +
             '                                    </div>\n' +
             '                                </div>\n' +
             '\n' +
@@ -526,22 +522,24 @@ function submit() {
                 }, function(){
                     var account = $('#account').val().trim();
                     var password = $('#password').val().trim();
-                    $.post("/validate",{type:"validate4made",_xsrf:$('#token').val(),account:account,password:password,rid:GetQueryString("v")},function (r) {
-                        if(r.code==1){
+                    $.post("/validate",{type:"validate4made",_xsrf:$('#token').val(),account:account,password:password,rid:GetQueryString("v"),theme:localStorage.getItem("theme")},function (r) {
+                        if(r.code===1){
                             window.location.href = "/main";
                             clearLocalData();
-                        }else if(r.code==2){
+                        }else if(r.code===2){
                             setTimeout(function(){swal(r.msg, "登录系统点击我的制作即可查看简历", "error"); },100);
                             $('#footerTip').html("登录系统点击左侧我的制作即可查看最新简历");
-                            $('#submit').removeClass("btn-primary");
-                            $('#submit').addClass("btn-success");
                             $('#submit').html("前往登录");
+                            $('#submitTip').css("height","188px");
+                            $('.color-picker-wrap').remove();//移除颜色选择
+                            $('#design').remove();//移除设计按钮
                             clearLocalData();
-                        }else if(r.code==3){
+                        }else if(r.code===3){
                             $.ajax({
                                 url : "/resume/submit",
                                 type : "POST",
                                 data : {
+                                    theme:localStorage.getItem("theme"),
                                     uid:r.data,
                                     rid:GetQueryString("v"),
                                     name:resume.Name,
@@ -576,9 +574,10 @@ function submit() {
                                             type:"success"
                                         });
                                         $('#footerTip').html("登录系统点击左侧我的制作即可查看最新简历");
-                                        $('#submit').removeClass("btn-primary");
-                                        $('#submit').addClass("btn-success");
                                         $('#submit').html("前往登录");
+                                        $('#submitTip').css("height","188px");
+                                        $('.color-picker-wrap').remove();//移除颜色选择
+                                        $('#design').remove();//移除设计按钮
                                         clearLocalData();
                                     } else {
                                         swal(r.msg,' ',"error");
@@ -600,6 +599,7 @@ function submit() {
                     url : "/resume/submit",
                     type : "POST",
                     data : {
+                        theme:localStorage.getItem("theme"),
                         rid:GetQueryString("v"),
                         name:resume.Name,
                         objective:resume.Objective,
@@ -623,7 +623,6 @@ function submit() {
                     beforeSend:function(){
                         $('#loading').fadeIn(200);
                         $('#scroll-top').click();
-                        toggleBody(0);
                     },
                     success : function(r) {
                         if (r.code == 1) {
@@ -634,9 +633,10 @@ function submit() {
                                 type:"success"
                             });
                             $('#footerTip').html("登录系统您可能需要拷贝临时密钥:</br>"+r.data);
-                            $('#submit').removeClass("btn-primary");
-                            $('#submit').addClass("btn-success");
                             $('#submit').html("前往登录");
+                            $('#submitTip').css("height","188px");
+                            $('.color-picker-wrap').remove();//移除颜色选择
+                            $('#design').remove();//移除设计按钮
                             $('#footerTip').css("padding-bottom","15px");
                             clearLocalData();
                         } else {
@@ -645,7 +645,6 @@ function submit() {
                     },
                     complete:function () {
                         $('#loading').fadeOut(200);
-                        toggleBody(1);
                     }
                 });
             }
@@ -654,4 +653,5 @@ function submit() {
 }
 function clearLocalData() {
     localStorage.setItem("resume","");
+    localStorage.setItem("theme","");
 }

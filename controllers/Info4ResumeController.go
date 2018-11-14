@@ -39,6 +39,7 @@ func(this *Info4ResumeController) Insert()  {
 	info4resume.Uid = uid
 	info4resume.Rid = this.GetString("rid")
 	info4resume.Sid = ShareID
+	info4resume.Theme = this.GetString("theme")
 	info4resume.Name = this.GetString("name")
 	info4resume.Objective = this.GetString("objective")
 	info4resume.Gender = this.GetString("gender")
@@ -133,6 +134,7 @@ func (this *Info4ResumeController)Update()  {
 	info4resume.Uid,_ = strconv.ParseInt(uid_, 10, 64)
 	info4resume.Rid = this.GetString("rid")
 	info4resume.Sid = this.GetString("sid")
+	info4resume.Theme = this.GetString("theme")
 	info4resume.Name = this.GetString("name")
 	info4resume.Objective = this.GetString("objective")
 	info4resume.Gender = this.GetString("gender")

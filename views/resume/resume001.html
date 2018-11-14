@@ -117,7 +117,7 @@
 <!--/.HEADER END-->
 
 <!--CONTENT WRAP-->
-<div class="content-wrap">
+<div id="mainWrap" class="content-wrap">
     <!--CONTENT-->
     <div class="content">
 
@@ -536,7 +536,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12 ">
-                        <div style="margin-top: 50px;">
+                        <div class="myMargin">
                             <div class="logoWrap">
                                 <a href="/">
                                     <div class="img-opacity myLoogo">即刻</div>
@@ -905,10 +905,10 @@
         $("#showBirthday").html(resume.Birthday);
         $("#showPhone").html(resume.Phone);
         $('#showEmail').html(resume.Email);
-        if(!resume.Home){
+        if(!resume.Province){
             $('#showHome').html(str);
         }else{
-            $('#showHome').html(resume.Home);
+            $('#showHome').html(resume.Province+"-"+resume.City);
         }
         if(!resume.Address){
             $('#showAddress').html(str);

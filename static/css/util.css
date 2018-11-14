@@ -27,12 +27,15 @@
     width: 100%;
     text-align: center;
     background: #333;
-    min-height: 200px;
+}
+
+.myMargin{
+    margin-top: 35px;
 }
 
 .myLoogo{
     font-family: Panxiang;
-    font-size: 28px;
+    font-size: 20px;
     color: #ffffff;
     padding: 4px 13px;
     border-radius: 5px;
