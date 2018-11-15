@@ -242,17 +242,23 @@ function dataCollect() {
         var workItem = {};
         workItem.start = $(this).find(".start").val();
         workItem.end = $(this).find(".end").val();
-        workItem.company = $(this).find(".companyName").val().trim();
-        workItem.position = $(this).find(".position").val().trim();
+        var companyName = $(this).find(".companyName").val().trim();
+        workItem.company = companyName;
+        var position = $(this).find(".position").val().trim();
+        workItem.position = position;
         workItem.description = $(this).find("textarea").val().trim().replace(/\n/g,'<br/>');
-        works.push(workItem);
+        if(companyName&&position){
+            works.push(workItem);
+        }
     });
     var skills = [];
     $("#skillWrap").find(".skillItem").each(function () {
         var skillItem = {};
         skillItem.name = $(this).find(".skillName").val().trim();
         skillItem.num = $(this).find(".slide").val();
-        skills.push(skillItem);
+        if($(this).find(".skillName").val().trim()){
+            skills.push(skillItem);
+        }
     });
     var edus = [];
     $("#eduWrap").find(".eduItem").each(function () {
@@ -261,7 +267,9 @@ function dataCollect() {
         eduItem.end = $(this).find(".end").val();
         eduItem.school = $(this).find(".school").val().trim();
         eduItem.description = $(this).find("textarea").val().trim().replace(/\n/g,'<br/>');
-        edus.push(eduItem);
+        if($(this).find(".school").val().trim()){
+            edus.push(eduItem);
+        }
     });
     if(!name){
         tipTip("姓名是认识一个人的第一步喔.");
@@ -489,6 +497,8 @@ function renderForm() {
 }
 function submit() {
 
+    console.log(resume);
+
     if($('#submit').html()==="前往登录"){
         window.open("/login","_blank");
         return;
@@ -556,7 +566,7 @@ function submit() {
                                     introduce:resume.Introduce,
                                     works:JSON.stringify(resume.Works),
                                     skills:JSON.stringify(resume.Skills),
-                                    edus:JSON.stringify(resume.Educations),
+                                    educations:JSON.stringify(resume.Educations),
                                     _xsrf:$('#token').val()
                                 },
                                 dataType : "json",
@@ -615,7 +625,7 @@ function submit() {
                         introduce:resume.Introduce,
                         works:JSON.stringify(resume.Works),
                         skills:JSON.stringify(resume.Skills),
-                        edus:JSON.stringify(resume.Edus),
+                        educations:JSON.stringify(resume.Educations),
                         _xsrf:$('#token').val()
                     },
                     dataType : "json",
@@ -628,7 +638,7 @@ function submit() {
                         if (r.code == 1) {
                             swal({
                                 title:"提交成功!",
-                                text:'为了您的隐私安全,请尽快登录系统更改账号信息！</br>以下为临时登录密钥</br><h3>'+r.data+"</h3>",
+                                text:'为了您的隐私安全,请尽快登录系统更改账号信息！</br>以下为临时登录密钥</br></br><h3>'+r.data+"</h3>",
                                 html:true,
                                 type:"success"
                             });

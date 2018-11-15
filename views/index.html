@@ -665,6 +665,23 @@
                }
             });
 
+            setTimeout(function () {
+                var alertInfo = getCookieValue("alertInfo_index");
+                if(!alertInfo){
+                    addCookie("alertInfo_index","alertInfo_index",7,"/");
+                    swal({
+                        title: "<h3>使用提示</h3>",
+                        text: "<div style='text-align: center'><p>点击[ 所有简历模板 ]下任意模板</br>填入对应信息即可开始制作您的简历</p></br>",
+                        type: "info",
+                        html:true,
+                        showCancelButton: false,
+                        confirmButtonColor: "#333333",
+                        confirmButtonText: "Ok",
+                        closeOnConfirm: true
+                    });
+                }
+            },500);
+
         });
         function redirect(str) {
             $('#close-button').click();

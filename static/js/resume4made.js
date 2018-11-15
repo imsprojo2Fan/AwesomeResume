@@ -203,6 +203,11 @@ function renderForm(index) {
     $('#editRid').val(resume.Rid);
     $('#editSid').val(resume.Sid);
     $('#editIndex').val(resume.Index);
+    $('#colorInput').val(resume.ThemeColor.substring(1,resume.ThemeColor.length));
+    if(resume.ThemeColor){
+        $('#colorInput').css("background-color",resume.ThemeColor);
+        $('#colorInput').css("color","#ffffff");
+    }
     $('#name').val(resume.Name);
     $('#objective').val(resume.Objective);
     var gender = resume.Gender;
@@ -393,6 +398,7 @@ function renderForm(index) {
 }
 function dataCollect() {
     $('#tip').html("");
+    var theme = "#"+$('#colorInput').val().trim();
     var name = $('#name').val().trim();
     var objective = $('#objective').val().trim();
     var gender = $('input:radio:checked').val();
@@ -409,17 +415,23 @@ function dataCollect() {
         var workItem = {};
         workItem.start = $(this).find(".start").val();
         workItem.end = $(this).find(".end").val();
-        workItem.company = $(this).find(".companyName").val().trim();
-        workItem.position = $(this).find(".position").val().trim();
+        var companyName = $(this).find(".companyName").val().trim();
+        workItem.company = companyName;
+        var position = $(this).find(".position").val().trim();
+        workItem.position = position;
         workItem.description = $(this).find("textarea").val().trim().replace(/\n/g,'<br/>');
-        works.push(workItem);
+        if(companyName&&position){
+            works.push(workItem);
+        }
     });
     var skills = [];
     $("#skillWrap").find(".skillItem").each(function () {
         var skillItem = {};
         skillItem.name = $(this).find(".skillName").val().trim();
         skillItem.num = $(this).find(".slide").val();
-        skills.push(skillItem);
+        if($(this).find(".skillName").val().trim()){
+            skills.push(skillItem);
+        }
     });
     var edus = [];
     $("#eduWrap").find(".eduItem").each(function () {
@@ -428,7 +440,9 @@ function dataCollect() {
         eduItem.end = $(this).find(".end").val();
         eduItem.school = $(this).find(".school").val().trim();
         eduItem.description = $(this).find("textarea").val().trim().replace(/\n/g,'<br/>');
-        edus.push(eduItem);
+        if($(this).find(".school").val().trim()){
+            edus.push(eduItem);
+        }
     });
     if(!name){
         tipTip("姓名是认识一个人的第一步喔.");
@@ -458,6 +472,7 @@ function dataCollect() {
         tipTip("您似乎忘了填写教育背景.");
         return;
     }
+    GlobalResume.Theme = theme;
     GlobalResume.Name = name;
     GlobalResume.Objective = objective;
     GlobalResume.Gender = gender;
@@ -493,6 +508,7 @@ function submit() {
             uid:$('#editUid').val(),
             rid:$('#editRid').val(),
             sid:$('#editSid').val(),
+            theme:GlobalResume.Theme,
             name:GlobalResume.Name,
             objective:GlobalResume.Objective,
             gender:GlobalResume.Gender,

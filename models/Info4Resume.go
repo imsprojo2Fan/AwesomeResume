@@ -33,7 +33,7 @@ type Info4Resume struct {
 	Introduce string
 	Rumors string
 	BgImg string
-	Theme string
+	ThemeColor string
 	Updated time.Time `orm:"auto_now_add;type(datetime)"`
 	Created time.Time `orm:"auto_now_add;type(datetime)"`
 }

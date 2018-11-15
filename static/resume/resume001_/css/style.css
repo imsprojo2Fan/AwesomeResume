@@ -2250,8 +2250,9 @@ textarea {
 }
 .skillst .count-bar {
 	width: 100%;
-	height: 12px;
+	height: 10px;
 	width: 0px;
+	top: -2px;
 	position: relative;
 }
 .skillst .count-bar {background-color: #7B68EE;}

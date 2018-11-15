@@ -22,10 +22,11 @@ func(this *Info4ResumeController) Insert()  {
 
 	user := new(models.User)
 	var UID string
+	var uid int64
 	ShareID := utils.RandStringBytesMaskImprSrc(20)
 
-	uid,_ := this.GetInt64("uid")//已存在用户则不新增用户
-	if uid==0{
+	uidStr := this.GetString("uid")//已存在用户则不新增用户
+	if uidStr==""{
 		UID = utils.RandStringBytesMaskImprSrc(16)
 		user.Uid = UID
 		user.Name = this.GetString("name")
@@ -39,7 +40,11 @@ func(this *Info4ResumeController) Insert()  {
 	info4resume.Uid = uid
 	info4resume.Rid = this.GetString("rid")
 	info4resume.Sid = ShareID
-	info4resume.Theme = this.GetString("theme")
+	theme := this.GetString("theme")
+	if theme=="undefind"{
+		theme = ""
+	}
+	info4resume.ThemeColor = theme
 	info4resume.Name = this.GetString("name")
 	info4resume.Objective = this.GetString("objective")
 	info4resume.Gender = this.GetString("gender")
@@ -54,7 +59,7 @@ func(this *Info4ResumeController) Insert()  {
 	info4resume.Introduce = this.GetString("introduce")
 	info4resume.Works = this.GetString("works")
 	info4resume.Skills = this.GetString("skills")
-	info4resume.Educations = this.GetString("edus")
+	info4resume.Educations = this.GetString("educations")
 	if !info4resume.Insert(info4resume){
 		this.jsonResult(http.StatusOK,-1, "提交数据失败!请稍候再试", nil)
 	}else{
@@ -134,7 +139,7 @@ func (this *Info4ResumeController)Update()  {
 	info4resume.Uid,_ = strconv.ParseInt(uid_, 10, 64)
 	info4resume.Rid = this.GetString("rid")
 	info4resume.Sid = this.GetString("sid")
-	info4resume.Theme = this.GetString("theme")
+	info4resume.ThemeColor = this.GetString("theme")
 	info4resume.Name = this.GetString("name")
 	info4resume.Objective = this.GetString("objective")
 	info4resume.Gender = this.GetString("gender")
