@@ -1,6 +1,8 @@
 var workItem,skillItem,eduItem;
 var resume = {};
+var key;
 $(function () {
+    key = window.location.href;
     //隐藏验证登录输入框
     $('fieldset').hide();
     $("#distpicker").distpicker();
@@ -35,7 +37,7 @@ $(function () {
     $('#modalClose').on("click",function () {//模态框关闭按钮
         $('#myModal').modal("hide");
         $('#mainWrap').show(200);
-        if(localStorage.getItem("resume")){
+        if(localStorage.getItem(key)){
             $("#submitTip").show();
             $('#scroll-top').remove();
             $('#design').css("bottom","15px");
@@ -324,7 +326,7 @@ function dataCollect() {
     resume.Skills = skills;
     resume.Educations = edus.reverse();
 
-    localStorage.setItem("resume",JSON.stringify(resume));
+    localStorage.setItem(key,JSON.stringify(resume));
     localStorage.setItem("theme",$('#theme4pick').val());
     renderHtml();
     $('#modalClose').click();
@@ -662,6 +664,6 @@ function submit() {
 
 }
 function clearLocalData() {
-    localStorage.setItem("resume","");
+    localStorage.setItem(key,"");
     localStorage.setItem("theme","");
 }

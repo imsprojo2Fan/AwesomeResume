@@ -165,8 +165,13 @@
     border-radius: 0px;
     z-index:1048;
 }
+
+.scroll-top:hover{
+    color: #333;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid #333;
+}
 .scroll-top i {
-    color: #fff;
     font-size: 28px;
 }
 
