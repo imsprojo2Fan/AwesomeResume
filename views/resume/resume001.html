@@ -152,57 +152,57 @@
                         <tr>
                             <td class="title">姓名</td>
                             <td class="break">:</td>
-                            <td><span id="showName">戴勇明</span></td>
+                            <td class="td"><span id="showName">戴勇明</span></td>
                         </tr>
                         <tr>
                             <td class="title">求职意向</td>
                             <td class="break">:</td>
-                            <td><span id="showObjective">新闻记者</span></td>
+                            <td class="td"><span id="showObjective">新闻记者</span></td>
                         </tr>
                         <tr>
                             <td class="title">性别</td>
                             <td class="break">:</td>
-                            <td><span id="showGender">男</span></td>
+                            <td class="td"><span id="showGender">男</span></td>
                         </tr>
                         <tr>
                             <td class="title">出生日期</td>
                             <td class="break">:</td>
-                            <td><span id="showBirthday">1995.10.24</span></td>
+                            <td class="td"><span id="showBirthday">1995.10.24</span></td>
                         </tr>
                         <tr>
                             <td class="title">手机</td>
                             <td class="break">:</td>
-                            <td><span id="showPhone">+62 8678 999 012</span></td>
+                            <td class="td"><span id="showPhone">+62 8678 999 012</span></td>
                         </tr>
                         <tr>
                             <td class="title">邮箱</td>
                             <td class="break">:</td>
-                            <td><span id="showEmail">bdgpixel@gmail.com</span></td>
+                            <td class="td"><span id="showEmail">bdgpixel@gmail.com</span></td>
                         </tr>
                         <tr>
                             <td class="title">籍贯信息</td>
                             <td class="break">:</td>
-                            <td><span id="showHome">福建-厦门</span></td>
+                            <td class="td"><span id="showHome">福建-厦门</span></td>
                         </tr>
                         <tr>
                             <td class="title">居住地址</td>
                             <td class="break">:</td>
-                            <td><span id="showAddress">厦门市思明区718文化创意园</span></td>
+                            <td class="td"><span id="showAddress">厦门市思明区718文化创意园</span></td>
                         </tr>
                         <tr>
                             <td class="title">兴趣爱好</td>
                             <td class="break">:</td>
-                            <td><span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></td>
+                            <td class="td"><span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></td>
                         </tr>
                         <tr>
                             <td class="title">奖项荣誉</td>
                             <td class="break">:</td>
-                            <td><span id="showHonor">大学英语四级，良好的听说读写能力，国家计算机一级熟练使用office办公软件，通过会计从业资格证。</span></td>
+                            <td class="td"><span id="showHonor">大学英语四级，良好的听说读写能力，国家计算机一级熟练使用office办公软件，通过会计从业资格证。</span></td>
                         </tr>
                         <tr>
                             <td class="title">自我评价</td>
                             <td class="break">:</td>
-                            <td>
+                            <td class="td">
                                 <span id="showIntroduce">
                                 新闻学专业本科学历，丰富的电视台编导、记者实习经历，致力于在传媒行业长期发展有综艺节目制作经历，能提供选题策划、节目录制拍摄、后期剪辑、文字撰写等全方面的协助。
                                 具有高度的新闻敏感性，熟悉新闻传播特点和新媒体运营，文字功底强，有一定的编辑思想。会使用PS, finalcut pro, PR, AE等后期剪辑软件，具备良好的摄影摄像能力工作积极细致，责任心强。具有较强的团队意识和沟通能力，能适应短期加班、出差等工作内容。
@@ -946,6 +946,9 @@
         }
         //works = works.reverse();
         $('.showWorkWrap').html("");
+        if(works.length==0){
+            $('.showWorkWrap').html("暂未填写");
+        }
         for(var i=0;i<works.length;i++){
             var obj = works[i];
             var start = obj.start;
@@ -1011,7 +1014,10 @@
             edus = JSON.parse(edus);
         }
         //edus = edus.reverse();
-        $('.showEduWrap').html("暂未填写");
+        $('.showEduWrap').html("");
+        if(edus.length==0){
+            $('.showEduWrap').html("暂未填写");
+        }
         for(var i=0;i<edus.length;i++){
             var obj = edus[i];
             var start = obj.start;

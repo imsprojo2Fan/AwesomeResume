@@ -209,7 +209,7 @@ $(function () {
             var email = $('#contact-email').val().trim();
             var message = $('#contact-message').val().trim();
             if(!company||!email||!message){
-                swal("即刻提示","您似乎忘了填一些必要信息!","error");
+                swal("即刻提示","您似乎忘了填写一些必要的信息!","error");
                 return
             }
             var sid = GetQueryString("v");

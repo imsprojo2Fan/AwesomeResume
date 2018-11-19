@@ -2,6 +2,43 @@
     .subButton{
         float: left;
     }
+    .wrap-about .w-content tr{
+        vertical-align: top;
+        height: 45px;
+    }
+    .blank{
+        border: 0px solid red;
+        height: 75px;
+        background: #504452;
+        margin-top: 15%;
+    }
+    #works .contentWrap{
+        width: 22%;
+        font-size: 16px;
+        margin: 0 auto;
+        text-align: center;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    #educations .contentWrap{
+        width: 40%;
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    .line{
+        height: 1px;
+        background: #eee;
+        width: 75%;
+        margin: 0 auto;
+    }
+    .contact .contact_info .contact_sec ul li {
+        font-size: 20px;
+        line-height: 26px;
+        width: 415px;
+    }
 }
 
 @media screen and (max-width: 767px){
@@ -10,7 +47,41 @@
     }
     .circle_detail h3{
         padding: 12px 0px;
-        background: #30283d;
+        background: #504452;
         color: #ffffff;
+    }
+    .wrap-about .w-content tr{
+        border-bottom: 0.5px solid #eee;
+    }
+    .wrap-about .w-content tr{
+        vertical-align: middle;
+        height: 45px;
+    }
+    .blank{
+        border: 0px solid red;
+        height: 35px;
+        background: #504452;
+    }
+    #works .contentWrap{
+        width: 70%;
+        font-size: 16px;
+        margin: 0 auto;
+        text-align: center;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    #educations .contentWrap{
+        width: 90%;
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    .line{
+        height: 1px;
+        background: #eee;
+        width: 95%;
+        margin: 0 auto;
     }
 }

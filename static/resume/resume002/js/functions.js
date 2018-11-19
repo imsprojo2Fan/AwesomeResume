@@ -23,29 +23,22 @@ $('.push_nav li a').on('click', function(){
 	$(".fancybox").fancybox();
 
 	//owlCarouseltimeline
-    $("#basic").owlCarousel({
-        autoPlay : 2000,
-        stopOnHover : true,
-        navigation:true,
-        paginationSpeed : 1000,
-        singleItem : true,
-
-    });
 
     $("#works").owlCarousel({
-        autoPlay : 2000,
+        autoPlay : true,
         stopOnHover : true,
         navigation:true,
         paginationSpeed : 1000,
         singleItem : true,
+        slideSpeed:3000,
     });
     $("#educations").owlCarousel({
-        autoPlay : 2000,
+        autoPlay : true,
         stopOnHover : true,
         navigation:true,
         paginationSpeed : 1000,
         singleItem : true,
-
+        slideSpeed:3000,
     });
 
 		

@@ -102,14 +102,14 @@ function redirect(str) {//锚点跳转
         $('html,body').animate({
                 scrollTop: 0
             },
-            300);
+            800);
         return;
     }
     var targetOffset = $(target).offset().top - 100;
     $('html,body').animate({
             scrollTop: targetOffset
         },
-        300);
+        800);
 }
 
 /*

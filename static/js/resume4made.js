@@ -207,6 +207,8 @@ function renderForm(index) {
     if(resume.ThemeColor){
         $('#colorInput').css("background-color",resume.ThemeColor);
         $('#colorInput').css("color","#ffffff");
+    }else{
+        $('#colorInput').val("暂未选择");
     }
     $('#name').val(resume.Name);
     $('#objective').val(resume.Objective);

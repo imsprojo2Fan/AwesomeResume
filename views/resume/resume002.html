@@ -40,10 +40,10 @@
         }
         hr{
             height: 5px;
-            background: #30283d;
+            background: #504452;
             border: none;
             width: 55px;
-            margin: 25px auto;
+            margin: 15px auto;
         }
         .red{
             color:red;
@@ -60,7 +60,7 @@
             width: 50px;
             height: 50px;
             line-height: 55px;
-            background-color:#30283d;
+            background-color:#504452;
             text-align: center;
             color: #fff;
             border: 1px solid #fff;
@@ -69,10 +69,11 @@
         }
 
         .scroll-top:hover{
-            color: #000;
+            color: #504452;
             background: #ffffff;
-            border: 1px solid #333;
+            border: 1px solid #504452;
         }
+
 
     </style>
 
@@ -149,12 +150,12 @@
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <div class="info_detail">
-                        <div class="zoom"><img src="../../static/resume/resume002/images/about/about01_.jpg" alt="alex">
+                        <div class="zoom"><img id="avatar" src="../../static/resume/resume002/images/about/about01_.jpg" alt="alex">
                             <div class="zoom-overlay"></div>
                         </div>
-                        <h3 id="showName">烟熏的花</h3>
+                        <h3 class="showName">烟熏的花</h3>
                         <div style="background: #ffffff;height: 3px;width: 50%;margin: 15px auto"></div>
-                        <p id="showObjective">我是一名UI设计师</p>
+                        <p>你好,我是一名<span class="showObjective">设计师</span></p>
                     </div>
                 </div>
             </div>
@@ -162,51 +163,81 @@
         </div>
     </div>
     <!-- About -->
-    <div id="about" class="row">
-        <div class="career text-center">
-            <div class="row">
-                <div class="col-xs-12 text-center" >
-                    <div class="animate fadeInRight">
-                        <div class="heading">
-                            <h1>我的简介</h1>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="col-md-12 text-center" >
-                        <div id="basic" class="owl-carousel">
-                            <div class="item text-center">
-                                <h2>Masters in Multimedia Design</h2>
-                                <em>University Of Oxford,<span> 2012-2013</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
-                            </div>
-                            <div class="item text-center">
-                                <h2>Visual art & Design</h2>
-                                <em>Boston University,<span> 2013-2014</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
-                            </div>
-                            <div class="item text-center">
-                                <h2>Creative Programmer</h2>
-                                <em>Creative Coders,<span> 2014-2015</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
-                            </div>
-                            <div class="item text-center">
-                                <h2>Software Developer</h2>
-                                <em>Subex,<span> 2015-2016</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
-                            </div>
-                        </div>
-                    </div>
+    <div id="about" class="row career animate fadeInDown">
+        <div class="col-sm-12" >
+            <div class="animate fadeInDown">
+                <div class="heading">
+                    <h1>我的简介</h1>
                 </div>
             </div>
+            <hr>
+            <div class="col-sm-3 blank"></div>
+            <div class="col-sm-6" >
+                <div class="wrap-about" style="">
+                    <table class="w-content">
+                        <tr>
+                            <td class="title" style="padding-top: 0px">姓名</td>
+                            <td class="td" style="padding-top: 0px"><span class="showName">烟熏的花</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">求职意向</td>
+                            <td class="td"><span class="showObjective">摄影师</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">性别</td>
+                            <td class="td"><span id="showGender">女</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">出生日期</td>
+                            <td class="td"><span id="showBirthday">1995.10.24</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">手机</td>
+                            <td class="td"><span class="showPhone">13623656368</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">邮箱</td>
+                            <td class="td"><span class="showEmail">bdgpixel@gmail.com</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">籍贯信息</td>
+                            <td class="td"><span id="showHome">福建-厦门</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">居住地址</td>
+                            <td class="td"><span class="showAddress">厦门市思明区718文化创意园</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">兴趣爱好</td>
+                            <td class="td"><span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">奖项荣誉</td>
+                            <td class="td"><span id="showHonor">校级优秀学生干部、三好学生标兵、国家励志奖学金、校级一等奖学金、国家励志奖学金、校级二等奖学金、校级优秀学生干部</span></td>
+                        </tr>
+                        <tr>
+                            <td class="title">自我评价</td>
+                            <td class="td">
+                                            <span id="showIntroduce">
+                                                本人性格热情开朗，待人友好，为人诚实谦虚。工作勤奋，认真负责，能吃苦耐劳，尽职尽责。具有亲和力、平易近人，善于与人沟通。
+            学习刻苦认真，成绩优秀，名列前茅。品学兼优连续三年获得学校奖学金。曾担任学生会外联部干部、系团组织部部长、班级生活委员等。
+                                            </span>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-3 blank"></div>
         </div>
     </div>
-    <div style="height: 75px;width: 100%;background: #30283d;"></div>
+    <div style="height: 75px;width: 100%;background: #504452;"></div>
     <!-- Works -->
-    <div id="work" class="row">
+    <div id="work" class="row animate fadeInDown">
         <div class="career text-center">
             <div class="row" >
                 <div class="col-xs-12 text-center" >
-                    <div class="animate fadeInUp">
+                    <div class="animate fadeInDown">
                         <div class="heading">
                             <h1>工作经历</h1>
                         </div>
@@ -215,24 +246,43 @@
                     <div class="col-md-12 text-center" >
                         <div id="works" class="owl-carousel">
                             <div class="item text-center">
-                                <h2>Masters in Multimedia Design</h2>
-                                <em>University Of Oxford,<span> 2012-2013</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
+                                <h2>才华有限公司</h2>
+                                <h5 style="font-size: 16px;">首席设计师</h5>
+                                <p style="margin-top: -10px;">2016.01-2018.12</p>
+                                <div class="line"></div>
+                                <div class="contentWrap" >
+                                    <p>根据拍摄人物，制定详细的拍摄工作计划与时间安排；<br/>
+                                        根据工作需要，挑选合适的摄影设备；<br/>
+                                        根据导演要求，运用摄影艺术手段完成影视片的电影造型；<br/>
+                                        在完成拍摄任务的整个过程中，与拍摄小组其他成员紧密协作；<br/>
+                                        与被拍摄者沟通，以达到快速进入拍摄状态的效果。</p>
+                                </div>
                             </div>
                             <div class="item text-center">
-                                <h2>Visual art & Design</h2>
-                                <em>Boston University,<span> 2013-2014</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
+                                <h2>才华有限公司</h2>
+                                <h5 style="font-size: 16px;">设计师</h5>
+                                <p style="margin-top: -10px;">2013.01-2015.12</p>
+                                <div class="line"></div>
+                                <div class="contentWrap" >
+                                    <p>根据拍摄人物，制定详细的拍摄工作计划与时间安排；<br/>
+                                        根据工作需要，挑选合适的摄影设备；<br/>
+                                        根据导演要求，运用摄影艺术手段完成影视片的电影造型；<br/>
+                                        在完成拍摄任务的整个过程中，与拍摄小组其他成员紧密协作；<br/>
+                                        与被拍摄者沟通，以达到快速进入拍摄状态的效果。</p>
+                                </div>
                             </div>
                             <div class="item text-center">
-                                <h2>Creative Programmer</h2>
-                                <em>Creative Coders,<span> 2014-2015</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
-                            </div>
-                            <div class="item text-center">
-                                <h2>Software Developer</h2>
-                                <em>Subex,<span> 2015-2016</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
+                                <h2>才华有限公司</h2>
+                                <h5 style="font-size: 16px;">设计师助理</h5>
+                                <p style="margin-top: -10px;">2011.01-2012.12</p>
+                                <div class="line"></div>
+                                <div class="contentWrap" >
+                                    <p>根据拍摄人物，制定详细的拍摄工作计划与时间安排；<br/>
+                                        根据工作需要，挑选合适的摄影设备；<br/>
+                                        根据导演要求，运用摄影艺术手段完成影视片的电影造型；<br/>
+                                        在完成拍摄任务的整个过程中，与拍摄小组其他成员紧密协作；<br/>
+                                        与被拍摄者沟通，以达到快速进入拍摄状态的效果。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -240,7 +290,7 @@
             </div>
         </div>
     </div>
-    <div style="height: 75px;width: 100%;background: #30283d;"></div>
+    <div style="height: 75px;width: 100%;background: #504452;"></div>
     <!-- Educations -->
     <div id="education" class="row">
         <div class="career text-center">
@@ -255,24 +305,20 @@
                     <div class="col-md-12 text-center" >
                         <div id="educations" class="owl-carousel">
                             <div class="item text-center">
-                                <h2>Masters in Multimedia Design</h2>
-                                <em>University Of Oxford,<span> 2012-2013</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
+                                <h2>清华大学</h2>
+                                <p style="margin-top: -10px;">2005.08-2009.12</p>
+                                <div class="line"></div>
+                                <div class="contentWrap">
+                                    <p>主修课程： 传统动画原理，角色设计，场景设计，广告设计，视听语言，表演，脚本创作，影视场景建模，三维角色动画，影视材质特效等。素描、色彩、平面构成、色彩构成立体构成、图案、电脑平面设计、电脑三维设计、多媒体技术合成，电脑绘画，电脑三维绘画。</p>
+                                </div>
                             </div>
                             <div class="item text-center">
-                                <h2>Visual art & Design</h2>
-                                <em>Boston University,<span> 2013-2014</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
-                            </div>
-                            <div class="item text-center">
-                                <h2>Creative Programmer</h2>
-                                <em>Creative Coders,<span> 2014-2015</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
-                            </div>
-                            <div class="item text-center">
-                                <h2>Software Developer</h2>
-                                <em>Subex,<span> 2015-2016</span></em>
-                                <p> et venenatis massa tincidunt. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Quisque a feuqiat metus. Praesent hendrerit iaculis lorem. Nullam nec velit iaculis, tincidunt felis nec lobortis elit. </p>
+                                <h2>哈佛大学</h2>
+                                <p style="margin-top: -10px;">2009.11-2011.06</p>
+                                <div class="line"></div>
+                                <div class="contentWrap" >
+                                    <p>主修课程： 传统动画原理，角色设计，场景设计，广告设计，视听语言，表演，脚本创作，影视场景建模，三维角色动画，影视材质特效等。素描、色彩、平面构成、色彩构成立体构成、图案、电脑平面设计、电脑三维设计、多媒体技术合成，电脑绘画，电脑三维绘画。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -280,21 +326,21 @@
             </div>
         </div>
     </div>
-    <div style="height: 75px;width: 100%;background: #30283d;"></div>
+    <div style="height: 75px;width: 100%;background: #504452;"></div>
     <!-- Skill -->
-    <div id="skill" class="row">
+    <div id="skill" class="row animate fadeInDown">
         <div class="career text-center">
             <div class="row">
                 <div class="col-xs-12 text-center">
                     <div class="col-xs-12 skills text-center">
-                        <div class="animate fadeInLeft">
+                        <div class="animate fadeInDown">
                             <div class="heading">
                                 <h1>专业技能</h1>
                                 <hr>
                             </div>
                         </div>
-                        <div class="animate bounceInUp">
-                            <div class="circle">
+                        <div class="animate fadeInUp">
+                            <div class="circle" id="skills">
                                 <div class="circle_detail">
                                     <div class="myStat" data-dimension="250" data-text="75%" data-fontsize="18" data-percent="75" data-fgcolor="#fff"></div>
                                     <h3 class="active">Adobe Photoshop</h3>
@@ -323,7 +369,7 @@
     <div class="container contact">
         <div class="row">
             <div class="col-xs-12 text-center">
-                <div class="animate fadeInRight">
+                <div class="animate fadeInDown">
                     <div class="heading">
                         <h1>与我联系</h1>
                         <hr style="background: #ffffff">
@@ -348,12 +394,12 @@
                 </div>
                 <div class="col-md-4 col-sm-8 col-xs-12 contact_info">
                     <div class="animate bounceInRight">
-                        <h3> Get In Touch</h3>
+                        <h3> Get In Touch With Me</h3>
                         <div class="contact_sec">
                             <ul>
-                                <li><i class="fa fa-home" aria-hidden="true"></i><span>Home: 3340 King St, London W6 0RR, UK</span></li>
-                                <li><i class="fa fa-phone" aria-hidden="true"></i><span>Phone: +44 (0)20 9493 89819</span></li>
-                                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span>Email: hello@themesindustry.com</span></li>
+                                <li><i class="fa fa-home" aria-hidden="true"></i><span>Home: <span class="showAddress">3340 King St, London W6 0RR, UK</span></span></li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i><span>Phone: <span class="showPhone">+44 (0)20 9493 89819</span></span></li>
+                                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span>Email: <span class="showEmail">hello@themesindustry.com</span></span></li>
                             </ul>
                         </div>
                     </div>
@@ -382,7 +428,7 @@
     </div>
 </div>
 <!--提交提示-->
-<div id="submitTip">
+<div id="submitTip" style="background: #504452">
     <div id="footerTip" style="color: #ffffff;font-size: 20px;margin-top: 35px;">提交已填写信息即可查看分享简历</div>
     <button id="submit" class="btn btn-primary" onclick="submit()" style="margin-top: 6px;background: #6397ff">上传信息</button>
 </div>
@@ -770,36 +816,26 @@
         //隐藏关闭按钮
         $('#modalClose').hide();
         var str = "暂未填写";
-        $('#showName').html(resume.Name);
-        $('#showName2').html(resume.Name);
-        $("#showObjective").html(resume.Objective);
-        $("#showObjective2").html(resume.Objective);
+        $('.showName').html(resume.Name);
+        $(".showObjective").html(resume.Objective);
         $("#showGender").html(resume.Gender);
         if(resume.Gender==="女"){
-            $('.bg-about').css("background","url(../../static/resume/resume001_/images/about/about01_.jpg) center center");
-            $('.bg-about').css("background-size","cover");
-            $('.bg-about').css("background-repeat","no-repeat");
+            $('#avatar').attr("src","../../static/resume/resume002/images/about/about01_.jpg");
         }else{
-            $('.bg-about').css("background","url(../../static/resume/resume001_/images/about/about02_.jpg) center center");
-            $('.bg-about').css("background-size","cover");
-            $('.bg-about').css("background-repeat","no-repeat");
+            $('#avatar').attr("src","../../static/resume/resume002/images/about/about02_.jpg");
         }
         $("#showBirthday").html(resume.Birthday);
-        $("#showPhone").html(resume.Phone);
-        $(".showPhone2").html(resume.Phone);
-        $('#showEmail').html(resume.Email);
-        $('.showEmail2').html(resume.Email);
+        $(".showPhone").html(resume.Phone);
+        $('.showEmail').html(resume.Email);
         if(!resume.Province){
             $('#showHome').html(str);
         }else{
             $('#showHome').html(resume.Province+"-"+resume.City);
         }
         if(!resume.Address){
-            $('#showAddress').html(str);
-            $('.showAddress2').html(str);
+            $('.showAddress').html(str);
         }else{
-            $('#showAddress').html(resume.Address);
-            $('.showAddress2').html(resume.Address);
+            $('.showAddress').html(resume.Address);
         }
         if(!resume.Hobby){
             $('#showHobby').html(str);
@@ -817,9 +853,8 @@
             works = JSON.parse(works);
         }
         //works = works.reverse();
-        $('.pcWrap4work').html("");
-        $('.phoneWrap4work').html("");
-        var domTXT;
+        var domTXT = "";
+        $('#works').html("");
         for(var i=0;i<works.length;i++){
             var obj = works[i];
             var start = obj.start;
@@ -831,101 +866,43 @@
             if(!description){
                 description = "暂未填写";
             }
+            domTXT = domTXT+'<div class="item text-center">' +
+                    ' <h2>'+company+'</h2>' +
+                    ' <h5 style="font-size: 16px;">'+position+'</h5>' +
+                    '   <p style="margin-top: -10px;">'+date+'</p>' +
+                    '      <div class="line"></div>' +
+                    '         <div class="contentWrap" >' +
+                    '              <p>'+description+'</p>' +
+                    '         </div>' +
+                    '</div>'
 
-            if(i%2==0){
-                domTXT = '<div class="work-info">\n' +
-                        '                <div class="col-md-6 work-grid work-right work-right2">\n' +
-                        '                    <h4>'+date+'</h4>\n' +
-                        '                </div>\n' +
-                        '                <div class="col-md-6 work-grid work-left work-left2">\n' +
-                        '                    <h5>'+company+'</h5>\n' +
-                        '                    <br>\n' +
-                        '                    <p style="font-size: 18px;font-weight: 500;" class="univ">'+position+'</p>\n' +
-                        '                    <p>'+description+'</p>\n' +
-                        '                </div>\n' +
-                        '                <div class="clearfix"> </div>\n' +
-                        '            </div>';
-            }else{
-                domTXT = '<div class="work-info">\n' +
-                        '                <div class="col-md-6 work-grid work-left">\n' +
-                        '                    <h4>'+date+'</h4>\n' +
-                        '                </div>\n' +
-                        '                <div class="col-md-6 work-grid work-right">\n' +
-                        '                    <h5 class="univ">'+company+'</h5>\n' +
-                        '                    <br>\n' +
-                        '                    <p style="font-size: 18px;font-weight: 500;" class="univ">'+position+'</p>\n' +
-                        '                    <p>'+description+'</p>\n' +
-                        '                </div>\n' +
-                        '                <div class="clearfix"> </div>\n' +
-                        '            </div>';
-            }
-            $('.pcWrap4work').append(domTXT);
-
-            if(i%2==0){
-                domTXT = '<div class="item">\n' +
-                        '                <div class="itemLeft" style="">\n' +
-                        '                    <div class="itemDate">\n' +
-                        '                        '+date+'\n' +
-                        '                    </div>\n' +
-                        '                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
-                        '                </div>\n' +
-                        '                <div class="itemRight" >\n' +
-                        '                    <div>\n' +
-                        '                        <h4>'+company+'</h4>\n' +
-                        '                        <h5 style="margin-top: 6px">'+position+'</h5>\n' +
-                        '                    </div>\n' +
-                        '                </div>\n' +
-                        '                <div class="itemBottom">\n' +
-                        '                    <p>'+description+'</p>\n' +
-                        '                </div>\n' +
-                        '            </div>'
-            }else{
-                domTXT = '<div class="item">\n' +
-                        '                <div class="itemLeft2">\n' +
-                        '                    <h4>'+company+'</h4>\n' +
-                        '                    <h5 style="margin-top: 6px">'+position+'</h5>\n' +
-                        '                </div>\n' +
-                        '                <div class="itemRight2" >\n' +
-                        '                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
-                        '                    <div class="itemDate2">\n' +
-                        '                        '+date+'\n' +
-                        '                    </div>\n' +
-                        '                </div>\n' +
-                        '                <div class="itemBottom">\n' +
-                        '                    <p>'+description+'</p>\n' +
-                        '                </div>\n' +
-                        '            </div>'
-            }
-            $('.phoneWrap4work').append(domTXT);
         }
+        var carosello = $("#works");
+        carosello.owlCarousel();
+        var dataCarosello = carosello.data('owlCarousel');
+        dataCarosello.addItem(domTXT);
 
         var skills = resume.Skills;
         if(typeof skills==="string"&&skills){
             skills = JSON.parse(skills);
         }
-        $('.showSkillWrap').html("");
+        $('#skills').html("");
         for(var i=0;i<skills.length;i++){
             var obj = skills[i];
             var skillName = obj.name;
             var num = obj.num;
-            $('.showSkillWrap').append('<div class="skillbar" data-percent="'+num+'%">\n' +
-                    '                            <div class="title head-sm">\n' +
-                    '                                '+skillName+'\n' +
-                    '                            </div>\n' +
-                    '                            <div class="count-bar">\n' +
-                    '                                <div class="count"></div>\n' +
-                    '                            </div>\n' +
-                    '                        </div>');
+            $('#skills').append('<div class="circle_detail">\n' +
+                    '      <div class="myStat" data-dimension="250" data-text="'+num+'%" data-fontsize="18" data-percent="'+num+'" data-fgcolor="#fff"></div>\n' +
+                    '            <h3 class="active">'+skillName+'</h3>\n' +
+                    '      </div>');
         }
         //Skill
-        jQuery('.skillbar').each(function() {
-            jQuery(this).appear(function() {
-                jQuery(this).find('.count-bar').animate({
-                    width:jQuery(this).attr('data-percent')
-                },3000);
-                var percent = jQuery(this).attr('data-percent');
-                jQuery(this).find('.count').html('<span>' + percent + '</span>');
-            });
+        $('.myStat').circliful({
+            animationStep: 5,
+            foregroundBorderWidth: 5,
+            backgroundBorderWidth: 15,
+            percent: 80,
+            halfCircle: 1,
         });
 
         var edus = resume.Educations;
@@ -933,8 +910,8 @@
             edus = JSON.parse(edus);
         }
         //edus = edus.reverse();
-        $('.pcWrap4edu').html("");
-        $('.phoneWrap4edu').html("");
+        $('#educations').html("");
+        var domTXT = "";
         for(var i=0;i<edus.length;i++){
             var obj = edus[i];
             var start = obj.start;
@@ -945,66 +922,21 @@
             if(!description){
                 description = "暂未填写";
             }
-            if(i%2==0){
-                domTXT = '<div class="work-info">\n' +
-                        '                            <div class="col-md-6 work-grid work-left">\n' +
-                        '                                <h4>'+date+'</h4>\n' +
-                        '                            </div>\n' +
-                        '                            <div class="col-md-6 work-grid work-right">\n' +
-                        '                                <h5 class="univ">'+school+'</h5>\n' +
-                        '                                <p>'+description+' </p>\n' +
-                        '                            </div>\n' +
-                        '                            <div class="clearfix"> </div>\n' +
-                        '                        </div>'
-            }else{
-                domTXT = '<div class="work-info">\n' +
-                        '                            <div class="col-md-6 work-grid work-right work-right2">\n' +
-                        '                                <h4>'+date+'</h4>\n' +
-                        '                            </div>\n' +
-                        '                            <div class="col-md-6 work-grid work-left work-left2">\n' +
-                        '                                <h5>'+school+'</h5>\n' +
-                        '                                <p>'+description+' </p>\n' +
-                        '                            </div>\n' +
-                        '                            <div class="clearfix"> </div>\n' +
-                        '                        </div>'
-            }
-            $('.pcWrap4edu').append(domTXT);
 
-            if(i%2==0){
-                domTXT = '<div class="item">\n' +
-                        '\t\t\t                <div class="itemLeft" style="">\n' +
-                        '\t\t\t                    <div class="itemDate">\n' +
-                        '\t\t\t                        '+date+'\n' +
-                        '\t\t\t                    </div>\n' +
-                        '\t\t\t                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
-                        '\t\t\t                </div>\n' +
-                        '\t\t\t                <div class="itemRight" >\n' +
-                        '\t\t\t                    <div>\n' +
-                        '\t\t\t                        <h4>'+school+'</h4>\n' +
-                        '\t\t\t                    </div>\n' +
-                        '\t\t\t                </div>\n' +
-                        '\t\t\t                <div class="itemBottom">\n' +
-                        '\t\t\t                    <p>'+description+'</p>\n' +
-                        '\t\t\t                </div>\n' +
-                        '\t\t\t            </div>'
-            }else{
-                domTXT = '<div class="item">\n' +
-                        '\t\t\t                <div class="itemLeft2">\n' +
-                        '\t\t\t                    <h4>'+school+'</h4>\n' +
-                        '\t\t\t                </div>\n' +
-                        '\t\t\t                <div class="itemRight2" >\n' +
-                        '\t\t\t                    <div class="cusp01"><div class="cusp02"></div></div>\n' +
-                        '\t\t\t                    <div class="itemDate2">\n' +
-                        '\t\t\t                        '+date+'\n' +
-                        '\t\t\t                    </div>\n' +
-                        '\t\t\t                </div>\n' +
-                        '\t\t\t                <div class="itemBottom">\n' +
-                        '\t\t\t                    <p>'+description+'</p>\n' +
-                        '\t\t\t                </div>\n' +
-                        '\t\t\t            </div>'
-            }
-            $('.phoneWrap4edu').append(domTXT);
+            domTXT = domTXT + '<div class="item text-center">\n' +
+                    '                                <h2>'+school+'</h2>\n' +
+                    '                                <p style="margin-top: -10px;">'+date+'</p>\n' +
+                    '                                <div class="line"></div>\n' +
+                    '                                <div class="contentWrap">\n' +
+                    '                                    <p>'+description+'</p>\n' +
+                    '                                </div>\n' +
+                    '                            </div>'
         }
+        var carosello = $("#educations");
+        carosello.owlCarousel();
+        var dataCarosello = carosello.data('owlCarousel');
+        dataCarosello.addItem(domTXT);
+
 
         var color = localStorage.getItem("theme");
         if(!color){

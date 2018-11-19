@@ -36,7 +36,7 @@
             background: #7B68EE;
             border: none;
             width: 55px;
-            margin: 25px auto;
+            margin: 15px auto;
         }
         .red{
             color:red;
@@ -136,7 +136,7 @@
             <div class="banner-info-w3l">
                 <h3>[ <span id="showObjective2">摄影师</span> ]</h3>
                 <h2>Hi,我的名字是<span id="showName2">烟熏的花</span></h2>
-                <h4><a class="scroll" href="javascript:redirect('about')">关于我</a></h4>
+                <h4><a class="scroll" href="javascript:redirect('about')">关于我 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a></h4>
             </div>
         </div>
     </div>
@@ -161,27 +161,27 @@
                                     <tr>
                                         <td class="title">姓名</td>
                                         <td class="break">:</td>
-                                        <td><span id="showName">烟熏的花</span></td>
+                                        <td class="td"><span id="showName">烟熏的花</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">求职意向</td>
                                         <td class="break">:</td>
-                                        <td><span id="showObjective">摄影师</span></td>
+                                        <td class="td"><span id="showObjective">摄影师</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">性别</td>
                                         <td class="break">:</td>
-                                        <td><span id="showGender">女</span></td>
+                                        <td class="td"><span id="showGender">女</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">出生日期</td>
                                         <td class="break">:</td>
-                                        <td><span id="showBirthday">1995.10.24</span></td>
+                                        <td class="td"><span id="showBirthday">1995.10.24</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">手机</td>
                                         <td class="break">:</td>
-                                        <td><span id="showPhone">13623656368</span></td>
+                                        <td class="td"><span id="showPhone">13623656368</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">邮箱</td>
@@ -191,27 +191,27 @@
                                     <tr>
                                         <td class="title">籍贯信息</td>
                                         <td class="break">:</td>
-                                        <td><span id="showHome">福建-厦门</span></td>
+                                        <td class="td"><span id="showHome">福建-厦门</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">居住地址</td>
                                         <td class="break">:</td>
-                                        <td><span id="showAddress">厦门市思明区718文化创意园</span></td>
+                                        <td class="td"><span id="showAddress">厦门市思明区718文化创意园</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">兴趣爱好</td>
                                         <td class="break">:</td>
-                                        <td><span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></td>
+                                        <td class="td"><span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">奖项荣誉</td>
                                         <td class="break">:</td>
-                                        <td><span id="showHonor">校级优秀学生干部、三好学生标兵、国家励志奖学金、校级一等奖学金、国家励志奖学金、校级二等奖学金、校级优秀学生干部</span></td>
+                                        <td class="td"><span id="showHonor">校级优秀学生干部、三好学生标兵、国家励志奖学金、校级一等奖学金、国家励志奖学金、校级二等奖学金、校级优秀学生干部</span></td>
                                     </tr>
                                     <tr>
                                         <td class="title">自我评价</td>
                                         <td class="break">:</td>
-                                        <td>
+                                        <td class="td">
                                             <span id="showIntroduce">
                                                 本人性格热情开朗，待人友好，为人诚实谦虚。工作勤奋，认真负责，能吃苦耐劳，尽职尽责。具有亲和力、平易近人，善于与人沟通。
             学习刻苦认真，成绩优秀，名列前茅。品学兼优连续三年获得学校奖学金。曾担任学生会外联部干部、系团组织部部长、班级生活委员等。
@@ -1013,6 +1013,8 @@
         });
         $('.scroll-top').hover(function () {
             $(this).css("background",val);
+            $(this).css("color","#fff");
+            $(this).css("border-color","#fff");
         },function () {
             $(this).css("background","rgba(0, 0, 0, 0.75)");
         });

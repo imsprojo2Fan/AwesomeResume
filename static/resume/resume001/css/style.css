@@ -870,6 +870,9 @@ ul.portfolio-image li .desc{
   position: relative;
   display: block;
 }
+.td{
+  color: #8f8f8f;
+}
 
 .wrap-about .w-content td{
   font-size: 20px;
