@@ -204,13 +204,13 @@
     z-index:1000000;
 }
 .loader{
-    width: 96px;
+    width: 106px;
     height: 134px;
     margin: 0 auto;
     position: absolute;
     left: 50%;
     top: 50%;
-    margin-left: -48px;
+    margin-left: -53px;
     margin-top: -67px;
 }
 

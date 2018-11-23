@@ -6,11 +6,6 @@ $(function () {
     //隐藏验证登录输入框
     $('fieldset').hide();
     //渲染城市选择
-    $("#distpicker").distpicker({
-        province:"北京市" ,
-        city: "北京城区",
-        district: ""
-    });
     $('.slide').slider({
         formatter: function (value) {
             return '当前值:' + value;
