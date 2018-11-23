@@ -53,7 +53,7 @@
 
       //typed js
       $(".typed").typed({
-          strings: ["我的名字是M.Reza", "我是一名Web Designer", "🙂"],
+          strings: ["我的名字是烟熏的花", "我是一名新闻记者", "🙂"],
           typeSpeed: 100,
           backDelay: 900,
           loop: true

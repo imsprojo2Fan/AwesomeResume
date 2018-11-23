@@ -921,7 +921,7 @@
         } else {
             // 抱歉！不支持 Web Storage ..
         }
-        localData = localStorage.getItem("resume");
+        localData = localStorage.getItem(window.location.href);
         if(localData){//渲染本地存储数据
             //console.info(JSON.parse(localStorage.getItem("resume")));
             console.log(typeof localData);
@@ -948,6 +948,15 @@
             renderHtml();
         }else{
             $('#qrcodeBtn').remove();
+        }
+
+        if(!localData&&!dbData){
+            //渲染省市区
+            $("#distpicker").distpicker({
+                province:"北京市" ,
+                city: "北京城区",
+                district: ""
+            });
         }
 
         //渲染数据----------------------------------------------结束

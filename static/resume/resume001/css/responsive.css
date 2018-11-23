@@ -39,7 +39,9 @@
 
 
   /*------- testimonial -------*/
-  #testimonial{ height: 700px;}
+  .owl-carousel .owl-theme{
+	  margin-top: -110px;
+  }
 
   .skillst {margin-top: 50px;}
 }

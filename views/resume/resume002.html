@@ -772,6 +772,15 @@
             $('#qrcodeBtn').remove();
         }
 
+        if(!localData&&!dbData){
+            //渲染省市区
+            $("#distpicker").distpicker({
+                province:"北京市" ,
+                city: "北京城区",
+                district: ""
+            });
+        }
+
         //渲染数据----------------------------------------------结束
         setTimeout(function () {
             var alertInfo = getCookieValue("alertInfo");
