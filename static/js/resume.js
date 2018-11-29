@@ -367,7 +367,7 @@ function renderForm() {
         var id = i+"work";
         var description = obj.description.replace(/<br\/>/g, "\n");
         $('#workWrap').append('<div class="workItem" style="margin-top: 5px;padding: 5px;border:0.5px solid #eee;">\n' +
-            '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
+            '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:0px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
             '                                    <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>\n' +
             '                                    <div class="col-sm-8" style="border: 0px solid red;">\n' +
@@ -416,7 +416,7 @@ function renderForm() {
         var skillName = obj.name;
         var num = obj.num;
         $('#skillWrap').append('<div class="skillItem" style="margin-top: 5px;padding-top: 5px;border: 0.5px solid #eee">\n' +
-            '                                <div class="del4skill" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
+            '                                <div class="del4skill" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:0px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group">\n' +
             '                                    <label class="col-sm-3 control-label form-label">技能名称</label>\n' +
             '                                    <div class="col-sm-8">\n' +
@@ -459,7 +459,7 @@ function renderForm() {
         var id = i+"edu";
         var description = obj.description.replace(/<br\/>/g, "\n");
         $('#eduWrap').append('<div class="eduItem" style="margin-top: 5px;padding-top: 5px;border: 0.5px solid #eee;">\n' +
-            '                                <div class="del4edu" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:-5px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
+            '                                <div class="del4edu" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:0px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
             '                                    <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>\n' +
             '                                    <div class="col-sm-8" style="border: 0px solid red;">\n' +

@@ -89,7 +89,7 @@ ul {
 .title {
     font-size:35px;
     text-align: center;
-    color: #333;
+    color: #333333bf;
     letter-spacing: 1px;
     font-weight: 300;
 }
@@ -108,8 +108,8 @@ ul {
     z-index: 1050;
 }
 button#trigger-overlay {
-    background: #333;
-    border: 2px solid #fff;
+    background: #333333bf;
+    border: 1px solid #fff;
     border-radius: 5px;
     color: #fff;
     font-size: 18px;
@@ -280,7 +280,7 @@ a {
   font-size: 20px;
   text-shadow: none;
   color: #fff;
-  background: #333;
+  background: #333333bf;
   background: rgba(0,0,0, .8);
   left: 0;
   right: 0;
@@ -373,7 +373,7 @@ background-size:40px;
 }
 .buttn-about a:hover {
     background: #fff;
-    color: #333;
+    color: #333333bf;
 }
 .about-left{
     padding: 0px;
@@ -389,7 +389,7 @@ box-shadow:-3px 7px 39px -5px rgba(0, 0, 0, 0.38);
 }
 .about-me h2 {
     font-size: 34px;
-	color: #333;
+	color: #333333bf;
     font-weight: 600;
     letter-spacing: 3px;
     padding-bottom: 9px;
@@ -398,11 +398,11 @@ box-shadow:-3px 7px 39px -5px rgba(0, 0, 0, 0.38);
     font-size: 21px;
     font-weight: 500;
     letter-spacing: 2px;
-	color: #333;
+	color: #333333bf;
 }
 .w3layouts_more-buttn p {
     font-size: 15px;
-	color: #333;
+	color: #333333bf;
 	line-height: 31px;
 }
 .w3layouts_more-buttn {
@@ -415,10 +415,10 @@ box-shadow:-3px 7px 39px -5px rgba(0, 0, 0, 0.38);
 .buttom-social-grids ul li {
     display: inline-block;
     text-align: center;
-    border: 1px solid #333;
+    border: 1px solid #333333bf;
     width: 40px;
     height: 40px;
-    background:#333;
+    background:#333333bf;
     line-height: 41px;
     border-radius: 50px;
     transition: 0.5s all;
@@ -443,7 +443,7 @@ box-shadow:-3px 7px 39px -5px rgba(0, 0, 0, 0.38);
 }
 .my-datas h3 {
     font-size: 35px;
-    color: #333;
+    color: #333333bf;
     font-weight: 600;
 }
 ul.address li ul.address-text li:nth-child(1) {
@@ -452,17 +452,17 @@ ul.address li ul.address-text li:nth-child(1) {
 ul.address li ul.address-text li {
     display: inline-block;
     font-size: 1.4em;
-    color: #333;
+    color: #333333bf;
     margin-top: 20px;
     font-weight: 400;
 }
 ul.address li ul.address-text li a {
-    color: #333;
+    color: #333333bf;
     text-decoration: none;
     letter-spacing: 2px;
 }
 ul.address li ul.address-text li a:hover {
-    color: #333;
+    color: #333333bf;
 }
 .hire-w3lgrids {
     margin-top: 3em;
@@ -488,7 +488,7 @@ a.there-more {
 }
 a.there-more:hover{
     background:#fff;
-    color: #333;
+    color: #333333bf;
 }
 a.there-more:nth-child(1) {
     margin-right: 19px;
@@ -515,7 +515,7 @@ a.there-more:nth-child(1) {
 }
 .about-gap p {
     font-size: 15px;
-    color: #333;
+    color: #333333bf;
     line-height: 26px;
 }
 /*--//about--*/
@@ -558,13 +558,13 @@ a.there-more:nth-child(1) {
     -ms-transition: 0.5s all;
 }
 .white-shadow:hover .service-num-left h6 {
-    background: #333;
+    background: #333333bf;
 }
 .service-info-left h4 {
     font-size: 25px;
     text-transform: capitalize;
     letter-spacing: 2px;
-    color: #333;
+    color: #333333bf;
     font-weight: 500;
     text-align: left;
     line-height: 34px;
@@ -577,7 +577,7 @@ a.there-more:nth-child(1) {
 }
 .white-shadow p {
     font-size: 15px;
-    color: #333;
+    color: #333333bf;
     line-height: 28px;
 }
 span.font {
@@ -588,7 +588,7 @@ span.font {
 .counter {
     font-size: 25px;
     margin: 0;
-    color: #333;
+    color: #333333bf;
     letter-spacing: 5px;
 	    padding-bottom: 7px;
 }
@@ -623,7 +623,7 @@ span.font {
 }
 
 .activity-desc h5 {
-	color: #333333;
+	color: #333333bf333333bf;
 	font-size: 23px;
 	letter-spacing: 1px;
 	text-align: left;
@@ -658,7 +658,7 @@ span.font {
 
 #style-1::-webkit-scrollbar-thumb,
 #style-2::-webkit-scrollbar-thumb {
-	background-color: #333;
+	background-color: #333333bf;
 }
 
 .display-grid-1-w3lsagile {
@@ -675,7 +675,7 @@ span.font {
 	border-left: 2px solid #47cf73;
 	border-radius: 20px;
 	box-shadow: -3px 2px 3px #b9b9b9;
-	color: #333;
+	color: #333333bf;
 	margin: 0.7em 0 0 0.7em;
 }
 
@@ -739,6 +739,7 @@ span.font {
     font-size: 35px;
     text-transform: uppercase;
     text-align: center;
+    color: #333333bf;
 }
 .education-info,.exp-info-right {
     padding: 0em 0em;
@@ -823,7 +824,7 @@ img.zoom-img:hover {
 
 .footer_grid_left p,
 .footer_grid_left p a {
-    color:#333;
+    color:#333333bf;
     line-height: 26px;
     font-size: 14px;
     letter-spacing: 2px;
@@ -832,7 +833,7 @@ img.zoom-img:hover {
 .contact-icons{
     text-align:center;
     padding: 15px;
-    background: #333333;
+    background: #333333bf333333bf;
     border-bottom: 3px solid #ffffff;
 }
 .contact-icons p{
@@ -842,10 +843,10 @@ img.zoom-img:hover {
     color: #ffffff;
 }
 .contact input[type="text"], .contact input[type="email"], .contact textarea {
-    color: #333;
+    color: #333333bf;
     border: none;
     padding: 1em;
-    border: 1px solid #333;
+    border: 1px solid #333333bf;
     font-size: 15px;
     width: 100%;
     background:#fff;
@@ -865,16 +866,16 @@ img.zoom-img:hover {
 .contact textarea:hover{ border: 1px solid #6195FF;}
 .contact-us
 ::-webkit-input-placeholder {
-   color: #333;    
+   color: #333333bf;    
 } 
 .contact-us :-moz-placeholder { /* Firefox 18- */
-   color: #333; 
+   color: #333333bf; 
 } 
 .contact-us::-moz-placeholder {  /* Firefox 19+ */
-   color: #333;  
+   color: #333333bf;  
 } 
 .contact-us :-ms-input-placeholder {  
-   color:#333;
+   color:#333333bf;
 }
 .contact textarea {
     min-height: 13em;
@@ -882,8 +883,8 @@ img.zoom-img:hover {
 }
 .contact input[type="button"] {
     width: 100%;
-    color: #333333;
-    border: 1px solid #333333;
+    color: #333333bf333333bf;
+    border: 1px solid #333333bf333333bf;
     background: #ffffff;
     font-size: 18px;
     font-weight: 500;
@@ -912,10 +913,10 @@ img.zoom-img:hover {
 .social-icons ul li {
     display: inline-block;
     text-align: center;
-    border: 1px solid #333;
+    border: 1px solid #333333bf;
      width: 36px;
     height: 36px;
-    background: #333;
+    background: #333333bf;
     line-height: 34px;
 	margin: 0px 17px;
     border-radius: 50px;
@@ -944,7 +945,7 @@ footer p {
     letter-spacing: 1px;
     padding: 25px 10px 0px;
 }
-footer p a{color:#333;}
+footer p a{color:#333333bf;}
 footer p a:hover{color:white;}
 .clr-green{background:#fb8a2e;}
 /*-- bottom-to-top --*/
@@ -1092,6 +1093,25 @@ ul.address li ul.address-text li:nth-child(1) {
     top:35px;
     right: 35px;
 }
+    /* Overlay closing cross */
+    .overlay .overlay-close {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        right: 37px;
+        top: 37px;
+        overflow: hidden;
+        border: none;
+        background: url(../images/cross.png) no-repeat center center;
+        text-indent: 200%;
+        color: transparent;
+        outline: none;
+        z-index: 1050;
+    }
+    #trigger-overlay{
+        color: #ffffff;
+
+    }
 .about-me h2 {
     font-size: 23px;
 }
@@ -1371,6 +1391,21 @@ footer {
 }
 }
 @media(min-width:768px){
+    /* Overlay closing cross */
+    .overlay .overlay-close {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        right: 50px;
+        top: 50px;
+        overflow: hidden;
+        border: none;
+        background: url(../images/cross.png) no-repeat center center;
+        text-indent: 200%;
+        color: transparent;
+        outline: none;
+        z-index: 1050;
+    }
     .my-ser-info {
         padding-top: 1.5em;
     }

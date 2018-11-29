@@ -1,0 +1,11 @@
+@media screen and (min-width: 768px){
+    .line{
+        height: 3px;width: 10vw;background: #ffffff;margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .line{
+        height: 3px;width: 50vw;background: #ffffff;margin: 0 auto;
+    }
+}
