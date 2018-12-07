@@ -1,0 +1,134 @@
+@media screen and (min-width: 768px){
+
+    .service:hover .service-info{
+        margin-top: 75px;
+    }
+
+    .promo-block .promo-block-divider{
+        border-bottom:0px solid rgba(255,255,255,.4);
+        padding:45px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .header .navbar{
+        background:rgba(0, 0, 0, 0.55);
+    }
+    .content-lg {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .subButton{
+        float: left;
+    }
+    .wrap-about .w-content tr{
+        vertical-align: top;
+        height: 45px;
+    }
+    .wrap-about .w-content .td{
+        font-size: 16px;
+        color: #8f8f8f;
+    }
+    .blank{
+        border: 0px solid rgba(0, 0, 0, 0.75);
+        height: 75px;
+        background: #504452;
+        margin-top: 15%;
+    }
+    #works .contentWrap{
+        width: 22%;
+        font-size: 16px;
+        margin: 0 auto;
+        text-align: center;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    #educations .contentWrap{
+        width: 40%;
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    .line{
+        height: 1px;
+        background: #eee;
+        width: 75%;
+        margin: 0 auto;
+    }
+    .contact .contact_info .contact_sec ul li {
+        font-size: 20px;
+        line-height: 26px;
+        width: 525px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .service:hover .service-info{
+        margin-top: 0px;
+        padding-top: 30px;
+    }
+    .page-on-scroll .header .navbar{
+        border-bottom-color: #eeeeee;
+    }
+
+    .promo-block .promo-block-divider{
+        border-bottom:0px solid rgba(255,255,255,.4);
+        padding:25px;
+        width: 100%;
+    }
+
+    .content-lg {
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .subButton{
+        float: inherit;
+    }
+    .circle_detail h3{
+        padding: 12px 0px;
+        background: #504452;
+        color: #ffffff;
+    }
+    .wrap-about .w-content tr{
+        border-bottom: 0.5px solid #eee;
+    }
+    .wrap-about .w-content tr{
+        vertical-align: middle;
+    }
+    .wrap-about .w-content .td{
+        padding: 12px 0px;
+        color: #8f8f8f;
+        font-size: 16px;
+    }
+    .blank{
+        border: 0px solid red;
+        height: 35px;
+        background: #504452;
+    }
+    #works .contentWrap{
+        width: 70%;
+        font-size: 16px;
+        margin: 0 auto;
+        text-align: center;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    #educations .contentWrap{
+        width: 90%;
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+        border: 0px solid red;
+        padding:10px 10px;
+    }
+    .line{
+        height: 1px;
+        background: #eee;
+        width: 95%;
+        margin: 0 auto;
+    }
+}

@@ -290,11 +290,13 @@ a {
   max-width: none;
   }*/
  .slider-info{
-    background:rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.75);
+     padding: 55px 0px;
     color: #fff;
+     width: 100%;
 	z-index: 999;
     text-align: center;
-	margin-top: 18em;
+	margin-top: 15em;
 }
  .slider-info h4{
 	 font-weight:400;
@@ -833,7 +835,7 @@ img.zoom-img:hover {
 .contact-icons{
     text-align:center;
     padding: 15px;
-    background: #333333bf333333bf;
+    background: #333333;
     border-bottom: 3px solid #ffffff;
 }
 .contact-icons p{
@@ -1643,7 +1645,10 @@ ul.address li ul.address-text li:nth-child(1) {
     font-size: 16px;
 }
 .slider-info {
-    margin-top: 5em;
+    margin-top: 2em;
+    width: 100%;
+    padding: 35px 0px;
+    background: rgba(11, 11, 11, 0.75);
 }
 .slider-info h4 {
  letter-spacing:1px;
