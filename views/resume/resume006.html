@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>即刻简历</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--require start-->
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="../../static/img/logo/logoPic.png">
+    <!-- Web Font -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--  Bootstrap 3-->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/util.css">
+    <link rel="stylesheet" href="../../static/resume/resume005/css/response.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.css">
+    <script src="../../static/plugins/sweetalert/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/awesome-bootstrap-checkbox/v0.2.3/awesome-bootstrap-checkbox.min.css">
+    <link href="https://cdn.bootcss.com/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-slider/10.2.1/css/bootstrap-slider.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/plugins/colorPicker/yl.color.css">
+    <!--require end-->
+
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="../../static/resume/resume006/css/animate.css">
+    <link rel="stylesheet" href="../../static/resume/resume006/css/iconfont.css">
+    <link rel="stylesheet" href="../../static/resume/resume006/css/magnific-popup.css">
+    <link rel="stylesheet" href="../../static/resume/resume006/css/bootsnav.css">
+    <link rel="stylesheet" href="../../static/resume/resume006/css/style.css">
+    <link rel="stylesheet" href="../../static/resume/resume006/css/responsive.css">
+    <script src="../../static/resume/resume006/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <!-- //Custom-Files -->
+
+
+    <style>
+        html{
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        hr{
+            height: 5px;
+            background: #504452;
+            border: none;
+            width: 55px;
+            margin: 15px auto;
+        }
+        .red{
+            color:red;
+        }
+        .address-text li{
+            display: inline-block;
+            font-size: 15px;
+        }
+        .title{
+            width: 75px;
+            font-size: 16px;
+            color: #333;
+        }
+        .tLine{
+            height: 3px;width: 55px;background: #6195FF;display: inline-block;
+        }
+        .form-group label{
+            color: #515769;
+        }
+        .form-control:focus{
+            border-color: rgba(97, 149, 255, 0.75);
+        }
+        #sendMessage:hover{
+            background: rgba(97, 149, 255, 0.75);
+            color: #ffffff;
+            border-color: rgba(97, 149, 255, 0.75);
+        }
+
+        .showWorkItem{
+            border-bottom:1px solid #EEE;
+            padding: 15px;
+        }
+
+
+    </style>
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+    <div style="display: none;width: 128px" id='qrcode'></div>
+    <input type="hidden" id="token" value="{{._xsrf}}">
+    <input type="hidden" id="theme4pick" >
+    <div id="loading" class="loading-wrap" style="display: none;height:100%;position:fixed;">
+        <div class="loader" >
+            <div class="la-ball-clip-rotate-multiple la-3x">
+                <div></div>
+                <div></div>
+            </div>
+            <div class="loaderTxt">数据交互中...</div>
+        </div>
+    </div>
+   <div id="pageLoading" class="loading-wrap" style="display: block;height:100%;position:fixed;">
+        <div class="loader" >
+            <div class="la-fire la-3x">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="loaderTxt">页面渲染中...</div>
+        </div>
+    </div>
+
+
+    <div id="mainWrap">
+        <!-- Color Picker -->
+        <!--展开 visible-color-wrap-->
+        <div style="display: block" class="color-picker-wrap">
+            <span class="col-trigger"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>
+            <div style="width: 100%;text-align: center">
+                <h4>主题颜色选择</h4>
+            </div>
+
+            <div id="drawColor" style="margin: 0 auto;width: 200px;height: 100px;border: 1px solid #EEE;margin-top: 15px;">
+            </div>
+            <div style="text-align: center;margin-top: 15px">
+                <button id="colorPicker" class="btn btn-default">选择颜色</button>
+            </div>
+            <div style="text-align: center;margin-top: 15px">
+                <p>自定义颜色</p><br>
+                <input id="colorInput" onchange="update(this.jscolor)" class="form-control jscolor {closable:true,closeText:'关闭',styleElement:'drawColor',value:'',padding:20, borderWidth:1}" value="">
+            </div>
+        </div>
+        <!-- /.End Of Color Picker -->
+
+        <div id="main-wrapper">
+
+            <div class="culmn">
+                <!--Home page style-->
+
+                <nav class="navbar navbar-default bootsnav navbar-fixed black no-background">
+                    <div class="container">
+
+                        <div class="attr-nav">
+                            <ul>
+                                <li class="side-menu"><a href="#"><i style="font-size: 25px;color: #ffffff;margin-top: 12px;" class="fa fa-bars"></i></a></li>
+                            </ul>
+                        </div>
+
+
+                        <!-- Start Header Navigation -->
+                        <div class="navbar-header">
+
+                            <a class="navbar-brand" href="/" style="margin-top: 20px !important;">
+                                即刻简历
+                            </a>
+
+                        </div>
+                        <!-- End Header Navigation -->
+                    </div>
+
+
+                    <!-- Start Side Menu -->
+                    <div class="side">
+                        <a href="#" class="close-side"><i style="font-size: 28px" class="fa fa-times"></i></a>
+                        <div class="widget">
+                            <h6 class="title"></h6>
+                            <ul class="link main-nav">
+                                <li><a href="#home">主页</a></li>
+                                <li><a href="#about">我的简介</a></li>
+                                <li><a href="#workNav">工作经历</a></li>
+                                <li><a href="#eduNav">教育背景</a></li>
+                                <li><a href="#skillNav">专业技能</a></li>
+                                <li><a href="#contact">与我联系</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Side Menu -->
+                </nav>
+
+                <!--Home Sections-->
+                <section id="home" class="home">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main_home">
+                                {{/*<div class="col-sm-6">
+                                    <div class="home-shadow text-right">
+                                        */}}{{/*<img src="../../static/resume/resume006/images/about/about01_.jpg" alt="" />*/}}{{/*
+                                    </div>
+                                </div>*/}}
+                                <div class="col-sm-12" style="text-align: center">
+                                    <div class="home_text">
+                                        <h4 style="color: #fff">Hi , 我是烟熏的花</h4>
+                                        <br>
+                                        <h1 class="text-white"><span style="color: #1a1a1a">#</span>UI设计师</h1>
+                                    </div>
+
+                                    <div class="home_btns m-top-40 text-center">
+                                        <a href="javascript:redirect('about')" style="width: 155px;padding: 10px;" class="btn btn-primary m-top-20">了解更多</a>
+                                    </div>
+
+                                    <a class="mouse-scroll" href="#about">
+                                        <span class="mouse">
+                                            <span class="mouse-movement"></span>
+                                        </span>
+                                        <span class="mouse-message fadeIn"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div><!--End off row-->
+                    </div><!--End off container -->
+                </section> <!--End off Home Sections-->
+
+                <!--About Section-->
+                <section id="about" class="about bg-white roomy-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main_about">
+                                <div class="col-md-5 col-md-offset-1">
+                                    <div class="about_content">
+                                        <div class="head_right">
+                                            <h2>我的简介</h2>
+                                        </div>
+                                        <div class="about_content_text">
+                                            <p></p>
+
+                                            <div class="divider1 m-top-10"></div>
+
+                                            <div class="about_content_item m-top-20">
+                                                <h6>姓名：<span class="showName">烟熏的花</span></h6>
+                                                <h6>求职意向：<span class="showObjective">UI设计师</span></h6>
+                                                <h6>性别：<span id="showGender">女</span></h6>
+                                                <h6>出生日期：<span id="showBirthday">1995.10.24</span></h6>
+                                                <h6>手机：<span class="showPhone">13623656368</span></h6>
+                                                <h6>邮箱：<span class="showEmail">bdgpixel@gmail.com</span></h6>
+                                                <h6>籍贯信息：<span class="showHome">福建-厦门</span></h6>
+                                                <h6>居住地址：<span class="showAddress">厦门市思明区718文化创意园</span></h6>
+                                                <h6>兴趣爱好：<span id="showHobby">爱好运动，喜欢踢足球，和打篮球。 爱好摄影，有一定的摄影技术， 闲暇时候喜欢看书，充实自己。</span></h6>
+                                                <h6>奖项荣誉：<span id="showHonor">校级优秀学生干部、三好学生标兵、国家励志奖学金、校级一等奖学金、国家励志奖学金、校级二等奖学金、校级优秀学生干部</span></h6>
+                                                <h6>自我评价：<span id="showIntroduce">本人性格热情开朗，待人友好，为人诚实谦虚。工作勤奋，认真负责，能吃苦耐劳，尽职尽责。具有亲和力、平易近人，善于与人沟通。 学习刻苦认真，成绩优秀，名列前茅。品学兼优连续三年获得学校奖学金。曾担任学生会外联部干部、系团组织部部长、班级生活委员等。</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End off col-md-6 -->
+
+                                <div class="col-md-5 col-md-offset-1 sm-m-top-50">
+                                    <div class="about_left_item m-top-50">
+                                        <img id="avatar" src="../../static/resume/resume006/images/about/about01_.jpg" alt="" />
+                                    </div>
+
+                                    <div class="about_socail m-top-20">
+                                        <ul class="list-inline">
+                                            {{/*<li><span class="divider"></span></li>*/}}
+                                            <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i></a></li>
+                                            <li><a href="javascript:void(0)"><i class="fa fa-behance"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- End off col-md-6 -->
+
+                            </div><!-- End off Main About -->
+
+                        </div><!-- End off row -->
+                    </div><!-- End off container -->
+                </section><!-- End off About us Section -->
+
+                <!--workNav-->
+                <section id="workNav" class="portfolio bg-light roomy-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main_portfolio">
+                                <div class="col-md-5">
+                                    <div class="portfolio_item">
+                                        {{/*<div class="head_title">
+                                            <h5><span class="divider"></span> my latest works</h5>
+                                        </div>*/}}
+                                        <div class="row m-top-60">
+                                            <div class="col-sm-6">
+                                                <div class="portf_item_text photography">
+                                                    <img src="../../static/resume/resume006/images/1.jpg" alt="" />
+                                                    <h5 class="m-top-30"></h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="portf_item_text branding xs-m-top-40">
+                                                    <img src="../../static/resume/resume006/images/2.jpg" alt="" />
+                                                    <h5 class="m-top-30"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End off col-md-6  -->
+
+                                <div class="col-md-6 col-md-offset-1 sm-m-top-50">
+                                    <div class="portfolio_content">
+                                        <div class="head_right">
+                                            <h2>工作经历</h2>
+                                        </div>
+
+                                        <div class="portfolio_content_text" style="margin-top: -75px">
+                                            <div class="divider1"></div>
+                                            <p></p>
+                                            {{/*<h6><i class="fa fa-home"></i> Work Experiences</h6>*/}}
+                                            <div id="showWorkWrap">
+                                                <div class="showWorkItem">
+                                                    <h4>才华有限公司</h4>
+                                                    <h5>影视设计师</h5>
+                                                    <h6>2016.01-2018.12</h6>
+                                                    <p>根据拍摄人物，制定详细的拍摄工作计划与时间安排； 根据工作需要，挑选合适的摄影设备； 根据导演要求，运用摄影艺术手段完成影视片的电影造型； 在完成拍摄任务的整个过程中，与拍摄小组其他成员紧密协作； 与被拍摄者沟通，以达到快速进入拍摄状态的效果。</p>
+                                                </div>
+                                                <div class="showWorkItem">
+                                                    <h4>才华有限公司</h4>
+                                                    <h5>影视设计师</h5>
+                                                    <h6>2016.01-2018.12</h6>
+                                                    <p>根据拍摄人物，制定详细的拍摄工作计划与时间安排； 根据工作需要，挑选合适的摄影设备； 根据导演要求，运用摄影艺术手段完成影视片的电影造型； 在完成拍摄任务的整个过程中，与拍摄小组其他成员紧密协作； 与被拍摄者沟通，以达到快速进入拍摄状态的效果。</p>
+                                                </div>
+                                                <div class="showWorkItem">
+                                                    <h4>才华有限公司</h4>
+                                                    <h5>影视设计师</h5>
+                                                    <h6>2016.01-2018.12</h6>
+                                                    <p>根据拍摄人物，制定详细的拍摄工作计划与时间安排； 根据工作需要，挑选合适的摄影设备； 根据导演要求，运用摄影艺术手段完成影视片的电影造型； 在完成拍摄任务的整个过程中，与拍摄小组其他成员紧密协作； 与被拍摄者沟通，以达到快速进入拍摄状态的效果。</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{/*<div class="may_client m-top-50">
+
+                                        <div class="client_brand m-top-60 text-center">
+                                            <ul class="list-inline">
+                                                <li><img src="../../static/resume/resume006/images/clogo1.png" alt="" /></li>
+                                                <li><img src="../../static/resume/resume006/images/clogo2.png" alt="" /></li>
+                                                <li><img src="../../static/resume/resume006/images/clogo3.png" alt="" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>*/}}
+                                </div><!-- End off col-md-6  -->
+
+                                {{/*<div class="portfolio_btn text-center fix m-top-100">
+                                    <a href="" class="btn btn-primary">View All</a>
+                                </div>*/}}
+                            </div>
+                        </div><!-- End off row -->
+                    </div><!-- End off container -->
+                </section><!-- End off workNav Section -->
+
+                <!--eduNav-->
+                <section id="eduNav" class="portfolio bg-white roomy-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main_portfolio">
+                                <div class="col-md-5">
+                                    <div class="portfolio_item">
+                                    {{/*<div class="head_title">
+                                            <h5><span class="divider"></span> my latest works</h5>
+                                        </div>*/}}
+                                        <div class="row m-top-60">
+                                            <div class="col-sm-6">
+                                                <div class="portf_item_text photography">
+                                                    <img src="../../static/resume/resume006/images/3.jpg" alt="" />
+                                                    <h5 class="m-top-30"></h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="portf_item_text branding xs-m-top-40">
+                                                    <img src="../../static/resume/resume006/images/4.jpg" alt="" />
+                                                    <h5 class="m-top-30"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End off col-md-6  -->
+                                <div class="col-md-6 col-md-offset-1 sm-m-top-50">
+                                    <div class="portfolio_content">
+                                        <div class="head_right">
+                                            <h2>教育背景</h2>
+                                        </div>
+
+                                        <div class="portfolio_content_text"  style="margin-top: -75px">
+                                            <div class="divider1"></div>
+                                            <p></p>
+                                        {{/*<h6><i class="fa fa-home"></i> Work Experiences</h6>*/}}
+                                            <div id="showEducationWrap">
+                                                <div class="showWorkItem">
+                                                    <h4>才华大学</h4>
+                                                    <h6>2016.01-2018.12</h6>
+                                                    <p>主修课程：
+                                                        传统动画原理，角色设计，场景设计，广告设计，视听语言，表演，脚本创作，影视场景建模，三维角色动画，影视材质特效等。素描、色彩、平面构成、色彩构成立体构成、图案、电脑平面设计、电脑三维设计、多媒体技术合成，电脑绘画，电脑三维绘画。</p>
+                                                </div>
+                                                <div class="showWorkItem">
+                                                    <h4>才华大学</h4>
+                                                    <h6>2016.01-2018.12</h6>
+                                                    <p>主修课程：
+                                                        传统动画原理，角色设计，场景设计，广告设计，视听语言，表演，脚本创作，影视场景建模，三维角色动画，影视材质特效等。素描、色彩、平面构成、色彩构成立体构成、图案、电脑平面设计、电脑三维设计、多媒体技术合成，电脑绘画，电脑三维绘画。</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div><!-- End off col-md-6  -->
+
+                            </div>
+                        </div><!-- End off row -->
+                    </div><!-- End off container -->
+                </section><!-- End off workNav Section -->
+
+                <!--skill-->
+                <section id="skillNav" class="choose bg-light roomy-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main_portfolio">
+                                <div class="col-md-5">
+                                    <div class="portfolio_item">
+                                        <div class="row m-top-60">
+                                            <div class="col-sm-6">
+                                                <div class="portf_item_text photography">
+                                                    <img src="../../static/resume/resume006/images/5.jpg" alt="" />
+                                                    <h5 class="m-top-30"></h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="portf_item_text branding xs-m-top-40">
+                                                    <img src="../../static/resume/resume006/images/6.jpg" alt="" />
+                                                    <h5 class="m-top-30"></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End off col-md-6  -->
+                                <div class="col-md-6 col-md-offset-1 sm-m-top-50">
+                                    <div class="portfolio_content">
+                                        <div class="head_right">
+                                            <h2>专业技能</h2>
+                                        </div>
+
+                                        <div class="portfolio_content_text"  style="margin-top: -75px">
+                                            <div class="divider1"></div>
+                                            <p></p>
+                                            <div id="showSkillWrap" class="progress-wrapper" style="padding: 0px 15px">
+
+                                                <div class="progress-item">
+                                                    <span class="progress-title">Marketing</span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"><span class="progress-percent"> 62%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress-item">
+                                                    <span class="progress-title">Market Research</span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"><span class="progress-percent"> 90%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress-item">
+                                                    <span class="progress-title">Organisational Skills</span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"><span class="progress-percent"> 75%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress-item">
+                                                    <span class="progress-title">Communtcation Skills</span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;"><span class="progress-percent"> 55%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="progress-item">
+                                                    <span class="progress-title">Project Management</span>
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="progress-percent"> 80%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div><!-- End off col-md-6  -->
+
+                            </div>
+                        </div> <!-- End off row -->
+                    </div> <!-- End off container -->
+                </section> <!-- End off Choose Section-->
+
+                <!--Contact Section-->
+                <section id="contact" class="contact bg-white roomy-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main_contact">
+                                <div class="col-md-5">
+                                    <form class="m-top-20">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="公司/企业名称">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="您的称谓">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="联系方式">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" style="min-height: 120px;resize:vertical;" required="" id="contact-message" placeholder="留言信息"></textarea>
+                                        </div>
+                                        <div class="form_btn text-right m-top-50">
+                                            <button type="button" style="width: 100%;" id="sendMessage" class="btn btn-primary">提交</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6 col-md-offset-1 sm-m-top-50">
+                                    <div class="contact_content">
+                                        <div class="head_right">
+                                            <h2>与我联系</h2>
+                                        </div>
+
+                                        <div class="contact_content_text">
+                                            <ul class="m-top-0" style="margin-top: 25px">
+                                                <li>
+                                                    <div class="divider1"></div>
+                                                </li>
+                                                <li>
+                                                    <address>
+                                                        <strong>居住地址</strong><br>
+                                                        <span class="showAddress">厦门市思明区718文化创意园</span>
+                                                    </address>
+                                                </li>
+                                                <li>
+                                                    <address>
+                                                        <strong>手机号码</strong><br>
+                                                        <span class="showPhone">13623656368</span>
+                                                    </address>
+                                                </li>
+                                                <li>
+                                                    <address>
+                                                        <strong>邮箱地址</strong><br>
+                                                        <span class="showEmail">bdgpixel@gmail.com</span>
+                                                    </address>
+                                                </li>
+                                            </ul>
+
+                                            <div class="author_text text-right">
+                                                <h5>2018.12.29</h5>
+                                                <h1><span class="showName">烟熏的花</span></h1>
+                                                <h6>UI设计师</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!--页脚-->
+            <div class="footer margin-top myPadding" style="background: #333333;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="myMargin">
+                                <div class="logoWrap">
+                                    <a href="/">
+                                        <div class="img-opacity myLoogo">即刻</div>
+                                    </a>
+                                </div>
+                                <div style="color: #ffffff;margin-top: 10px;" class="copyright-mark"> <a href="https://www.zooori.cn" target="_blank">ZooORI.才华有限公司</a><br>&copy; 2018 All Rights Reserved.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #main-wrapper -->
+
+
+    </div>
+
+
+    <!--提交提示-->
+    <div id="submitTip" style="background: #333333">
+        <div id="footerTip" style="color: #ffffff;font-size: 20px;margin-top: 35px;">提交已填写信息即可查看分享简历</div>
+        <button id="submit" class="btn btn-primary" onclick="submit()" style="margin-top: 6px;background: #6397ff">上传信息</button>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1"  data-backdrop="static" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="modalClose" type="button" class="close"
+                            aria-hidden="true">×
+                    </button>
+                    <h3 style="font-weight: 700" class="modal-title" id="editModalLabel">
+                        简历信息<span style="font-size: 13px;font-weight: 300">(<span class="red">*</span>为必填)</span>
+                    </h3>
+                    <span class="form-label" id="pageTitle">基础信息</span>
+                    <span class="form-label" style="float: right"><span id="curPage">1</span>/5</span>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" autocomplete="off">
+
+                        <div  id="page1" >
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">姓名<span class="red">*</span></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" style="ime-mode:disabled" id="name" placeholder="姓名" >
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">求职意向<span class="red">*</span></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" maxlength="20" style="ime-mode:disabled" id="objective"  placeholder="求职意向">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">性别</label>
+                                <div class="col-sm-8">
+                                    <div class="radio" style="margin-top:5px;float: left;border: 0px solid red;height: 35px;line-height: 15px;">
+                                        <input style="outline: none !important;" type="radio" name="radio" id="radio1" value="男" checked="">
+                                        <label for="radio1">
+                                            男
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="margin-top:5px;float: left;border: 0px solid red;height: 35px;line-height: 15px;margin-left: 8px;">
+                                        <input tabindex="-1" type="radio" name="radio" id="radio2" value="女">
+                                        <label for="radio2">
+                                            女
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">出生日期<span class="red">*</span></label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="birthday" type="date" value="2018-01-01" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">手机<span class="red">*</span></label>
+                                <div class="col-sm-8">
+                                    <input type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" class="form-control" maxlength="11" style="ime-mode:disabled" id="phone"  placeholder="手机">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">邮箱<span class="red">*</span></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="email" placeholder="邮箱" >
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="page2" style="display: none">
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">籍贯信息<span class="red"></span></label>
+                                <div class="col-sm-8" id="distpicker" >
+                                    <select class="form-control" style="width: 48%;display: inline-block;" id="province" ></select>
+                                    <select class="form-control" style="width: 50%;display: inline-block;" id="city" ></select>
+                                    <select class="form-control " style="width: 33%;display: none;"  id="district" ></select>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">居住地址<span class="red"></span></label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" maxlength="40"  id="address"  placeholder="居住地址">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">兴趣爱好</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" maxlength="60"  id="hobby"  placeholder="兴趣爱好">
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">奖项荣誉<span class="red"></span></label>
+                                <div class="col-sm-8">
+                                    <input class="form-control" id="honor" type="text" placeholder="奖项荣誉" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label form-label">自我评价<span class="red">*</span></label>
+                                <div class="col-sm-8">
+                                    <textarea id="introduce" class="form-control" style="min-height: 120px;resize: vertical"></textarea>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="page3" style="display: none">
+                            <div id="workWrap">
+                                <div id="workItem" class="workItem" style="margin-top: 3px;padding-top: 5px;">
+                                    <div class="del4work" style="width: 100%;text-align: right;margin-top: -10px;display: none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+                                    <div class="form-group alertPickDate">
+                                        <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>
+                                        <div class="col-sm-8" style="border: 0px solid red;">
+                                            <input type="month" style="width: 48%;display: inline-block;" value="2018-01" class="form-control start">
+                                            <input type="month" style="width: 50%;display: inline-block;" value="2018-01" class="form-control end">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label form-label">公司名称</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control companyName" maxlength="60"   placeholder="公司名称">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label form-label">职位名称</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control position" maxlength="60"   placeholder="职位名称">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label form-label">工作描述<span class="red"></span></label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" placeholder="工作描述" style="min-height: 120px;resize: vertical"></textarea>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12" style="text-align: center;">
+                                    <button type="button" id="save4work" class="btn btn-primary" style="margin-top: 15px;">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;新增当前项
+                                    </button>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="page4" style="display: none">
+                            <div id="skillWrap">
+                                <div class="skillItem" style="margin-top: 3px;padding-top: 5px;">
+                                    <div class="del4skill" style="width: 100%;text-align: right;margin-top: -10px;display: none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label form-label">技能名称</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control skillName" maxlength="60" placeholder="技能名称">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label form-label">熟练度<span class="red"></span></label>
+                                        <div class="col-sm-8">
+                                            <input  class="slide" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="75"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12" style="text-align: center;">
+                                    <button type="button" id="save4skill" class="btn btn-primary" style="margin-top: 25px;">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;新增当前项
+                                    </button>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="page5" style="display: none">
+                            <div id="eduWrap">
+                                <div class="eduItem" style="margin-top: 3px;padding-top: 5px;">
+                                    <div class="del4edu" style="width: 100%;text-align: right;margin-top: -10px;display: none"><button class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+                                    <div class="form-group alertPickDate">
+                                        <label class="col-sm-3 control-label form-label">起止时间<span class="red"></span></label>
+                                        <div class="col-sm-8" style="border: 0px solid red;">
+                                            <input type="month" style="width: 48%;display: inline-block;" value="2018-01" class="form-control start">
+                                            <input type="month" style="width: 50%;display: inline-block;" value="2018-01" class="form-control end">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label form-label">学校/机构名称</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control school" maxlength="60" placeholder="学校/机构名称">
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label form-label">教育信息<span class="red"></span></label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" placeholder="教育信息" style="min-height: 120px;resize: vertical"></textarea>
+                                            <span class="help-block"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12" style="text-align: center;">
+                                    <button type="button" id="save4edu" class="btn btn-primary" style="margin-top: 15px;">
+                                        <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;新增当前项
+                                    </button>
+                                    <span class="help-block"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div id="tip" style="text-align: center"></div>
+                    <button type="button" id="prev" class="btn btn-default" style="float: left;display: none" >
+                        上一页
+                    </button>
+                    <button type="button" id="next" class="btn btn-default" >
+                        下一页
+                    </button>
+                    <button type="button" id="preview" class="btn btn-success" style="display: none">
+                        本地预览
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!--设计按钮-->
+    <a href="javascript:void(0)" class="scroll-top" style="bottom: 80px;" id="design"><i class="fa fa-scissors" aria-hidden="true"></i></a>
+
+    <!--二维码-->
+    <a href="javascript:void(0)" class="scroll-top" style="bottom: 80px;display: none;" id="qrcodeBtn"><i class="fa fa-qrcode" aria-hidden="true"></i></a>
+
+    <!--返回顶部-->
+    <a href="javascript:void(0)" class="scroll-top" id="scroll-top" ><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+    <!-- //main-section-ends-here -->
+
+    <!--require start-->
+    <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../../static/js/util.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-slider/10.2.1/bootstrap-slider.min.js"></script>
+    {{/*<script src="../../static/plugins/citySelect/distpicker.data.js"></script>
+<script src="../../static/plugins/citySelect/distpicker.js"></script>*/}}
+    <script src="https://cdn.bootcss.com/distpicker/2.0.4/distpicker.min.js"></script>
+    <script src="../../static/plugins/qrcode/qrcode.min.js"></script>
+    <script src="../../static/js/resume.js"></script>
+    <!-- Color JS -->
+    <script src="../../static/plugins/colorPicker/color.js"></script>
+    <script src="../../static/plugins/colorPicker/jquery.yl.color.js"></script>
+    <script src="../../static/plugins/colorPicker/jscolor.js"></script>
+    <script>
+        $('#colorPicker').ylColor({
+            onSelect: function(oCol,elem){
+                var color = $(oCol).attr('data-color');
+                $('#drawColor').css({'background-color':color});
+                $('#theme4pick').val(color);
+                renderColor();
+            }
+        });
+        function update(jscolor) {
+            console.log(jscolor.value);
+            $('#theme4pick').val("#"+$('#colorInput').val());
+            renderColor();
+        }
+    </script>
+    <!--require end-->
+    <script src="../../static/resume/resume006/js/jquery.magnific-popup.js"></script>
+    <script src="../../static/resume/resume006/js/jquery.easing.1.3.js"></script>
+    <script src="../../static/resume/resume006/js/bootsnav.js"></script>
+    <script src="../../static/resume/resume006/js/plugins.js"></script>
+    <script src="../../static/resume/resume006/js/main.js"></script>
+    <script>
+        var localData,dbData;
+        $(function () {
+            //渲染数据----------------------------------------------开始
+            if (typeof(Storage) !== "undefined") {
+                // 针对 localStorage/sessionStorage 的代码
+            } else {
+                // 抱歉！不支持 Web Storage ..
+            }
+            localData = localStorage.getItem(window.location.href);
+            if(localData){//渲染本地存储数据
+                //console.info(JSON.parse(localStorage.getItem("resume")));
+                console.log(typeof localData);
+                if(typeof localData==="string"){
+                    resume = JSON.parse(localData);
+                }else{
+                    resume = localData;
+                }
+                $("#submitTip").show();
+                $('#scroll-top').remove();
+                $('#design').css("bottom","15px");
+                renderHtml();
+            }
+            dbData = {{.dbData}};
+            if(dbData){
+                $('#qrcodeBtn').show();
+                $('#design').remove();
+                $('.color-picker-wrap').remove();
+                resume = dbData;
+                //生成二维码
+                makeCode();
+                //设置主题颜色
+                localStorage.setItem("theme",resume.ThemeColor);
+                renderHtml();
+            }else{
+                $('#qrcodeBtn').remove();
+            }
+
+            if(!localData&&!dbData){
+                //渲染省市区
+                $("#distpicker").distpicker({
+                    province:"北京市" ,
+                    city: "北京城区",
+                    district: ""
+                });
+            }
+            //渲染数据----------------------------------------------结束
+            setTimeout(function () {
+                var alertInfo = getCookieValue("alertInfo");
+                if(!alertInfo&&!dbData){
+                    addCookie("alertInfo","alertInfo",7,"/");
+                    swal({
+                        title: "<h3>使用提示</h3>",
+                        text: "<div style='text-align: center'><p>1.点击右下角按钮填入信息即可制作简历</p></br>" +
+                        "<p>2.您若没有账号上传信息可获取登录密钥</p></br>" +
+                        "<p>3.登录系统后建议您马上设置账号及密码</p></br>" +
+                        "<p>4.点击[ 我的制作 ]可查看所有已制作简历</p></br>" +
+                        "<p>5.预览简历可生成简历分享链接及二维码</p></div>",
+                        type: "info",
+                        html:true,
+                        showCancelButton: false,
+                        confirmButtonColor: "#6397ff",
+                        confirmButtonText: "Ok",
+                        closeOnConfirm: true
+                    });
+                }
+            },500);
+        });
+        function renderColor() {
+            var val = $('#theme4pick').val();
+            $('#colorInput').val(val);
+            localStorage.setItem("theme",val);
+            console.log(val+"bf");
+            $('.tLine').css("color",val);
+            var str = val+"7f";//透明度
+            $('head').append('<style>.header .nav-item-hover:after{background:'+val+'}</style>');
+            $('.home').css("background",val);
+            $('head').append('<style>.about_socail li a i{color:'+val+'}</style>');
+            $('head').append('<style>.form-control:focus{border-color:'+val+'}</style>');
+            $('.scroll-top').hover(function () {
+                $(this).css('background',val);
+                $(this).css("color","#ffffff");
+                $(this).css("border","1px solid "+val);
+            },function () {
+                $(this).css('background','#333333');
+                $(this).css("color","#ffffff");
+                $(this).css("border","1px solid #ffffff");
+            });
+            $('#sendMessage').hover(function () {
+                $(this).css('background',val);
+                $(this).css("border","1px solid "+val);
+                $(this).css("color","#ffffff");
+            },function () {
+                $(this).css('background',"transparent");
+                $(this).css("border","1px solid #cccccc");
+                $(this).css("color","#333333");
+            });
+            $('.header .navbar-toggle').hover(function () {
+               $('.toggle-icon').css('background',val);
+            },function () {
+                $('.toggle-icon').css('background','#ffffff');
+            });
+            $('head').append('<style>.about_left_item img{box-shadow:10px -10px 0px 10px '+str+'!important;}</style>');
+            $('head').append('<style>.photography img{box-shadow:-10px -10px 0px 0px '+str+'!important;}</style>');
+            $('head').append('<style>.branding img{box-shadow:10px 10px 0px 0px '+str+'!important;}</style>');
+            $('.progress-item .progress-bar').css('background-color',val);
+            $('.progress-item .progress-percent').css('background-color',val);
+            $('head').append('<style>.progress-item .progress-percent::before{border-top:6px solid '+val+'}</style>');
+
+        }
+        function renderHtml() {
+
+            //隐藏关闭按钮
+            $('#modalClose').hide();
+            var str = "暂未填写";
+            $('.showName').html(resume.Name);
+            $(".showObjective").html(resume.Objective);
+            $("#showGender").html(resume.Gender);
+            if(resume.Gender==="女"){
+                $('#avatar').attr("src","../../static/resume/resume004/img/about01_.jpg");
+            }else{
+                $('#avatar').attr("src","../../static/resume/resume004/img/about02_.jpg");
+            }
+            $("#showBirthday").html(resume.Birthday);
+            $(".showPhone").html(resume.Phone);
+            $('.showEmail').html(resume.Email);
+            if(!resume.Province){
+                $('#showHome').html(str);
+            }else{
+                $('#showHome').html(resume.Province+"-"+resume.City);
+                $('.showProvince').html(resume.Province);
+                $('.showCity').html(resume.City);
+            }
+            if(!resume.Address){
+                $('.showAddress').html(str);
+            }else{
+                $('.showAddress').html(resume.Address);
+            }
+            if(!resume.Hobby){
+                $('#showHobby').html(str);
+            }else{
+                $('#showHobby').html(resume.Hobby);
+            }
+            if(!resume.Honor){
+                $('#showHonor').html("-");
+            }else{
+                $('#showHonor').html(resume.Honor);
+            }
+            $('#showIntroduce').html(resume.Introduce);
+            var works = resume.Works;
+            if(typeof works==="string"&&works){
+                works = JSON.parse(works);
+            }
+            //works = works.reverse();
+            var domTXT = "";
+            $('#showWorkWrap').html("");
+            for(var i=0;i<works.length;i++){
+                var obj = works[i];
+                var start = obj.start;
+                var end = obj.end;
+                var date = start+"至"+end;
+                var company = obj.company;
+                var position = obj.position;
+                var description = obj.description.replace(/\n/g,'<br/>');
+                if(!description){
+                    description = "暂未填写";
+                }
+
+                $('#showWorkWrap').append('<div class="showWorkItem">\n' +
+                        '                                                    <h4>'+company+'</h4>\n' +
+                        '                                                    <h5>'+position+'</h5>\n' +
+                        '                                                    <h6>'+date+'</h6>\n' +
+                        '                                                    <p>'+description+'</p>\n' +
+                        '                                                </div>')
+            }
+
+            var skills = resume.Skills;
+            if(typeof skills==="string"&&skills){
+                skills = JSON.parse(skills);
+            }
+            $('#showSkillWrap').html("");
+            for(var i=0;i<skills.length;i++){
+                var obj = skills[i];
+                var skillName = obj.name;
+                var num = obj.num;
+                $('#showSkillWrap').append('<div class="progress-item">\n' +
+                        '                                                    <span class="progress-title">'+skillName+'</span>\n' +
+                        '                                                    <div class="progress">\n' +
+                        '                                                        <div class="progress-bar" role="progressbar" aria-valuenow="'+num+'" aria-valuemin="0" aria-valuemax="100" style="width: '+num+'%"><span class="progress-percent"> '+num+'%</span>\n' +
+                        '                                                        </div>\n' +
+                        '                                                    </div>\n' +
+                        '                                                </div>');
+            }
+
+            var edus = resume.Educations;
+            if(typeof edus==="string"&&edus){
+                edus = JSON.parse(edus);
+            }
+            //edus = edus.reverse();
+            $('#showEducationWrap').html("");
+            for(var i=0;i<edus.length;i++){
+                var obj = edus[i];
+                var start = obj.start;
+                var end = obj.end;
+                var date = start+"至"+end;
+                var school = obj.school;
+                var description = obj.description.replace(/\n/g,'<br/>');
+                if(!description){
+                    description = "暂未填写";
+                }
+
+               $('#showEducationWrap').append('<div class="showWorkItem">\n' +
+                       '                                                    <h4>'+school+'</h4>\n' +
+                       '                                                    <h6>'+date+'</h6>\n' +
+                       '                                                    <p>'+description+'</p>\n' +
+                       '                                                </div>')
+            }
+
+            var color = localStorage.getItem("theme");
+            if(!color){
+                //默认颜色
+                color = "#6195FF";
+            }
+            $('#theme4pick').val(color);
+            renderColor();
+        }
+
+        function redirect(str) {//锚点跳转
+            //$('#close-button').click();
+            var target = document.getElementById(str);
+            if (!target) {
+                $('html,body').animate({
+                            scrollTop: 0
+                        },
+                        800);
+                return;
+            }
+            var targetOffset = $(target).offset().top;
+            $('html,body').animate({
+                        scrollTop: targetOffset
+                    },
+                    2000);
+        }
+
+    </script>
+
+</body>
+</html>

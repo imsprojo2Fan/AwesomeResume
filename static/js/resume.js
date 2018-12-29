@@ -96,8 +96,8 @@ $(function () {
         $('.workItem').each(function () {
             var obj = $(this).find(".companyName");
             var obj2 = $(this).find(".position");
-            var val = $(obj).val().trim();
-            var val2 = $(obj2).val().trim();
+            var val = $(obj).val()|| '';
+            var val2 = $(obj2).val()|| '';
             if(!val||!val2){
                 tipTip("您需先填完一些必要信息才能新增当前项");
                 isBreak = true;
@@ -129,7 +129,7 @@ $(function () {
         //验证是否有未填项
         $('.skillItem').each(function () {
             var obj = $(this).find(".skillName");
-            if(!$(obj).val().trim()){
+            if(!$(obj).val()|| ''){
                 tipTip("您需先填完一些必要信息才能新增当前项");
                 isBreak = true;
             }
@@ -164,7 +164,7 @@ $(function () {
         //验证是否有未填项
         $('.eduItem').each(function () {
             var obj = $(this).find(".school");
-            if(!$(obj).val().trim()){
+            if(!$(obj).val()|| ''){
                 tipTip("您需先填完一些必要信息才能新增当前项");
                 isBreak = true;
             }
@@ -199,10 +199,10 @@ $(function () {
             swal("即刻提示","模板状态[与我联系]功能不可用喔","error");
             return
         }else{
-            var company = $('#contact-company').val().trim();
-            var name = $('#contact-name').val().trim();
-            var email = $('#contact-email').val().trim();
-            var message = $('#contact-message').val().trim();
+            var company = $('#contact-company').val()|| '';
+            var name = $('#contact-name').val()|| '';
+            var email = $('#contact-email').val()|| '';
+            var message = $('#contact-message').val()|| '';
             if(!company||!email||!message){
                 swal("即刻提示","您似乎忘了填写一些必要的信息!","error");
                 return
@@ -228,27 +228,27 @@ function tipTip(str) {
 function dataCollect() {
     $('#tip').html("");
     var theme = $('#theme4pick').val();
-    var name = $('#name').val().trim();
-    var objective = $('#objective').val().trim();
+    var name = $('#name').val()|| '';
+    var objective = $('#objective').val()|| '';
     var gender = $('input:radio:checked').val();
     var birthday = $('#birthday').val();
-    var phone = $('#phone').val().trim();
-    var email = $('#email').val().trim();
+    var phone = $('#phone').val()|| '';
+    var email = $('#email').val()|| '';
     var home = $('#province').val()+"-"+$('#city').val();
-    var address = $('#address').val().trim();
-    var hobby = $('#hobby').val().trim();
-    var honor = $('#honor').val().trim();
-    var introduce = $('#introduce').val().trim();
+    var address = $('#address').val()|| '';
+    var hobby = $('#hobby').val()|| '';
+    var honor = $('#honor').val()|| '';
+    var introduce = $('#introduce').val()|| '';
     var works = [];
     $("#workWrap").find(".workItem").each(function () {
         var workItem = {};
         workItem.start = $(this).find(".start").val();
         workItem.end = $(this).find(".end").val();
-        var companyName = $(this).find(".companyName").val().trim();
+        var companyName = $(this).find(".companyName").val()|| '';
         workItem.company = companyName;
-        var position = $(this).find(".position").val().trim();
+        var position = $(this).find(".position").val()|| '';
         workItem.position = position;
-        workItem.description = $(this).find("textarea").val().trim().replace(/\n/g,'<br/>');
+        workItem.description = $(this).find("textarea").val()|| ''.replace(/\n/g,'<br/>');
         if(companyName&&position){
             works.push(workItem);
         }
@@ -256,9 +256,9 @@ function dataCollect() {
     var skills = [];
     $("#skillWrap").find(".skillItem").each(function () {
         var skillItem = {};
-        skillItem.name = $(this).find(".skillName").val().trim();
+        skillItem.name = $(this).find(".skillName").val()|| '';
         skillItem.num = $(this).find(".slide").val();
-        if($(this).find(".skillName").val().trim()){
+        if($(this).find(".skillName").val()|| ''){
             skills.push(skillItem);
         }
     });
@@ -267,9 +267,9 @@ function dataCollect() {
         var eduItem = {};
         eduItem.start = $(this).find(".start").val();
         eduItem.end = $(this).find(".end").val();
-        eduItem.school = $(this).find(".school").val().trim();
-        eduItem.description = $(this).find("textarea").val().trim().replace(/\n/g,'<br/>');
-        if($(this).find(".school").val().trim()){
+        eduItem.school = $(this).find(".school").val()|| '';
+        eduItem.description = $(this).find("textarea").val()|| ''.replace(/\n/g,'<br/>');
+        if($(this).find(".school").val()|| ''){
             edus.push(eduItem);
         }
     });
@@ -532,8 +532,8 @@ function submit() {
                     type: "prompt",
                     inputPlaceholder:"账号信息"
                 }, function(){
-                    var account = $('#account').val().trim();
-                    var password = $('#password').val().trim();
+                    var account = $('#account').val()|| '';
+                    var password = $('#password').val()|| '';
                     $.post("/validate",{type:"validate4made",_xsrf:$('#token').val(),account:account,password:password,rid:GetQueryString("v"),theme:localStorage.getItem("theme")},function (r) {
                         if(r.code===1){
                             window.location.href = "/main";

@@ -50,7 +50,7 @@ func AesDecrypt(crypted, key []byte) ([]byte, error) {
 
 func main() {
 	key := []byte("0123456789abcdef")
-	result, err := AesEncrypt([]byte("hello world"), key)
+	result, err := AesEncrypt([]byte("pbhANIi1ZWv3ex9Jdet7nrs4ZkT6/Fz9WDDoTOE0IyU="), key)
 	if err != nil {
 		panic(err)
 	}
