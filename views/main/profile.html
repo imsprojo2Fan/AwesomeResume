@@ -20,8 +20,8 @@
             font-size: 12px;
             color: #999999;
         }
-        .sweet-alert show-input showSweetAlert visible{
-            margin-top: -25%;
+        .sweet-alert{
+            margin-top: -325px!important;
         }
         /* 2. Small devices (tablets, 767px and Down) */
         @media (max-width: 767px) {
@@ -280,7 +280,11 @@
                           type: "prompt",
                           inputPlaceholder:"6位验证码"
                       }, function(){
-                          $.post("/main/user/mail4confirm",{_xsrf:$('#token').val(),code:$('#code').val().trim()},function (r) {
+                          var code_ = $('#code').val().trim();
+                          if(!code_){
+                              parentWin.swalInfo("即刻提示","验证码不能为空!","error");
+                          }
+                          $.post("/main/user/mail4confirm",{_xsrf:$('#token').val(),code:code_},function (r) {
                                 if(r.code==1){
                                     parentWin.swalInfo("即刻提示",r.msg,"success");
                                     renderForm();
@@ -333,7 +337,7 @@
             });
         });
         $('#editSubmit').on('click',function () {
-            $.post("/main/user/mail4confirm",{_xsrf:$('#token').val(),code:$('#editCode').val().trim(),changeMail:$('#editEmail').val().trim()},function (r) {
+            $.post("/main/user/mail4confirm",{_xsrf:$('#token').val(),code:$('#editCode').val().trim(),changeMail:$('#editEmail').val().trim(),type:"edit"},function (r) {
                 if(r.code==1){
                     $('#editEmail').val("");
                     $('#editCode').val("");

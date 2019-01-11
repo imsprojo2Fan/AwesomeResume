@@ -184,7 +184,7 @@ func (this *Info4ResumeController)Reset4share()  {
 	this.jsonResult(http.StatusOK,1,"重置成功!",sid)
 }
 
-func (this *Info4ResumeController)Share()  {
+func (this *Info4ResumeController)Share(){
 	sid := this.GetString("v")
 	if sid==""{
 		this.TplName = "tip/404.html"
@@ -197,6 +197,14 @@ func (this *Info4ResumeController)Share()  {
 
 	if info4resume.Rid==""{
 		this.TplName = "tip/404.html"
+		return
+	}
+	if info4resume.TailorUrl!=""{//如果有定制页面则直接返回
+		//设置token
+		this.Data["_xsrf"] = this.XSRFToken()
+		this.Data["dbData"] = info4resume
+		htmlName:= "resume/"+info4resume.TailorUrl+".html"
+		this.TplName = htmlName
 		return
 	}
 	//查询模板url

@@ -72,7 +72,7 @@
                 </table>
             </div>
             <div id="tab2" class="row" style="display: none;margin-top: 30px;">
-                <form class="form-horizontal">
+                <form class="form-horizontal" autocomplete="off">
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label form-label">名称</label>
@@ -89,6 +89,7 @@
                             <span class="help-block"></span>
                         </div>
                     </div>
+
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label form-label">样式风格</label>
@@ -190,7 +191,7 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" autocomplete="off">
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label form-label">Eid</label>
@@ -450,6 +451,7 @@
                 data : {
                     _xsrf:$("#token", parent.document).val(),
                     name:name,
+                    isTailor:isTailor,
                     theme:theme,
                     url:url,
                     img:img

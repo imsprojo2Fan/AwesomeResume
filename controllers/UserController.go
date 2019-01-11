@@ -105,17 +105,24 @@ func(this *UserController) Validate4mail() {
 
 func(this *UserController) Mail4confirm() {
 	sesion,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
-
-	changeMail := this.GetString("changeMail")
+	var changeMail string
+	type_ := this.GetString("type")
+	if type_=="edit"{
+		changeMail = this.GetString("changeMail")
+		if changeMail==""{
+			this.jsonResult(200,-1,"更换的邮箱不能为空!",nil)
+		}
+		localMail := sesion.Get("email")
+		if localMail!=changeMail{
+			this.jsonResult(200,-1,"邮箱不一致!",nil)
+		}
+	}
 
 	code := this.GetString("code")
-	if code==""||changeMail==""{
-		this.jsonResult(200,-1,"参数错误",nil)
+	if code==""{
+		this.jsonResult(200,-1,"验证码不能为空!",nil)
 	}
-	localMail := sesion.Get("email")
-	if localMail!=changeMail{
-		this.jsonResult(200,-1,"邮箱不一致!",nil)
-	}
+
 	localCode := sesion.Get("code")
 	if code!=localCode{
 		this.jsonResult(200,-1,"验证码错误!",nil)
@@ -138,7 +145,7 @@ func SendMail4Validate(mail,code string)  {
 	user := "zooori@foxmail.com"
 	subject := "用户操作-验证邮箱"
 	content_type := "Content-Type: text/plain; charset=UTF-8"
-	body := "【验证码】:"+code+"\r\n10分钟内有效!请尽快使用"
+	body := "【验证码】:"+code+"\r\n 十分钟内有效!请尽快验证邮箱"
 
 	msg := []byte("To: " + strings.Join(to, ",") + "\r\nFrom: " + nickname +
 		"<" + user + ">\r\nSubject: " + subject + "\r\n" + content_type + "\r\n\r\n" + body)

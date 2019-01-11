@@ -34,6 +34,7 @@ type Info4Resume struct {
 	Rumors string
 	BgImg string
 	ThemeColor string
+	TailorUrl string `orm:"size(255)"`
 	Updated time.Time `orm:"auto_now_add;type(datetime)"`
 	Created time.Time `orm:"auto_now_add;type(datetime)"`
 }

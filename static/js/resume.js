@@ -67,6 +67,66 @@ $(function () {
     });
     $('#next').on("click",function () {
         var curPage = $('#curPage').html();
+        //curPage = parseInt(curPage);
+
+        if(curPage==1){
+            var name = $('#name').val()|| '';
+            var objective = $('#objective').val()|| '';
+            var phone = $('#phone').val()|| '';
+            var email = $('#email').val()|| '';
+            if(!name){
+                tipTip("姓名是必填项喔.");
+                return;
+            }
+            if(!objective){
+                tipTip("您貌似忘记填写求职意向了.");
+                return;
+            }
+            if(!phone){
+                tipTip("留下手机号能让HR更容易找到你呢!");
+                return;
+            }
+            if(!checkPhone(phone)){
+                tipTip("手机号格式不正确!");
+                return
+            }
+            if(!email){
+                tipTip("邮箱地址有时其实也挺需要的.");
+                return;
+            }
+            if(!checkEmail(email)){
+                tipTip("邮箱地址格式有误!");
+                return;
+            }
+        }
+        if(curPage==2){
+            var introduce = $('#introduce').val()|| '';
+            if(!introduce){
+                tipTip("自我评价能让别人更容易的了解你呢!");
+                return;
+            }
+        }
+        if(curPage==3){
+            var works = [];
+            $("#workWrap").find(".workItem").each(function () {
+                var workItem = {};
+                workItem.start = $(this).find(".start").val();
+                workItem.end = $(this).find(".end").val();
+                var companyName = $(this).find(".companyName").val()|| '';
+                workItem.company = companyName;
+                var position = $(this).find(".position").val()|| '';
+                workItem.position = position;
+                workItem.description = $(this).find("textarea").val()|| ''.replace(/\n/g,'<br/>');
+                if(companyName&&position){
+                    works.push(workItem);
+                }
+            });
+            if(works.length===0){
+                tipTip("您似乎没有填写工作经历.");
+                return;
+            }
+        }
+
         $('#prev').show();//显示上一页按钮
 
         $('#page'+curPage).hide(200);//隐藏当前页
@@ -84,8 +144,10 @@ $(function () {
         }else{
             $('#pageTitle').html("教育背景");
         }
+
         $('#page'+curPage).show(200);//显示下一页
         $('#curPage').html(curPage);//设置当前页
+
 
     });
 
@@ -211,6 +273,10 @@ $(function () {
             $.post("/resume/send2mail",{_xsrf:$('#token').val(),sid:sid,company:company,name:name,email:email,message:message},function (r) {
                 if(r.code==1){
                     swal("即刻提示",r.msg,"success");
+                    $('#contact-company').val("");
+                    $('#contact-name').val("");
+                    $('#contact-email').val("");
+                    $('#contact-message').val("");
                 }else{
                     swal("即刻提示",r.msg,"error");
                 }
@@ -273,7 +339,7 @@ function dataCollect() {
             edus.push(eduItem);
         }
     });
-    if(!name){
+    /*if(!name){
         tipTip("姓名是认识一个人的第一步喔.");
         return;
     }
@@ -301,11 +367,11 @@ function dataCollect() {
         tipTip("自我评价能让别人更容易的了解你呢!");
         return;
     }
-    if(works.length==0){
+    if(works.length===0){
         tipTip("您似乎没有填写工作经历.");
         return;
-    }
-    if(works.length==0){
+    }*/
+    if(edus.length===0){
         tipTip("您似乎忘了填写教育背景.");
         return;
     }
