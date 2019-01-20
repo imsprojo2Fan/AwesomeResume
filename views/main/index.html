@@ -455,9 +455,13 @@
 
 
 			var is2made = {{.is2made}};
+			var is2setting = {{.is2setting}};
 			if(is2made){
 			    $('#made').click();
-			}else{
+			}else if(is2setting){
+			    swalInfo("即刻提示","为了使用安全,强烈建议您设置邮箱等信息","info");
+			    $('#profileSetting').click();
+            }else{
 			    $('#home').click();
 			}
 

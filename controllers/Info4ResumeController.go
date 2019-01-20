@@ -19,7 +19,7 @@ type Info4ResumeController struct {
 }
 
 func(this *Info4ResumeController) Insert()  {
-
+	session,_ := utils.GlobalSessions.SessionStart(this.Ctx.ResponseWriter, this.Ctx.Request)
 	user := new(models.User)
 	var UID string
 	var uid int64
@@ -35,6 +35,8 @@ func(this *Info4ResumeController) Insert()  {
 		user.Email = this.GetString("email")
 		user.Birthday = this.GetString("birthday")
 		uid = user.ReadOrCreate(*user)//插入用户表记录
+		session.Set("id",uid)
+		session.Set("uid4login",UID)
 	}
 	info4resume := new(models.Info4Resume)
 	info4resume.Uid = uid
