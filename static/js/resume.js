@@ -568,7 +568,14 @@ function submit() {
     console.log(resume);
 
     if($('#submit').html()==="前往登录"){
-        window.open("/login","_blank");
+        $.post("/validate",{type:"loginByUid",_xsrf:$('#token').val()},function (r) {
+            if(r.code==1){
+                window.open("/main","_self");
+            }else{
+                setTimeout(function(){swal("即刻提示",r.msg, "error"); },100);
+            }
+        });
+
         return;
     }
 

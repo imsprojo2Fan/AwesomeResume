@@ -101,6 +101,7 @@ func(this *LoginController) Validate()  {
 		if user.Password != resultStr{
 			this.jsonResult(http.StatusOK,-1, "账号或密码不正确!", nil)
 		}
+		session.Set("uid4login",user.Uid)
 		session.Set("user",user)
 		session.Set("account",user.Account)
 		session.Set("id",user.Id)
@@ -128,6 +129,15 @@ func(this *LoginController) Validate()  {
 		}else{
 			this.jsonResult(http.StatusOK,3, "账号验证成功!", user.Id)
 		}
+
+	}else if oType=="loginByUid"{//无账号状态提交简历信息点击前往登录
+		uid := session.Get("uid4login")
+		if uid==""{
+			this.jsonResult(http.StatusOK,-1, "会话已过期!", nil)
+		}
+		session.Set("is2setting",true)//设置登录成功即跳转到个人设置页面
+		this.jsonResult(http.StatusOK,1, "验证成功!", nil)
+		//this.Ctx.Redirect(302, "/main")
 
 	}else if oType=="logout"{//退出登录
 		session.Set("id",nil)
