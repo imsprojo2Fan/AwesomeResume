@@ -1,85 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/views/main/models.html" line="143" />
+    <bookmark url="file://$PROJECT_DIR$/views/main/models.html" line="144" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22ec1a15-e796-482b-9af0-715c5b2cfb8a" name="Default" comment="模板001新增简历信息管理1">
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/bootsnav.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/iconfont.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/magnific-popup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/plugins.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/css/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/bootstrapThemesCo-icon.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/bootstrapThemesCo-icon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/bootstrapThemesCo-icon.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/bootstrapThemesCo-icon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_bold_regular-demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_bold_regular-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_bold_regular-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_book_regular-demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_book_regular-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_book_regular-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_regular-demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_regular-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gotham_regular-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gothammedium_regular-demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gothammedium_regular-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/gothammedium_regular-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/specimen_files/grid_12-825-55-15.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/specimen_files/specimen_stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/ufonts.com_gotham-light-demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/ufonts.com_gotham-light-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/ufonts.com_gotham-light-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/fonts/ufonts.com_gotham-light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/about-img1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/about/about01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/about/about01_.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/about/about02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/about/about02_.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/clogo1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/clogo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/clogo3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/homebg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/portfolio-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/portfolio-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/images/shadow-img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/bootsnav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/gmaps.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/jquery.easing.1.3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/jquery.magnific-popup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/vendor/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/vendor/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/vendor/jquery-1.11.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/resume/resume006/js/vendor/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/resume/resume006.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/resume.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/resume.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/securityUtil.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/securityUtil.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -90,68 +17,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="resume005.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/resume/resume005.html">
+      <file leaf-file-name="router.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routers/router.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="743" column="48" lean-forward="true" selection-start-line="743" selection-start-column="48" selection-end-line="743" selection-end-column="53" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="1026">
+              <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="util.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/util.js">
+      <file leaf-file-name="init.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sysinit/init.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2619">
-              <caret line="97" column="30" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
+            <state relative-caret-position="162">
+              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resume006.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/resume/resume006.html">
+      <file leaf-file-name="resume.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resume.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="189" column="83" selection-start-line="189" selection-start-column="83" selection-end-line="189" selection-end-column="83" />
-              <folding>
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#section#1;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#5;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#5;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
-                <element signature="n#div#5;n#body#0;n#html#0;n#!!top" />
-                <element signature="e#51896#54473#0#HTML" />
-                <element signature="e#54507#56386#0#HTML" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/resume/resume006/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="406" column="6" lean-forward="true" selection-start-line="406" selection-start-column="6" selection-end-line="406" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/resume/resume006/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="13" column="72" lean-forward="true" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
+            <state relative-caret-position="243">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -159,54 +47,26 @@
       <file leaf-file-name="resume.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/resume.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1039">
-              <caret line="126" column="45" lean-forward="true" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="8046">
+              <caret line="298" column="4" selection-start-line="298" selection-start-column="4" selection-end-line="298" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootsnav.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/resume/resume006/js/bootsnav.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/main/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11698">
-              <caret line="535" column="16" selection-start-line="535" selection-start-column="16" selection-end-line="535" selection-end-column="16" />
+            <state relative-caret-position="162">
+              <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="responsive.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/resume/resume006/css/responsive.css">
+      <file leaf-file-name="readme" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/readme">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="170" column="23" lean-forward="true" selection-start-line="170" selection-start-column="23" selection-end-line="170" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootsnav.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/resume/resume006/css/bootsnav.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+            <state relative-caret-position="432">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -225,10 +85,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>progress-wrapper</find>
-      <find>showWorkWrap</find>
-      <find>about</find>
-      <find>focus</find>
       <find>profile-img</find>
       <find>-5</find>
       <find>btn</find>
@@ -255,6 +111,10 @@
       <find>WorkItem</find>
       <find>fc6a42</find>
       <find>avatar</find>
+      <find>showName</find>
+      <find>typeSelect</find>
+      <find>查看</find>
+      <find>查看分享</find>
     </findStrings>
     <replaceStrings>
       <replace>WXInfo</replace>
@@ -296,19 +156,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/models/User.go" />
-        <option value="$PROJECT_DIR$/controllers/UserController.go" />
-        <option value="$PROJECT_DIR$/views/main/profile.html" />
-        <option value="$PROJECT_DIR$/static/plugins/colorPicker/yl.color.css" />
-        <option value="$PROJECT_DIR$/static/plugins/colorPicker/jquery.yl.color.js" />
         <option value="$PROJECT_DIR$/static/plugins/colorPicker/color.js" />
         <option value="$PROJECT_DIR$/static/js/main.js" />
         <option value="$PROJECT_DIR$/static/css/main-index.css" />
         <option value="$PROJECT_DIR$/static/resume/resume001_/js/bars.js" />
         <option value="$PROJECT_DIR$/static/plugins/qrcode/qrcode.min.js" />
         <option value="$PROJECT_DIR$/static/resume/resume001_/css/response.css" />
-        <option value="$PROJECT_DIR$/models/Info4Resume.go" />
-        <option value="$PROJECT_DIR$/controllers/Info4ResumeController.go" />
         <option value="$PROJECT_DIR$/views/main/index.html" />
         <option value="$PROJECT_DIR$/views/index.html" />
         <option value="$PROJECT_DIR$/static/resume/resume002/index.html" />
@@ -341,12 +194,19 @@
         <option value="$PROJECT_DIR$/utils/utils_test.go" />
         <option value="$PROJECT_DIR$/static/resume/resume006/index.html" />
         <option value="$PROJECT_DIR$/static/resume/resume006/js/bootsnav.js" />
-        <option value="$PROJECT_DIR$/static/resume/resume006/css/bootsnav.css" />
         <option value="$PROJECT_DIR$/static/resume/resume006/js/main.js" />
-        <option value="$PROJECT_DIR$/static/js/resume.js" />
         <option value="$PROJECT_DIR$/static/resume/resume006/css/style.css" />
-        <option value="$PROJECT_DIR$/views/resume/resume006.html" />
         <option value="$PROJECT_DIR$/static/resume/resume006/css/responsive.css" />
+        <option value="$PROJECT_DIR$/views/resume/resume006.html" />
+        <option value="$PROJECT_DIR$/static/resume/resume006/css/bootsnav.css" />
+        <option value="$PROJECT_DIR$/controllers/ResumeController.go" />
+        <option value="$PROJECT_DIR$/models/Info4Resume.go" />
+        <option value="$PROJECT_DIR$/views/main/models.html" />
+        <option value="$PROJECT_DIR$/controllers/Info4ResumeController.go" />
+        <option value="$PROJECT_DIR$/models/Resume.go" />
+        <option value="$PROJECT_DIR$/static/js/resume.js" />
+        <option value="$PROJECT_DIR$/views/main/profile.html" />
+        <option value="$PROJECT_DIR$/controllers/UserController.go" />
       </list>
     </option>
   </component>
@@ -368,7 +228,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -384,95 +243,31 @@
             <path>
               <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
               <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="routers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
               <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
               <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
-              <item name="resume001" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
-              <item name="resume001" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
-              <item name="resume005" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
-              <item name="resume006" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
-              <item name="resume006" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
-              <item name="resume006" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="logo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
               <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="resume" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -634,15 +429,15 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30793992" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26341203" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32995495" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.024774775" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.06306306" />
+      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.04391892" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3716216" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32995495" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32207206" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.33783785" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -697,7 +492,6 @@
     <MESSAGE value="新增模板001" />
     <MESSAGE value="模板001新增简历信息管理" />
     <MESSAGE value="模板001新增简历信息管理3" />
-    <MESSAGE value="模板001新增简历信息管理1" />
     <MESSAGE value="后台管理完成首页列表，'我的制作'熏染表单等" />
     <MESSAGE value="完成简历初版" />
     <MESSAGE value="完成个人设置" />
@@ -712,16 +506,13 @@
     <MESSAGE value="更改模板001样式可自定义颜色" />
     <MESSAGE value="完成模板004" />
     <MESSAGE value="完成模板005" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成模板005" />
+    <MESSAGE value="模板001新增简历信息管理1" />
+    <MESSAGE value="更新验证邮箱、新增简历信息验证" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新验证邮箱、新增简历信息验证" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/controllers/ResumeController.go</url>
-          <line>87</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/controllers/MainController.go</url>
           <line>37</line>
@@ -748,123 +539,10 @@
           <option name="timeStamp" value="46" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="49" />
+      <option name="time" value="50" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/resume/resume006.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13689">
-          <caret line="507" column="46" lean-forward="true" selection-start-line="507" selection-start-column="46" selection-end-line="507" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume001_/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="2211" column="4" selection-start-line="2211" selection-start-column="4" selection-end-line="2211" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume003/js/jquery.countup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1382" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/resume4made.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="219" column="44" lean-forward="true" selection-start-line="219" selection-start-column="44" selection-end-line="219" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume003/js/demo1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume001/css/owl.theme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1539" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume001/css/owl.carousel.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1053" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume001/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9450">
-          <caret line="350" column="31" selection-start-line="350" selection-start-column="31" selection-end-line="350" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume001/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="199" column="27" selection-start-line="199" selection-start-column="27" selection-end-line="199" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/resume/resume001.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24192">
-          <caret line="896" column="19" selection-start-line="896" selection-start-column="19" selection-end-line="896" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/resume/resume001_.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="923" column="61" selection-start-line="923" selection-start-column="61" selection-end-line="923" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume004/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="537" selection-start-line="537" selection-end-line="537" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume003/css/nav.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume001/css/responsive.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume004/css/responsive.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume004/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/resume/resume004.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -968,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/app.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="64" column="22" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/utils_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -986,13 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume006/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11016">
-          <caret line="408" selection-start-line="408" selection-end-line="408" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -1022,116 +686,207 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/ResumeController.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="49" column="43" selection-start-line="49" selection-start-column="43" selection-end-line="49" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Info4Resume.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/resume/resume006/js/bootsnav.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11698">
+        <state relative-caret-position="14445">
           <caret line="535" column="16" selection-start-line="535" selection-start-column="16" selection-end-line="535" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume006/images/portfolio-1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/resume/resume005.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="743" column="48" lean-forward="true" selection-start-line="743" selection-start-column="48" selection-end-line="743" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/resume/resume006/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="13" column="72" lean-forward="true" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1039">
-          <caret line="126" column="45" lean-forward="true" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="351">
+          <caret line="13" column="72" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/resume/resume006/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="406" column="6" lean-forward="true" selection-start-line="406" selection-start-column="6" selection-end-line="406" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/resume/resume006.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="189" column="83" selection-start-line="189" selection-start-column="83" selection-end-line="189" selection-end-column="83" />
-          <folding>
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#section#1;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#4;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#5;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#5;n#div#0;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#3;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#5;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#51896#54473#0#HTML" />
-            <element signature="e#54507#56386#0#HTML" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/resume/resume006/css/bootsnav.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="158" lean-forward="true" selection-start-line="158" selection-end-line="158" />
+        <state relative-caret-position="10962">
+          <caret line="406" column="6" selection-start-line="406" selection-start-column="6" selection-end-line="406" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/resume/resume006/css/responsive.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="170" column="23" lean-forward="true" selection-start-line="170" selection-start-column="23" selection-end-line="170" selection-end-column="23" />
+        <state relative-caret-position="4590">
+          <caret line="170" column="23" selection-start-line="170" selection-start-column="23" selection-end-line="170" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/resume/resume005.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="743" column="48" selection-start-line="743" selection-start-column="48" selection-end-line="743" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/resume/resume006.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1990">
+          <caret line="537" column="53" lean-forward="true" selection-start-line="537" selection-start-column="53" selection-end-line="537" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/resume/resume006/css/bootsnav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="159" column="53" selection-start-line="159" selection-start-column="53" selection-end-line="159" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/IndexController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-14102">
+          <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main/models.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="430" column="22" lean-forward="true" selection-start-line="430" selection-start-column="22" selection-end-line="430" selection-end-column="22" />
+          <folding>
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#75#81#1" expanded="true" />
+            <element signature="e#71#77#1" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main/mades.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4536">
+          <caret line="168" column="85" selection-start-line="168" selection-start-column="85" selection-end-line="168" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Resume.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3321">
+          <caret line="128" column="42" selection-start-line="128" selection-start-column="42" selection-end-line="128" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/app.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/resume/resume006/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="719">
+          <caret line="408" selection-start-line="408" selection-end-line="408" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/init.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/astaxie/beego/beego.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sysinit/init.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Info4Resume.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1998">
+          <caret line="90" column="29" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/ResumeController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/Info4ResumeController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="216" column="5" selection-start-line="216" selection-start-column="4" selection-end-line="216" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="339" column="153" selection-start-line="339" selection-start-column="153" selection-end-line="339" selection-end-column="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/UserController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="139" column="43" selection-start-line="139" selection-start-column="43" selection-end-line="139" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routers/router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resume.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/resume.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8046">
+          <caret line="298" column="4" selection-start-line="298" selection-start-column="4" selection-end-line="298" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo/logoPic.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo/logoPic2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
         </state>
       </provider>
     </entry>
