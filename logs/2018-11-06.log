@@ -1,2 +1,0 @@
-2018/11/06 14:17:10.319 [E] Connect to the GlobalRedis host 127.0.0.1:6379 failed
-2018/11/06 14:17:12.371 [E] cache: unknown adapter name "GlobalRedis" (forgot to import?)

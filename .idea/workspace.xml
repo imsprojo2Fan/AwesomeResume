@@ -4,9 +4,18 @@
     <bookmark url="file://$PROJECT_DIR$/views/main/models.html" line="144" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22ec1a15-e796-482b-9af0-715c5b2cfb8a" name="Default" comment="模板001新增简历信息管理1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
+    <list default="true" id="22ec1a15-e796-482b-9af0-715c5b2cfb8a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/conf/resume.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.2018-10-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.critical.2018-10-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.debug.2018-10-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.error.2018-10-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.info.2018-10-29.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.2018-12-06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.critical.2018-12-06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.debug.2018-12-06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.error.2018-12-06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.info.2018-12-06.log" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,8 +65,16 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/main/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+            <state relative-caret-position="1053">
+              <caret line="116" column="33" lean-forward="true" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
+              <folding>
+                <element signature="e#19167#19173#0#HTML" expanded="true" />
+                <element signature="e#19173#19179#0#HTML" expanded="true" />
+                <element signature="e#21350#21356#0#HTML" expanded="true" />
+                <element signature="e#21356#21362#0#HTML" expanded="true" />
+                <element signature="e#24305#24311#0#HTML" expanded="true" />
+                <element signature="e#24311#24317#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -228,6 +245,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,34 +258,10 @@
               <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
               <item name="conf" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="logo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,19 +276,19 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Go\workspace\src\AwesomeResume\conf" />
+      <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume006\images" />
+      <recent name="C:\Go\workspace\src\AwesomeResume\static\resume" />
+      <recent name="C:\Go\workspace\src\AwesomeResume\views\resume" />
+      <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume005\img\1920x1080" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume006" />
       <recent name="C:\Go\workspace\src\AwesomeResume\static\plugins\colorPicker" />
       <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume001\images\about" />
       <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume001\images\bg" />
       <recent name="C:\Go\workspace\src\AwesomeResume\static\css\err" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume006\images" />
-      <recent name="C:\Go\workspace\src\AwesomeResume\static\resume" />
-      <recent name="C:\Go\workspace\src\AwesomeResume\views\resume" />
-      <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume005\img\1920x1080" />
-      <recent name="C:\Go\workspace\src\AwesomeResume\static\resume\resume003\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -429,7 +423,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26341203" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2671674" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32995495" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
@@ -483,7 +477,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="表ORM" />
     <MESSAGE value="加入后台管理UI页面" />
     <MESSAGE value="加入后台管理UI页面2" />
     <MESSAGE value="完成模板管理、首页列表获取数据等" />
@@ -508,7 +501,8 @@
     <MESSAGE value="完成模板005" />
     <MESSAGE value="模板001新增简历信息管理1" />
     <MESSAGE value="更新验证邮箱、新增简历信息验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新验证邮箱、新增简历信息验证" />
+    <MESSAGE value="update 4 sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 4 sql" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -543,6 +537,35 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/static/js/resume.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8046">
+          <caret line="298" column="4" selection-start-line="298" selection-start-column="4" selection-end-line="298" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/main/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2592">
+          <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+          <folding>
+            <element signature="e#19167#19173#0#HTML" expanded="true" />
+            <element signature="e#19173#19179#0#HTML" expanded="true" />
+            <element signature="e#21350#21356#0#HTML" expanded="true" />
+            <element signature="e#21356#21362#0#HTML" expanded="true" />
+            <element signature="e#24305#24311#0#HTML" expanded="true" />
+            <element signature="e#24311#24317#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/resume/resume004.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
@@ -874,19 +897,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/logo/logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/logo/logoPic.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/logo/logoPic2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/main/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
+        <state relative-caret-position="1053">
+          <caret line="116" column="33" lean-forward="true" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
+          <folding>
+            <element signature="e#19167#19173#0#HTML" expanded="true" />
+            <element signature="e#19173#19179#0#HTML" expanded="true" />
+            <element signature="e#21350#21356#0#HTML" expanded="true" />
+            <element signature="e#21356#21362#0#HTML" expanded="true" />
+            <element signature="e#24305#24311#0#HTML" expanded="true" />
+            <element signature="e#24311#24317#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
