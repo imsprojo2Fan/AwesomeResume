@@ -1,6 +1,6 @@
-var workItem,skillItem,eduItem;
-var resume = {};
-var key;
+let workItem,skillItem,eduItem;
+let resume = {};
+let key;
 $(function () {
     key = window.location.href;
     //隐藏验证登录输入框
@@ -44,7 +44,7 @@ $(function () {
         }
     });
     $('#prev').on("click",function () {
-        var curPage = $('#curPage').html();
+        let curPage = $('#curPage').html();
         $('#prev').show();//显示上一页按钮
         $('#preview').hide();//隐藏保存预览按钮
         $('#next').show();//显示下一页按钮
@@ -66,14 +66,14 @@ $(function () {
         $('#curPage').html(curPage);//设置当前页
     });
     $('#next').on("click",function () {
-        var curPage = $('#curPage').html();
+        let curPage = $('#curPage').html();
         //curPage = parseInt(curPage);
 
         if(curPage==1){
-            var name = $('#name').val()|| '';
-            var objective = $('#objective').val()|| '';
-            var phone = $('#phone').val()|| '';
-            var email = $('#email').val()|| '';
+            let name = $('#name').val()|| '';
+            let objective = $('#objective').val()|| '';
+            let phone = $('#phone').val()|| '';
+            let email = $('#email').val()|| '';
             if(!name){
                 tipTip("姓名是必填项喔.");
                 return;
@@ -100,21 +100,21 @@ $(function () {
             }
         }
         if(curPage==2){
-            var introduce = $('#introduce').val()|| '';
+            let introduce = $('#introduce').val()|| '';
             if(!introduce){
                 tipTip("自我评价能让别人更容易的了解你呢!");
                 return;
             }
         }
         if(curPage==3){
-            var works = [];
+            let works = [];
             $("#workWrap").find(".workItem").each(function () {
-                var workItem = {};
+                let workItem = {};
                 workItem.start = $(this).find(".start").val();
                 workItem.end = $(this).find(".end").val();
-                var companyName = $(this).find(".companyName").val()|| '';
+                let companyName = $(this).find(".companyName").val()|| '';
                 workItem.company = companyName;
-                var position = $(this).find(".position").val()|| '';
+                let position = $(this).find(".position").val()|| '';
                 workItem.position = position;
                 workItem.description = $(this).find("textarea").val()|| ''.replace(/\n/g,'<br/>');
                 if(companyName&&position){
@@ -154,12 +154,12 @@ $(function () {
     //新增工作经历
     $('#save4work').on("click",function (){
         //验证是否有未填项
-        var isBreak = false;
+        let isBreak = false;
         $('.workItem').each(function () {
-            var obj = $(this).find(".companyName");
-            var obj2 = $(this).find(".position");
-            var val = $(obj).val()|| '';
-            var val2 = $(obj2).val()|| '';
+            let obj = $(this).find(".companyName");
+            let obj2 = $(this).find(".position");
+            let val = $(obj).val()|| '';
+            let val2 = $(obj2).val()|| '';
             if(!val||!val2){
                 tipTip("您需先填完一些必要信息才能新增当前项");
                 isBreak = true;
@@ -170,7 +170,7 @@ $(function () {
             return;
         }
 
-        var workArr = $('.workItem');
+        let workArr = $('.workItem');
         workItem = $(workArr[0]).clone();
         $(workItem).find("input").val("");//清空已填内容
         $(workItem).find("input[type='month']").val("2018-01");
@@ -187,10 +187,10 @@ $(function () {
     });
     //新增技能
     $('#save4skill').on("click",function () {
-        var isBreak = false;
+        let isBreak = false;
         //验证是否有未填项
         $('.skillItem').each(function () {
-            var obj = $(this).find(".skillName");
+            let obj = $(this).find(".skillName");
             if(!$(obj).val()|| ''){
                 tipTip("您需先填完一些必要信息才能新增当前项");
                 isBreak = true;
@@ -199,7 +199,7 @@ $(function () {
         if(isBreak){
             return;
         }
-        var item = $('.skillItem')[0];
+        let item = $('.skillItem')[0];
         skillItem = $(item).clone();
         $(skillItem).find("input").val("");//清空已填内容
         $('#skillWrap').append(skillItem);
@@ -222,10 +222,10 @@ $(function () {
     });
     //新增教育背景
     $('#save4edu').on("click",function () {
-        var isBreak = false;
+        let isBreak = false;
         //验证是否有未填项
         $('.eduItem').each(function () {
-            var obj = $(this).find(".school");
+            let obj = $(this).find(".school");
             if(!$(obj).val()|| ''){
                 tipTip("您需先填完一些必要信息才能新增当前项");
                 isBreak = true;
@@ -234,7 +234,7 @@ $(function () {
         if(isBreak){
             return;
         }
-        var item = $('.eduItem')[0];
+        let item = $('.eduItem')[0];
         eduItem = $(item).clone();
         $(eduItem).find("input").val("");//清空已填内容
         $(eduItem).find("input[type='month']").val("2018-01");
@@ -256,20 +256,20 @@ $(function () {
     });
     //提交数据
     $('#sendMessage').on('click',function () {
-        var url = window.location.href;
+        let url = window.location.href;
         if(url.indexOf("share")<1){
             swal("即刻提示","模板状态[与我联系]功能不可用喔","error");
             return
         }else{
-            var company = $('#contact-company').val()|| '';
-            var name = $('#contact-name').val()|| '';
-            var email = $('#contact-email').val()|| '';
-            var message = $('#contact-message').val()|| '';
+            let company = $('#contact-company').val()|| '';
+            let name = $('#contact-name').val()|| '';
+            let email = $('#contact-email').val()|| '';
+            let message = $('#contact-message').val()|| '';
             if(!company||!email||!message){
                 swal("即刻提示","您似乎忘了填写一些必要的信息!","error");
                 return
             }
-            var sid = GetQueryString("v");
+            let sid = GetQueryString("v");
             $.post("/resume/send2mail",{_xsrf:$('#token').val(),sid:sid,company:company,name:name,email:email,message:message},function (r) {
                 if(r.code==1){
                     swal("即刻提示",r.msg,"success");
@@ -293,44 +293,44 @@ function tipTip(str) {
 }
 function dataCollect() {
     $('#tip').html("");
-    var theme = $('#theme4pick').val();
-    var name = $('#name').val()|| '';
-    var objective = $('#objective').val()|| '';
-    var gender = $('input:radio:checked').val();
-    var birthday = $('#birthday').val();
-    var phone = $('#phone').val()|| '';
-    var email = $('#email').val()|| '';
-    var home = $('#province').val()+"-"+$('#city').val();
-    var address = $('#address').val()|| '';
-    var hobby = $('#hobby').val()|| '';
-    var honor = $('#honor').val()|| '';
-    var introduce = $('#introduce').val()|| '';
-    var works = [];
+    let theme = $('#theme4pick').val();
+    let name = $('#name').val()|| '';
+    let objective = $('#objective').val()|| '';
+    let gender = $('input:radio:checked').val();
+    let birthday = $('#birthday').val();
+    let phone = $('#phone').val()|| '';
+    let email = $('#email').val()|| '';
+    let home = $('#province').val()+"-"+$('#city').val();
+    let address = $('#address').val()|| '';
+    let hobby = $('#hobby').val()|| '';
+    let honor = $('#honor').val()|| '';
+    let introduce = $('#introduce').val()|| '';
+    let works = [];
     $("#workWrap").find(".workItem").each(function () {
-        var workItem = {};
+        let workItem = {};
         workItem.start = $(this).find(".start").val();
         workItem.end = $(this).find(".end").val();
-        var companyName = $(this).find(".companyName").val()|| '';
+        let companyName = $(this).find(".companyName").val()|| '';
         workItem.company = companyName;
-        var position = $(this).find(".position").val()|| '';
+        let position = $(this).find(".position").val()|| '';
         workItem.position = position;
         workItem.description = $(this).find("textarea").val()|| ''.replace(/\n/g,'<br/>');
         if(companyName&&position){
             works.push(workItem);
         }
     });
-    var skills = [];
+    let skills = [];
     $("#skillWrap").find(".skillItem").each(function () {
-        var skillItem = {};
+        let skillItem = {};
         skillItem.name = $(this).find(".skillName").val()|| '';
         skillItem.num = $(this).find(".slide").val();
         if($(this).find(".skillName").val()|| ''){
             skills.push(skillItem);
         }
     });
-    var edus = [];
+    let edus = [];
     $("#eduWrap").find(".eduItem").each(function () {
-        var eduItem = {};
+        let eduItem = {};
         eduItem.start = $(this).find(".start").val();
         eduItem.end = $(this).find(".end").val();
         eduItem.school = $(this).find(".school").val()|| '';
@@ -401,7 +401,7 @@ function dataCollect() {
 function renderForm() {
     $('#name').val(resume.Name);
     $('#objective').val(resume.Objective);
-    var gender = resume.Gender;
+    let gender = resume.Gender;
     if(gender==="男"){
         $('#radio1').prop("checked",true);
         $('#radio2').prop("checked",false);
@@ -422,16 +422,16 @@ function renderForm() {
     $('#hobby').val(resume.Hobby);
     $('#honor').val(resume.Honor);
     $('#introduce').val(resume.Introduce);
-    var works = resume.Works;
+    let works = resume.Works;
     $('#workWrap').html("");
-    for(var i=0;i<works.length;i++){
-        var obj = works[i];
-        var start = obj.start;
-        var end = obj.end;
-        var company = obj.company;
-        var position = obj.position;
-        var id = i+"work";
-        var description = obj.description.replace(/<br\/>/g, "\n");
+    for(let i=0;i<works.length;i++){
+        let obj = works[i];
+        let start = obj.start;
+        let end = obj.end;
+        let company = obj.company;
+        let position = obj.position;
+        let id = i+"work";
+        let description = obj.description.replace(/<br\/>/g, "\n");
         $('#workWrap').append('<div class="workItem" style="margin-top: 5px;padding: 5px;border:0.5px solid #eee;">\n' +
             '                                <div class="del4work" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:0px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
@@ -475,12 +475,12 @@ function renderForm() {
         }
     });
 
-    var skills = resume.Skills;
+    let skills = resume.Skills;
     $('#skillWrap').html("");
-    for(var i=0;i<skills.length;i++){
-        var obj = skills[i];
-        var skillName = obj.name;
-        var num = obj.num;
+    for(let i=0;i<skills.length;i++){
+        let obj = skills[i];
+        let skillName = obj.name;
+        let num = obj.num;
         $('#skillWrap').append('<div class="skillItem" style="margin-top: 5px;padding-top: 5px;border: 0.5px solid #eee">\n' +
             '                                <div class="del4skill" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:0px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group">\n' +
@@ -515,15 +515,15 @@ function renderForm() {
         }
     });
 
-    var edus = resume.Educations;
+    let edus = resume.Educations;
     $('#eduWrap').html("");
-    for(var i=0;i<edus.length;i++){
-        var obj = edus[i];
-        var start = obj.start;
-        var end = obj.end;
-        var school = obj.school;
-        var id = i+"edu";
-        var description = obj.description.replace(/<br\/>/g, "\n");
+    for(let i=0;i<edus.length;i++){
+        let obj = edus[i];
+        let start = obj.start;
+        let end = obj.end;
+        let school = obj.school;
+        let id = i+"edu";
+        let description = obj.description.replace(/<br\/>/g, "\n");
         $('#eduWrap').append('<div class="eduItem" style="margin-top: 5px;padding-top: 5px;border: 0.5px solid #eee;">\n' +
             '                                <div class="del4edu" style="width: 100%;text-align: right;margin-top: -5px;display:none"><button style="margin-right:0px;" class="btn btn-danger btn-xs" title="删除当前项"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>\n' +
             '                                <div class="form-group alertPickDate">\n' +
@@ -605,8 +605,8 @@ function submit() {
                     type: "prompt",
                     inputPlaceholder:"账号信息"
                 }, function(){
-                    var account = $('#account').val()|| '';
-                    var password = $('#password').val()|| '';
+                    let account = $('#account').val()|| '';
+                    let password = $('#password').val()|| '';
                     $.post("/validate",{type:"validate4made",_xsrf:$('#token').val(),account:account,password:password,rid:GetQueryString("v"),theme:localStorage.getItem("theme")},function (r) {
                         if(r.code===1){
                             window.location.href = "/main";

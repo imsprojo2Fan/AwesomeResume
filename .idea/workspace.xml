@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22ec1a15-e796-482b-9af0-715c5b2cfb8a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/conf/resume.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.2018-10-29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.critical.2018-10-29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.debug.2018-10-29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.error.2018-10-29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-10-29.info.2018-10-29.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.2018-12-06.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.critical.2018-12-06.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.debug.2018-12-06.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.error.2018-12-06.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/2018-12-06.info.2018-12-06.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/utils_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils_test.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,7 +20,7 @@
       <file leaf-file-name="router.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routers/router.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1026">
+            <state relative-caret-position="600">
               <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
             </state>
           </provider>
@@ -47,8 +38,35 @@
       <file leaf-file-name="resume.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resume.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="-567">
               <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.conf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf/app.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="505">
+              <caret line="64" column="22" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/LoginController.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="69" column="53" lean-forward="true" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initDatabase.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sysinit/initDatabase.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -62,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/main/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1053">
-              <caret line="116" column="33" lean-forward="true" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
+            <state relative-caret-position="27">
+              <caret line="116" column="33" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
               <folding>
                 <element signature="e#19167#19173#0#HTML" expanded="true" />
                 <element signature="e#19173#19179#0#HTML" expanded="true" />
@@ -75,6 +93,15 @@
                 <element signature="e#24305#24311#0#HTML" expanded="true" />
                 <element signature="e#24311#24317#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils_test.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils/utils_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="16" column="65" lean-forward="true" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -208,7 +235,6 @@
         <option value="$PROJECT_DIR$/views/resume/resume005.html" />
         <option value="$PROJECT_DIR$/static/resume/resume005/css/response.css" />
         <option value="$PROJECT_DIR$/utils/securityUtil.go" />
-        <option value="$PROJECT_DIR$/utils/utils_test.go" />
         <option value="$PROJECT_DIR$/static/resume/resume006/index.html" />
         <option value="$PROJECT_DIR$/static/resume/resume006/js/bootsnav.js" />
         <option value="$PROJECT_DIR$/static/resume/resume006/js/main.js" />
@@ -224,6 +250,7 @@
         <option value="$PROJECT_DIR$/static/js/resume.js" />
         <option value="$PROJECT_DIR$/views/main/profile.html" />
         <option value="$PROJECT_DIR$/controllers/UserController.go" />
+        <option value="$PROJECT_DIR$/utils/utils_test.go" />
       </list>
     </option>
   </component>
@@ -245,7 +272,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -256,12 +282,18 @@
             <path>
               <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
               <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
-              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AwesomeResume" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AwesomeResume" type="462c0819:PsiDirectoryNode" />
+              <item name="sysinit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,7 +335,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build AwesomeResume">
+  <component name="RunManager" selected="Go Test.Test in AwesomeResume/utils">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="AwesomeResume" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -371,29 +403,14 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build AwesomeResume" />
         <item itemvalue="Go Test.Test in AwesomeResume/utils" />
+        <item itemvalue="Go Build.go build AwesomeResume" />
         <item itemvalue="Go Build.go build securityUtil.go" />
         <item itemvalue="Go Test.TestRandomString in AwesomeResume/utils" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestRandomString_in_AwesomeResume_utils - 2018.10.29 at 16h 10m 18s.xml">
-      <configuration name="TestRandomString in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_in_AwesomeResume_utils - 2018.10.29 at 16h 16m 49s.xml">
-      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_in_AwesomeResume_utils - 2018.10.29 at 16h 17m 46s.xml">
-      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_in_AwesomeResume_utils - 2018.10.29 at 16h 17m 52s.xml">
-      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_in_AwesomeResume_utils - 2018.10.29 at 16h 17m 58s.xml">
-      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="Test_in_AwesomeResume_utils - 2018.12.25 at 13h 39m 27s.xml">
       <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
     </history-entry>
@@ -407,6 +424,21 @@
       <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
     </history-entry>
     <history-entry file="Test_in_AwesomeResume_utils - 2018.12.25 at 13h 43m 35s.xml">
+      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_in_AwesomeResume_utils - 2019.12.03 at 11h 22m 55s.xml">
+      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_in_AwesomeResume_utils - 2019.12.03 at 11h 23m 44s.xml">
+      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_in_AwesomeResume_utils - 2019.12.03 at 11h 24m 22s.xml">
+      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_in_AwesomeResume_utils - 2019.12.03 at 11h 25m 01s.xml">
+      <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_in_AwesomeResume_utils - 2019.12.03 at 11h 39m 47s.xml">
       <configuration name="Test in AwesomeResume/utils" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
@@ -423,17 +455,17 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2671674" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2725322" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32995495" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" visible="true" weight="0.04391892" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3716216" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.22522523" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2195946" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32207206" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.33783785" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5619369" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -532,37 +564,21 @@
           <line>22</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/controllers/LoginController.go</url>
+          <line>53</line>
+          <properties />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="50" />
+      <option name="time" value="51" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/js/resume.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8046">
-          <caret line="298" column="4" selection-start-line="298" selection-start-column="4" selection-end-line="298" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/readme">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/main/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2592">
           <caret line="96" column="47" selection-start-line="96" selection-start-column="47" selection-end-line="96" selection-end-column="47" />
-          <folding>
-            <element signature="e#19167#19173#0#HTML" expanded="true" />
-            <element signature="e#19173#19179#0#HTML" expanded="true" />
-            <element signature="e#21350#21356#0#HTML" expanded="true" />
-            <element signature="e#21356#21362#0#HTML" expanded="true" />
-            <element signature="e#24305#24311#0#HTML" expanded="true" />
-            <element signature="e#24311#24317#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -659,20 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="402" column="25" selection-start-line="402" selection-start-column="25" selection-end-line="402" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/LoginController.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/utils_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -801,13 +803,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/app.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/resume/resume006/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="719">
@@ -831,13 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sysinit/init.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -876,20 +864,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routers/router.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resume.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/resume.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8046">
@@ -897,10 +871,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/conf/resume.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1215" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/main/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="116" column="33" lean-forward="true" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
+        <state relative-caret-position="27">
+          <caret line="116" column="33" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
           <folding>
             <element signature="e#19167#19173#0#HTML" expanded="true" />
             <element signature="e#19173#19179#0#HTML" expanded="true" />
@@ -909,6 +888,55 @@
             <element signature="e#24305#24311#0#HTML" expanded="true" />
             <element signature="e#24311#24317#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sysinit/init.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resume.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routers/router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sysinit/initDatabase.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="31" column="45" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/app.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="64" column="22" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/LoginController.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="69" column="53" lean-forward="true" selection-start-line="69" selection-start-column="53" selection-end-line="69" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/utils_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="16" column="65" lean-forward="true" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
         </state>
       </provider>
     </entry>
